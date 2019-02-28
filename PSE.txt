@@ -1,0 +1,36 @@
+- Wegen/voertuigen/netweerk inlezen van ASCII XML formaat (zie opgave voor voorbeeld)
+- ASCII uitvoer
+- Voertuigen vanzelf laten rijden + voor alle voertuigen automatishe simulatie
+	- Automatische simulatie: per iteratie while loop tijd met een eenheid laten stijgen
+- Rekening houden met volgafstand (afhankelijk van de snelheid) !Lengte voertuig nodig: auto = 3m!
+
+\note: alle variable names in engels
+
+Class vehicle 
+class car: public vehicle // or protected?
+	private: license plate // in vehicle
+		 current road // in vehicle
+		 current position on road // in vehicle
+		 current speed // in vehicle
+		 current speedup // in vehicle
+		 length // in vehicle
+		 move(int t) // calculate position in vehicle after t seconds
+class road:
+	private: speed limit
+		 length
+		 connection
+		 intersections (typedef vector<intersection*> intersections)
+
+class intersection:
+	private: road // de weg die vertakt wordt vanuit de MAIN_ROAD
+		 pos  // waar op die weg
+		 side // enum left right cross
+		 active // mogelijk de baan vanuit MAIN_ROAD op te rijden
+
+class road_network
+	private: map<road*, intersections> // iteratable 
+
+
+\idea: meerdere baanvakken
+\idea: verkeerslichten
+\idea: meerdere voertuigen: bus, camion
