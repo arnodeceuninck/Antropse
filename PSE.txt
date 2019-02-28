@@ -12,7 +12,6 @@ Antropse - Antwerp Road Project Software Engineering
 \note: alle variable names in engels
 
 Class vehicle 
-class car: public vehicle // or protected?
 	private: license plate // in vehicle
 		 current road // in vehicle
 		 current position on road // in vehicle
@@ -20,6 +19,10 @@ class car: public vehicle // or protected?
 		 current speedup // in vehicle
 		 length // in vehicle
 		 move(int t) // calculate position in vehicle after t seconds
+
+class car: public vehicle // or protected?
+	
+
 class road:
 	private: speed limit
 		 length
@@ -32,8 +35,13 @@ class intersection:
 		 side // enum left right cross
 		 active // mogelijk de baan vanuit MAIN_ROAD op te rijden
 
+typedef vector<intersection*> intersections
+
+
 class road_network
-	private: map<road*, intersections> // iteratable 
+	private: //map<road*, intersections> // iteratable
+		 vector<road*> raods
+		 vector<car*> cars
 
 
 \idea: meerdere baanvakken
