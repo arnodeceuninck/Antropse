@@ -1,0 +1,7 @@
+Naam	Deadline	Time Est.	Time	TODO
+Arno	02/03/2019	30			Classes (without functions)
+Sien	10/03/2019	60			XML Parser
+Arno	10/03/2019	30			Output
+Arno	14/03/2019	60			Rijden van Voertuigen
+Sien	17/03/2019	30			Automatische simulatie
+NULL	28/03/2019	30			Projectverdediging
