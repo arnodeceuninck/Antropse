@@ -1,3 +1,5 @@
+Sien Nuyens Arno Deceuninck
+
 - Wegen/voertuigen/netweerk inlezen van ASCII XML formaat (zie opgave voor voorbeeld)
 - ASCII uitvoer
 - Voertuigen vanzelf laten rijden + voor alle voertuigen automatishe simulatie
