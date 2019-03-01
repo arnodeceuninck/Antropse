@@ -10,7 +10,9 @@ Antropse - Antwerp Road Project Software Engineering
 - Rekening houden met volgafstand (afhankelijk van de snelheid) !Lengte voertuig nodig: auto = 3m!
 
 \note: alle variable names in engels
-
+\note: ieder hardcoded getal dat niet 0 of 1 is MOET in CONST staan 
+\note: Alle bronnen, hoe klein ook, moeten vermeld worden in References.txt
+\note: Alle datums zijn in het formaat dd/mm/yyyy
 Class vehicle 
 	private: license plate // in vehicle
 		 current road // in vehicle

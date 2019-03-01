@@ -1,6 +1,8 @@
 # CLion folders
 cmake-build-debug
 .idea
+html
+latex
 
 # Prerequisites
 *.d

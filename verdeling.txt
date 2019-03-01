@@ -1,5 +1,5 @@
-Naam	Deadline	Time Est.	Time	TODO
-Arno	02/03/2019	30			Classes (without functions)
+Naam	Deadline	Time Est.	Time	TODO				Issues
+Arno	02/03/2019	30		138	Classes (without functions)	Doxygen documentation took a lot longer than expected. Also experimented a lot with Doxygen, leading to a time increase (never used doxygen before).
 Sien	10/03/2019	60			XML Parser
 Arno	10/03/2019	30			Output
 Arno	14/03/2019	60			Rijden van Voertuigen
