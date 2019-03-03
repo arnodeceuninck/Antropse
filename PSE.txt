@@ -45,6 +45,9 @@ class road_network
 		 vector<road*> raods
 		 vector<car*> cars
 
+Doxygen documentatie genereren
+DELL Arno: ./dox2html5.py /home/arno/Antropse/doxygen_mcss.conf (vanuit ~/m.css/doxygen/)
+
 
 \idea: meerdere baanvakken
 \idea: verkeerslichten

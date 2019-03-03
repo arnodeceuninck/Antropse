@@ -1,8 +1,11 @@
 # CLion folders
 cmake-build-debug
 .idea
+
+# Doxygen generated files
 html
 latex
+xml
 
 # Prerequisites
 *.d
