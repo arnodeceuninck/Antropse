@@ -29,9 +29,7 @@ public:
      */
     Car(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
 
-private:
-
-    const int length; /**< The length of the car in m.*/
+    Car();
 };
 
 

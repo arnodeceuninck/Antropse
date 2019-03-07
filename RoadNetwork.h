@@ -41,6 +41,7 @@ public:
      * @return true when successfully added, false when the prerequisites weren't met
      */
     bool add_car(Car* car);
+    Road* findRoad(std::string nameRoad);
 
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
