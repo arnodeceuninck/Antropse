@@ -40,18 +40,41 @@ public:
      * // TODO: Prerequisites
      * @return true when successfully added, false when the prerequisites weren't met
      */
-
     bool add_car(Vehicle* car);
+
+    /**
+     * Find a specific road in the RoadNetwork
+     * @param nameRoad A string containing the unique name of the road
+     * @return A pointer to the road with nameRoad as name
+     */
     Road* findRoad(std::string nameRoad);
 
-private:
-    std::vector<Road*> roads;
-public:
+    /**
+     * A constructor making a RoadNetwork from an xml file
+     * @param filename The path of the file containing the xml description of the road network
+     */
+    RoadNetwork(std::string filename);
+
+    /**
+     * Generate a simple output to a file containing an overview of the roads and vehicles on the road
+     * @param filename The path to the file where you'd like to write the output to.
+     */
+    void generateOutputFile(const std::string& filename);
+
+    /**
+     * Get a list of all roads on the RoadNetwork
+     * @return A list containing all roads on the RoadNetwork
+     */
     const std::vector<Road *> &getRoads() const;
+
+    /**
+     * Get a list of all cars on the RoadNetwork
+     * @return A vector containing all registered cars, inside and outside the network, active or inactive
+     */
     const std::vector<Vehicle *> &getCars() const;
 
 private:
-    /**< A vector containing all roads in the network */
+    std::vector<Road*> roads; /**< A vector containing all roads in the network */
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
 };

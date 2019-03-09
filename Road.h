@@ -18,32 +18,51 @@
  */
 class Road {
 private:
-    std::string name;
+
 public:
+    /**
+     * Get the name of a road
+     * @return The unique identification name of this road
+     */
     const std::string &getName() const;
 
+    /**
+     * Get the speed limit of a road
+     * @return The maximum legal speed to drive on this road in km/h
+     */
     int getSpeed_limit() const;
 
+    /**
+     * Get the length of the road
+     * @return A double containing the length of the road in m
+     */
     double getLength() const;
 
-private:
-    /**< A unique name for identification of the road */
-    int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
-    double length;
-    /**< The length of a road in m */
-    Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
-                                   * Road.length */
-
-public:
+    /**
+     * Change the name of a road
+     * @param name The unique name for identifying the road
+     */
     void setName(const std::string &name);
 
+    /**
+     * Change the speed limit of a road
+     * @param speed_limit The maximum allowed speed to drive on the road in km/h
+     */
     void setSpeed_limit(int speed_limit);
 
+    /**
+     * Change the length of the road
+     * @param length The length of a road in m
+     */
     void setLength(double length);
 
-    void setIntersecions(const Intersections &intersecions);
+private:
 
-    const std::string &getName() const;
+    std::string name; /**< A unique name for identification of the road */
+    int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
+    double length; /**< The length of a road in m */
+    Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
+                                   * Road.length */
 };
 
 

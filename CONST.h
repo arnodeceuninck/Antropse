@@ -18,7 +18,8 @@
  */
 namespace CONST{
 
-    double CAR_LENGTH = 3; /**< The length of a car. */
+    // VEHICLE SPECIFICATIONS
+    const double CAR_LENGTH = 3; /**< The length of a car. */
 
 }
 #endif //ANTROPSE_CONSTVARIABLES_H

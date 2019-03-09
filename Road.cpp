@@ -19,6 +19,7 @@ int Road::getSpeed_limit() const {
 
 double Road::getLength() const {
     return length;
+}
 
 void Road::setName(const std::string &name) {
     Road::name = name;
@@ -36,6 +37,3 @@ void Road::setIntersecions(const Intersections &intersecions) {
     Road::intersecions = intersecions;
 }
 
-const std::string &Road::getName() const {
-    return name;
-}

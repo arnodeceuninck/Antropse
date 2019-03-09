@@ -29,13 +29,17 @@ public:
      */
     Car(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
 
+    /**
+     * An empty constructor for a car
+     */
     Car();
 
+    /**
+     * Returns the type of this vehicle
+     * @return A string representing the type of the vehicle, being a car for this subclass
+     */
     virtual std::string getType();
 
-private:
-
-    const int length; /**< The length of the car in m.*/
 };
 
 
