@@ -43,13 +43,29 @@ public:
      * @return true when successfully added, false when the prerequisites weren't met
      */
     bool move(const double& time);
+
+    virtual std::string getType()=0;
 private:
-    std::string license_plate; /**< A unique ID for each vehicle */
+    std::string license_plate;
+public:
+    const std::string &getLicense_plate() const;
+
+private:
+    /**< A unique ID for each vehicle */
     Road* current_road; /**< The road on which the vehicle is currently positioned */
     int current_position; /**< The position on the current road. This is the distance from the start of this road in m.
                              */
-    double current_speed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
-                             * be greater than or equal to 0.*/
+    double current_speed;
+public:
+    Road *getCurrent_road() const;
+
+    int getCurrent_position() const;
+
+    double getCurrent_speed() const;
+
+private:
+    /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
+                                * be greater than or equal to 0.*/
     double current_speedup; /**< The speed by which the vehicle is accelerated in km / s^2. */
     double length; /**< The length of the vehicle in m. */
 };

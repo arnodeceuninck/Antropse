@@ -20,3 +20,11 @@ bool RoadNetwork::add_car(Car *car) {
     cars.push_back(car);
     return true;
 }
+
+const std::vector<Road *> &RoadNetwork::getRoads() const {
+    return roads;
+}
+
+const std::vector<Car *> &RoadNetwork::getCars() const {
+    return cars;
+}

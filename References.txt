@@ -4,4 +4,5 @@
 [3] Al-Kofahi, J. (s.d.). Doxygen Tutorial. Visited on March 1, 2019 via https://os.mbed.com/media/uploads/defiantgti/doxygentutorial.pdf.
 [4] Krishma, S. (2017). How to install Doxygen on Ubuntu. Visited on March 1, 2019 via https://www.tutorialspoint.com/articles/how-to-install-doxygen-on-ubuntu.
 [5] Vondrus, V. (2019). Doxygen theme. Visited on March 3, 2019 via https://mcss.mosra.cz/doxygen/.
-[6] https://stackoverflow.com/questions/20511079/how-do-i-read-content-within-tags-with-tinyxml
+[6] Alice (2013). How do I read content within tags with TinyXML. Visited on March 7, 2019 via https://stackoverflow.com/questions/20511079/how-do-i-read-content-within-tags-with-tinyxml.
+[7] s.n. (2019). Input/output with files. Visited on March 7, 2019 via http://www.cplusplus.com/doc/tutorial/files/

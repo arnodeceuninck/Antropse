@@ -13,7 +13,7 @@
 #include "vector"
 
 class Road;
-class Car;
+class Vehicle;
 
 /**
  * A class used to keep track of all roads and cars in a city
@@ -40,11 +40,17 @@ public:
      * // TODO: Prerequisites
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool add_car(Car* car);
+    bool add_car(Vehicle* car);
 
 private:
-    std::vector<Road*> roads; /**< A vector containing all roads in the network */
-    std::vector<Car*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
+    std::vector<Road*> roads;
+public:
+    const std::vector<Road *> &getRoads() const;
+    const std::vector<Vehicle *> &getCars() const;
+
+private:
+    /**< A vector containing all roads in the network */
+    std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
 };
 

@@ -18,7 +18,16 @@
  */
 class Road {
 private:
-    std::string name; /**< A unique name for identification of the road */
+    std::string name;
+public:
+    const std::string &getName() const;
+
+    int getSpeed_limit() const;
+
+    double getLength() const;
+
+private:
+    /**< A unique name for identification of the road */
     int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */
     Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
