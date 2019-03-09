@@ -29,6 +29,8 @@ public:
      */
     Car(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
 
+    Car();
+
     virtual std::string getType();
 
 private:

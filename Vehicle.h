@@ -32,6 +32,20 @@ public:
      */
     Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
             double length);
+
+    Vehicle();
+
+    void setLicense_plate(const std::string &license_plate);
+
+    void setCurrent_road(Road *current_road);
+
+    void setCurrent_position(int current_position);
+
+    void setCurrent_speed(double current_speed);
+
+    void setCurrent_speedup(double current_speedup);
+
+    void setLength(double length);
     
     /**
      * Move the vehicle
@@ -67,7 +81,9 @@ private:
     /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
     double current_speedup; /**< The speed by which the vehicle is accelerated in km / s^2. */
-    double length; /**< The length of the vehicle in m. */
+    double length;
+
+    /**< The length of the vehicle in m. */
 };
 
 

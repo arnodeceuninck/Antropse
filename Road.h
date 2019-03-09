@@ -29,9 +29,21 @@ public:
 private:
     /**< A unique name for identification of the road */
     int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
-    double length; /**< The length of a road in m */
+    double length;
+    /**< The length of a road in m */
     Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
+
+public:
+    void setName(const std::string &name);
+
+    void setSpeed_limit(int speed_limit);
+
+    void setLength(double length);
+
+    void setIntersecions(const Intersections &intersecions);
+
+    const std::string &getName() const;
 };
 
 

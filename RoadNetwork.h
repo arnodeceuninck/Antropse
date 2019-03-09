@@ -40,7 +40,9 @@ public:
      * // TODO: Prerequisites
      * @return true when successfully added, false when the prerequisites weren't met
      */
+
     bool add_car(Vehicle* car);
+    Road* findRoad(std::string nameRoad);
 
 private:
     std::vector<Road*> roads;
