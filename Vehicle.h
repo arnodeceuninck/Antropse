@@ -14,6 +14,7 @@
 #include <string>
 
 class Road;
+class RoadNetwork;
 
 /**
  * A class used to describe a Vehicle on a RoadNetwork
@@ -84,10 +85,15 @@ public:
      * The vehicle position will be updated to his position after a specific time. When the vehicle reaches the end of the road,
      * he will automatically take the next road.
      * 
-     * @param time The time between the current position and the new position in s. This determines the distance moved. 
+     * @param time The time between the current position and the new position in s. This determines the distance moved.
+     * @param roadNetwork The network containing the traffic situation.
+     *
+     * @pre The systems contains a scheme of the virtual traffic situation. There is a vehicle on a road.
+     * @post The vehicle has a new position.
+     *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool move(const double& time);
+    bool move(const double& time, const RoadNetwork* roadNetwork);
 
     /**
      * Get the type of the Vehicle as a string.
@@ -126,12 +132,16 @@ public:
 private:
     std::string license_plate; /**< A unique ID for each vehicle */
     Road* current_road; /**< The road on which the vehicle is currently positioned */
-    int current_position; /**< The position on the current road. This is the distance from the start of this road in m.
+    double current_position; /**< The position on the current road. This is the distance from the start of this road in m.
                              */
     double current_speed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
     double current_speedup; /**< The speed by which the vehicle is accelerated in m / s^2. */
-    double length; /**< The length of the vehicle in m. */
+    double length;
+    bool active;
+public:
+    double getLength() const;
+    /**< The length of the vehicle in m. */
 };
 
 

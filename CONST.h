@@ -21,5 +21,11 @@ namespace CONST{
     // VEHICLE SPECIFICATIONS
     const double CAR_LENGTH = 3; /**< The length of a car. */
 
+    const double MAX_CAR_SPEED = 150;
+    const double MIN_CAR_SPEED = 0;
+
+    const double MAX_CAR_SPEEDUP = 2;
+    const double MIN_CAR_SPEEDUP = -8;
+
 }
 #endif //ANTROPSE_CONSTVARIABLES_H
