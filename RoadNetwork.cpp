@@ -186,3 +186,28 @@ Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     return NULL;
 }
 
+Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) {
+    std::vector<Vehicle*> previousCars;
+    for(std::vector<Vehicle*>::iterator vehicle = cars.begin(); vehicle != cars.end(); vehicle++){
+        if((*vehicle)->getCurrent_road() == car->getCurrent_road() && (*vehicle)->getCurrent_position() > car->getCurrent_position()){
+            previousCars.push_back(*vehicle);
+        }
+    }
+    if(previousCars.size() > 0){
+        Vehicle* previousCar = previousCars[0];
+        for(std::vector<Vehicle*>::iterator vehicle = previousCars.begin(); vehicle != previousCars.end(); vehicle++){
+            if(previousCar->getCurrent_position() > (*vehicle)->getCurrent_position()){
+                previousCar = (*vehicle);
+            }
+        }
+        return previousCar;
+    } else{
+        return NULL;
+    }
+
+
+
+}
+
+
+

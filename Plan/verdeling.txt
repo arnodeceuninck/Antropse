@@ -1,7 +1,7 @@
 Naam	Deadline	Time Est.	Time	TODO				Issues
 Arno	02/03/2019	30		138	Classes (without functions)	Doxygen documentation took a lot longer than expected. Also experimented a lot with Doxygen, leading to a time increase (never used before).
 Arno	NULL		-1		27	Fixed Dark Doxygen Theme
-Sien	10/03/2019	60			XML Parser
+Sien	10/03/2019	60		80	XML Parser
 Arno	10/03/2019	30		32	Output
 Arno	NULL		-1		67	Update documentation
 Arno	14/03/2019	60			Rijden van Voertuigen

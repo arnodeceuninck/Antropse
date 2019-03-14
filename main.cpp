@@ -20,7 +20,6 @@ int main() {
     RoadNetwork roadNetwork("test.xml");
     roadNetwork.generateOutputFile("output.txt");
 
-
     return 0;
 
 }

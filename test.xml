@@ -14,14 +14,14 @@
         <type>AUTO</type>
         <nummerplaat>1THK180</nummerplaat>
         <baan>E19</baan>
-        <positie>10</positie>
+        <positie>0</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF</nummerplaat>
         <baan>E19</baan>
-        <positie>0</positie>
+        <positie>20</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
 </ROOT>
