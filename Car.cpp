@@ -19,5 +19,5 @@ std::string Car::getType() {
     return "auto";
 }
 
-Car::Car() : Vehicle() {}
+Car::Car() : Vehicle(CONST::CAR_LENGTH) {}
 

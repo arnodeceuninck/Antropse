@@ -36,7 +36,7 @@ public:
     /**
      * Empty constructor for a Vehicle.
      */
-    Vehicle();
+    Vehicle(double length);
 
     /**
      * Change/set the license plate for a Vehicle.

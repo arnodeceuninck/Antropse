@@ -40,3 +40,7 @@ const Intersections &Road::getIntersecions() const {
     return intersecions;
 }
 
+void Road::addIntersection(Intersection* intersection) {
+    intersecions.push_back(intersection);
+}
+

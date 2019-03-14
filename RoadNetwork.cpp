@@ -65,7 +65,7 @@ RoadNetwork::RoadNetwork(std::string filename) {
 
         if(type == "BAAN"){
 
-            Road* road = new Road;
+            Road* road;
 
             // Get the specifications from the specification tags in the xml file
             for(TiXmlElement* elem = current_node->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
@@ -74,11 +74,21 @@ RoadNetwork::RoadNetwork(std::string filename) {
                 std::string el = elem->FirstChild()->ToText()->Value();
 
                 if(elemName == "naam"){
-                    road->setName(el);
+                    if(retrieveRoad(el) == NULL){
+                        road = new Road;
+                        road->setName(el);
+                    } else{
+                        road = retrieveRoad(el);
+                    }
                 } else if(elemName == "snelheidslimiet"){
                     road->setSpeed_limit(atoi(el.c_str()));
                 } else if(elemName == "lengte"){
                     road->setLength(strtod(el.c_str(), NULL));
+                } else if(elemName == "verbinding"){
+                    Road* exit_road = new Road;
+                    exit_road->setName(el);
+                    Intersection* intersection = new Intersection(exit_road, road, road->getLength(), Side::cross);
+                    road->addIntersection(intersection);
                 }
 
             }

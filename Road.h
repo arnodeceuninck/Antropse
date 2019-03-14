@@ -62,6 +62,9 @@ public:
 
     const Intersections &getIntersecions() const;
 
+    void addIntersection(Intersection* intersection);
+
+
 private:
 
 
