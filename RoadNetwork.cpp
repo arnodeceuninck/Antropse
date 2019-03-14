@@ -43,6 +43,7 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
     }
 }
 
+
 RoadNetwork::RoadNetwork(std::string filename) {
     // Open the document
     TiXmlDocument docu;
@@ -61,7 +62,6 @@ RoadNetwork::RoadNetwork(std::string filename) {
     while(current_node != NULL) {
 
         std::string type = current_node->Value();
-        std::cout<< type<<std::endl;
 
         if(type == "BAAN"){
 
@@ -90,7 +90,6 @@ RoadNetwork::RoadNetwork(std::string filename) {
         if(type == "VOERTUIG"){
 
             std::string x = current_node->FirstChild()->FirstChild()->ToText()->Value();
-            std::cout << x;
 
             if(x == "AUTO"){
 
@@ -165,3 +164,15 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
 
     output_file.close();
 }
+
+Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
+    for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
+        for(std::vector<Intersection*>::const_iterator intersecion = (*road)->getIntersecions().begin(); intersecion != (*road)->getIntersecions().end(); intersecion++){
+            if((*intersecion)->getExit_road()->getName() == nameRoad){
+                return (*intersecion)->getExit_road();
+            }
+        }
+    }
+    return NULL;
+}
+

@@ -11,3 +11,7 @@
 
 Intersection::Intersection(Road *exit_road, Road *main_road, double position, Side side) : exit_road(exit_road),
                            main_road(main_road), position(position), side(side) {}
+
+Road *Intersection::getExit_road() const {
+    return exit_road;
+}

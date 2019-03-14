@@ -17,9 +17,9 @@
  * A class used to describe a Road in a RoadNetwork
  */
 class Road {
-private:
 
 public:
+
     /**
      * Get the name of a road
      * @return The unique identification name of this road
@@ -42,6 +42,10 @@ public:
      * Change the name of a road
      * @param name The unique name for identifying the road
      */
+
+    Road();
+
+
     void setName(const std::string &name);
 
     /**
@@ -56,13 +60,17 @@ public:
      */
     void setLength(double length);
 
+    const Intersections &getIntersecions() const;
+
 private:
+
 
     std::string name; /**< A unique name for identification of the road */
     int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */
     Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
+
 };
 
 

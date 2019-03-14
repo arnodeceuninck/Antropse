@@ -11,6 +11,7 @@
 #include "Car.h"
 #include "Road.h"
 #include "RoadNetwork.h"
+#include "Intersection.h"
 
 int main() {
 
@@ -18,6 +19,7 @@ int main() {
 
     RoadNetwork roadNetwork("test.xml");
     roadNetwork.generateOutputFile("output.txt");
+
 
     return 0;
 

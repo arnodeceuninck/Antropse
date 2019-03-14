@@ -33,7 +33,10 @@ void Road::setLength(double length) {
     Road::length = length;
 }
 
-void Road::setIntersecions(const Intersections &intersecions) {
-    Road::intersecions = intersecions;
+
+Road::Road() : name(""), speed_limit(0), length(0.0), intersecions(){}
+
+const Intersections &Road::getIntersecions() const {
+    return intersecions;
 }
 

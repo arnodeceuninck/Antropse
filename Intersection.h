@@ -40,6 +40,8 @@ public:
      */
     Intersection(Road *exit_road, Road *main_road, double position, Side side);
 
+    Road *getExit_road() const;
+
 private:
     Road* exit_road; /**< The road on which you'll be once you've exited the main road through this intersection.*/
     Road* main_road; /**< The road on which you're driving before taking the exit */

@@ -50,8 +50,5 @@ void Vehicle::setCurrent_speedup(double current_speedup) {
     Vehicle::current_speedup = current_speedup;
 }
 
-void Vehicle::setLength(double length) {
-    Vehicle::length = length;
-}
 
 Vehicle::Vehicle() {}
