@@ -81,7 +81,7 @@ public:
      */
     Road* retrieveRoad(std::string nameRoad);
 
-    Vehicle* findPreviouscar(const Vehicle* car);
+    Vehicle* findPreviouscar(const Vehicle* car) const;
 
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
