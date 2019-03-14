@@ -73,6 +73,12 @@ public:
      */
     const std::vector<Vehicle *> &getCars() const;
 
+    /**
+     * check if the road already exists as an intersection of another road
+     * @param nameRoad The name of the road you're about to check
+     * @return NULL if there's no road with this name as an intersection of another road
+     * @return Road* if there's a road with this name as an intersection of another road
+     */
     Road* retrieveRoad(std::string nameRoad);
 
 private:

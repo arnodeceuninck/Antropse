@@ -40,6 +40,11 @@ public:
      */
     Intersection(Road *exit_road, Road *main_road, double position, Side side);
 
+    /**
+     *
+     * @return Road* of the exit_road of the intersection
+     */
+
     Road *getExit_road() const;
 
 private:

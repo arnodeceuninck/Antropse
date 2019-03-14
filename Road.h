@@ -39,13 +39,14 @@ public:
     double getLength() const;
 
     /**
+     * empty constructor of road
+     */
+    Road();
+
+    /**
      * Change the name of a road
      * @param name The unique name for identifying the road
      */
-
-    Road();
-
-
     void setName(const std::string &name);
 
     /**
@@ -60,8 +61,16 @@ public:
      */
     void setLength(double length);
 
+    /**
+     *
+     * @return the intersections of the road
+     */
     const Intersections &getIntersecions() const;
 
+    /**
+     * add an intersection to a Roads list of intersections
+     * @param intersection
+     */
     void addIntersection(Intersection* intersection);
 
 

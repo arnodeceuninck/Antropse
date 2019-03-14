@@ -35,6 +35,8 @@ public:
 
     /**
      * Empty constructor for a Vehicle.
+     *
+     * @param length The length of the vehicle in m.
      */
     Vehicle(double length);
 
