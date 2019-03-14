@@ -1,6 +1,11 @@
-//
-// Created by arno on 14.03.19.
-//
+/**
+ * @file Convert.h
+ * @brief All functions needed to convert between measurement units.
+ *
+ * @author Arno Deceuninck
+ *
+ * @date 14/03/2019
+ */
 
 #ifndef ANTROPSE_CONVERT_H
 #define ANTROPSE_CONVERT_H

@@ -81,6 +81,10 @@ public:
      */
     Road* retrieveRoad(std::string nameRoad);
 
+    int nrOfCars();
+
+    RoadNetwork();
+
     Vehicle* findPreviouscar(const Vehicle* car) const;
 
 private:
