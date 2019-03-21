@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-
+#include "Vehicle.h"
 #include "RoadNetwork.h"
 
 class AntropseTest: public ::testing::Test {
@@ -50,6 +50,8 @@ TEST_F(AntropseTest, DefaultReadFile) {
     EXPECT_TRUE(NULL == roadNetwork.retrieveRoad("E19"));
 
     // TODO hetzelfde, maar dan voor auto's
+    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
+    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
 }
 
 //-- Tests the "happy day" scenario
