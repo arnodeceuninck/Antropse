@@ -88,11 +88,25 @@ public:
 
     void automatic_simulation();
 
+    bool car_on_existing_road(Vehicle* car);
+
+    bool check();
+
+    bool check_if_cars_on_existing_road();
+
+    bool check_position_cars();
+
+    bool check_space_between_cars();
+
+    bool check_intersections();
+
+
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
 };
+
 
 
 #endif //ANTROPSE_ROADNETWORK_H

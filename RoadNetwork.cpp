@@ -184,8 +184,10 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
 // TODO: is het niet logischer dat dit een boolean zou returnen en je de weg dan kan opvragen met findRoad()? ~ Arno
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
-        if((*road)->getIntersection() != NULL && (*road)->getIntersection()->getName() == nameRoad){
-            return (*road)->getIntersection();
+        if((*road)->getIntersection() != NULL){
+            if((*road)->getIntersection()->getName() == nameRoad){
+                return (*road)->getIntersection();
+            }
         }
     }
     return NULL;
@@ -234,6 +236,63 @@ void RoadNetwork::automatic_simulation() {
 }
 
 RoadNetwork::RoadNetwork() {}
+
+bool RoadNetwork::car_on_existing_road(Vehicle *car) {
+    for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
+        if(car->getCurrent_road() == (*road)){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+bool RoadNetwork::check_if_cars_on_existing_road() {
+    for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++) {
+        if (car_on_existing_road((*car)) == false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool RoadNetwork::check_position_cars() {
+    for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++) {
+        if((*car)->getCurrent_position() > (*car)->getCurrent_road()->getLength()){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool RoadNetwork::check_space_between_cars() {
+    for(int i = 0; i < cars.size()-1; i++) {
+        if(abs(cars[i]->getCurrent_position() - cars[i+1]->getCurrent_position()) < 5){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool RoadNetwork::check_intersections() {
+    for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
+        if((*road)->getIntersection() != NULL && retrieveRoad((*road)->getIntersection()->getName()) == NULL){
+            return false;
+        }
+
+    }
+    return true;
+}
+
+bool RoadNetwork::check() {
+    if(check_if_cars_on_existing_road() && check_position_cars() && check_space_between_cars() && check_intersections()){
+        return true;
+    } else{
+        return false;
+    }
+}
+
+
 
 
 
