@@ -32,26 +32,26 @@ protected:
     }
 
     // Declares the variables your tests want to use.
-    RoadNetwork roadNetwork;
+    RoadNetwork* roadNetwork;
 };
 
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
-    roadNetwork = RoadNetwork("test.xml");
-    EXPECT_EQ(2, roadNetwork.nrOfActiveCars());
+    roadNetwork = new RoadNetwork("test.xml");
+    EXPECT_EQ(2, roadNetwork->nrOfActiveCars());
 
     // TODO: met EQ en NE kan ik niet checken op NULL, wat is de manier om dit alsnog correct te doen (want ik heb een
     //  gevoel dat werken met conditions hiervoor niet echt de bedoeling is)
-    EXPECT_TRUE(NULL != roadNetwork.findRoad("E19"));
-    EXPECT_TRUE(NULL != roadNetwork.findRoad("E313"));
-    EXPECT_TRUE(NULL == roadNetwork.findRoad("E33"));
+    EXPECT_TRUE(NULL != roadNetwork->findRoad("E19"));
+    EXPECT_TRUE(NULL != roadNetwork->findRoad("E313"));
+    EXPECT_TRUE(NULL == roadNetwork->findRoad("E33"));
 
-    EXPECT_TRUE(NULL != roadNetwork.retrieveRoad("E313")); // Er is een weg die E313 als verbinding heeft
-    EXPECT_TRUE(NULL == roadNetwork.retrieveRoad("E19"));
+    EXPECT_TRUE(NULL != roadNetwork->retrieveRoad("E313")); // Er is een weg die E313 als verbinding heeft
+    EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("E19"));
 
     // TODO hetzelfde, maar dan voor auto's
-    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
-    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
+    EXPECT_EQ(0, roadNetwork->getCars()[0]->getCurrent_position());
+    EXPECT_EQ(0, roadNetwork->getCars()[0]->getCurrent_position());
 }
 
 //-- Tests the "happy day" scenario
