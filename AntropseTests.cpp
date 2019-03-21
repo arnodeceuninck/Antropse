@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-
+#include "Vehicle.h"
 #include "RoadNetwork.h"
 
 class AntropseTest: public ::testing::Test {
@@ -38,7 +38,7 @@ protected:
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
     roadNetwork = RoadNetwork("test.xml");
-    EXPECT_EQ(2, roadNetwork.nrOfActiveCars());
+    EXPECT_EQ(2, roadNetwork.nrOfCars());
 
     // TODO: met EQ en NE kan ik niet checken op NULL, wat is de manier om dit alsnog correct te doen (want ik heb een
     //  gevoel dat werken met conditions hiervoor niet echt de bedoeling is)
@@ -50,6 +50,8 @@ TEST_F(AntropseTest, DefaultReadFile) {
     EXPECT_TRUE(NULL == roadNetwork.retrieveRoad("E19"));
 
     // TODO hetzelfde, maar dan voor auto's
+    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
+    EXPECT_EQ(0, roadNetwork.getCars()[0]->getCurrent_position());
 }
 
 //-- Tests the "happy day" scenario
