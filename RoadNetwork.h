@@ -23,6 +23,7 @@ class Vehicle;
  */
 class RoadNetwork {
 public:
+    RoadNetwork();
 
     /**
      * Add a new road to the network

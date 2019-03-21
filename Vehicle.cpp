@@ -58,7 +58,7 @@ void Vehicle::setCurrent_speedup(double current_speedup) {
 
 Vehicle::Vehicle(double length): current_speedup(0), length(length) {}
 
-bool Vehicle::move(const double &time, const RoadNetwork *roadNetwork) {
+bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
     // Bereken nieuwe positie van voertuig
     current_position = Convert::kmh_to_ms(current_speed)*time + current_position;

@@ -93,7 +93,7 @@ public:
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool move(const double& time, const RoadNetwork* roadNetwork);
+    bool move(const double& time, RoadNetwork* roadNetwork);
 
     /**
      * Get the type of the Vehicle as a string.
