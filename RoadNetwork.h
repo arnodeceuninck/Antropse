@@ -81,11 +81,13 @@ public:
      */
     Road* retrieveRoad(std::string nameRoad);
 
-    int nrOfCars();
+    int nrOfActiveCars();
 
     RoadNetwork();
 
     Vehicle* findPreviouscar(const Vehicle* car) const;
+
+    void automatic_simulation();
 
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */

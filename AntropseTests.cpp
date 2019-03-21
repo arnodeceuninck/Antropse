@@ -38,7 +38,7 @@ protected:
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
     roadNetwork = RoadNetwork("test.xml");
-    EXPECT_EQ(2, roadNetwork.nrOfCars());
+    EXPECT_EQ(2, roadNetwork.nrOfActiveCars());
 
     // TODO: met EQ en NE kan ik niet checken op NULL, wat is de manier om dit alsnog correct te doen (want ik heb een
     //  gevoel dat werken met conditions hiervoor niet echt de bedoeling is)

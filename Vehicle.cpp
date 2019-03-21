@@ -108,3 +108,7 @@ bool Vehicle::move(const double &time, const RoadNetwork *roadNetwork) {
 double Vehicle::getLength() const {
     return length;
 }
+
+bool Vehicle::isActive() const {
+    return active;
+}
