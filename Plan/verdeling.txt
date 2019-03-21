@@ -4,6 +4,7 @@ Arno	NULL		-1		27	Fixed Dark Doxygen Theme
 Sien	10/03/2019	60		80	XML Parser
 Arno	10/03/2019	30		32	Output
 Arno	NULL		-1		67	Update documentation
-Arno	14/03/2019	60			Rijden van Voertuigen
+Arno	14/03/2019	60		83	Rijden van Voertuigen
+Arno	14/03/2019	-1		25	Setting up first test
 Sien	17/03/2019	30			Automatische simulatie
 NULL	28/03/2019	30			Projectverdediging
