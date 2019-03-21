@@ -41,9 +41,6 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
             return *r;
         }
     }
-
-    // Indien niet gevonden
-    return NULL;
 }
 
 
@@ -68,8 +65,7 @@ RoadNetwork::RoadNetwork(std::string filename) {
 
         if(type == "BAAN"){
 
-            Road* road = new Road(); // Deze regel is nodig omdat je anders een uninitialized compiling error krijgt
-                                     // TODO: alternatief zoeken
+            Road* road;
 
             // Get the specifications from the specification tags in the xml file
             for(TiXmlElement* elem = current_node->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
@@ -78,7 +74,6 @@ RoadNetwork::RoadNetwork(std::string filename) {
                 std::string el = elem->FirstChild()->ToText()->Value();
 
                 if(elemName == "naam"){
-                    delete road;
                     if(retrieveRoad(el) == NULL){
                         road = new Road;
                         road->setName(el);
@@ -92,7 +87,7 @@ RoadNetwork::RoadNetwork(std::string filename) {
                 } else if(elemName == "verbinding"){
                     Road* exit_road = new Road;
                     exit_road->setName(el);
-                    Intersection* intersection = new Intersection(exit_road, road, road->getLength(), cross);
+                    Intersection* intersection = new Intersection(exit_road, road, road->getLength(), Side::cross);
                     road->addIntersection(intersection);
                 }
 
@@ -180,8 +175,6 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
     output_file.close();
 }
 
-
-// TODO: is het niet logischer dat dit een boolean zou returnen en je de weg dan kan opvragen met findRoad()? ~ Arno
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         for(std::vector<Intersection*>::const_iterator intersecion = (*road)->getIntersecions().begin(); intersecion != (*road)->getIntersecions().end(); intersecion++){
@@ -193,9 +186,9 @@ Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     return NULL;
 }
 
-Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
+Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) {
     std::vector<Vehicle*> previousCars;
-    for(std::vector<Vehicle*>::const_iterator vehicle = cars.begin(); vehicle != cars.end(); vehicle++){
+    for(std::vector<Vehicle*>::iterator vehicle = cars.begin(); vehicle != cars.end(); vehicle++){
         if((*vehicle)->getCurrent_road() == car->getCurrent_road() && (*vehicle)->getCurrent_position() > car->getCurrent_position()){
             previousCars.push_back(*vehicle);
         }
@@ -216,24 +209,7 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 
 }
 
-int RoadNetwork::nrOfActiveCars() {
-    int nrOfActiveCars = 0;
-    for(int i= 0; i<cars.size(); i++){
-        if(cars[i]->isActive()){
-            nrOfActiveCars += 1;
-        }
-    }
-    return nrOfActiveCars;
-}
 
-RoadNetwork::RoadNetwork() {}
 
-void RoadNetwork::automatic_simulation() {
-    while(nrOfActiveCars() > 0){
-        for(std::vector<Vehicle*>::const_iterator car = cars.begin(); car != cars.end(); car++){
-            (*car)->move(1, this);
-        }
-    }
-}
 
 

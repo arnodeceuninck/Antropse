@@ -8,11 +8,11 @@ Baan: E313
 
 Voertuig: auto (1THK180)
 	-> baan: E19
-	-> positie: 0
+	-> positie: 10
 	-> snelheid: 0
 
 Voertuig: auto (651BUF)
 	-> baan: E19
-	-> positie: 20
+	-> positie: 0
 	-> snelheid: 0
 

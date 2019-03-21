@@ -11,7 +11,6 @@
 #include "Convert.h"
 #include "CONST.h"
 #include "Road.h"
-#include "RoadNetwork.h"
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
                  double length) : license_plate(license_plate), current_road(current_road),
@@ -107,8 +106,4 @@ bool Vehicle::move(const double &time, const RoadNetwork *roadNetwork) {
 
 double Vehicle::getLength() const {
     return length;
-}
-
-bool Vehicle::isActive() const {
-    return active;
 }
