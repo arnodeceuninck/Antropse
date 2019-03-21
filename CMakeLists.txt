@@ -14,12 +14,12 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES main.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h Intersection.cpp Intersection.h
+set(RELEASE_SOURCE_FILES main.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h
         RoadNetwork.cpp RoadNetwork.h CONST.h TinyXML/tinystr.cpp TinyXML/tinystr.h TinyXML/tinyxml.cpp TinyXML/tinyxml.h
         TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h)
 
 # Set source files for DEBUG target
-set(DEBUG_SOURCE_FILES Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h Intersection.cpp Intersection.h
+set(DEBUG_SOURCE_FILES Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h
         RoadNetwork.cpp RoadNetwork.h CONST.h TinyXML/tinystr.cpp TinyXML/tinystr.h TinyXML/tinyxml.cpp TinyXML/tinyxml.h
         TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h AntropseTests.cpp)
 

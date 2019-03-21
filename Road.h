@@ -10,7 +10,6 @@
 #ifndef ANTROPSE_ROAD_H
 #define ANTROPSE_ROAD_H
 
-#include "Intersection.h"
 #include <string>
 
 /**
@@ -63,15 +62,12 @@ public:
 
     /**
      *
-     * @return the intersections of the road
+     * @return the intersection of the road
      */
-    const Intersections &getIntersecions() const;
 
-    /**
-     * add an intersection to a Roads list of intersections
-     * @param intersection
-     */
-    void addIntersection(Intersection* intersection);
+    Road *getIntersection() const;
+
+    void setIntersection(Road *intersection);
 
 
 private:
@@ -80,7 +76,7 @@ private:
     std::string name; /**< A unique name for identification of the road */
     int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */
-    Intersections intersecions; /**< Contains the connection: The connecting street is the intersection on position
+    Road* intersection; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
 
 };

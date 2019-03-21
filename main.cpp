@@ -11,7 +11,6 @@
 #include "Car.h"
 #include "Road.h"
 #include "RoadNetwork.h"
-#include "Intersection.h"
 
 int main() {
 

@@ -56,7 +56,7 @@ void Vehicle::setCurrent_speedup(double current_speedup) {
 }
 
 
-Vehicle::Vehicle(double length): current_speedup(0), length(length) {}
+Vehicle::Vehicle(double length): current_speedup(0), length(length), active(true) {}
 
 bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
@@ -91,10 +91,10 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
     // IF nieuwe positie valt buiten huidige baan
     while (current_position > current_road->getLength()){
         current_position = current_position - current_road->getLength();
-        if(current_road->getIntersecions().size() > 0) {
+        if(current_road->getIntersection() != NULL) {
             // IF huidige baan heeft verbinding
             // Zet voertuig op verbindingsbaan
-            current_road = current_road->getIntersecions()[0]->getExit_road();
+            current_road = current_road->getIntersection();
         } else {
             // ELSE
             // Verwijder voertuig uit simulatie

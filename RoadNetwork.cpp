@@ -92,8 +92,7 @@ RoadNetwork::RoadNetwork(std::string filename) {
                 } else if(elemName == "verbinding"){
                     Road* exit_road = new Road;
                     exit_road->setName(el);
-                    Intersection* intersection = new Intersection(exit_road, road, road->getLength(), cross);
-                    road->addIntersection(intersection);
+                    road->setIntersection(exit_road);
                 }
 
             }
@@ -184,10 +183,8 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
 // TODO: is het niet logischer dat dit een boolean zou returnen en je de weg dan kan opvragen met findRoad()? ~ Arno
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
-        for(std::vector<Intersection*>::const_iterator intersecion = (*road)->getIntersecions().begin(); intersecion != (*road)->getIntersecions().end(); intersecion++){
-            if((*intersecion)->getExit_road()->getName() == nameRoad){
-                return (*intersecion)->getExit_road();
-            }
+        if((*road)->getIntersection() != NULL && (*road)->getIntersection()->getName() == nameRoad){
+            return (*road)->getIntersection();
         }
     }
     return NULL;
@@ -220,7 +217,7 @@ int RoadNetwork::nrOfActiveCars() {
     int nrOfActiveCars = 0;
     for(unsigned int i= 0; i<cars.size(); i++){
         if(cars[i]->isActive()){
-            nrOfActiveCars += 1;
+            nrOfActiveCars++;
         }
     }
     return nrOfActiveCars;
