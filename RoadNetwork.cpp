@@ -50,7 +50,7 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
 RoadNetwork::RoadNetwork(std::string filename) {
     // Open the document
     TiXmlDocument docu;
-    if(!docu.LoadFile("test.xml")) {
+    if(!docu.LoadFile(filename.c_str())) {
         // Stop the program when an error is raised during opening
         std::cerr << docu.ErrorDesc() << std::endl;
         return;
@@ -120,7 +120,8 @@ RoadNetwork::RoadNetwork(std::string filename) {
                         Road* road = findRoad(el);
                         car->setCurrent_road(road);
                     } else if(elemName == "positie"){
-                        car->setCurrent_position(atoi(el.c_str()));
+                        double position = atoi(el.c_str());
+                        car->setCurrent_position(position);
                     } else if(elemName == "snelheid"){
                         car->setCurrent_speed(std::strtod(el.c_str(), NULL));
                     }

@@ -112,3 +112,14 @@ double Vehicle::getLength() const {
 bool Vehicle::isActive() const {
     return active;
 }
+
+Vehicle::Vehicle(const Vehicle* vehicle) : license_plate(vehicle->getLicense_plate()),
+                                                                       current_road(vehicle->getCurrent_road()),
+                                                                       current_position(vehicle->getCurrent_position()),
+                                                                       current_speed(vehicle->getCurrent_speed()),
+                                                                       current_speedup(vehicle->getCurrent_speedup()), length(getLength()),
+                                                                       active(vehicle->isActive()) {}
+
+double Vehicle::getCurrent_speedup() const {
+    return current_speedup;
+}

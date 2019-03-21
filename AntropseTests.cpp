@@ -13,6 +13,8 @@
 #include <gtest/gtest.h>
 #include "Vehicle.h"
 #include "RoadNetwork.h"
+#include "Road.h"
+#include "CONST.h"
 
 class AntropseTest: public ::testing::Test {
 protected:
@@ -33,6 +35,7 @@ protected:
 
     // Declares the variables your tests want to use.
     RoadNetwork* roadNetwork;
+    Vehicle* testVehicle;
 };
 
 // Tests the default constructor.
@@ -51,7 +54,30 @@ TEST_F(AntropseTest, DefaultReadFile) {
 
     // TODO hetzelfde, maar dan voor auto's
     EXPECT_EQ(0, roadNetwork->getCars()[0]->getCurrent_position());
-    EXPECT_EQ(0, roadNetwork->getCars()[0]->getCurrent_position());
+    EXPECT_EQ(20, roadNetwork->getCars()[1]->getCurrent_position());
+
+    delete roadNetwork;
+}
+
+TEST_F(AntropseTest, GoingForward) {
+    roadNetwork = new RoadNetwork("test2.xml");
+    EXPECT_EQ(1, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
+    testVehicle = roadNetwork->getCars()[0];
+    EXPECT_EQ(20, testVehicle->getCurrent_position());
+    EXPECT_EQ(0, testVehicle->getCurrent_speed());
+    testVehicle->move(1, roadNetwork);
+    EXPECT_EQ(CONST::MAX_CAR_SPEEDUP, testVehicle->getCurrent_speedup());
+    EXPECT_EQ(100, roadNetwork->getRoads()[0]->getSpeed_limit());
+    EXPECT_EQ(roadNetwork->getRoads()[0], testVehicle->getCurrent_road());
+
+    for (int i = 0; i < 60; ++i) {
+        testVehicle->move(1, roadNetwork);
+    }
+
+//    testVehicle->move(60, roadNetwork); // TODO: Als ik ineens move 60 doe is enkel de snelheid geupdated aan de oude
+                                        // versnelling, en dus nog niet de nieuwe snelheid
+    EXPECT_EQ(100, testVehicle->getCurrent_speed());
 }
 
 //-- Tests the "happy day" scenario

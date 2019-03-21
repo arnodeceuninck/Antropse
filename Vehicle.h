@@ -41,6 +41,8 @@ public:
      */
     Vehicle(double length);
 
+    Vehicle(const Vehicle* vehicle);
+
     /**
      * Change/set the license plate for a Vehicle.
      *
@@ -147,7 +149,12 @@ private:
                              */
     double current_speed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
-    double current_speedup; /**< The speed by which the vehicle is accelerated in m / s^2. */
+    double current_speedup;
+public:
+    double getCurrent_speedup() const;
+
+private:
+    /**< The speed by which the vehicle is accelerated in m / s^2. */
     double length;
     bool active;
 
