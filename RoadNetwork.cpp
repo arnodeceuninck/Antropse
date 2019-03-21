@@ -218,7 +218,7 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 
 int RoadNetwork::nrOfActiveCars() {
     int nrOfActiveCars = 0;
-    for(int i= 0; i<cars.size(); i++){
+    for(unsigned int i= 0; i<cars.size(); i++){
         if(cars[i]->isActive()){
             nrOfActiveCars += 1;
         }
@@ -226,7 +226,6 @@ int RoadNetwork::nrOfActiveCars() {
     return nrOfActiveCars;
 }
 
-RoadNetwork::RoadNetwork() {}
 
 void RoadNetwork::automatic_simulation() {
     while(nrOfActiveCars() > 0){
@@ -235,6 +234,8 @@ void RoadNetwork::automatic_simulation() {
         }
     }
 }
+
+RoadNetwork::RoadNetwork() {}
 
 
 

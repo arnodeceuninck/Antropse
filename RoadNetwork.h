@@ -84,8 +84,6 @@ public:
 
     int nrOfActiveCars();
 
-    RoadNetwork();
-
     Vehicle* findPreviouscar(const Vehicle* car) const;
 
     void automatic_simulation();
