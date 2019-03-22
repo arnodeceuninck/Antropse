@@ -14,6 +14,7 @@
 #include "RoadNetwork.h"
 #include "Road.h"
 #include "Car.h"
+#include "DesignByContract.h"
 
 bool RoadNetwork::add_road(Road *road) {
     // TODO: controleer of de road een uniek ID heeft
@@ -228,11 +229,18 @@ int RoadNetwork::nrOfActiveCars() {
 
 
 void RoadNetwork::automatic_simulation() {
+    REQUIRE(check(), "Roadnetwork not valid");
     while(nrOfActiveCars() > 0){
-        for(std::vector<Vehicle*>::const_iterator car = cars.begin(); car != cars.end(); car++){
-            (*car)->move(1, this);
+        // TODO: fix probleem bij FollowTheLeader: als er een wagen voor een andere wagen is blijft de achterste stilstaan
+        for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++){
+            if((*car)->isActive()){
+                std::cout << (*car)->getLicense_plate() << ": " << (*car)->getCurrent_position() << " " <<
+                                                                   (*car)->getCurrent_speed() << std::endl;
+                (*car)->move(1, this);
+            }
         }
     }
+    ENSURE(check(), "roadnetwork not valid"); // TODO: fix auto's die te snel kunnen rijden - nu geen zin om probleem op te lossen
 }
 
 RoadNetwork::RoadNetwork() {}
@@ -266,7 +274,7 @@ bool RoadNetwork::check_position_cars() {
 }
 
 bool RoadNetwork::check_space_between_cars() {
-    for(int i = 0; i < cars.size()-1; i++) {
+    for(unsigned int i = 0; i < cars.size()-1; i++) {
         if(abs(cars[i]->getCurrent_position() - cars[i+1]->getCurrent_position()) < 5){
             return false;
         }
@@ -290,6 +298,15 @@ bool RoadNetwork::check() {
     } else{
         return false;
     }
+}
+
+Vehicle *RoadNetwork::findCar(std::string license_plate) const {
+    for(std::vector<Vehicle*>::const_iterator car = cars.begin(); car != cars.end(); car++){
+        if((*car)->getLicense_plate() == license_plate){
+            return (*car);
+        }
+    }
+    return NULL;
 }
 
 

@@ -56,6 +56,10 @@ TEST_F(AntropseTest, DefaultReadFile) {
     EXPECT_EQ(0, roadNetwork->getCars()[0]->getCurrent_position());
     EXPECT_EQ(20, roadNetwork->getCars()[1]->getCurrent_position());
 
+    EXPECT_TRUE(roadNetwork->check());
+
+    EXPECT_EQ(20, roadNetwork->findCar("651BUF")->getCurrent_position());
+
     delete roadNetwork;
 }
 
@@ -73,11 +77,26 @@ TEST_F(AntropseTest, GoingForward) {
 
     for (int i = 0; i < 60; ++i) {
         testVehicle->move(1, roadNetwork);
+        EXPECT_TRUE(roadNetwork->check());
     }
 
 //    testVehicle->move(60, roadNetwork); // TODO: Als ik ineens move 60 doe is enkel de snelheid geupdated aan de oude
                                         // versnelling, en dus nog niet de nieuwe snelheid
     EXPECT_EQ(100, testVehicle->getCurrent_speed());
+}
+
+TEST_F(AntropseTest, FollowTheLeader) {
+    roadNetwork = new RoadNetwork("test3.xml");
+    EXPECT_EQ(2, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
+
+    EXPECT_EQ("651BUF", roadNetwork->findPreviouscar(roadNetwork->findCar("1THK180"))->getLicense_plate());
+
+    roadNetwork->automatic_simulation();
+
+    EXPECT_EQ(0, roadNetwork->nrOfActiveCars());
+
+
 }
 
 //-- Tests the "happy day" scenario

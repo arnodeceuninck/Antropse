@@ -82,6 +82,8 @@ public:
      */
     Road* retrieveRoad(std::string nameRoad);
 
+    Vehicle* findCar(std::string license_plate) const;
+
     int nrOfActiveCars();
 
     Vehicle* findPreviouscar(const Vehicle* car) const;
