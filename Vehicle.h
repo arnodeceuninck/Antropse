@@ -136,12 +136,7 @@ public:
      */
     double getLength() const;
 
-    /**
-     * Bool is vehicle is active or not
-     */
-    bool isActive() const;
-
-
+    virtual ~Vehicle();
 private:
     std::string license_plate; /**< A unique ID for each vehicle */
     Road* current_road; /**< The road on which the vehicle is currently positioned */
@@ -156,7 +151,6 @@ public:
 private:
     /**< The speed by which the vehicle is accelerated in m / s^2. */
     double length;
-    bool active;
 
 };
 

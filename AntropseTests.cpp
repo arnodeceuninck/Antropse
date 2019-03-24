@@ -41,7 +41,7 @@ protected:
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
     roadNetwork = new RoadNetwork("test.xml");
-    EXPECT_EQ(2, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(2, roadNetwork->nrOfCars());
 
     // TODO: met EQ en NE kan ik niet checken op NULL, wat is de manier om dit alsnog correct te doen (want ik heb een
     //  gevoel dat werken met conditions hiervoor niet echt de bedoeling is)
@@ -65,7 +65,7 @@ TEST_F(AntropseTest, DefaultReadFile) {
 
 TEST_F(AntropseTest, GoingForward) {
     roadNetwork = new RoadNetwork("test2.xml");
-    EXPECT_EQ(1, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
     EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
     testVehicle = roadNetwork->getCars()[0];
     EXPECT_EQ(20, testVehicle->getCurrent_position());
@@ -87,14 +87,14 @@ TEST_F(AntropseTest, GoingForward) {
 
 TEST_F(AntropseTest, FollowTheLeader) {
     roadNetwork = new RoadNetwork("test3.xml");
-    EXPECT_EQ(2, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(2, roadNetwork->nrOfCars());
     EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
 
     EXPECT_EQ("651BUF", roadNetwork->findPreviouscar(roadNetwork->findCar("1THK180"))->getLicense_plate());
 
     roadNetwork->automatic_simulation();
 
-    EXPECT_EQ(0, roadNetwork->nrOfActiveCars());
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
 
 
 }

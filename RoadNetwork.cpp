@@ -217,26 +217,23 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 
 }
 
-int RoadNetwork::nrOfActiveCars() {
-    int nrOfActiveCars = 0;
-    for(unsigned int i= 0; i<cars.size(); i++){
-        if(cars[i]->isActive()){
-            nrOfActiveCars++;
-        }
-    }
-    return nrOfActiveCars;
+int RoadNetwork::nrOfCars() {
+    return cars.size();
 }
 
 
 void RoadNetwork::automatic_simulation() {
     REQUIRE(check(), "Roadnetwork not valid");
-    while(nrOfActiveCars() > 0){
-        // TODO: fix probleem bij FollowTheLeader: als er een wagen voor een andere wagen is blijft de achterste stilstaan
-        for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++){
-            if((*car)->isActive()){
-                std::cout << (*car)->getLicense_plate() << ": " << (*car)->getCurrent_position() << " " <<
-                                                                   (*car)->getCurrent_speed() << std::endl;
-                (*car)->move(1, this);
+    int n = nrOfCars();
+    while(nrOfCars() > 0){
+        for (int i = 0; i < n; ++i) {
+
+            cars[i]->move(1, this);
+
+            // Enkel mogelijk indien de wagen verwijjderd is uit het netwerk
+            if(n != nrOfCars()){
+                i--;
+                n = nrOfCars();
             }
         }
     }
@@ -309,10 +306,11 @@ Vehicle *RoadNetwork::findCar(std::string license_plate) const {
     return NULL;
 }
 
-
-
-
-
-
-
-
+void RoadNetwork::removeVehicle(std::string license_plate) {
+    for (unsigned int i = 0; i < cars.size(); ++i) {
+        if(cars[i]->getLicense_plate() == license_plate){
+            delete cars[i];
+            cars.erase(cars.begin()+i);
+        }
+    }
+}

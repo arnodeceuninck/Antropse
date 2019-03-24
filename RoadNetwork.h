@@ -84,7 +84,7 @@ public:
 
     Vehicle* findCar(std::string license_plate) const;
 
-    int nrOfActiveCars();
+    int nrOfCars();
 
     Vehicle* findPreviouscar(const Vehicle* car) const;
 
@@ -102,6 +102,8 @@ public:
 
     bool check_intersections();
 
+
+    void removeVehicle(std::string license_plate);
 
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */

@@ -16,8 +16,7 @@
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
                  double length) : license_plate(license_plate), current_road(current_road),
-                               current_position(current_position), current_speed(current_speed), current_speedup(0), length(length),
-                               active(true){}
+                               current_position(current_position), current_speed(current_speed), current_speedup(0), length(length){}
 
 
 const std::string &Vehicle::getLicense_plate() const {
@@ -59,7 +58,7 @@ void Vehicle::setCurrent_speedup(double current_speedup) {
 
 Vehicle::Vehicle(double length): license_plate(""), current_road(NULL),
                                  current_position(0), current_speed(0),
-                                 current_speedup(0), length(length), active(true) {}
+                                 current_speedup(0), length(length) {}
 
 bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
@@ -106,8 +105,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
         } else {
             // ELSE
             // Verwijder voertuig uit simulatie
-            active = false;
-            current_road = NULL;
+            roadNetwork->removeVehicle(license_plate);
         }
     }
 
@@ -118,17 +116,17 @@ double Vehicle::getLength() const {
     return length;
 }
 
-bool Vehicle::isActive() const {
-    return active;
-}
-
 Vehicle::Vehicle(const Vehicle* vehicle) : license_plate(vehicle->getLicense_plate()),
                                                                        current_road(vehicle->getCurrent_road()),
                                                                        current_position(vehicle->getCurrent_position()),
                                                                        current_speed(vehicle->getCurrent_speed()),
-                                                                       current_speedup(vehicle->getCurrent_speedup()), length(getLength()),
-                                                                       active(vehicle->isActive()) {}
+                                                                       current_speedup(vehicle->getCurrent_speedup()), length(getLength()) {}
+
 
 double Vehicle::getCurrent_speedup() const {
     return current_speedup;
+}
+
+Vehicle::~Vehicle() {
+
 }
