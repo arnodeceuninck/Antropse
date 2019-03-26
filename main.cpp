@@ -16,7 +16,7 @@ int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
-    RoadNetwork roadNetwork("test.xml");
+    RoadNetwork roadNetwork("DefaultReadFile.xml");
     roadNetwork.generateOutputFile("output.txt");
 
     return 0;

@@ -40,7 +40,7 @@ protected:
 
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
-    roadNetwork = new RoadNetwork("test.xml");
+    roadNetwork = new RoadNetwork("tests/DefaultReadFile.xml");
     EXPECT_EQ(2, roadNetwork->nrOfCars());
 
     // TODO: met EQ en NE kan ik niet checken op NULL, wat is de manier om dit alsnog correct te doen (want ik heb een
@@ -64,7 +64,7 @@ TEST_F(AntropseTest, DefaultReadFile) {
 }
 
 TEST_F(AntropseTest, GoingForward) {
-    roadNetwork = new RoadNetwork("test2.xml");
+    roadNetwork = new RoadNetwork("tests/GoingForward.xml");
     EXPECT_EQ(1, roadNetwork->nrOfCars());
     EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
     testVehicle = roadNetwork->getCars()[0];
@@ -86,7 +86,7 @@ TEST_F(AntropseTest, GoingForward) {
 }
 
 TEST_F(AntropseTest, FollowTheLeader) {
-    roadNetwork = new RoadNetwork("test3.xml");
+    roadNetwork = new RoadNetwork("tests/FollowTheLeader.xml");
     EXPECT_EQ(2, roadNetwork->nrOfCars());
     EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
 
@@ -95,9 +95,91 @@ TEST_F(AntropseTest, FollowTheLeader) {
     roadNetwork->automatic_simulation();
 
     EXPECT_EQ(0, roadNetwork->nrOfCars());
+}
 
+TEST_F(AntropseTest, NeedForSpeed){
+    roadNetwork = new RoadNetwork("tests/NeedForSpeed.xml");
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_EQ(300, roadNetwork->getRoads()[0]->getSpeed_limit());
+
+    testVehicle = roadNetwork->getCars()[0];
+
+    for (int i = 0; i < 60; ++i) {
+        testVehicle->move(1, roadNetwork);
+        EXPECT_EQ(1, roadNetwork->nrOfCars());
+    }
+
+    testVehicle->move(1, roadNetwork);
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+}
+
+TEST_F(AntropseTest, BusyDay){
+    roadNetwork = new RoadNetwork("tests/BusyDay.xml");
+    EXPECT_EQ(7, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    roadNetwork->automatic_simulation();
+    EXPECT_TRUE(roadNetwork->check());
+}
+
+TEST_F(AntropseTest, SomeoneFloating){
+    roadNetwork = new RoadNetwork("tests/SomeoneFloating.xml");
+    EXPECT_EQ(90.5, roadNetwork->getRoads()[0]->getSpeed_limit());
+    EXPECT_EQ(30.3, roadNetwork->getRoads()[0]->getLength());
+
+    testVehicle = roadNetwork->getCars()[0];
+    EXPECT_EQ(20.2, testVehicle->getCurrent_position());
+    EXPECT_EQ(0.4, testVehicle->getCurrent_speed());
+
+    EXPECT_TRUE(roadNetwork->check());
+    roadNetwork->automatic_simulation();
+    EXPECT_TRUE(roadNetwork->check());
+}
+
+TEST_F(AntropseTest, NoPersonalSpace){
+    roadNetwork = new RoadNetwork("tests/SomeoneFloating.xml");
+
+    // TODO: Error bij input verwachten
+    EXPECT_FALSE(roadNetwork->check_space_between_cars());
+    EXPECT_TRUE(roadNetwork->check_if_cars_on_existing_road());
+    EXPECT_TRUE(roadNetwork->check_intersections());
+    EXPECT_TRUE(roadNetwork->check_position_cars());
+}
+
+TEST_F(AntropseTest, RocketHigh){
+    roadNetwork = new RoadNetwork("tests/RocketHigh.xml");
+
+    // TODO: Error bij input verwachten (snelheid > CONST::MAX_CAR_SPEED)
+    EXPECT_FALSE(roadNetwork->check_position_cars());
+}
+
+TEST_F(AntropseTest, WayTooLow){
+    roadNetwork = new RoadNetwork("tests/WayToLow.xml");
+
+    // TODO: Error bij input verwachten (snelheid > CONST::MAX_CAR_SPEED)
+    EXPECT_FALSE(roadNetwork->check_position_cars());
+}
+
+TEST_F(AntropseTest, SmallStreets){
+    roadNetwork = new RoadNetwork("tests/SmallStreets.xml");
+    EXPECT_EQ(5, roadNetwork->getRoads().size());
+    EXPECT_TRUE(roadNetwork->check());
+
+    EXPECT_EQ(1, roadNetwork->getCars().size());
+    roadNetwork->automatic_simulation();
+    EXPECT_EQ(0, roadNetwork->getCars().size());
+}
+
+TEST_F(AntropseTest, SlowDown){
+    roadNetwork = new RoadNetwork("tests/SlowDown.xml");
+    EXPECT_EQ(10, roadNetwork->findRoad("E11")->getIntersection()->getSpeed_limit());
+
+    EXPECT_TRUE(roadNetwork->check());
+    roadNetwork->automatic_simulation();
+    EXPECT_TRUE(roadNetwork->check());
 
 }
+
 
 //-- Tests the "happy day" scenario
 //TEST_F(TicTactToeTest, HappyDay) {

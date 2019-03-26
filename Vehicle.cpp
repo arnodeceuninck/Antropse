@@ -70,6 +70,9 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
     if(current_speed > CONST::MAX_CAR_SPEED){
         current_speed = CONST::MAX_CAR_SPEED;
     }
+    if(current_speed > current_road->getSpeed_limit()){
+        current_speed = current_road->getSpeed_limit();
+    }
 
     // Bereken nieuwe versnelling van voertuig;
     Vehicle* previouscar = roadNetwork->findPreviouscar(this);
@@ -93,6 +96,11 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
             if(current_speedup >= CONST::MIN_CAR_SPEEDUP-1)
             current_speedup -= 1;
         }
+    }
+
+    // Controle of je aan deze snelheid niet over de max snelheid gaat
+    if(current_speedup * time + current_speed > current_road->getSpeed_limit()){
+        current_speedup = (current_road->getSpeed_limit()-current_speed)/time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
     }
 
     // IF nieuwe positie valt buiten huidige baan

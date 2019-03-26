@@ -17,14 +17,22 @@
 #include "DesignByContract.h"
 
 bool RoadNetwork::add_road(Road *road) {
-    // TODO: controleer of de road een uniek ID heeft
+    REQUIRE(road != NULL)
+    REQUIRE(findRoad(road->getName()) == NULL);
+
     roads.push_back(road);
+
+    ENSURE(findRoad(road->getName()) == road);
     return true;
 }
 
 bool RoadNetwork::add_car(Vehicle *car) {
-    // TODO: controleer of er nog geen auto op dezelfde plaats / met dezelfde nummerplaat is
+    REQUIRE(road != NULL)
+    REQUIRE(findCar(car->getLicense_plate()) == NULL);
+
     cars.push_back(car);
+
+    ENSURE(findCar(car->getLicense_plate() == car);
     return true;
 }
 
@@ -141,6 +149,8 @@ RoadNetwork::RoadNetwork(std::string filename) {
         current_node = current_node->NextSiblingElement();
 
     }
+
+    ENSURE(check())
 }
 
 void RoadNetwork::generateOutputFile(const std::string& filename) {
@@ -218,6 +228,7 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 }
 
 int RoadNetwork::nrOfCars() {
+    REQUIRE(check())
     return cars.size();
 }
 
@@ -237,12 +248,16 @@ void RoadNetwork::automatic_simulation() {
             }
         }
     }
-    ENSURE(check(), "roadnetwork not valid"); // TODO: fix auto's die te snel kunnen rijden - nu geen zin om probleem op te lossen
+
+    ENSURE(nrOfCars() == 0);
+    ENSURE(check(), "Valid roadnnetwork"); // TODO: fix auto's die te snel kunnen rijden - nu geen zin om probleem op te lossen
 }
 
 RoadNetwork::RoadNetwork() {}
 
 bool RoadNetwork::car_on_existing_road(Vehicle *car) {
+    REQUIRE(car != NULL);
+    REQUIRE(findCar(car->getLicense_plate()) != NULL);
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         if(car->getCurrent_road() == (*road)){
             return true;
@@ -272,7 +287,7 @@ bool RoadNetwork::check_position_cars() {
 
 bool RoadNetwork::check_space_between_cars() {
     for(unsigned int i = 0; i < cars.size()-1; i++) {
-        if(abs(cars[i]->getCurrent_position() - cars[i+1]->getCurrent_position()) < 5){
+        if(abs(cars[i+1]->getCurrent_position() - cars[i]->getCurrent_position()) < 5){
             return false;
         }
     }
@@ -307,10 +322,14 @@ Vehicle *RoadNetwork::findCar(std::string license_plate) const {
 }
 
 void RoadNetwork::removeVehicle(std::string license_plate) {
+    REQUIRE(findCar(license_plate) != NULL);
+
     for (unsigned int i = 0; i < cars.size(); ++i) {
         if(cars[i]->getLicense_plate() == license_plate){
             delete cars[i];
             cars.erase(cars.begin()+i);
         }
     }
+
+    ENSURE(findCar(license_plate == NULL));
 }
