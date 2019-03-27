@@ -27,12 +27,12 @@ void Road::setName(const std::string &name) {
 }
 
 void Road::setSpeed_limit(int speed_limit) {
-    REQUIRE(speed_limit > 0); // Strikt groter
+    REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
     Road::speed_limit = speed_limit;
 }
 
 void Road::setLength(double length) {
-    REQUIRE(length > 0);
+    REQUIRE(length > 0, "De lengte moet strikt groter zijn dan 0");
     Road::length = length;
 }
 

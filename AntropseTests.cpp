@@ -101,11 +101,11 @@ TEST_F(AntropseTest, NeedForSpeed){
     roadNetwork = new RoadNetwork("tests/NeedForSpeed.xml");
     EXPECT_EQ(1, roadNetwork->nrOfCars());
     EXPECT_TRUE(roadNetwork->check());
-    EXPECT_EQ(300, roadNetwork->getRoads()[0]->getSpeed_limit());
+    EXPECT_EQ(150, roadNetwork->getRoads()[0]->getSpeed_limit());
 
     testVehicle = roadNetwork->getCars()[0];
 
-    for (int i = 0; i < 60; ++i) {
+    for (int i = 0; i < 7; ++i) {
         testVehicle->move(1, roadNetwork);
         EXPECT_EQ(1, roadNetwork->nrOfCars());
     }

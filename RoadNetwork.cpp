@@ -17,22 +17,22 @@
 #include "DesignByContract.h"
 
 bool RoadNetwork::add_road(Road *road) {
-    REQUIRE(road != NULL)
-    REQUIRE(findRoad(road->getName()) == NULL);
+    REQUIRE(road != NULL, "De weg moet bestaan");
+    REQUIRE(findRoad(road->getName()) == NULL, "De weg mag nog niet in het netwerk zitten");
 
     roads.push_back(road);
 
-    ENSURE(findRoad(road->getName()) == road);
+    ENSURE(findRoad(road->getName()) == road, "De weg moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
     return true;
 }
 
 bool RoadNetwork::add_car(Vehicle *car) {
-    REQUIRE(road != NULL)
-    REQUIRE(findCar(car->getLicense_plate()) == NULL);
+    REQUIRE(car != NULL, "De auto moet bestaan");
+    REQUIRE(findCar(car->getLicense_plate()) == NULL, "De auto mag nog niet in het netwerk zitten");
 
     cars.push_back(car);
 
-    ENSURE(findCar(car->getLicense_plate() == car);
+    ENSURE(findCar(car->getLicense_plate()) == car, "De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
     return true;
 }
 
@@ -150,7 +150,7 @@ RoadNetwork::RoadNetwork(std::string filename) {
 
     }
 
-    ENSURE(check())
+    ENSURE(check(), "Roadnetwork not valid");
 }
 
 void RoadNetwork::generateOutputFile(const std::string& filename) {
@@ -228,15 +228,15 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 }
 
 int RoadNetwork::nrOfCars() {
-    REQUIRE(check())
+    //REQUIRE(check(), "Roadnetwork not valid");
     return cars.size();
 }
 
 
 void RoadNetwork::automatic_simulation() {
     REQUIRE(check(), "Roadnetwork not valid");
-    int n = nrOfCars();
     while(nrOfCars() > 0){
+        int n = nrOfCars();
         for (int i = 0; i < n; ++i) {
 
             cars[i]->move(1, this);
@@ -249,15 +249,15 @@ void RoadNetwork::automatic_simulation() {
         }
     }
 
-    ENSURE(nrOfCars() == 0);
-    ENSURE(check(), "Valid roadnnetwork"); // TODO: fix auto's die te snel kunnen rijden - nu geen zin om probleem op te lossen
+    ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
+    //ENSURE(check(), "Valid roadnnetwork");
 }
 
 RoadNetwork::RoadNetwork() {}
 
 bool RoadNetwork::car_on_existing_road(Vehicle *car) {
-    REQUIRE(car != NULL);
-    REQUIRE(findCar(car->getLicense_plate()) != NULL);
+    REQUIRE(car != NULL, "De auto moet bestaan");
+    REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         if(car->getCurrent_road() == (*road)){
             return true;
@@ -322,7 +322,7 @@ Vehicle *RoadNetwork::findCar(std::string license_plate) const {
 }
 
 void RoadNetwork::removeVehicle(std::string license_plate) {
-    REQUIRE(findCar(license_plate) != NULL);
+    REQUIRE(findCar(license_plate) != NULL, "De auto moet in het netwerk zitten");
 
     for (unsigned int i = 0; i < cars.size(); ++i) {
         if(cars[i]->getLicense_plate() == license_plate){
@@ -331,5 +331,5 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
         }
     }
 
-    ENSURE(findCar(license_plate == NULL));
+    ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
 }

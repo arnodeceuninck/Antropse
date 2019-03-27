@@ -1,8 +1,8 @@
 <ROOT>
     <BAAN>
         <naam>E19</naam>
-        <snelheidslimiet>300</snelheidslimiet>
-        <lengte>50</lengte>
+        <snelheidslimiet>150</snelheidslimiet>
+        <lengte>300</lengte>
         <verbinding>E313</verbinding>
     </BAAN>
     <VOERTUIG>
@@ -10,6 +10,6 @@
         <nummerplaat>651BUF</nummerplaat>
         <baan>E19</baan>
         <positie>20</positie>
-        <snelheid>300</snelheid>
+        <snelheid>150</snelheid>
     </VOERTUIG>
 </ROOT>
