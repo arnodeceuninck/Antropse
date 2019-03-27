@@ -37,7 +37,7 @@ void Road::setLength(double length) {
 }
 
 
-Road::Road() : name(""), speed_limit(0), length(0.0), intersection(){}
+Road::Road() : name(), speed_limit(), length(), intersection(){}
 
 Road *Road::getIntersection() const {
     return intersection;
