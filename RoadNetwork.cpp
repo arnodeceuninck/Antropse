@@ -228,7 +228,7 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 }
 
 int RoadNetwork::nrOfCars() {
-    //REQUIRE(check(), "Roadnetwork not valid");
+    REQUIRE(check(), "Roadnetwork not valid");
     return cars.size();
 }
 
@@ -250,7 +250,7 @@ void RoadNetwork::automatic_simulation() {
     }
 
     ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
-    //ENSURE(check(), "Valid roadnnetwork");
+    ENSURE(check(), "Valid roadnnetwork");
 }
 
 RoadNetwork::RoadNetwork() {}
@@ -332,4 +332,5 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
     }
 
     ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
+
 }

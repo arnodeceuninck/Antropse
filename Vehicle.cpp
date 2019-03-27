@@ -13,6 +13,7 @@
 #include "CONST.h"
 #include "Road.h"
 #include "RoadNetwork.h"
+#include "DesignByContract.h"
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
                  double length) : license_plate(license_plate), current_road(current_road),
@@ -61,6 +62,8 @@ Vehicle::Vehicle(double length): license_plate(""), current_road(NULL),
                                  current_speedup(0), length(length) {}
 
 bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
+    REQUIRE(roadNetwork->check(), "Roadnetwork moet correct geinitialiseerd zijn");
+    REQUIRE(time >= 0, "Tijd moet positief zijn");
 
     // Bereken nieuwe positie van voertuig
     current_position = Convert::kmh_to_ms(current_speed)*time + current_position;
@@ -117,6 +120,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
         }
     }
 
+    ENSURE(roadNetwork->check(), "Roadnetwork blijft geldig na de verplaatsing");
     return true;
 }
 
