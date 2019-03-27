@@ -103,14 +103,9 @@ TEST_F(AntropseTest, NeedForSpeed){
     EXPECT_TRUE(roadNetwork->check());
     EXPECT_EQ(150, roadNetwork->getRoads()[0]->getSpeed_limit());
 
-    testVehicle = roadNetwork->getCars()[0];
-
-    for (int i = 0; i < 7; ++i) {
-        testVehicle->move(1, roadNetwork);
-        EXPECT_EQ(1, roadNetwork->nrOfCars());
-    }
-
-    testVehicle->move(1, roadNetwork);
+//    testVehicle = roadNetwork->getCars()[0];
+//    testVehicle->move(1, roadNetwork);
+    roadNetwork->automatic_simulation();
     EXPECT_EQ(0, roadNetwork->nrOfCars());
 }
 
@@ -162,12 +157,12 @@ TEST_F(AntropseTest, WayTooLow){
 
 TEST_F(AntropseTest, SmallStreets){
     roadNetwork = new RoadNetwork("tests/SmallStreets.xml");
-    EXPECT_EQ(5, roadNetwork->getRoads().size());
+    EXPECT_EQ(static_cast<unsigned int>(5), roadNetwork->getRoads().size());
     EXPECT_TRUE(roadNetwork->check());
 
-    EXPECT_EQ(1, roadNetwork->getCars().size());
+    EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getCars().size());
     roadNetwork->automatic_simulation();
-    EXPECT_EQ(0, roadNetwork->getCars().size());
+    EXPECT_EQ((unsigned) 0, roadNetwork->getCars().size());
 }
 
 TEST_F(AntropseTest, SlowDown){

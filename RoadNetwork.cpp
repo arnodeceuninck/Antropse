@@ -394,4 +394,5 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
     }
 
     ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
+
 }
