@@ -1,10 +1,26 @@
-Baan: E19
-	-> snelheidslimiet: 30
-	-> lengte: 1000
+Baan: E191
+	-> snelheidslimiet: 90
+	-> lengte: 30
 
-Voertuig: auto (1THK180)
-	-> baan: E19
-	-> positie: 999
-	-> snelheid: 30
+Baan: E192
+	-> snelheidslimiet: 90
+	-> lengte: 20
+
+Baan: E193
+	-> snelheidslimiet: 90
+	-> lengte: 10
+
+Baan: E194
+	-> snelheidslimiet: 90
+	-> lengte: 5
+
+Baan: E195
+	-> snelheidslimiet: 90
+	-> lengte: 2
+
+Voertuig: auto (651BUF)
+	-> baan: E193
+	-> positie: 3
+	-> snelheid: 44
 
 -----------------------------------------------------------

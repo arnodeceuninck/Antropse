@@ -246,6 +246,8 @@ RoadNetwork::RoadNetwork(std::string filename) {
     if(!check()){
         throw "Incosistente verkeerssituatie";
     }
+
+    _initCheck = this;
     ENSURE(check_position_cars(), "position");
     ENSURE(check_intersections(), "intersections");
     ENSURE(check_if_cars_on_existing_road(), "exist on road");
@@ -357,7 +359,7 @@ void RoadNetwork::automatic_simulation() {
     ENSURE(check(), "Valid roadnnetwork");
 }
 
-RoadNetwork::RoadNetwork() {}
+RoadNetwork::RoadNetwork() { _initCheck = this; }
 
 
 
@@ -455,18 +457,18 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
 }
 
 bool RoadNetwork::ProperlyInitialised() {
-    for (int i = 0; i < cars.size(); ++i) {
-        if(!cars[i]->ProperlyInit()){
-            return false;
-        }
-    }
+//    for (int i = 0; i < cars.size(); ++i) {
+//        if(!cars[i]->ProperlyInit()){
+//            return false;
+//        }
+//    }
+//
+//    for (int i = 0; i < roads.size(); ++i) {
+//        if(!roads[i]->ProperlyInit()){
+//            return false;
+//        }
+//    }
 
-    for (int i = 0; i < roads.size(); ++i) {
-        if(!roads[i]->ProperlyInit()){
-            return false;
-        }
-    }
-
-    return true;
+    return _initCheck == this;
 }
 

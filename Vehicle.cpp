@@ -17,7 +17,8 @@
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
                  double length) : license_plate(license_plate), current_road(current_road),
-                               current_position(current_position), current_speed(current_speed), current_speedup(0), length(length){}
+                               current_position(current_position), current_speed(current_speed), current_speedup(0),
+                               length(length){ _initCheck = this; }
 
 
 const std::string &Vehicle::getLicense_plate() const {
@@ -74,7 +75,9 @@ void Vehicle::setCurrent_speedup(double current_speedup) {
 
 Vehicle::Vehicle(double length): license_plate(""), current_road(NULL),
                                  current_position(0), current_speed(0),
-                                 current_speedup(0), length(length) {}
+                                 current_speedup(0), length(length) {
+    _initCheck = this;
+}
 
 bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
     REQUIRE(roadNetwork->check_position_cars(), "position");
@@ -168,11 +171,13 @@ Vehicle::~Vehicle() {
 }
 
 bool Vehicle::ProperlyInit() const{
-    return (license_plate.size() > 0 &&
-            current_road != NULL &&
-            current_speed > CONST::MIN_CAR_SPEED &&
-            current_speed < current_road->getSpeed_limit() &&
-            current_speed < CONST::MAX_CAR_SPEED &&
-            current_speedup < CONST::MAX_CAR_SPEEDUP &&
-            current_speedup > CONST::MIN_CAR_SPEEDUP);
+//    return (license_plate.size() > 0 &&
+//            current_road != NULL &&
+//            current_speed > CONST::MIN_CAR_SPEED &&
+//            current_speed < current_road->getSpeed_limit() &&
+//            current_speed < CONST::MAX_CAR_SPEED &&
+//            current_speedup < CONST::MAX_CAR_SPEEDUP &&
+//            current_speedup > CONST::MIN_CAR_SPEEDUP);
+
+    return _initCheck == this;
 }

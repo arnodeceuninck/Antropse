@@ -206,6 +206,8 @@ private:
     /**< The speed by which the vehicle is accelerated in m / s^2. */
     double length;
 
+    Vehicle* _initCheck;
+
 };
 
 

@@ -96,7 +96,7 @@ public:
 
 private:
 
-
+    Road* _initCheck;
     std::string name; /**< A unique name for identification of the road */
     int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */

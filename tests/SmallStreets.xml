@@ -33,6 +33,6 @@
         <nummerplaat>651BUF</nummerplaat>
         <baan>E191</baan>
         <positie>20</positie>
-        <snelheid>-40</snelheid>
+        <snelheid>40</snelheid>
     </VOERTUIG>
 </ROOT>

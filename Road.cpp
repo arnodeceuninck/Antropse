@@ -41,7 +41,7 @@ void Road::setLength(double length) {
 }
 
 
-Road::Road() : name(), speed_limit(), length(), intersection(){}
+Road::Road() : name(), speed_limit(), length(), intersection(){ _initCheck = this; }
 
 Road *Road::getIntersection() const {
     return intersection;
@@ -52,9 +52,10 @@ void Road::setIntersection(Road *intersection) {
 }
 
 bool Road::ProperlyInit() const {
-    return name.size() > 0 &&
+    return _initCheck == this;
+    /*return name.size() > 0 &&
             speed_limit > 0 &&
-            length > 0;
+            length > 0;*/
 }
 
 
