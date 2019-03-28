@@ -137,29 +137,44 @@ public:
      * A function to get the unique identification string of a vehicle.
      *
      * @return The license plate of the Vehicle as string.
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     const std::string &getLicense_plate() const;
 
     /**
      * Get the road the Vehicle is driving on
      * @return a pointer to the road the vehicle is driving on
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     Road *getCurrent_road() const;
 
     /**
      * Get the position on the road of the current Vehicle
      * @return The position of the Vehicle (in m) from the starting point of the road
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     int getCurrent_position() const;
 
     /**
      * Get the speed at which the car is driving
      * @return A double containing the current speed of the car
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     double getCurrent_speed() const;
 
     /**
      * The length of the vehicle in m.
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     double getLength() const;
 
@@ -169,7 +184,16 @@ public:
      * Check whether a vehicle is properly initialised
      * @return true when everything properly initialised
      */
-    bool ProperlyInit();
+    bool ProperlyInit() const;
+
+    /**
+     * The speedup of the vehicle in m/s^2.
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
+     */
+    double getCurrent_speedup() const;
+
 private:
     std::string license_plate; /**< A unique ID for each vehicle */
     Road* current_road; /**< The road on which the vehicle is currently positioned */
@@ -178,10 +202,7 @@ private:
     double current_speed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
     double current_speedup;
-public:
-    double getCurrent_speedup() const;
 
-private:
     /**< The speed by which the vehicle is accelerated in m / s^2. */
     double length;
 

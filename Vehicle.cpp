@@ -21,18 +21,22 @@ Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int curre
 
 
 const std::string &Vehicle::getLicense_plate() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return license_plate;
 }
 
 Road *Vehicle::getCurrent_road() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return current_road;
 }
 
 int Vehicle::getCurrent_position() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return current_position;
 }
 
 double Vehicle::getCurrent_speed() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return current_speed;
 }
 
@@ -143,6 +147,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 }
 
 double Vehicle::getLength() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return length;
 }
 
@@ -154,6 +159,7 @@ Vehicle::Vehicle(const Vehicle* vehicle) : license_plate(vehicle->getLicense_pla
 
 
 double Vehicle::getCurrent_speedup() const {
+    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
     return current_speedup;
 }
 
@@ -161,7 +167,7 @@ Vehicle::~Vehicle() {
 
 }
 
-bool Vehicle::ProperlyInit() {
+bool Vehicle::ProperlyInit() const{
     return (license_plate.size() > 0 &&
             current_road != NULL &&
             current_speed > CONST::MIN_CAR_SPEED &&

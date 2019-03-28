@@ -22,18 +22,27 @@ public:
     /**
      * Get the name of a road
      * @return The unique identification name of this road
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
      */
     const std::string &getName() const;
 
     /**
      * Get the speed limit of a road
      * @return The maximum legal speed to drive on this road in km/h
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
      */
     int getSpeed_limit() const;
 
     /**
      * Get the length of the road
      * @return A double containing the length of the road in m
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
      */
     double getLength() const;
 
@@ -82,7 +91,7 @@ public:
      * Check whether the road is properly initialised
      * @return true when properly initialised
      */
-    bool ProperlyInit();
+    bool ProperlyInit() const;
 
 
 private:

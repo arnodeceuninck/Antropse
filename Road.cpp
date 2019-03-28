@@ -11,14 +11,17 @@
 #include "DesignByContract.h"
 
 const std::string &Road::getName() const {
+    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
     return name;
 }
 
 int Road::getSpeed_limit() const {
+    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
     return speed_limit;
 }
 
 double Road::getLength() const {
+    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
     return length;
 }
 
@@ -48,7 +51,7 @@ void Road::setIntersection(Road *intersection) {
     Road::intersection = intersection;
 }
 
-bool Road::ProperlyInit() {
+bool Road::ProperlyInit() const {
     return name.size() > 0 &&
             speed_limit > 0 &&
             length > 0;
