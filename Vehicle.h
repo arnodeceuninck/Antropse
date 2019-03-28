@@ -164,6 +164,12 @@ public:
     double getLength() const;
 
     virtual ~Vehicle();
+
+    /**
+     * Check whether a vehicle is properly initialised
+     * @return true when everything properly initialised
+     */
+    bool ProperlyInit();
 private:
     std::string license_plate; /**< A unique ID for each vehicle */
     Road* current_road; /**< The road on which the vehicle is currently positioned */

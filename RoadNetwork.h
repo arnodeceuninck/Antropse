@@ -160,6 +160,12 @@ public:
      */
     void removeVehicle(std::string license_plate);
 
+    /**
+     * Check whether all cars and roads in the network are properly initialised
+     * @return
+     */
+    bool ProperlyInitialised();
+
 private:
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or

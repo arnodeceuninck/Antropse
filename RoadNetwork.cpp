@@ -17,6 +17,7 @@
 #include "DesignByContract.h"
 #include "sstream"
 
+#include "CONST.h"
 bool RoadNetwork::add_road(Road *road) {
     REQUIRE(road != NULL, "De weg moet bestaan");
     REQUIRE(findRoad(road->getName()) == NULL, "De weg mag nog niet in het netwerk zitten");
@@ -94,7 +95,9 @@ RoadNetwork::RoadNetwork(std::string filename) {
                     if (elemName == "naam") {
                         delete road;
                         if(el == ""){
-                            throw "De naam van de baan is gelijk zijn aan een lege string";
+//                            throw "De naam van de baan is gelijk zijn aan een lege string";
+                            std::cout << "Ongeldige informatie" << std::endl;
+                            continue;
                         }
                         if (retrieveRoad(el) == NULL) {
                             road = new Road;
@@ -108,12 +111,17 @@ RoadNetwork::RoadNetwork(std::string filename) {
                         ss << value;
                         std::string result = ss.str();
                         if(result != el){
-                            throw "De snelheidslimiet is geen integer";
+//                            throw "De snelheidslimiet is geen integer";
+                            std::cout << "De snelheid is geen integer" << std::endl;
+                            continue;
                         }
 
                         if(atoi(el.c_str()) <= 0){
-                            throw "De snelheidslimiet is kleiner of gelijk aan 0";
+//                            throw "De snelheidslimiet is kleiner of gelijk aan 0";
+                            std::cout << "De snelheidslimiet is kleiner dan of gelijk aan 0" << std::endl;
+                            continue;
                         }
+
                         road->setSpeed_limit(atoi(el.c_str()));
                     } else if (elemName == "lengte") {
                         double value = strtod(el.c_str(), NULL);
@@ -121,26 +129,30 @@ RoadNetwork::RoadNetwork(std::string filename) {
                         ss << value;
                         std::string result = ss.str();
                         if(result != el){
-                            throw "De lengte is geen double";
+//                            throw "De lengte is geen double";
+                            std::cout << "De lengte is geen double" << std::endl;
+                            continue;
                         }
 
                         if (strtod(el.c_str(), NULL) < 0) {
-                            throw "De lengte is kleiner dan 0";
+//                            throw "De lengte is kleiner dan 0";
+                            std::cout << "De lengte is kleiner dan 0" << std::endl;
+                            continue;
                         }
                         road->setLength(strtod(el.c_str(), NULL));
                     } else if (elemName == "verbinding") {
                         Road *exit_road = new Road;
                         exit_road->setName(el);
                         road->setIntersection(exit_road);
+                    } else {
+                        std::cout << "Type not recognized, ignoring" << std::endl;
                     }
 
                 }
 
                 add_road(road);
 
-            }
-
-            if (type == "VOERTUIG") {
+            } else if (type == "VOERTUIG") {
 
                 std::string x = current_node->FirstChild()->FirstChild()->ToText()->Value();
 
@@ -168,11 +180,15 @@ RoadNetwork::RoadNetwork(std::string filename) {
                             ss << value;
                             std::string result = ss.str();
                             if(result != el){
-                                throw "De positie is geen double";
+//                                throw "De positie is geen double";
+                                std::cout << "De positie is geen double" << std::endl;
+                                continue;
                             }
 
                             if(atoi(el.c_str()) < 0){
-                                throw "De positie is kleiner dan 0";
+//                                throw "De positie is kleiner dan 0";
+                                std::cout << "De polsitie is kleiner dan 0" << std::endl;
+                                continue;
                             }
 
                             car->setCurrent_position(atoi(el.c_str()));
@@ -182,11 +198,15 @@ RoadNetwork::RoadNetwork(std::string filename) {
                             ss << value;
                             std::string result = ss.str();
                             if(result != el){
-                                throw "De snelheid is geen double";
+//                                throw "De snelheid is geen double";
+                                std::cout << "De snelheid is geen double" << std::endl;
+                                continue;
                             }
 
                             if(strtod(el.c_str(), NULL) < 0){
-                                throw "De snelheid is kleiner dan 0";
+//                                throw "De snelheid is kleiner dan 0";
+                                std::cout << "De snelheid is kleiner dan 0" << std::endl;
+                                continue;
                             }
                             car->setCurrent_speed(strtod(el.c_str(), NULL));
                         }
@@ -204,13 +224,27 @@ RoadNetwork::RoadNetwork(std::string filename) {
                     std::cout << "Ander type dan auto" << std::endl;
                 }
 
+            } else {
+                std::cout << "Type not recognized, ignoring" << std::endl;
             }
 
             current_node = current_node->NextSiblingElement();
 
         }
     } catch (std::string s){
-        std::cout << "Error reading file" << std::endl;
+
+        // Open the output file
+        std::ofstream output_file;
+        output_file.open("error.log");
+
+        output_file << s << std::endl;
+
+        std::cout << "See error.log for more information" << std::endl;
+    }
+
+
+    if(!check()){
+        throw "Incosistente verkeerssituatie";
     }
     ENSURE(check_position_cars(), "position");
     ENSURE(check_intersections(), "intersections");
@@ -230,7 +264,6 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
     std::string listItem = "\t-> ";
 
     // List all roads
-    std::vector<Road*> roads = getRoads();
     for(std::vector<Road*>::const_iterator road = roads.begin(); road != roads.end(); road++){
 
         output_file << "Baan: " << (*road)->getName() << std::endl;
@@ -326,6 +359,8 @@ void RoadNetwork::automatic_simulation() {
 
 RoadNetwork::RoadNetwork() {}
 
+
+
 bool RoadNetwork::car_on_existing_road(Vehicle *car) {
     REQUIRE(car != NULL, "De auto moet bestaan");
     REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
@@ -366,7 +401,7 @@ bool RoadNetwork::check_space_between_cars() {
     for(unsigned int i = 0; i < cars.size()-1; i++) {
         Vehicle* previouscar = findPreviouscar(cars[i]);
         if(previouscar != NULL &&
-           previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() < 2){
+           previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() < CONST::MIN_FOLLOWING_DISTANCE){
             std::cout << previouscar->getLicense_plate() << " " << previouscar->getCurrent_position() << " " << cars[i]->getLicense_plate() << " " << cars[i]->getCurrent_position() << std::endl;
             std::cout << previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() << std::endl;
             return false;
@@ -418,3 +453,20 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
     ENSURE(cars_size-1 == cars.size(), "Er is een element verwijderd uit de lijst");
 
 }
+
+bool RoadNetwork::ProperlyInitialised() {
+    for (int i = 0; i < cars.size(); ++i) {
+        if(!cars[i]->ProperlyInit()){
+            return false;
+        }
+    }
+
+    for (int i = 0; i < roads.size(); ++i) {
+        if(!roads[i]->ProperlyInit()){
+            return false;
+        }
+    }
+
+    return true;
+}
+

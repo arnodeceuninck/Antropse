@@ -78,6 +78,12 @@ public:
 
     void setIntersection(Road *intersection);
 
+    /**
+     * Check whether the road is properly initialised
+     * @return true when properly initialised
+     */
+    bool ProperlyInit();
+
 
 private:
 

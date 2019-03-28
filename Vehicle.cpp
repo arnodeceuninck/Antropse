@@ -95,7 +95,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
     if (previouscar != NULL) {
 
-        double ideal_following_distance = (3 * current_speed) / 4 + previouscar->getLength() + 2;
+        double ideal_following_distance = (3 * current_speed) / 4 + previouscar->getLength() + CONST::MIN_FOLLOWING_DISTANCE;
         double actual_following_distance =
                 previouscar->getCurrent_position() - previouscar->getLength() - current_position;
 
@@ -159,4 +159,14 @@ double Vehicle::getCurrent_speedup() const {
 
 Vehicle::~Vehicle() {
 
+}
+
+bool Vehicle::ProperlyInit() {
+    return (license_plate.size() > 0 &&
+            current_road != NULL &&
+            current_speed > CONST::MIN_CAR_SPEED &&
+            current_speed < current_road->getSpeed_limit() &&
+            current_speed < CONST::MAX_CAR_SPEED &&
+            current_speedup < CONST::MAX_CAR_SPEEDUP &&
+            current_speedup > CONST::MIN_CAR_SPEEDUP);
 }

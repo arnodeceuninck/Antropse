@@ -27,5 +27,7 @@ namespace CONST{
     const double MAX_CAR_SPEEDUP = 2;
     const double MIN_CAR_SPEEDUP = -8;
 
+    const double MIN_FOLLOWING_DISTANCE = 2;
+
 }
 #endif //ANTROPSE_CONSTVARIABLES_H

@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include "Car.h"
 #include "Road.h"
 #include "RoadNetwork.h"
@@ -16,7 +17,7 @@ int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
-    RoadNetwork roadNetwork("DefaultReadFile.xml");
+    RoadNetwork roadNetwork("tests/DefaulReadFile.xml");
     roadNetwork.generateOutputFile("output.txt");
 
     return 0;

@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
+#include <fstream>
 #include "Vehicle.h"
 #include "RoadNetwork.h"
 #include "Road.h"
@@ -40,6 +41,7 @@ protected:
 
 // Tests the default constructor.
 TEST_F(AntropseTest, DefaultReadFile) {
+
     roadNetwork = new RoadNetwork("tests/DefaultReadFile.xml");
     EXPECT_EQ(2, roadNetwork->nrOfCars());
 
@@ -131,6 +133,7 @@ TEST_F(AntropseTest, ContractViolationsVehicle){
     EXPECT_DEATH(testVehicle->setLicense_plate(""), "Assertion.*failed");
     EXPECT_NO_THROW(testVehicle->setCurrent_position(0));
 }
+
 // TODO's: Foute input herkennen
 //TEST_F(AntropseTest, SomeoneFloating){
 //    roadNetwork = new RoadNetwork("tests/SomeoneFloating.xml");

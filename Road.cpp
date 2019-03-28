@@ -48,4 +48,10 @@ void Road::setIntersection(Road *intersection) {
     Road::intersection = intersection;
 }
 
+bool Road::ProperlyInit() {
+    return name.size() > 0 &&
+            speed_limit > 0 &&
+            length > 0;
+}
+
 
