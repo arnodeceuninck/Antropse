@@ -37,6 +37,7 @@ double Vehicle::getCurrent_speed() const {
 }
 
 void Vehicle::setLicense_plate(const std::string &license_plate) {
+    REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
     Vehicle::license_plate = license_plate;
 }
 
@@ -45,14 +46,24 @@ void Vehicle::setCurrent_road(Road *current_road) {
 }
 
 void Vehicle::setCurrent_position(int current_position) {
+    REQUIRE(current_position >= 0, "De positie moet positief zijn");
+    if(current_road != NULL) {
+        REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
+    }
     Vehicle::current_position = current_position;
 }
 
 void Vehicle::setCurrent_speed(double current_speed) {
+    REQUIRE(current_speed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
+    if(current_road != NULL) {
+        REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
+    }
     Vehicle::current_speed = current_speed;
 }
 
 void Vehicle::setCurrent_speedup(double current_speedup) {
+    REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
+    REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
     Vehicle::current_speedup = current_speedup;
 }
 
@@ -62,8 +73,10 @@ Vehicle::Vehicle(double length): license_plate(""), current_road(NULL),
                                  current_speedup(0), length(length) {}
 
 bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
-    REQUIRE(roadNetwork->check(), "Roadnetwork moet correct geinitialiseerd zijn");
+    REQUIRE(roadNetwork->check_position_cars(), "position");
+    REQUIRE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
     REQUIRE(time >= 0, "Tijd moet positief zijn");
+    REQUIRE(roadNetwork->findCar(license_plate) != NULL, "De wagen moet in het netwerk zitten");
 
     // Bereken nieuwe positie van voertuig
     current_position = Convert::kmh_to_ms(current_speed)*time + current_position;
@@ -79,6 +92,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
     // Bereken nieuwe versnelling van voertuig;
     Vehicle* previouscar = roadNetwork->findPreviouscar(this);
+
     if (previouscar != NULL) {
 
         double ideal_following_distance = (3 * current_speed) / 4 + previouscar->getLength() + 2;
@@ -88,6 +102,7 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
         current_speedup = (actual_following_distance-ideal_following_distance)/2;
 
+//        std::cout << "Following " << ideal_following_distance << " " << actual_following_distance << current_speedup << std::endl;
         if (current_speedup > CONST::MAX_CAR_SPEEDUP){
             current_speedup = CONST::MAX_CAR_SPEEDUP;
         }
@@ -96,14 +111,13 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
         if(current_speed < current_road->getSpeed_limit()){
             current_speedup = CONST::MAX_CAR_SPEEDUP;
         } else {
-            if(current_speedup >= CONST::MIN_CAR_SPEEDUP-1)
-            current_speedup -= 1;
+            current_speedup = 0;
         }
     }
 
     // Controle of je aan deze snelheid niet over de max snelheid gaat
-    if(current_speedup * time + current_speed > current_road->getSpeed_limit()){
-        current_speedup = (current_road->getSpeed_limit()-current_speed)/time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
+    if(current_speedup * time + Convert::kmh_to_ms(current_speed) > Convert::kmh_to_ms(current_road->getSpeed_limit())){
+        current_speedup = (Convert::kmh_to_ms(current_road->getSpeed_limit())-Convert::kmh_to_ms(current_speed))/time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
     }
 
     // IF nieuwe positie valt buiten huidige baan
@@ -117,10 +131,14 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
             // ELSE
             // Verwijder voertuig uit simulatie
             roadNetwork->removeVehicle(license_plate);
+            break;
         }
     }
 
-    ENSURE(roadNetwork->check(), "Roadnetwork blijft geldig na de verplaatsing");
+//    std::cout << "Car " << license_plate << " " << current_position << std::endl;
+    ENSURE(roadNetwork->check_position_cars(), "position");
+    ENSURE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
+    // Space between cars is not guaranteed, because all cars have to be moved for this.
     return true;
 }
 

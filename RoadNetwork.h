@@ -29,7 +29,14 @@ public:
      * Add a new road to the network
      *
      * @param road The road you want to add
-     * // TODO: Prerequisites
+     *
+     * @pre
+     *  REQUIRE(road != NULL, "De weg moet bestaan");
+     *  REQUIRE(findRoad(road->getName()) == NULL, "De weg mag nog niet in het netwerk zitten");
+     *
+     *  @post
+     *   ENSURE(findRoad(road->getName()) == road, "De weg moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
+     *
      * @return true when successfully added, false when the prerequisites weren't met
      */
     bool add_road(Road* road);
@@ -38,7 +45,14 @@ public:
      * Add a new car to the network
      *
      * @param road The car you want to add
-     * // TODO: Prerequisites
+     *
+     * @pre
+     *  REQUIRE(car != NULL, "De auto moet bestaan");
+     *  REQUIRE(findCar(car->getLicense_plate()) == NULL, "De auto mag nog niet in het netwerk zitten");
+     *
+     * @post
+     *  ENSURE(findCar(car->getLicense_plate()) == car, "De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
+     *
      * @return true when successfully added, false when the prerequisites weren't met
      */
     bool add_car(Vehicle* car);
@@ -52,6 +66,8 @@ public:
 
     /**
      * A constructor making a RoadNetwork from an xml file
+     * @pre
+     *  REQUIRE(FileExists(filename)
      * @param filename The path of the file containing the xml description of the road network
      */
     RoadNetwork(std::string filename);
@@ -86,12 +102,39 @@ public:
 
     int nrOfCars();
 
+    /**
+     * Find the car in front of another car on the same road
+     * @param car
+     * @pre
+     *  REQUIRE(car != NULL, "De wagen moet bestaan");
+     * @return
+     */
     Vehicle* findPreviouscar(const Vehicle* car) const;
 
+    /**
+     * Automatische simulatie van het netwerk die door blijft gaan tot er geen wagens meer in het netwerk zitten.
+     * @pre
+     *  REQUIRE(check(), "Roadnetwork not valid");
+     * @post
+     *  ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
+     *  ENSURE(check(), "Valid roadnnetwork");
+     */
     void automatic_simulation();
 
+    /**
+     * Check to know if a car is on a road that exists in the network
+     * @param car
+     * @pre
+     *  REQUIRE(car != NULL, "De auto moet bestaan");
+     *  REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
+     * @return
+     */
     bool car_on_existing_road(Vehicle* car);
 
+    /**
+     * All checks for a valid roadnetwork
+     * @return
+     */
     bool check();
 
     bool check_if_cars_on_existing_road();
@@ -103,6 +146,18 @@ public:
     bool check_intersections();
 
 
+    /**
+     * Deletes a vehicle from the roadnetwork
+     * @param license_plate
+     * @pre
+     *  REQUIRE(findCar(license_plate) != NULL, "De auto moet in het netwerk zitten");
+     *  REQUIRE(cars.size() > 0, "De lijst met auto's mag niet leeg zijn");
+     *  unsigned int cars_size = cars.size();
+     *
+     * @post
+     *  ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
+     *  ENSURE(cars_size-1 == cars.size(), "Er is een element verwijderd uit de lijst");
+     */
     void removeVehicle(std::string license_plate);
 
 private:

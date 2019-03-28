@@ -45,18 +45,27 @@ public:
     /**
      * Change the name of a road
      * @param name The unique name for identifying the road
+     *
+     * @pre
+     *  REQUIRE(name.size() > 0, "De naam mag niet leeg zijn");
      */
     void setName(const std::string &name);
 
     /**
      * Change the speed limit of a road
      * @param speed_limit The maximum allowed speed to drive on the road in km/h
+     *
+     * @pre
+     *  REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
      */
     void setSpeed_limit(int speed_limit);
 
     /**
      * Change the length of the road
      * @param length The length of a road in m
+     *
+     * @pre
+     *  REQUIRE(length > 0, "De lengte moet strikt groter zijn dan 0");
      */
     void setLength(double length);
 

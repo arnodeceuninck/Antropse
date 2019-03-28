@@ -15,42 +15,42 @@
         <type>AUTO</type>
         <nummerplaat>651BUF1</nummerplaat>
         <baan>E19</baan>
-        <positie>20</positie>
+        <positie>5</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF2</nummerplaat>
         <baan>E19</baan>
-        <positie>40</positie>
+        <positie>10</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF3</nummerplaat>
         <baan>E19</baan>
-        <positie>60</positie>
+        <positie>15</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF4</nummerplaat>
         <baan>E19</baan>
-        <positie>80</positie>
+        <positie>20</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF5</nummerplaat>
         <baan>E19</baan>
-        <positie>100</positie>
+        <positie>25</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF6</nummerplaat>
         <baan>E19</baan>
-        <positie>120</positie>
+        <positie>30</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
 </ROOT>

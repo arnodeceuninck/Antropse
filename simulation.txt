@@ -1,0 +1,10 @@
+Baan: E19
+	-> snelheidslimiet: 30
+	-> lengte: 1000
+
+Voertuig: auto (1THK180)
+	-> baan: E19
+	-> positie: 999
+	-> snelheid: 30
+
+-----------------------------------------------------------

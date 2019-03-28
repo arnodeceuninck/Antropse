@@ -23,6 +23,7 @@ double Road::getLength() const {
 }
 
 void Road::setName(const std::string &name) {
+    REQUIRE(name.size() > 0, "De naam mag niet leeg zijn");
     Road::name = name;
 }
 

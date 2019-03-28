@@ -26,6 +26,13 @@ public:
      * @param current_road The road on which the car is driving
      * @param current_position The position on the current road from the starting point of this road in m.
      * @param current_speed The speed by which the car is driving on the current_road
+     *
+     * @pre
+     *  REQUIRE(current_position > 0, "Huidige positie moet op de zeg liggen");
+     *  REQUIRE(current_road != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
+     *  REQUIRE(current_position <= current_road->getLength(), "Huidige positie moet op de weg liggen");
+     *  REQUIRE(current_speed < current_road->getSpeed_limit(), "De auto mag niet te snel rijden");
+     *  REQUIRE(current_speed >= 0, "De auto moet een positieve snelheid hebben");
      */
     Car(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
 

@@ -47,6 +47,9 @@ public:
      * Change/set the license plate for a Vehicle.
      *
      * @param license_plate A string containing a unique ID for this Vehicle.
+     *
+     * @pre
+     *  REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
      */
     void setLicense_plate(const std::string &license_plate);
 
@@ -61,6 +64,12 @@ public:
      * Change the position on the road of a Vehicle
      *
      * @param current_position The distance from the starting point of the road (in m)
+     *
+     * @pre
+     *  REQUIRE(current_position >= 0, "De positie moet positief zijn");
+     *  if(current_road != NULL) {
+     *  REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
+     *   }
      */
     void setCurrent_position(int current_position);
 
@@ -68,6 +77,12 @@ public:
      * Change the speed of a Vehicle
      *
      * @param current_speed The new speed in km/h
+     *
+     * @pre
+     *  REQUIRE(current_speed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
+     *  if(current_road != NULL) {
+     *     REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
+     *  }
      */
     void setCurrent_speed(double current_speed);
 
@@ -78,6 +93,10 @@ public:
      * while a negative speedup makes the Vehicle go slower.
      *
      * @param current_speedup The speedup in m/s^2
+     *
+     * @pre
+     *  REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
+     *  REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
      */
     void setCurrent_speedup(double current_speedup);
 
@@ -91,7 +110,15 @@ public:
      * @param roadNetwork The network containing the traffic situation.
      *
      * @pre The systems contains a scheme of the virtual traffic situation. There is a vehicle on a road.
+     *  REQUIRE(roadNetwork->check_position_cars(), "position");
+     *  REQUIRE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
+     *  REQUIRE(time >= 0, "Tijd moet positief zijn");
+     *  REQUIRE(roadNetwork->findCar(license_plate) != NULL, "De wagen moet in het netwerk zitten");
+     *
      * @post The vehicle has a new position.
+     *  ENSURE(roadNetwork->check_position_cars(), "position");
+     *  ENSURE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
+     *  // Space between cars is not guaranteed, because all cars have to be moved for this.
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */

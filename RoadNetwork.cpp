@@ -212,10 +212,16 @@ RoadNetwork::RoadNetwork(std::string filename) {
     } catch (std::string s){
         std::cout << "Error reading file" << std::endl;
     }
+    ENSURE(check_position_cars(), "position");
+    ENSURE(check_intersections(), "intersections");
+    ENSURE(check_if_cars_on_existing_road(), "exist on road");
+    ENSURE(check_space_between_cars(), "rip");
     ENSURE(check(), "Roadnetwork not valid");
 }
 
 void RoadNetwork::generateOutputFile(const std::string& filename) {
+
+    // TODO: optie om tijdens automatic simulation een groot bestand te creeren met alle data na elke update
 
     // Open the output file
     std::ofstream output_file;
@@ -250,11 +256,12 @@ void RoadNetwork::generateOutputFile(const std::string& filename) {
 
     }
 
+    output_file << "-----------------------------------------------------------" << std::endl;
+
     output_file.close();
 }
 
 
-// TODO: is het niet logischer dat dit een boolean zou returnen en je de weg dan kan opvragen met findRoad()? ~ Arno
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         if((*road)->getIntersection() != NULL){
@@ -267,6 +274,8 @@ Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
 }
 
 Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
+    REQUIRE(car != NULL, "De wagen moet bestaan");
+
     std::vector<Vehicle*> previousCars;
     for(std::vector<Vehicle*>::const_iterator vehicle = cars.begin(); vehicle != cars.end(); vehicle++){
         if((*vehicle)->getCurrent_road() == car->getCurrent_road() && (*vehicle)->getCurrent_position() > car->getCurrent_position()){
@@ -290,7 +299,6 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 }
 
 int RoadNetwork::nrOfCars() {
-    REQUIRE(check(), "Roadnetwork not valid");
     return cars.size();
 }
 
@@ -298,8 +306,9 @@ int RoadNetwork::nrOfCars() {
 void RoadNetwork::automatic_simulation() {
     REQUIRE(check(), "Roadnetwork not valid");
     while(nrOfCars() > 0){
-        int n = nrOfCars();
-        for (int i = 0; i < n; ++i) {
+        int n = nrOfCars(); // Value to check wether a car has been removed
+        generateOutputFile("simulation.txt");
+        for (int i = 0; i < nrOfCars(); ++i) {
 
             cars[i]->move(1, this);
 
@@ -348,8 +357,18 @@ bool RoadNetwork::check_position_cars() {
 }
 
 bool RoadNetwork::check_space_between_cars() {
+//    for(unsigned int i = 0; i < cars.size()-1; i++) {
+//        if(abs(cars[i+1]->getCurrent_position() - cars[i+1]->getLength() - cars[i]->getCurrent_position()) < 5){
+//            return false;
+//        }
+//    }
+    if(cars.size() == 0){ return true; }
     for(unsigned int i = 0; i < cars.size()-1; i++) {
-        if(abs(cars[i+1]->getCurrent_position() - cars[i]->getCurrent_position()) < 5){
+        Vehicle* previouscar = findPreviouscar(cars[i]);
+        if(previouscar != NULL &&
+           previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() < 2){
+            std::cout << previouscar->getLicense_plate() << " " << previouscar->getCurrent_position() << " " << cars[i]->getLicense_plate() << " " << cars[i]->getCurrent_position() << std::endl;
+            std::cout << previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() << std::endl;
             return false;
         }
     }
@@ -385,6 +404,8 @@ Vehicle *RoadNetwork::findCar(std::string license_plate) const {
 
 void RoadNetwork::removeVehicle(std::string license_plate) {
     REQUIRE(findCar(license_plate) != NULL, "De auto moet in het netwerk zitten");
+    REQUIRE(cars.size() > 0, "De lijst met auto's mag niet leeg zijn");
+    unsigned int cars_size = cars.size();
 
     for (unsigned int i = 0; i < cars.size(); ++i) {
         if(cars[i]->getLicense_plate() == license_plate){
@@ -394,5 +415,6 @@ void RoadNetwork::removeVehicle(std::string license_plate) {
     }
 
     ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
+    ENSURE(cars_size-1 == cars.size(), "Er is een element verwijderd uit de lijst");
 
 }
