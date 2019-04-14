@@ -41,35 +41,36 @@ double Vehicle::getCurrent_speed() const {
     return current_speed;
 }
 
-void Vehicle::setLicense_plate(const std::string &license_plate) {
-    REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
-    Vehicle::license_plate = license_plate;
+void Vehicle::setLicense_plate(const std::string &newLicensePlate) {
+    REQUIRE(newLicensePlate.size() > 0, "Je nummerplaat kan niet leeg zijn");
+    Vehicle::license_plate = newLicensePlate;
 }
 
-void Vehicle::setCurrent_road(Road *current_road) {
-    Vehicle::current_road = current_road;
+void Vehicle::setCurrent_road(Road *newCurrentRoad) {
+    // TODO: check max speed
+    Vehicle::current_road = newCurrentRoad;
 }
 
-void Vehicle::setCurrent_position(int current_position) {
-    REQUIRE(current_position >= 0, "De positie moet positief zijn");
+void Vehicle::setCurrent_position(int newCurrentPosition) {
+    REQUIRE(newCurrentPosition >= 0, "De positie moet positief zijn");
     if(current_road != NULL) {
-        REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
+        REQUIRE(newCurrentPosition <= current_road->getLength(), "De positie ligt buiten de huidige weg");
     }
-    Vehicle::current_position = current_position;
+    Vehicle::current_position = newCurrentPosition;
 }
 
-void Vehicle::setCurrent_speed(double current_speed) {
-    REQUIRE(current_speed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
+void Vehicle::setCurrent_speed(double newCurrentSpeed) {
+    REQUIRE(newCurrentSpeed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
     if(current_road != NULL) {
-        REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
+        REQUIRE(newCurrentSpeed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
     }
-    Vehicle::current_speed = current_speed;
+    Vehicle::current_speed = newCurrentSpeed;
 }
 
-void Vehicle::setCurrent_speedup(double current_speedup) {
+void Vehicle::setCurrent_speedup(double newCurrentSpeedup) {
     REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
     REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
-    Vehicle::current_speedup = current_speedup;
+    Vehicle::current_speedup = newCurrentSpeedup;
 }
 
 

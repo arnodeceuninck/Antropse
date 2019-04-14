@@ -62,12 +62,12 @@ public:
 
     /**
      * Change the speed limit of a road
-     * @param speed_limit The maximum allowed speed to drive on the road in km/h
+     * @param newSpeed_limit The maximum allowed speed to drive on the road in km/h
      *
      * @pre
      *  REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
      */
-    void setSpeed_limit(int speed_limit);
+    void setSpeed_limit(int newSpeed_limit);
 
     /**
      * Change the length of the road

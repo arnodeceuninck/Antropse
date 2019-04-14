@@ -24,7 +24,7 @@ Car::Car(const std::string &license_plate, Road *current_road, int current_posit
 }
 
 std::string Car::getType() const {
-    return "auto";
+    return "AUTO";
 }
 
 Car::Car() : Vehicle(CONST::CAR_LENGTH) {}

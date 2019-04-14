@@ -22,8 +22,7 @@ int main() {
     RoadNetwork roadNetwork;
     RoadNetworkExporter exporter;
 
-    NetworkImporter importer;
-    importer.importRoadNetwork("tests/DefaultReadFile.xml", std::cerr, roadNetwork);
+    NetworkImporter::importRoadNetwork("tests/DefaultReadFile.xml", std::cerr, roadNetwork);
 
     exporter.documentStart(std::cout);
 //    roadNetwork.importNetwork("tests/DefaultReadFile.xml");

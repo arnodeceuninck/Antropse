@@ -9,9 +9,11 @@
 #include "Car.h"
 
 SuccessEnum
-NetworkImporter::importRoadNetwork(const std::string filename, std::ostream &errStream, RoadNetwork &roadNetwork) {
+NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &errStream, RoadNetwork &roadNetwork) {
 
         // TODO: opsplitsen in functies
+        // TODO: Alle setters een bool-functie maken, en als deze dus false returnt een partialImport doen en de
+        //  wagen/weg niet toevoegen
 
         SuccessEnum  endResult = Success;
 
@@ -26,8 +28,10 @@ NetworkImporter::importRoadNetwork(const std::string filename, std::ostream &err
 
         // Get into the root tag of the document
         TiXmlElement *ROOT = docu.FirstChildElement();
-        if(!strcmp(ROOT->Value(), "ROOT")){
+        std::string rootValue = ROOT->Value();
+        if(rootValue != "ROOT"){
             errStream << "Import aborted: Expected <ROOT> --- </ROOT> " << std::endl;
+            return ImportAborted;
         }
 
         // Get the first Lane/Vehicle

@@ -17,7 +17,7 @@ enum SuccessEnum {ImportFailed, ImportAborted, PartialImport, Success};
 
 class NetworkImporter {
 public:
-    static SuccessEnum importRoadNetwork(const std::string filename, std::ostream& errStream, RoadNetwork& roadNetwork);
+    static SuccessEnum importRoadNetwork(const std::string& filename, std::ostream& errStream, RoadNetwork& roadNetwork);
 };
 
 

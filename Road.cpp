@@ -25,19 +25,19 @@ double Road::getLength() const {
     return length;
 }
 
-void Road::setName(const std::string &name) {
-    REQUIRE(name.size() > 0, "De naam mag niet leeg zijn");
-    Road::name = name;
+void Road::setName(const std::string &newName) {
+    REQUIRE(newName.size() > 0, "De naam mag niet leeg zijn");
+    Road::name = newName;
 }
 
-void Road::setSpeed_limit(int speed_limit) {
-    REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
-    Road::speed_limit = speed_limit;
+void Road::setSpeed_limit(int newSpeed_limit) {
+    REQUIRE(newSpeed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
+    Road::speed_limit = newSpeed_limit;
 }
 
-void Road::setLength(double length) {
-    REQUIRE(length > 0, "De lengte moet strikt groter zijn dan 0");
-    Road::length = length;
+void Road::setLength(double newLength) {
+    REQUIRE(newLength > 0, "De lengte moet strikt groter zijn dan 0");
+    Road::length = newLength;
 }
 
 
@@ -47,15 +47,12 @@ Road *Road::getIntersection() const {
     return intersection;
 }
 
-void Road::setIntersection(Road *intersection) {
-    Road::intersection = intersection;
+void Road::setIntersection(Road *newIntersection) {
+    Road::intersection = newIntersection;
 }
 
 bool Road::ProperlyInit() const {
     return _initCheck == this;
-    /*return name.size() > 0 &&
-            speed_limit > 0 &&
-            length > 0;*/
 }
 
 

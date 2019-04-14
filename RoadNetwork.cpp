@@ -57,6 +57,7 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
     return NULL;
 }
 
+// TODO: Kan deze functie aub van naam veranderen
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         if((*road)->getIntersection() != NULL){
