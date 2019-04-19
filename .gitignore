@@ -44,3 +44,4 @@ gtest
 *.app
 
 
+.DS_Store
