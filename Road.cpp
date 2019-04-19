@@ -40,7 +40,6 @@ void Road::setLength(double newLength) {
     Road::length = newLength;
 }
 
-
 Road::Road() : name(), speed_limit(), length(), intersection(){ _initCheck = this; }
 
 Road *Road::getIntersection() const {
@@ -53,6 +52,13 @@ void Road::setIntersection(Road *newIntersection) {
 
 bool Road::ProperlyInit() const {
     return _initCheck == this;
+}
+
+Road::Road(const std::string &name, int speedLimit, double length, Road *intersection) : name(name),
+                                                                                         speed_limit(speedLimit),
+                                                                                         length(length),
+                                                                                         intersection(intersection) {
+    _initCheck = this;
 }
 
 

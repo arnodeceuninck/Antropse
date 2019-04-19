@@ -51,6 +51,8 @@ public:
      */
     Road();
 
+    Road(const std::string &name, int speedLimit, double length, Road *intersection);
+
     /**
      * Change the name of a road
      * @param name The unique name for identifying the road

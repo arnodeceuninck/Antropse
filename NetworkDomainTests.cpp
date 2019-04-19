@@ -1,0 +1,76 @@
+/**
+ * @file AntropseTests.cpp
+ * @brief Tests for the system
+ *
+ * @author Arno Deceuninck
+ *
+ * @date 14/03/2019
+ *
+ * @note This file is based on the TicTacToeTests from Serge Demeyer
+ */
+
+#include <iostream>
+#include <gtest/gtest.h>
+#include <fstream>
+#include "Vehicle.h"
+#include "RoadNetwork.h"
+#include "Road.h"
+#include "CONST.h"
+#include "NetworkImporter.h"
+#include "AntropseUtils.h"
+#include "Car.h"
+
+class NetworkDomainTests: public ::testing::Test {
+protected:
+    // You should make the members protected s.t. they can be
+    // accessed from sub-classes.
+
+    // virtual void SetUp() will be called before each test is run.  You
+    // should define it if you need to initialize the variables.
+    // Otherwise, this can be skipped.
+    virtual void SetUp() {
+        roadNetwork = RoadNetwork();
+        importResult = SuccessEnum();
+    }
+
+    // virtual void TearDown() will be called after each test is run.
+    // You should define it if there is cleanup work to do.  Otherwise,
+    // you don't have to provide it.
+    virtual void TearDown() {
+    }
+
+    // Declares the variables your tests want to use.
+    SuccessEnum importResult;
+    RoadNetwork roadNetwork;
+    Vehicle* testVehicle;
+    Road* testRoad;
+};
+
+TEST_F(NetworkDomainTests, GoingForward) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Car("ANT-432", testRoad, 20, 0);
+    roadNetwork.add_road(testRoad);
+    roadNetwork.add_car(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(testRoad, roadNetwork.findRoad("A12"));
+    EXPECT_TRUE(NULL == roadNetwork.retrieveRoad("A12"));
+    EXPECT_EQ(testVehicle, roadNetwork.findCar("ANT-432"));
+    EXPECT_EQ(1, roadNetwork.nrOfCars());
+    EXPECT_TRUE(NULL == roadNetwork.findPreviouscar(testVehicle));
+    EXPECT_TRUE(roadNetwork.check());
+    EXPECT_FALSE(roadNetwork.isEmpty());
+    EXPECT_TRUE(roadNetwork.properlyInitialized()); // TODO: why is this test failing?!
+    EXPECT_EQ(1, roadNetwork.nrOfRoads());
+
+    // Hierbijj zou het niet mogen crashen
+    roadNetwork.automatic_simulation();
+}
+
+//int main(int argc, char **argv) {
+//    ::testing::InitGoogleTest(&argc, argv);
+//    return RUN_ALL_TESTS();
+//}
