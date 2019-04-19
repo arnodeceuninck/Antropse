@@ -4,6 +4,6 @@
 
 #include "Convert.h"
 
-double Convert::kmh_to_ms(double kmh) {
+double Convert::kmhToMs(double kmh) {
     return kmh/3.6;
 }

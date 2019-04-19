@@ -11,17 +11,17 @@
 #include "DesignByContract.h"
 
 const std::string &Road::getName() const {
-    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
+    REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
     return name;
 }
 
-int Road::getSpeed_limit() const {
-    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
-    return speed_limit;
+int Road::getSpeedLimit() const {
+    REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
+    return speedLimit;
 }
 
 double Road::getLength() const {
-    REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
+    REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
     return length;
 }
 
@@ -30,9 +30,9 @@ void Road::setName(const std::string &newName) {
     Road::name = newName;
 }
 
-void Road::setSpeed_limit(int newSpeed_limit) {
-    REQUIRE(newSpeed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
-    Road::speed_limit = newSpeed_limit;
+void Road::setSpeedLimit(int newSpeedLimit) {
+    REQUIRE(newSpeedLimit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
+    Road::speedLimit = newSpeedLimit;
 }
 
 void Road::setLength(double newLength) {
@@ -40,7 +40,7 @@ void Road::setLength(double newLength) {
     Road::length = newLength;
 }
 
-Road::Road() : name(), speed_limit(), length(), intersection(){ _initCheck = this; }
+Road::Road() : name(), speedLimit(), length(), intersection(){ _initCheck = this; }
 
 Road *Road::getIntersection() const {
     return intersection;
@@ -50,12 +50,12 @@ void Road::setIntersection(Road *newIntersection) {
     Road::intersection = newIntersection;
 }
 
-bool Road::ProperlyInit() const {
+bool Road::properlyInit() const {
     return _initCheck == this;
 }
 
 Road::Road(const std::string &name, int speedLimit, double length, Road *intersection) : name(name),
-                                                                                         speed_limit(speedLimit),
+                                                                                         speedLimit(speedLimit),
                                                                                          length(length),
                                                                                          intersection(intersection) {
     _initCheck = this;

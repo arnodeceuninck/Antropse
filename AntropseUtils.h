@@ -14,15 +14,15 @@
 
 #include <iostream>
 
-bool DirectoryExists(const std::string dirname);
+bool directoryExists(const std::string dirName);
 
-bool FileExists(const std::string dirname);
+bool fileExists(const std::string fileName);
 
-bool FileIsEmpty(const std::string filename);
+bool fileIsEmpty(const std::string fileName);
 
-bool FileCompare(const std::string leftFileName, const std::string rightFileName);
+bool fileCompare(const std::string leftFileName, const std::string rightFileName);
 
-std::string ToString(int i);
+std::string toString(int i);
 
 // Closing of the ``header guard''.
 #endif

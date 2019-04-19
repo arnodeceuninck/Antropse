@@ -45,7 +45,7 @@ TEST_F(AntropseTest, FollowTheLeader) {
     EXPECT_EQ(2, roadNetwork->nrOfCars());
     EXPECT_EQ(static_cast<unsigned int>(1), roadNetwork->getRoads().size());
 
-    EXPECT_EQ("651BUF", roadNetwork->findPreviouscar(roadNetwork->findCar("1THK180"))->getLicense_plate());
+    EXPECT_EQ("651BUF", roadNetwork->findPreviouscar(roadNetwork->findCar("1THK180"))->getLicensePlate());
 
     roadNetwork->automatic_simulation();
 
@@ -84,9 +84,9 @@ TEST_F(AntropseTest, ContractViolationsVehicle){
     roadNetwork = new RoadNetwork("tests/GoingForward.xml");
     testVehicle = roadNetwork->getCars()[0];
     EXPECT_DEATH(testVehicle->setCurrent_position(-1), "");
-    EXPECT_DEATH(testVehicle->setCurrent_speed(932), "");
-    EXPECT_DEATH(testVehicle->setLicense_plate(""), "");
-    EXPECT_NO_THROW(testVehicle->setCurrent_position(0));
+    EXPECT_DEATH(testVehicle->setCurrentSpeed(932), "");
+    EXPECT_DEATH(testVehicle->setLicensePlate(""), "");
+    EXPECT_NO_THROW(testVehicle->setCurrentPosition(0));
 }
 
 TEST_F(AntropseTest, SomeoneFloating){
@@ -98,8 +98,8 @@ TEST_F(AntropseTest, SomeoneFloating){
     EXPECT_EQ(30, roadNetwork->getRoads()[0]->getLength());
 
     testVehicle = roadNetwork->getCars()[0];
-    EXPECT_EQ(20, testVehicle->getCurrent_position());
-    EXPECT_EQ(0.4, testVehicle->getCurrent_speed());
+    EXPECT_EQ(20, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0.4, testVehicle->getCurrentSpeed());
 
     EXPECT_TRUE(roadNetwork->check());
     roadNetwork->automatic_simulation();
@@ -111,9 +111,9 @@ TEST_F(AntropseTest, SomeoneFloating){
 //    roadNetwork = new RoadNetwork("tests/NoPersonqlSpace.xml");
 //
 //    // TODO: Error bij input verwachten
-//    EXPECT_FALSE(roadNetwork->check_space_between_cars());
-//    EXPECT_TRUE(roadNetwork->check_if_cars_on_existing_road());
-//    EXPECT_TRUE(roadNetwork->check_intersections());
+//    EXPECT_FALSE(roadNetwork->checkSpaceBetweenCars());
+//    EXPECT_TRUE(roadNetwork->checkIfCarsOnExistingRoad());
+//    EXPECT_TRUE(roadNetwork->checkIntersections());
 //    EXPECT_TRUE(roadNetwork->check_position_cars());
 //}
 //
@@ -128,7 +128,7 @@ TEST_F(AntropseTest, SomeoneFloating){
 //    roadNetwork = new RoadNetwork("tests/WayToLow.xml");
 //
 //    // TODO: Error bij input verwachten (snelheid > CONST::MAX_CAR_SPEED)
-//    EXPECT_FALSE(roadNetwork->check_position_cars());
+//    EXPECT_FALSE(roadNetwork->checkPositionCars());
 //}
 
 TEST_F(AntropseTest, SmallStreets){
@@ -143,10 +143,10 @@ TEST_F(AntropseTest, SmallStreets){
 
 //TEST_F(AntropseTest, SlowDown){
 //    roadNetwork = new RoadNetwork("tests/SlowDown.xml");
-//    EXPECT_EQ(10, roadNetwork->findRoad("E11")->getIntersection()->getSpeed_limit());
+//    EXPECT_EQ(10, roadNetwork->findRoad("E11")->getIntersection()->getSpeedLimit());
 //
 //    EXPECT_TRUE(roadNetwork->check());
-//    roadNetwork->automatic_simulation();
+//    roadNetwork->automaticSimulation();
 //    EXPECT_TRUE(roadNetwork->check());
 //
 //}

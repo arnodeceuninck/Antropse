@@ -38,7 +38,7 @@ void RoadNetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
     REQUIRE(game.properlyInitialized(), "RoadNetwork wasn't initialized when calling exportOn");
     REQUIRE(this->documentStarted(), "RoadNetwork Exporter wasn't in documentStarted when calling exportOn.");
 
-    this->sectionStart(onStream, "Roadnetwork " + ToString(game.getIteration())); // TODO: fix alternative for str
+    this->sectionStart(onStream, "Roadnetwork " + toString(game.getIteration())); // TODO: fix alternative for str
 
     this->roadNetworkStart(onStream);
 
@@ -76,7 +76,7 @@ void RoadNetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
 
     onStream << "Baan: " << road->getName() << std::endl;
 
-    onStream << listItem << "snelheidslimiet: " << road->getSpeed_limit() << std::endl;
+    onStream << listItem << "snelheidslimiet: " << road->getSpeedLimit() << std::endl;
     onStream << listItem << "lengte: " << road->getLength() << std::endl;
 
     onStream << std::endl;
@@ -95,11 +95,11 @@ void RoadNetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehi
 
     std::string listItem = "\t-> ";
 
-    onStream << "Voertuig: " << vehicle->getType() << " (" << vehicle->getLicense_plate() << ")" << std::endl;
+    onStream << "Voertuig: " << vehicle->getType() << " (" << vehicle->getLicensePlate() << ")" << std::endl;
 
-    onStream << listItem << "baan: " << vehicle->getCurrent_road()->getName() << std::endl;
-    onStream << listItem << "positie: " << vehicle->getCurrent_position() << std::endl;
-    onStream << listItem << "snelheid: " << vehicle->getCurrent_speed() << std::endl;
+    onStream << listItem << "baan: " << vehicle->getCurrentRoad()->getName() << std::endl;
+    onStream << listItem << "positie: " << vehicle->getCurrentPosition() << std::endl;
+    onStream << listItem << "snelheid: " << vehicle->getCurrentSpeed() << std::endl;
 
     onStream << std::endl;
 

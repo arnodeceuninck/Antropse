@@ -52,8 +52,8 @@ TEST_F(NetworkDomainTests, GoingForward) {
     roadNetwork = RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
     testVehicle = new Car("ANT-432", testRoad, 20, 0);
-    roadNetwork.add_road(testRoad);
-    roadNetwork.add_car(testVehicle);
+    roadNetwork.addRoad(testRoad);
+    roadNetwork.addCar(testVehicle);
 
     // The actual tests
     EXPECT_EQ(testRoad, roadNetwork.findRoad("A12"));
@@ -67,7 +67,7 @@ TEST_F(NetworkDomainTests, GoingForward) {
     EXPECT_EQ(1, roadNetwork.nrOfRoads());
 
     // Hierbijj zou het niet mogen crashen
-    roadNetwork.automatic_simulation();
+    roadNetwork.automaticSimulation();
 }
 
 //int main(int argc, char **argv) {

@@ -18,7 +18,7 @@
 #include "sstream"
 
 #include "CONST.h"
-bool RoadNetwork::add_road(Road *road) {
+bool RoadNetwork::addRoad(Road *road) {
     REQUIRE(road != NULL, "De weg moet bestaan");
     REQUIRE(findRoad(road->getName()) == NULL, "De weg mag nog niet in het netwerk zitten");
 
@@ -28,13 +28,13 @@ bool RoadNetwork::add_road(Road *road) {
     return true;
 }
 
-bool RoadNetwork::add_car(Vehicle *car) {
+bool RoadNetwork::addCar(Vehicle *car) {
     REQUIRE(car != NULL, "De auto moet bestaan");
-    REQUIRE(findCar(car->getLicense_plate()) == NULL, "De auto mag nog niet in het netwerk zitten");
+    REQUIRE(findCar(car->getLicensePlate()) == NULL, "De auto mag nog niet in het netwerk zitten");
 
     cars.push_back(car);
 
-    ENSURE(findCar(car->getLicense_plate()) == car, "De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
+    ENSURE(findCar(car->getLicensePlate()) == car, "De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
     return true;
 }
 
@@ -74,14 +74,15 @@ Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
 
     std::vector<Vehicle*> previousCars;
     for(std::vector<Vehicle*>::const_iterator vehicle = cars.begin(); vehicle != cars.end(); vehicle++){
-        if((*vehicle)->getCurrent_road() == car->getCurrent_road() && (*vehicle)->getCurrent_position() > car->getCurrent_position()){
+        if((*vehicle)->getCurrentRoad() == car->getCurrentRoad() && (*vehicle)->getCurrentPosition() >
+                                                                              car->getCurrentPosition()){
             previousCars.push_back(*vehicle);
         }
     }
     if(previousCars.size() > 0){
         Vehicle* previousCar = previousCars[0];
         for(std::vector<Vehicle*>::iterator vehicle = previousCars.begin(); vehicle != previousCars.end(); vehicle++){
-            if(previousCar->getCurrent_position() > (*vehicle)->getCurrent_position()){
+            if(previousCar->getCurrentPosition() > (*vehicle)->getCurrentPosition()){
                 previousCar = (*vehicle);
             }
         }
@@ -97,7 +98,7 @@ int RoadNetwork::nrOfCars() {
 }
 
 
-void RoadNetwork::automatic_simulation() {
+void RoadNetwork::automaticSimulation() {
     REQUIRE(check(), "Roadnetwork not valid");
     while(nrOfCars() > 0){
         moveAllCars(1);
@@ -111,11 +112,11 @@ RoadNetwork::RoadNetwork() { _initCheck = this; iteration = 0; }
 
 
 
-bool RoadNetwork::car_on_existing_road(Vehicle *car) {
+bool RoadNetwork::carOnExistingRoad(Vehicle *car) {
     REQUIRE(car != NULL, "De auto moet bestaan");
-    REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
+    REQUIRE(findCar(car->getLicensePlate()) != NULL, "De auto moet in het netwerk zitten");
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
-        if(car->getCurrent_road() == (*road)){
+        if(car->getCurrentRoad() == (*road)){
             return true;
         }
     }
@@ -123,27 +124,27 @@ bool RoadNetwork::car_on_existing_road(Vehicle *car) {
 }
 
 
-bool RoadNetwork::check_if_cars_on_existing_road() {
+bool RoadNetwork::checkIfCarsOnExistingRoad() {
     for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++) {
-        if (car_on_existing_road((*car)) == false) {
+        if (carOnExistingRoad((*car)) == false) {
             return false;
         }
     }
     return true;
 }
 
-bool RoadNetwork::check_position_cars() {
+bool RoadNetwork::checkPositionCars() {
     for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++) {
-        if((*car)->getCurrent_position() > (*car)->getCurrent_road()->getLength()){
+        if((*car)->getCurrentPosition() > (*car)->getCurrentRoad()->getLength()){
             return false;
         }
     }
     return true;
 }
 
-bool RoadNetwork::check_space_between_cars() {
+bool RoadNetwork::checkSpaceBetweenCars() {
 //    for(unsigned int i = 0; i < cars.size()-1; i++) {
-//        if(abs(cars[i+1]->getCurrent_position() - cars[i+1]->getLength() - cars[i]->getCurrent_position()) < 5){
+//        if(abs(cars[i+1]->getCurrent_position() - cars[i+1]->getLength() - cars[i]->getCurrentPosition()) < 5){
 //            return false;
 //        }
 //    }
@@ -151,16 +152,16 @@ bool RoadNetwork::check_space_between_cars() {
     for(unsigned int i = 0; i < cars.size()-1; i++) {
         Vehicle* previouscar = findPreviouscar(cars[i]);
         if(previouscar != NULL &&
-           previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() < CONST::MIN_FOLLOWING_DISTANCE){
-            std::cout << previouscar->getLicense_plate() << " " << previouscar->getCurrent_position() << " " << cars[i]->getLicense_plate() << " " << cars[i]->getCurrent_position() << std::endl;
-            std::cout << previouscar->getCurrent_position() - previouscar->getLength() - cars[i]->getCurrent_position() << std::endl;
+                previouscar->getCurrentPosition() - previouscar->getLength() - cars[i]->getCurrentPosition() < CONST::MIN_FOLLOWING_DISTANCE){
+            std::cout << previouscar->getLicensePlate() << " " << previouscar->getCurrentPosition() << " " << cars[i]->getLicensePlate() << " " << cars[i]->getCurrentPosition() << std::endl;
+            std::cout << previouscar->getCurrentPosition() - previouscar->getLength() - cars[i]->getCurrentPosition() << std::endl;
             return false;
         }
     }
     return true;
 }
 
-bool RoadNetwork::check_intersections() {
+bool RoadNetwork::checkIntersections() {
     for(std::vector<Road*>::iterator road = roads.begin(); road != roads.end(); road++){
         if((*road)->getIntersection() != NULL && retrieveRoad((*road)->getIntersection()->getName()) == NULL){
             return false;
@@ -171,7 +172,7 @@ bool RoadNetwork::check_intersections() {
 }
 
 bool RoadNetwork::check() {
-    if(check_if_cars_on_existing_road() && check_position_cars() && check_space_between_cars() && check_intersections()){
+    if(checkIfCarsOnExistingRoad() && checkPositionCars() && checkSpaceBetweenCars() && checkIntersections()){
         return true;
     } else{
         return false;
@@ -180,26 +181,26 @@ bool RoadNetwork::check() {
 
 Vehicle *RoadNetwork::findCar(std::string license_plate) const {
     for(std::vector<Vehicle*>::const_iterator car = cars.begin(); car != cars.end(); car++){
-        if((*car)->getLicense_plate() == license_plate){
+        if((*car)->getLicensePlate() == license_plate){
             return (*car);
         }
     }
     return NULL;
 }
 
-void RoadNetwork::removeVehicle(std::string license_plate) {
-    REQUIRE(findCar(license_plate) != NULL, "De auto moet in het netwerk zitten");
+void RoadNetwork::removeVehicle(std::string licensePlate) {
+    REQUIRE(findCar(licensePlate) != NULL, "De auto moet in het netwerk zitten");
     REQUIRE(cars.size() > 0, "De lijst met auto's mag niet leeg zijn");
     unsigned int cars_size = cars.size();
 
     for (unsigned int i = 0; i < cars.size(); ++i) {
-        if(cars[i]->getLicense_plate() == license_plate){
+        if(cars[i]->getLicensePlate() == licensePlate){
             delete cars[i];
             cars.erase(cars.begin()+i);
         }
     }
 
-    ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
+    ENSURE(findCar(licensePlate) == NULL, "De auto zit niet meer in het netwerk");
     ENSURE(cars_size-1 == cars.size(), "Er is een element verwijderd uit de lijst");
 
 }

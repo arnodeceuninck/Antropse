@@ -51,14 +51,14 @@ public:
      * @pre
      *  REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
      */
-    void setLicense_plate(const std::string &license_plate);
+    void setLicensePlate(const std::string &license_plate);
 
     /**
      * A function to set a Vehicle on a/another road
      *
      * @param current_road A pointer to the road the car will be driving on.
      */
-    void setCurrent_road(Road *current_road);
+    void setCurrentRoad(Road *current_road);
 
     /**
      * Change the position on the road of a Vehicle
@@ -71,7 +71,7 @@ public:
      *  REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
      *   }
      */
-    void setCurrent_position(int current_position);
+    void setCurrentPosition(int current_position);
 
     /**
      * Change the speed of a Vehicle
@@ -84,7 +84,7 @@ public:
      *     REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
      *  }
      */
-    void setCurrent_speed(double current_speed);
+    void setCurrentSpeed(double current_speed);
 
     /**
      * Change the speedup of a Vehicle.
@@ -98,7 +98,7 @@ public:
      *  REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
      *  REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
      */
-    void setCurrent_speedup(double current_speedup);
+    void setCurrentSpeedup(double current_speedup);
 
     /**
      * Move the vehicle
@@ -141,7 +141,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    const std::string &getLicense_plate() const;
+    const std::string &getLicensePlate() const;
 
     /**
      * Get the road the Vehicle is driving on
@@ -150,7 +150,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    Road *getCurrent_road() const;
+    Road *getCurrentRoad() const;
 
     /**
      * Get the position on the road of the current Vehicle
@@ -159,7 +159,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    int getCurrent_position() const;
+    int getCurrentPosition() const;
 
     /**
      * Get the speed at which the car is driving
@@ -168,7 +168,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    double getCurrent_speed() const;
+    double getCurrentSpeed() const;
 
     /**
      * The length of the vehicle in m.
@@ -192,16 +192,16 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    double getCurrent_speedup() const;
+    double getCurrentSpeedup() const;
 
 private:
-    std::string license_plate; /**< A unique ID for each vehicle */
-    Road* current_road; /**< The road on which the vehicle is currently positioned */
-    double current_position; /**< The position on the current road. This is the distance from the start of this road in m.
+    std::string licensePlate; /**< A unique ID for each vehicle */
+    Road* currentRoad; /**< The road on which the vehicle is currently positioned */
+    double currentPosition; /**< The position on the current road. This is the distance from the start of this road in m.
                              */
-    double current_speed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
+    double currentSpeed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
-    double current_speedup;
+    double currentSpeedup;
 
     /**< The speed by which the vehicle is accelerated in m / s^2. */
     double length;

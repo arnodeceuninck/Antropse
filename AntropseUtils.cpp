@@ -23,15 +23,15 @@ using namespace std;
 /**
 Auxiliary functions for file manipulation.
 */
-bool DirectoryExists(const std::string dirname) {
+bool directoryExists(const std::string dirName) {
     struct stat st;
-    return stat(dirname.c_str(), &st) == 0;
+    return stat(dirName.c_str(), &st) == 0;
 }
 
-bool FileExists(const std::string filename) {
+bool fileExists(const std::string fileName) {
     struct stat st;
-    if (stat(filename.c_str(), &st) != 0) return false;
-    ifstream f(filename.c_str());
+    if (stat(fileName.c_str(), &st) != 0) return false;
+    ifstream f(fileName.c_str());
     if (f.good()) {
         f.close();
         return true;
@@ -41,13 +41,13 @@ bool FileExists(const std::string filename) {
     }
 }
 
-bool FileIsEmpty(const std::string filename) {
+bool fileIsEmpty(const std::string fileName) {
     struct stat st;
-    if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
+    if (stat(fileName.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
     return st.st_size == 0;
 }
 
-bool FileCompare(const std::string leftFileName, const std::string rightFileName) {
+bool fileCompare(const std::string leftFileName, const std::string rightFileName) {
     ifstream leftFile, rightFile;
     char leftRead, rightRead;
     bool result;
@@ -79,7 +79,7 @@ bool FileCompare(const std::string leftFileName, const std::string rightFileName
     return result;
 }
 
-string ToString( int x ) {
+string toString(int x) {
     int length = snprintf( NULL, 0, "%d", x );
     char* buf = new char[length + 1];
     snprintf( buf, length + 1, "%d", x );

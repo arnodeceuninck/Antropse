@@ -39,7 +39,7 @@ public:
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool add_road(Road* road);
+    bool addRoad(Road *road);
 
     /**
      * Add a new car to the network
@@ -55,7 +55,7 @@ public:
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool add_car(Vehicle* car);
+    bool addCar(Vehicle *car);
 
     /**
      * Find a specific road in the RoadNetwork
@@ -67,7 +67,7 @@ public:
 //    /**
 //     * A constructor making a RoadNetwork from an xml file
 //     * @pre
-//     *  REQUIRE(FileExists(filename)
+//     *  REQUIRE(fileExists(filename)
 //     * @param filename The path of the file containing the xml description of the road network
 //     */
 //    void importNetwork(std::string filename);
@@ -119,7 +119,7 @@ public:
      *  ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
      *  ENSURE(check(), "Valid roadnnetwork");
      */
-    void automatic_simulation();
+    void automaticSimulation();
 
     /**
      * Check to know if a car is on a road that exists in the network
@@ -129,7 +129,7 @@ public:
      *  REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
      * @return
      */
-    bool car_on_existing_road(Vehicle* car);
+    bool carOnExistingRoad(Vehicle *car);
 
     /**
      * All checks for a valid roadnetwork
@@ -137,18 +137,18 @@ public:
      */
     bool check();
 
-    bool check_if_cars_on_existing_road();
+    bool checkIfCarsOnExistingRoad();
 
-    bool check_position_cars();
+    bool checkPositionCars();
 
-    bool check_space_between_cars();
+    bool checkSpaceBetweenCars();
 
-    bool check_intersections();
+    bool checkIntersections();
 
 
     /**
      * Deletes a vehicle from the roadnetwork
-     * @param license_plate
+     * @param licensePlate
      * @pre
      *  REQUIRE(findCar(license_plate) != NULL, "De auto moet in het netwerk zitten");
      *  REQUIRE(cars.size() > 0, "De lijst met auto's mag niet leeg zijn");
@@ -158,7 +158,7 @@ public:
      *  ENSURE(findCar(license_plate) == NULL, "De auto zit niet meer in het netwerk");
      *  ENSURE(cars_size-1 == cars.size(), "Er is een element verwijderd uit de lijst");
      */
-    void removeVehicle(std::string license_plate);
+    void removeVehicle(std::string licensePlate);
 
     /**
      * Checks whether there are still cars driving on the roadNetwork

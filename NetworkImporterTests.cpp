@@ -64,30 +64,30 @@ TEST_F(NetworkImporterTests, DefaultReadFile) {
     EXPECT_EQ(2, roadNetwork.nrOfRoads());
 
     testRoad = roadNetwork.findRoad("E313");
-    EXPECT_EQ(120, testRoad->getSpeed_limit());
+    EXPECT_EQ(120, testRoad->getSpeedLimit());
     EXPECT_EQ(5000, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
     testRoad = roadNetwork.findRoad("E19");
-    EXPECT_EQ(100, testRoad->getSpeed_limit());
+    EXPECT_EQ(100, testRoad->getSpeedLimit());
     EXPECT_EQ(2000, testRoad->getLength());
     EXPECT_EQ("E313", testRoad->getIntersection()->getName());
 
     testVehicle = roadNetwork.getCars()[0];
     EXPECT_EQ("AUTO", testVehicle->getType());
-    EXPECT_EQ("1THK180", testVehicle->getLicense_plate());
-    EXPECT_EQ("E19", testVehicle->getCurrent_road()->getName());
-    EXPECT_EQ(0, testVehicle->getCurrent_position());
-    EXPECT_EQ(0, testVehicle->getCurrent_speed());
+    EXPECT_EQ("1THK180", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(0, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
 
     testVehicle = roadNetwork.getCars()[1];
     EXPECT_EQ("AUTO", testVehicle->getType());
-    EXPECT_EQ("651BUF", testVehicle->getLicense_plate());
-    EXPECT_EQ("E19", testVehicle->getCurrent_road()->getName());
-    EXPECT_EQ(20, testVehicle->getCurrent_position());
-    EXPECT_EQ(0, testVehicle->getCurrent_speed());
+    EXPECT_EQ("651BUF", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(20, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
 
-    EXPECT_TRUE(FileIsEmpty(ofname));
+    EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
 TEST_F(NetworkImporterTests, SomeoneFloating){
@@ -108,18 +108,18 @@ TEST_F(NetworkImporterTests, SomeoneFloating){
     EXPECT_EQ(1, roadNetwork.nrOfRoads());
 
     testRoad = roadNetwork.findRoad("E19");
-    EXPECT_EQ(90, testRoad->getSpeed_limit());
+    EXPECT_EQ(90, testRoad->getSpeedLimit());
     EXPECT_EQ(30, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
     testVehicle = roadNetwork.getCars()[0];
     EXPECT_EQ("AUTO", testVehicle->getType());
-    EXPECT_EQ("651BUF", testVehicle->getLicense_plate());
-    EXPECT_EQ("E19", testVehicle->getCurrent_road()->getName());
-    EXPECT_EQ(20, testVehicle->getCurrent_position());
-    EXPECT_EQ(0.4, testVehicle->getCurrent_speed());
+    EXPECT_EQ("651BUF", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(20, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0.4, testVehicle->getCurrentSpeed());
 
-    EXPECT_TRUE(FileIsEmpty(ofname));
+    EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
 
@@ -141,19 +141,19 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
     EXPECT_EQ(1, roadNetwork.nrOfRoads());
 
     testRoad = roadNetwork.findRoad("E19");
-    EXPECT_EQ(100, testRoad->getSpeed_limit());
+    EXPECT_EQ(100, testRoad->getSpeedLimit());
     EXPECT_EQ(1000, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
     testVehicle = roadNetwork.getCars()[0];
     EXPECT_EQ("AUTO", testVehicle->getType());
-    EXPECT_EQ("1THK180", testVehicle->getLicense_plate());
-    EXPECT_EQ("E19", testVehicle->getCurrent_road()->getName());
-    EXPECT_EQ(4, testVehicle->getCurrent_position());
-    EXPECT_EQ(70, testVehicle->getCurrent_speed());
+    EXPECT_EQ("1THK180", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(4, testVehicle->getCurrentPosition());
+    EXPECT_EQ(70, testVehicle->getCurrentSpeed());
 
     std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
-    EXPECT_TRUE(FileCompare(expectedOfname, ofname));
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 }
 
 // TODO: uncomment these (crashing) tests
@@ -176,12 +176,12 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
 //    EXPECT_EQ(1, roadNetwork.nrOfRoads());
 //
 //    testRoad = roadNetwork.findRoad("E19");
-//    EXPECT_EQ(90, testRoad->getSpeed_limit());
+//    EXPECT_EQ(90, testRoad->getSpeedLimit());
 //    EXPECT_EQ(30, testRoad->getLength());
 //    EXPECT_TRUE(NULL == testRoad->getIntersection());
 //
 //    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
-//    EXPECT_TRUE(FileCompare(expectedOfname, ofname));
+//    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 //}
 //
 //
@@ -203,12 +203,12 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
 //    EXPECT_EQ(1, roadNetwork.nrOfRoads());
 //
 //    testRoad = roadNetwork.findRoad("E19");
-//    EXPECT_EQ(90, testRoad->getSpeed_limit());
+//    EXPECT_EQ(90, testRoad->getSpeedLimit());
 //    EXPECT_EQ(30, testRoad->getLength());
 //    EXPECT_TRUE(NULL == testRoad->getIntersection());
 //
 //    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
-//    EXPECT_TRUE(FileCompare(expectedOfname, ofname));
+//    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 //}
 
 TEST_F(NetworkImporterTests, ByeByeFile){
@@ -229,7 +229,7 @@ TEST_F(NetworkImporterTests, ByeByeFile){
     EXPECT_EQ(0, roadNetwork.nrOfRoads());
 
     std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
-    EXPECT_TRUE(FileCompare(expectedOfname, ofname));
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 }
 //
 //int main(int argc, char **argv) {

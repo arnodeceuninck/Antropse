@@ -1,0 +1,19 @@
+TODO Bij setters -> postcondities: als je een get doet moet het dezelfde waarde uitkomen.
+
+DONE Aparte input en output testen (slide 5)
+DONE Filecompare
+
+TODO Get length -> car ipv vehicle
+
+TODO Const is allemaal met car!
+
+TODO Cost::max_car_speed
+
+DONE (Road)Hoofdletters in functies!!! _ en hoofdletters gecombineerd!!!
+
+TODO findPreviousCar->inefficient: mss alle wagens sorteren op positie fzo
+
+TODO move-> opsplitsen in functies
+
+DONE ? Same as "Aparte input en output testen"? classes voor testen -> meer structuur
+

@@ -35,7 +35,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
      */
-    int getSpeed_limit() const;
+    int getSpeedLimit() const;
 
     /**
      * Get the length of the road
@@ -64,12 +64,12 @@ public:
 
     /**
      * Change the speed limit of a road
-     * @param newSpeed_limit The maximum allowed speed to drive on the road in km/h
+     * @param newSpeedLimit The maximum allowed speed to drive on the road in km/h
      *
      * @pre
      *  REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
      */
-    void setSpeed_limit(int newSpeed_limit);
+    void setSpeedLimit(int newSpeedLimit);
 
     /**
      * Change the length of the road
@@ -93,14 +93,14 @@ public:
      * Check whether the road is properly initialised
      * @return true when properly initialised
      */
-    bool ProperlyInit() const;
+    bool properlyInit() const;
 
 
 private:
 
     Road* _initCheck;
     std::string name; /**< A unique name for identification of the road */
-    int speed_limit; /**< The maximum legal speed to drive on a road in km / h */
+    int speedLimit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */
     Road* intersection; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */

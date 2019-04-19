@@ -85,7 +85,7 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                             continue;
                         }
 
-                        road->setSpeed_limit(atoi(el.c_str()));
+                        road->setSpeedLimit(atoi(el.c_str()));
                     } else if (elemName == "lengte") {
                         double value = strtod(el.c_str(), NULL);
                         std::stringstream ss;
@@ -117,7 +117,7 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
 
                 }
 
-                roadNetwork.add_road(road);
+                roadNetwork.addRoad(road);
 
             } else if (type == "VOERTUIG") {
 
@@ -135,14 +135,14 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                         std::string el = elem->FirstChild()->ToText()->Value();
 
                         if (elemName == "nummerplaat") {
-                            car->setLicense_plate(el);
+                            car->setLicensePlate(el);
                         } else if (elemName == "baan") {
                             Road *road = roadNetwork.findRoad(el);
                             if(road == NULL){
                                 endResult = PartialImport;
                                 errStream << "De baan waarop de auto zou moeten rijden bestaat niet" << std::endl;
                             }
-                            car->setCurrent_road(road);
+                            car->setCurrentRoad(road);
                         } else if (elemName == "positie") {
                             double value = atoi(el.c_str());
                             std::stringstream ss;
@@ -162,7 +162,7 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                                 continue;
                             }
 
-                            car->setCurrent_position(atoi(el.c_str()));
+                            car->setCurrentPosition(atoi(el.c_str()));
                         } else if (elemName == "snelheid") {
                             // Check whether the speed is a double
                             double value = strtod(el.c_str(), NULL);
@@ -182,17 +182,17 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                                 errStream << "De snelheid is kleiner dan 0" << std::endl;
                                 continue;
                             }
-                            car->setCurrent_speed(strtod(el.c_str(), NULL));
+                            car->setCurrentSpeed(strtod(el.c_str(), NULL));
                         }
 
                     }
 
-                    if(car->getCurrent_position() > car->getCurrent_road()->getLength()){
+                    if(car->getCurrentPosition() > car->getCurrentRoad()->getLength()){
                         endResult = PartialImport;
                         errStream << "De positie van de auto is groter dan de lengte van de baan" << std::endl;
                     }
 
-                    roadNetwork.add_car(car);
+                    roadNetwork.addCar(car);
 
                 } else {
                     // Vehicle type not (yet) supported

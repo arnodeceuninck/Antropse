@@ -17,7 +17,7 @@ namespace Convert{
      * @param kmh The speed in kilometers per hour
      * @return The speed in meters per second
      */
-    double kmh_to_ms(double kmh);
+    double kmhToMs(double kmh);
 }
 
 #endif //ANTROPSE_CONVERT_H

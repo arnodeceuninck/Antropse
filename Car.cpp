@@ -12,15 +12,15 @@
 #include "DesignByContract.h"
 #include "Road.h"
 
-Car::Car(const std::string &license_plate, Road *current_road, int current_position, double current_speed) :
+Car::Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed) :
 
-         Vehicle(license_plate, current_road, current_position, current_speed, CONST::CAR_LENGTH){
+         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed, CONST::CAR_LENGTH){
 
-    REQUIRE(current_position > 0, "Huidige positie moet op de zeg liggen");
-    REQUIRE(current_road != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
-    REQUIRE(current_position <= current_road->getLength(), "Huidige positie moet op de weg liggen");
-    REQUIRE(current_speed < current_road->getSpeed_limit(), "De auto mag niet te snel rijden");
-    REQUIRE(current_speed >= 0, "De auto moet een positieve snelheid hebben");
+    REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
+    REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
+    REQUIRE(currentPosition <= currentRoad->getLength(), "Huidige positie moet op de weg liggen");
+    REQUIRE(currentSpeed < currentRoad->getSpeedLimit(), "De auto mag niet te snel rijden");
+    REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
 }
 
 std::string Car::getType() const {
