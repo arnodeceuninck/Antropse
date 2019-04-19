@@ -64,19 +64,19 @@ public:
      */
     Road* findRoad(std::string nameRoad);
 
-    /**
-     * A constructor making a RoadNetwork from an xml file
-     * @pre
-     *  REQUIRE(FileExists(filename)
-     * @param filename The path of the file containing the xml description of the road network
-     */
-    RoadNetwork(std::string filename);
-
-    /**
-     * Generate a simple output to a file containing an overview of the roads and vehicles on the road
-     * @param filename The path to the file where you'd like to write the output to.
-     */
-    void generateOutputFile(const std::string& filename);
+//    /**
+//     * A constructor making a RoadNetwork from an xml file
+//     * @pre
+//     *  REQUIRE(FileExists(filename)
+//     * @param filename The path of the file containing the xml description of the road network
+//     */
+//    void importNetwork(std::string filename);
+//
+//    /**
+//     * Generate a simple output to a file containing an overview of the roads and vehicles on the road
+//     * @param filename The path to the file where you'd like to write the output to.
+//     */
+//    void generateOutputFile(const std::string& filename);
 
     /**
      * Get a list of all roads on the RoadNetwork
@@ -161,12 +161,29 @@ public:
     void removeVehicle(std::string license_plate);
 
     /**
+     * Checks whether there are still cars driving on the roadNetwork
+     *
+     * @return true when there are still cars left in the roadnetwork
+     */
+    bool isEmpty();
+
+    void moveAllCars(int time);
+
+    /**
      * Check whether all cars and roads in the network are properly initialised
      * @return
      */
-    bool ProperlyInitialised();
+    bool properlyInitialized();
+
+    int nrOfRoads();
 
 private:
+    int iteration;
+public:
+    int getIteration() const;
+
+private:
+
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */

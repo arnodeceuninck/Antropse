@@ -3,13 +3,12 @@
         <naam>E19</naam>
         <snelheidslimiet>90</snelheidslimiet>
         <lengte>30</lengte>
-        <verbinding>E313</verbinding>
     </BAAN>
     <VOERTUIG>
         <type>AUTO</type>
         <nummerplaat>651BUF</nummerplaat>
         <baan>E19</baan>
         <positie>20</positie>
-        <snelheid>0.4</snelheid>
+        <snelheid>-40</snelheid>
     </VOERTUIG>
 </ROOT>

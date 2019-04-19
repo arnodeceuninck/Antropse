@@ -23,8 +23,8 @@ Car::Car(const std::string &license_plate, Road *current_road, int current_posit
     REQUIRE(current_speed >= 0, "De auto moet een positieve snelheid hebben");
 }
 
-std::string Car::getType() {
-    return "auto";
+std::string Car::getType() const {
+    return "AUTO";
 }
 
 Car::Car() : Vehicle(CONST::CAR_LENGTH) {}

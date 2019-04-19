@@ -45,7 +45,7 @@ public:
      * Returns the type of this vehicle
      * @return A string representing the type of the vehicle, being a car for this subclass
      */
-    virtual std::string getType();
+    virtual std::string getType() const ;
 
 };
 

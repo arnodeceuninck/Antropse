@@ -131,7 +131,7 @@ public:
      *
      * @return The type of the vehicle as string
      */
-    virtual std::string getType()=0;
+    virtual std::string getType() const=0;
 
     /**
      * A function to get the unique identification string of a vehicle.
