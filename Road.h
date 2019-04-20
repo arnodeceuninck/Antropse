@@ -11,6 +11,10 @@
 #define ANTROPSE_ROAD_H
 
 #include <string>
+//#include <vector>
+#include <map>
+#include <set>
+
 
 /**
  * A class used to describe a Road in a RoadNetwork
@@ -95,6 +99,31 @@ public:
      */
     bool properlyInit() const;
 
+    /**
+     * Add a bus stop to the road
+     *
+     * @param position The position on the road to add the bus stop
+     * @return true when succesfully added, false when there was an error adding the stop
+     */
+    bool addBusStop(int position);
+
+    /**
+     * Add a zone to the road
+     *
+     * @param position The position on the road where the zone starts
+     * @param speedLimit The speed limit in the zone
+     * @return true when succesfully added, false when there was an error adding the zone
+     */
+    bool addZone(double position, int zoneSpeedLimit);
+
+    /**
+     * Add a traffic light to the road
+     *
+     * @param position The position on the road to add the light
+     * @return true when succesfully added, false when there was an error adding the stop
+     */
+    bool addTrafficLight(int position);
+
 
 private:
 
@@ -104,7 +133,9 @@ private:
     double length; /**< The length of a road in m */
     Road* intersection; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
-
+    std::set<double> busStops; // I'm using a set instead of a vector to keep it all sorted
+    std::set<double> trafficLights;
+    std::map<double, int> zones; // first number is the position, second number the speed_limit
 };
 
 

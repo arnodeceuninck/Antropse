@@ -1,0 +1,23 @@
+<ROOT>
+    <BAAN>
+        <naam>Middelheimlaan</naam>
+        <snelheidslimiet>50</snelheidslimiet>
+        <lengte>1000</lengte>
+    </BAAN>
+    <VERKEERSTEKEN>
+        <type>BUSHALTE</type>
+        <baan>Middelheimlaan</baan>
+        <positie>250</positie>
+    </VERKEERSTEKEN>
+    <VERKEERSTEKEN>
+        <type>ZONE</type>
+        <baan>Middelheimlaan</baan>
+        <positie>500</positie>
+        <snelheidslimiet>30</snelheidslimiet>
+    </VERKEERSTEKEN>
+    <VERKEERSTEKEN>
+        <type>BUSHALTE</type>
+        <baan>Middelheimlaan</baan>
+        <positie>750</positie>
+    </VERKEERSTEKEN>
+</ROOT>

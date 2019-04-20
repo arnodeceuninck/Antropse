@@ -210,9 +210,94 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                 roadNetwork.addCar(car);
 
 
+            } else if (type == "VERKEERSTEKEN") {
+
+                std::string signType = current_node->FirstChild()->FirstChild()->ToText()->Value();
+
+                if(signType == "BUSHALTE"){
+                    TiXmlNode* roadNode = current_node->FirstChildElement("baan")->FirstChild();
+                    TiXmlNode* positionNode = current_node->FirstChildElement("positie")->FirstChild();
+
+                    if(roadNode == NULL or positionNode == NULL){
+                        endResult = PartialImport;
+                        errStream << "Ontbrekend element bij bushalte" << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    std::string roadName = roadNode->ToText()->Value();
+                    double position = std::strtod(positionNode->ToText()->Value(), NULL);
+
+                    Road* road = roadNetwork.findRoad(roadName);
+                    if(road == NULL){
+                        endResult = PartialImport;
+                        errStream << "Geen weg gevonden met naam " << roadName << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    if(!road->addBusStop(position)){
+                        endResult = PartialImport;
+                        errStream << "Ongeldige gegevens bij busstop" << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }// TODO: check int or double position
+                } else if(signType == "ZONE"){
+                    TiXmlNode* roadNode = current_node->FirstChildElement("baan")->FirstChild();
+                    TiXmlNode* positionNode = current_node->FirstChildElement("positie")->FirstChild();
+                    TiXmlNode* speedLimitNode = current_node->FirstChildElement("snelheidslimiet")->FirstChild();
+                    if(roadNode == NULL or positionNode == NULL or speedLimitNode == NULL){
+                        endResult = PartialImport;
+                        errStream << "Ontbrekend element bij zone" << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    std::string roadName = roadNode->ToText()->Value();
+                    double position = std::strtod(positionNode->ToText()->Value(), NULL);
+                    double speedLimit = std::strtod(speedLimitNode->ToText()->Value(), NULL);
+
+                    Road* road = roadNetwork.findRoad(roadName);
+                    if(road == NULL){
+                        endResult = PartialImport;
+                        errStream << "Geen weg gevonden met naam " << roadName << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    if(!road->addZone(position, speedLimit)){
+                        endResult = PartialImport;
+                        errStream << "Ongeldige gegevens bij busstop" << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    } // TODO: check int or double position
+                } else if(signType == "VERKEERSLICHT"){
+                    TiXmlNode* roadNode = current_node->FirstChildElement("baan")->FirstChild();
+                    TiXmlNode* positionNode = current_node->FirstChildElement("positie")->FirstChild();
+                    if(roadNode == NULL or positionNode == NULL){
+                        endResult = PartialImport;
+                        errStream << "Ontbrekend element bij verkeerslicht" << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    std::string roadName = roadNode->ToText()->Value();
+                    double position = std::strtod(positionNode->ToText()->Value(), NULL);
+
+                    Road* road = roadNetwork.findRoad(roadName);
+                    if(road == NULL){
+                        endResult = PartialImport;
+                        errStream << "Geen weg gevonden met naam " << roadName << std::endl;
+                        current_node = current_node->NextSiblingElement();
+                        continue;
+                    }
+
+                    road->addTrafficLight(position); // TODO: check int or double position
+                }
             } else {
                 endResult = PartialImport;
                 errStream << "Type not recognized, ignoring" << std::endl;
+
             }
 
             current_node = current_node->NextSiblingElement();

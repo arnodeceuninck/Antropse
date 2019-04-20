@@ -65,4 +65,37 @@ Road::Road(const std::string &name, int speedLimit, double length, Road *interse
     _initCheck = this;
 }
 
+bool Road::addBusStop(int position) {
+    if(position > 0 &&
+        position < getLength() &&
+        "Er is nog geen bushalte op de postie"){// TODO check for bus stop at position
+        busStops.insert(position);
+        // TODO: ensure
+        return true;
+    }
+    return false;
+}
+
+bool Road::addZone(double position, int zoneSpeedLimit) {
+    if(position > 0 &&
+       position < getLength() &&
+       "Er is nog geen zonebord op de postie"){// TODO check for bus stop at position
+        zones[position] = zoneSpeedLimit;
+        // TODO: ensure
+        return true;
+    }
+    return false;
+}
+
+bool Road::addTrafficLight(int position) {
+    if(position > 0 &&
+       position < getLength() &&
+       "Er is nog geen verkeerslicht op de postie"){// TODO check for bus stop at position
+        trafficLights.insert(position);
+        // TODO: ensure
+        return true;
+    }
+    return false;
+}
+
 

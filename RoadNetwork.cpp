@@ -237,3 +237,17 @@ int RoadNetwork::getIteration() const {
     return iteration;
 }
 
+// TODO: Delete the lines below this
+//bool RoadNetwork::addBusStop(std::string roadName, int position) {
+//    Road* road = findRoad(roadName);
+//    return false;
+//}
+//
+//bool RoadNetwork::addZone(std::string roadName, double position, int speedLimit) {
+//    return false;
+//}
+//
+//bool RoadNetwork::addTrafficLight(std::string roadName, int position) {
+//    return false;
+//}
+//

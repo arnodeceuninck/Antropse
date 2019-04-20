@@ -177,6 +177,37 @@ public:
 
     int nrOfRoads();
 
+    // TODO: delete the functions below this: can be done using findRoad() and addBusStop() from road;
+//    /**
+//     * Add a bus stop to the road network
+//     *
+//     * @param roadName The road you want to add a bus stop to
+//     * @param position The position on the road to add the bus stop
+//     * @return true when succesfully added, false when there was an error adding the stop
+//     */
+//    bool addBusStop(std::string roadName, int position);
+//
+//    /**
+//     * Add a zone to the roadnetork
+//     *
+//     * @param roadName The name of the road you want to add the road to
+//     * @param position The position on the road where the zone starts
+//     * @param speedLimit The speed limit in the zone
+//     * @return true when succesfully added, false when there was an error adding the zone
+//     */
+//    bool addZone(std::string roadName, double position, int speedLimit);
+//
+//    /**
+//     * Add a traffic light to the road network
+//     *
+//     * @param roadName The road you want to add the light to
+//     * @param position The position on the road to add the light
+//     * @return true when succesfully added, false when there was an error adding the stop
+//     */
+//    bool addTrafficLight(std::string roadName, int position);
+
+
+
 private:
     int iteration;
 public:
