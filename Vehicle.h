@@ -46,19 +46,19 @@ public:
     /**
      * Change/set the license plate for a Vehicle.
      *
-     * @param license_plate A string containing a unique ID for this Vehicle.
+     * @param newLicensePlate A string containing a unique ID for this Vehicle.
      *
      * @pre
      *  REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
      */
-    void setLicensePlate(const std::string &license_plate);
+    void setLicensePlate(const std::string &newLicensePlate);
 
     /**
      * A function to set a Vehicle on a/another road
      *
-     * @param current_road A pointer to the road the car will be driving on.
+     * @param newCurrentRoad A pointer to the road the car will be driving on.
      */
-    void setCurrentRoad(Road *current_road);
+    void setCurrentRoad(Road *newCurrentRoad);
 
     /**
      * Change the position on the road of a Vehicle

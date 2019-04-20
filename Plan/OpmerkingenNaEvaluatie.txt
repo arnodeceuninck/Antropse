@@ -1,4 +1,4 @@
-TODO Bij setters -> postcondities: als je een get doet moet het dezelfde waarde uitkomen.
+DONE Bij setters -> postcondities: als je een get doet moet het dezelfde waarde uitkomen.
 
 DONE Aparte input en output testen (slide 5)
 DONE Filecompare

@@ -41,14 +41,16 @@ double Vehicle::getCurrentSpeed() const {
     return currentSpeed;
 }
 
-void Vehicle::setLicensePlate(const std::string &license_plate) {
-    REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
-    Vehicle::licensePlate = license_plate;
+void Vehicle::setLicensePlate(const std::string &newLicensePlate) {
+    REQUIRE(newLicensePlate.size() > 0, "Je nummerplaat kan niet leeg zijn");
+    Vehicle::licensePlate = newLicensePlate;
+    ENSURE(getLicensePlate() == licensePlate, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
 }
 
-void Vehicle::setCurrentRoad(Road *current_road) {
+void Vehicle::setCurrentRoad(Road *newCurrentRoad) {
     // TODO: check max speed
-    Vehicle::currentRoad = current_road;
+    Vehicle::currentRoad = newCurrentRoad;
+    ENSURE(getCurrentRoad() == newCurrentRoad, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
 }
 
 void Vehicle::setCurrentPosition(int newCurrentPosition) {
@@ -56,7 +58,8 @@ void Vehicle::setCurrentPosition(int newCurrentPosition) {
     if(currentRoad != NULL) {
         REQUIRE(newCurrentPosition <= currentRoad->getLength(), "De positie ligt buiten de huidige weg");
     }
-    Vehicle::currentPosition = currentPosition;
+    Vehicle::currentPosition = newCurrentPosition;
+    ENSURE(getCurrentPosition() == newCurrentPosition, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
 }
 
 void Vehicle::setCurrentSpeed(double newCurrentSpeed) {
@@ -65,12 +68,14 @@ void Vehicle::setCurrentSpeed(double newCurrentSpeed) {
         REQUIRE(newCurrentSpeed <= currentRoad->getSpeedLimit(), "Te snel rijden is verboden");
     }
     Vehicle::currentSpeed = newCurrentSpeed;
+    ENSURE(getCurrentSpeed() == currentSpeed, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
 }
 
 void Vehicle::setCurrentSpeedup(double newCurrentSpeedup) {
     REQUIRE(currentSpeedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
     REQUIRE(currentSpeedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
     Vehicle::currentSpeedup = newCurrentSpeedup;
+    ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
 }
 
 
