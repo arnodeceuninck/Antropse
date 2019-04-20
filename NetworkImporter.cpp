@@ -7,6 +7,9 @@
 #include "TinyXML/tinyxml.h"
 #include "Road.h"
 #include "Car.h"
+#include "MotorBike.h"
+#include "Bus.h"
+#include "Truck.h"
 
 SuccessEnum
 NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &errStream, RoadNetwork &roadNetwork) {
@@ -124,82 +127,88 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
                 // wtf is x? Duidelijke namen aub, dankje x
                 std::string x = current_node->FirstChild()->FirstChild()->ToText()->Value();
 
-                if (x == "AUTO") {
+                Vehicle* car;
 
-                    Car *car = new Car();
-
-                    for (TiXmlElement *elem = current_node->FirstChildElement();
-                         elem != NULL; elem = elem->NextSiblingElement()) {
-
-                        std::string elemName = elem->Value();
-                        std::string el = elem->FirstChild()->ToText()->Value();
-
-                        if (elemName == "nummerplaat") {
-                            car->setLicensePlate(el);
-                        } else if (elemName == "baan") {
-                            Road *road = roadNetwork.findRoad(el);
-                            if(road == NULL){
-                                endResult = PartialImport;
-                                errStream << "De baan waarop de auto zou moeten rijden bestaat niet" << std::endl;
-                            }
-                            car->setCurrentRoad(road);
-                        } else if (elemName == "positie") {
-                            double value = atoi(el.c_str());
-                            std::stringstream ss;
-                            ss << value;
-                            std::string result = ss.str();
-                            if(result != el){
-//                                throw "De positie is geen double";
-                                endResult = PartialImport;
-                                errStream << "De positie is geen double" << std::endl;
-                                continue;
-                            }
-
-                            if(atoi(el.c_str()) < 0){
-//                                throw "De positie is kleiner dan 0";
-                                endResult = PartialImport;
-                                errStream << "De polsitie is kleiner dan 0" << std::endl;
-                                continue;
-                            }
-
-                            car->setCurrentPosition(atoi(el.c_str()));
-                        } else if (elemName == "snelheid") {
-                            // Check whether the speed is a double
-                            double value = strtod(el.c_str(), NULL);
-                            std::stringstream ss;
-                            ss << value;
-                            std::string result = ss.str();
-                            if(result != el){
-//                                throw "De snelheid is geen double";
-                                endResult = PartialImport;
-                                errStream << "De snelheid is geen double" << std::endl;
-                                continue;
-                            }
-
-                            if(strtod(el.c_str(), NULL) < 0){
-//                                throw "De snelheid is kleiner dan 0";
-                                endResult = PartialImport;
-                                errStream << "De snelheid is kleiner dan 0" << std::endl;
-                                continue;
-                            }
-                            car->setCurrentSpeed(strtod(el.c_str(), NULL));
-                        }
-
-                    }
-
-                    if(car->getCurrentPosition() > car->getCurrentRoad()->getLength()){
-                        endResult = PartialImport;
-                        errStream << "De positie van de auto is groter dan de lengte van de baan" << std::endl;
-                    }
-
-                    roadNetwork.addCar(car);
-
+                if(x == "AUTO") {
+                    car = new Car();
+                } else if(x == "MOTORFIETS"){
+                    car = new MotorBike();
+                } else if(x == "BUS"){
+                    car = new Bus();
+                } else if(x == "VRACHTWAGEN"){
+                    car = new Truck();
                 } else {
-                    // Vehicle type not (yet) supported
                     endResult = PartialImport;
-                    errStream << "Ander type dan auto" << std::endl;
+                    errStream << "Type not recognized, ignoring" << std::endl;
                     continue;
                 }
+
+                for (TiXmlElement *elem = current_node->FirstChildElement();
+                     elem != NULL; elem = elem->NextSiblingElement()) {
+
+                    std::string elemName = elem->Value();
+                    std::string el = elem->FirstChild()->ToText()->Value();
+
+                    if (elemName == "nummerplaat") {
+                        car->setLicensePlate(el);
+                    } else if (elemName == "baan") {
+                        Road *road = roadNetwork.findRoad(el);
+                        if(road == NULL){
+                            endResult = PartialImport;
+                            errStream << "De baan waarop de auto zou moeten rijden bestaat niet" << std::endl;
+                        }
+                        car->setCurrentRoad(road);
+                    } else if (elemName == "positie") {
+                        double value = atoi(el.c_str());
+                        std::stringstream ss;
+                        ss << value;
+                        std::string result = ss.str();
+                        if(result != el){
+//                                throw "De positie is geen double";
+                            endResult = PartialImport;
+                            errStream << "De positie is geen double" << std::endl;
+                            continue;
+                        }
+
+                        if(atoi(el.c_str()) < 0){
+//                                throw "De positie is kleiner dan 0";
+                            endResult = PartialImport;
+                            errStream << "De polsitie is kleiner dan 0" << std::endl;
+                            continue;
+                        }
+
+                        car->setCurrentPosition(atoi(el.c_str()));
+                    } else if (elemName == "snelheid") {
+                        // Check whether the speed is a double
+                        double value = strtod(el.c_str(), NULL);
+                        std::stringstream ss;
+                        ss << value;
+                        std::string result = ss.str();
+                        if(result != el){
+//                                throw "De snelheid is geen double";
+                            endResult = PartialImport;
+                            errStream << "De snelheid is geen double" << std::endl;
+                            continue;
+                        }
+
+                        if(strtod(el.c_str(), NULL) < 0){
+//                                throw "De snelheid is kleiner dan 0";
+                            endResult = PartialImport;
+                            errStream << "De snelheid is kleiner dan 0" << std::endl;
+                            continue;
+                        }
+                        car->setCurrentSpeed(strtod(el.c_str(), NULL));
+                    }
+
+                }
+
+                if(car->getCurrentPosition() > car->getCurrentRoad()->getLength()){
+                    endResult = PartialImport;
+                    errStream << "De positie van de auto is groter dan de lengte van de baan" << std::endl;
+                }
+
+                roadNetwork.addCar(car);
+
 
             } else {
                 endResult = PartialImport;

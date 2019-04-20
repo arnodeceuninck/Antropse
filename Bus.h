@@ -1,31 +1,31 @@
 /**
- * @file Car.h
- * @brief This header file will contain the Car class.
+ * @file Bus.h
+ * @brief This header file will contain the Bus class.
  *
  * @author Arno Deceuninck
  *
  * @date 01/03/2019
  */
 
-#ifndef ANTROPSE_CAR_H
-#define ANTROPSE_CAR_H
+#ifndef ANTROPSE_BUS_H
+#define ANTROPSE_BUS_H
 
 
 #include "Vehicle.h"
 
 /**
- * A class to describe a Car on a RoadNetwork
+ * A class to describe a Bus on a RoadNetwork
  */
-class Car : public Vehicle{
+class Bus : public Vehicle{
 
 public:
     /**
-     * Constructor for a car
+     * Constructor for a bus
      *
      * @param licensePlate Unique ID for each vehicle
-     * @param currentRoad The road on which the car is driving
+     * @param currentRoad The road on which the bus is driving
      * @param currentPosition The position on the current road from the starting point of this road in m.
-     * @param currentSpeed The speed by which the car is driving on the current_road
+     * @param currentSpeed The speed by which the bus is driving on the current_road
      *
      * @pre
      *  REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
@@ -34,16 +34,16 @@ public:
      *  REQUIRE(currentSpeed < currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
      *  REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
      */
-    Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed);
+    Bus(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed);
 
     /**
-     * An empty constructor for a car
+     * An empty constructor for a bus
      */
-    Car();
+    Bus();
 
     /**
      * Returns the type of this vehicle
-     * @return A string representing the type of the vehicle, being a car for this subclass
+     * @return A string representing the type of the vehicle, being a bus for this subclass
      */
     virtual std::string getType() const ;
 
@@ -57,4 +57,4 @@ public:
 };
 
 
-#endif //ANTROPSE_CAR_H
+#endif //ANTROPSE_BUS_H

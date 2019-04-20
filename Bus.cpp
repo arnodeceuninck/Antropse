@@ -1,18 +1,18 @@
 /**
- * @file Car.cpp
- * @brief This file will contain the definitions of the functions in Car.
+ * @file Bus.cpp
+ * @brief This file will contain the definitions of the functions in Bus.
  *
  * @author Arno Deceuninck
  *
  * @date 01/03/2019
  */
 
-#include "Car.h"
+#include "Bus.h"
 #include "CONST.h"
 #include "DesignByContract.h"
 #include "Road.h"
 
-Car::Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed) :
+Bus::Bus(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed) :
 
         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed) {
 
@@ -23,29 +23,29 @@ Car::Car(const std::string &licensePlate, Road *currentRoad, int currentPosition
     REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
 }
 
-std::string Car::getType() const {
-    return "AUTO";
+std::string Bus::getType() const {
+    return "BUS";
 }
 
-Car::Car() : Vehicle() {}
+Bus::Bus() : Vehicle() {}
 
-double Car::getLength() const {
-    return CONST::CAR_LENGTH;
+double Bus::getLength() const {
+    return CONST::BUS_LENGTH;
 }
 
-double Car::getMinSpeed() const {
-    return CONST::MIN_CAR_SPEED;
+double Bus::getMinSpeed() const {
+    return CONST::MIN_BUS_SPEED;
 }
 
-double Car::getMaxSpeed() const {
-    return CONST::MAX_CAR_SPEED;
+double Bus::getMaxSpeed() const {
+    return CONST::MAX_BUS_SPEED;
 }
 
-double Car::getMaxSpeedup() const {
-    return CONST::MAX_CAR_SPEEDUP;
+double Bus::getMaxSpeedup() const {
+    return CONST::MAX_BUS_SPEEDUP;
 }
 
-double Car::getMinSpeedup() const {
-    return CONST::MIN_CAR_SPEEDUP;
+double Bus::getMinSpeedup() const {
+    return CONST::MIN_BUS_SPEEDUP;
 }
 

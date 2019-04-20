@@ -1,22 +1,22 @@
 /**
- * @file Car.h
- * @brief This header file will contain the Car class.
+ * @file MotorBike.h
+ * @brief This header file will contain the MotorBike class.
  *
  * @author Arno Deceuninck
  *
  * @date 01/03/2019
  */
 
-#ifndef ANTROPSE_CAR_H
-#define ANTROPSE_CAR_H
+#ifndef ANTROPSE_MOTORBIKE_H
+#define ANTROPSE_MOTORBIKE_H
 
 
 #include "Vehicle.h"
 
 /**
- * A class to describe a Car on a RoadNetwork
+ * A class to describe a MotorBike on a RoadNetwork
  */
-class Car : public Vehicle{
+class MotorBike : public Vehicle{
 
 public:
     /**
@@ -34,12 +34,12 @@ public:
      *  REQUIRE(currentSpeed < currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
      *  REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
      */
-    Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed);
+    MotorBike(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed);
 
     /**
      * An empty constructor for a car
      */
-    Car();
+    MotorBike();
 
     /**
      * Returns the type of this vehicle
@@ -57,4 +57,4 @@ public:
 };
 
 
-#endif //ANTROPSE_CAR_H
+#endif //ANTROPSE_MOTORBIKE_H

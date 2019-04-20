@@ -17,13 +17,13 @@ link_directories(gtest/lib)
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES main.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h
         RoadNetwork.cpp RoadNetwork.h CONST.h TinyXML/tinystr.cpp TinyXML/tinystr.h TinyXML/tinyxml.cpp TinyXML/tinyxml.h
-        TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h RoadNetworkExporter.cpp RoadNetworkExporter.h AntropseUtils.cpp AntropseUtils.h NetworkImporter.cpp NetworkImporter.h)
+        TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h RoadNetworkExporter.cpp RoadNetworkExporter.h AntropseUtils.cpp AntropseUtils.h NetworkImporter.cpp NetworkImporter.h MotorBike.cpp MotorBike.h Bus.cpp Bus.h Truck.cpp Truck.h)
 
 # Set source files for DEBUG target
 # TODO: Alle testen samen laten runnen mbv AntropseTests
 set(DEBUG_SOURCE_FILES AntropseTests.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h
         RoadNetwork.cpp RoadNetwork.h CONST.h TinyXML/tinystr.cpp TinyXML/tinystr.h TinyXML/tinyxml.cpp TinyXML/tinyxml.h
-        TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h NetworkImporter.cpp NetworkImporter.h NetworkImporterTests.cpp AntropseUtils.cpp AntropseUtils.h NetworkDomainTests.cpp NetworkExporterTests.cpp RoadNetworkExporter.cpp RoadNetworkExporter.h)
+        TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Convert.cpp Convert.h NetworkImporter.cpp NetworkImporter.h NetworkImporterTests.cpp AntropseUtils.cpp AntropseUtils.h NetworkDomainTests.cpp NetworkExporterTests.cpp RoadNetworkExporter.cpp RoadNetworkExporter.h MotorBike.cpp MotorBike.h Bus.cpp Bus.h Truck.cpp Truck.h)
 
 # Create RELEASE target
 add_executable(Antropse ${RELEASE_SOURCE_FILES})

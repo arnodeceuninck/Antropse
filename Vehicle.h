@@ -193,6 +193,12 @@ public:
      */
     double getCurrentSpeedup() const;
 
+    virtual double getMinSpeed() const=0;
+    virtual double getMaxSpeed() const=0;
+    virtual double getMaxSpeedup() const=0;
+    virtual double getMinSpeedup() const=0;
+
+
 private:
     std::string licensePlate; /**< A unique ID for each vehicle */
     Road* currentRoad; /**< The road on which the vehicle is currently positioned */

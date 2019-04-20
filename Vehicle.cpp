@@ -96,8 +96,8 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
 
     // Bereken nieuwe snelheid van voertuig
     currentSpeed = currentSpeedup * time + currentSpeed;
-    if(currentSpeed > CONST::MAX_CAR_SPEED){
-        currentSpeed = CONST::MAX_CAR_SPEED;
+    if(currentSpeed > getMaxSpeed()){
+        currentSpeed = getMaxSpeed();
     }
     if(currentSpeed > currentRoad->getSpeedLimit()){
         currentSpeed = currentRoad->getSpeedLimit();
@@ -116,13 +116,13 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
         currentSpeedup = (actual_following_distance-ideal_following_distance)/2;
 
 //        std::cout << "Following " << ideal_following_distance << " " << actual_following_distance << currentSpeedup << std::endl;
-        if (currentSpeedup > CONST::MAX_CAR_SPEEDUP){
-            currentSpeedup = CONST::MAX_CAR_SPEEDUP;
+        if (currentSpeedup > getMaxSpeed()){
+            currentSpeedup = getMaxSpeed();
         }
 
     } else {
         if(currentSpeed < currentRoad->getSpeedLimit()){
-            currentSpeedup = CONST::MAX_CAR_SPEEDUP;
+            currentSpeedup = getMaxSpeed();
         } else {
             currentSpeedup = 0;
         }
