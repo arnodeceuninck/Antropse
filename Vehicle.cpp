@@ -15,10 +15,10 @@
 #include "RoadNetwork.h"
 #include "DesignByContract.h"
 
-Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
-                 double length) : licensePlate(license_plate), currentRoad(current_road),
-                               currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0),
-                               length(length){ _initCheck = this; }
+Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed)
+        : licensePlate(license_plate), currentRoad(current_road),
+          currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0)
+                               { _initCheck = this; }
 
 
 const std::string &Vehicle::getLicensePlate() const {
@@ -79,9 +79,9 @@ void Vehicle::setCurrentSpeedup(double newCurrentSpeedup) {
 }
 
 
-Vehicle::Vehicle(double length): licensePlate(""), currentRoad(NULL),
+Vehicle::Vehicle(): licensePlate(""), currentRoad(NULL),
                                  currentPosition(0), currentSpeed(0),
-                                 currentSpeedup(0), length(length) {
+                                 currentSpeedup(0) {
     _initCheck = this;
 }
 
@@ -155,16 +155,11 @@ bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
     return true;
 }
 
-double Vehicle::getLength() const {
-    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
-    return length;
-}
-
 Vehicle::Vehicle(const Vehicle* vehicle) : licensePlate(vehicle->getLicensePlate()),
                                                                        currentRoad(vehicle->getCurrentRoad()),
                                                                        currentPosition(vehicle->getCurrentPosition()),
                                                                        currentSpeed(vehicle->getCurrentSpeed()),
-                                                                       currentSpeedup(vehicle->getCurrentSpeedup()), length(getLength()) {}
+                                                                       currentSpeedup(vehicle->getCurrentSpeedup()) {}
 
 
 double Vehicle::getCurrentSpeedup() const {
@@ -185,5 +180,5 @@ bool Vehicle::ProperlyInit() const{
 //            currentSpeedup < CONST::MAX_CAR_SPEEDUP &&
 //            currentSpeedup > CONST::MIN_CAR_SPEEDUP);
 
-    return _initCheck == this;
+    return Vehicle::_initCheck == this;
 }

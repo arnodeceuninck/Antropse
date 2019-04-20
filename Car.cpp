@@ -14,7 +14,7 @@
 
 Car::Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed) :
 
-         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed, CONST::CAR_LENGTH){
+        Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed) {
 
     REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
     REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
@@ -27,5 +27,9 @@ std::string Car::getType() const {
     return "AUTO";
 }
 
-Car::Car() : Vehicle(CONST::CAR_LENGTH) {}
+Car::Car() : Vehicle() {}
+
+double Car::getLength() const {
+    return CONST::CAR_LENGTH;
+}
 

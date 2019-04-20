@@ -31,15 +31,14 @@ public:
      * @param current_speed The speed by which the vehicle is driving on the road in km / h.
      * @param length The length of the vehicle in m.
      */
-    Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed,
-            double length);
+    Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
 
     /**
      * Empty constructor for a Vehicle.
      *
      * @param length The length of the vehicle in m.
      */
-    Vehicle(double length);
+    Vehicle();
 
     Vehicle(const Vehicle* vehicle);
 
@@ -176,7 +175,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    double getLength() const;
+    virtual double getLength() const=0;
 
     virtual ~Vehicle();
 
@@ -201,10 +200,7 @@ private:
                              */
     double currentSpeed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
-    double currentSpeedup;
-
-    /**< The speed by which the vehicle is accelerated in m / s^2. */
-    double length;
+    double currentSpeedup; /**< The speed by which the vehicle is accelerated in m / s^2. */
 
     Vehicle* _initCheck;
 

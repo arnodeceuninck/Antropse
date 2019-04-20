@@ -47,6 +47,8 @@ public:
      */
     virtual std::string getType() const ;
 
+    virtual double getLength() const;
+
 };
 
 

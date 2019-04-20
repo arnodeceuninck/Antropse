@@ -3,7 +3,7 @@ DONE Bij setters -> postcondities: als je een get doet moet het dezelfde waarde 
 DONE Aparte input en output testen (slide 5)
 DONE Filecompare
 
-TODO Get length -> car ipv vehicle
+DONE Get length -> car ipv vehicle
 
 TODO Const is allemaal met car!
 
