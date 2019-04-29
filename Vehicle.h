@@ -262,6 +262,15 @@ private:
 
     Vehicle* _initCheck;
 
+    void updateCurrentPosition(double time);
+
+    void updateCurrentSpeed(double time);
+
+    bool checkCurrentPositionOnRoad();
+
+    void setCurrentPositionOnNewRoad(RoadNetwork* roadNetwork);
+
+    void updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork);
 };
 
 
