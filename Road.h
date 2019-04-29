@@ -151,6 +151,12 @@ public:
      */
     bool addTrafficLight(int position);
 
+    /**
+     * Returns the position of the next bus stop on the road or -1 when the last bus stop on the on the road has been passed
+     * @return
+     */
+    double getNextBusStop(double busPosition);
+
 
 private:
 

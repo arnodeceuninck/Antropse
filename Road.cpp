@@ -115,4 +115,15 @@ bool Road::addTrafficLight(int position) {
     return false;
 }
 
+// TODO: continue
+double Road::getNextBusStop(double busPosition) {
+    double position = -1;
+    for (std::set<double>::iterator stop = busStops.begin(); stop != busStops.end(); ++stop){
+        if(*stop > busPosition and (position == -1 or position > *stop)){
+            position = *stop;
+        }
+    }
+    return position;
+}
+
 
