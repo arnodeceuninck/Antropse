@@ -48,16 +48,31 @@ public:
      * @param newLicensePlate A string containing a unique ID for this Vehicle.
      *
      * @pre
-     *  REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
+     * REQUIRE(license_plate.size() > 0, "Je nummerplaat kan niet leeg zijn");
+     *
+     * @post
+     * ENSURE(getLicensePlate() == licensePlate, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     *
      */
-    void setLicensePlate(const std::string &newLicensePlate);
+    bool setLicensePlate(const std::string &newLicensePlate);
 
     /**
      * A function to set a Vehicle on a/another road
      *
      * @param newCurrentRoad A pointer to the road the car will be driving on.
+     *
+     * @pre
+     * REQUIRE(currentSpeed <= newCurrentRoad->getSpeedLimit(), "De huidige nelheid van je voertuig moet kleiner zijn dan de max toegelaten snelheid op de weg");
+     *
+     * @post
+     * ENSURE(getCurrentRoad() == newCurrentRoad, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     *
      */
-    void setCurrentRoad(Road *newCurrentRoad);
+    bool setCurrentRoad(Road *newCurrentRoad);
 
     /**
      * Change the position on the road of a Vehicle
@@ -65,12 +80,18 @@ public:
      * @param current_position The distance from the starting point of the road (in m)
      *
      * @pre
-     *  REQUIRE(current_position >= 0, "De positie moet positief zijn");
-     *  if(current_road != NULL) {
-     *  REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
-     *   }
+     * REQUIRE(current_position >= 0, "De positie moet positief zijn");
+     * if(current_road != NULL) {
+     * REQUIRE(current_position <= current_road->getLength(), "De positie ligt buiten de huidige weg");
+     * }
+     *
+     * @post
+     * ENSURE(getCurrentPosition() == newCurrentPosition, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     *
      */
-    void setCurrentPosition(int current_position);
+    bool setCurrentPosition(int current_position);
 
     /**
      * Change the speed of a Vehicle
@@ -78,12 +99,18 @@ public:
      * @param current_speed The new speed in km/h
      *
      * @pre
-     *  REQUIRE(current_speed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
-     *  if(current_road != NULL) {
-     *     REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
-     *  }
+     * REQUIRE(current_speed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
+     * if(current_road != NULL) {
+     *    REQUIRE(current_speed <= current_road->getSpeed_limit(), "Te snel rijden is verboden");
+     * }
+     *
+     * @post
+     * ENSURE(getCurrentSpeed() == currentSpeed, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     *
      */
-    void setCurrentSpeed(double current_speed);
+    bool setCurrentSpeed(double current_speed);
 
     /**
      * Change the speedup of a Vehicle.
@@ -94,10 +121,16 @@ public:
      * @param current_speedup The speedup in m/s^2
      *
      * @pre
-     *  REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
-     *  REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
+     * REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
+     * REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
+     *
+     * @post
+     * ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     *
      */
-    void setCurrentSpeedup(double current_speedup);
+    bool setCurrentSpeedup(double current_speedup);
 
     /**
      * Move the vehicle
@@ -183,7 +216,7 @@ public:
      * Check whether a vehicle is properly initialised
      * @return true when everything properly initialised
      */
-    bool ProperlyInit() const;
+    bool properlyInitialized() const;
 
     /**
      * The speedup of the vehicle in m/s^2.
@@ -193,9 +226,28 @@ public:
      */
     double getCurrentSpeedup() const;
 
+    /**
+     * Get the minimum speed of the vehicle in m/s
+     * @return a double containing the minimum speed of the vehicle
+     */
     virtual double getMinSpeed() const=0;
+
+    /**
+     * Get the maximum speed of the vehicle in m/s
+     * @return a double containing the maximum speed of the vehicle
+     */
     virtual double getMaxSpeed() const=0;
+
+    /**
+     * Get the minimum speedup of the vehicle in m/s^2
+     * @return a double containing the minimum speedup of the vehicle
+     */
     virtual double getMaxSpeedup() const=0;
+
+    /**
+     * Get the maximum speedup of the vehicle in m/s^2
+     * @return a double containing the maximum speedup of the vehicle
+     */
     virtual double getMinSpeedup() const=0;
 
 

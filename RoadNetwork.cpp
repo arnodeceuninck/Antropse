@@ -39,10 +39,12 @@ bool RoadNetwork::addCar(Vehicle *car) {
 }
 
 const std::vector<Road *> &RoadNetwork::getRoads() const {
+    REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     return roads;
 }
 
 const std::vector<Vehicle *> &RoadNetwork::getCars() const {
+    REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     return cars;
 }
 
@@ -205,8 +207,8 @@ void RoadNetwork::removeVehicle(std::string licensePlate) {
 
 }
 
-bool RoadNetwork::properlyInitialized() {
-    return _initCheck == this;
+bool RoadNetwork::properlyInitialized() const {
+    return RoadNetwork::_initCheck == this;
 }
 
 bool RoadNetwork::isEmpty() {
@@ -234,6 +236,7 @@ int RoadNetwork::nrOfRoads() {
 }
 
 int RoadNetwork::getIteration() const {
+    REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     return iteration;
 }
 

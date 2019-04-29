@@ -62,27 +62,42 @@ public:
      * @param name The unique name for identifying the road
      *
      * @pre
-     *  REQUIRE(name.size() > 0, "De naam mag niet leeg zijn");
+     * REQUIRE(name.size() > 0, "De naam mag niet leeg zijn");
+     *
+     * @post
+     * ENSURE(getName() == newName, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
      */
-    void setName(const std::string &name);
+    bool setName(const std::string &name);
 
     /**
      * Change the speed limit of a road
      * @param newSpeedLimit The maximum allowed speed to drive on the road in km/h
      *
      * @pre
-     *  REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
+     * REQUIRE(speed_limit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
+     *
+     * @post
+     * ENSURE(getSpeedLimit() == newSpeedLimit, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
      */
-    void setSpeedLimit(int newSpeedLimit);
+    bool setSpeedLimit(int newSpeedLimit);
 
     /**
      * Change the length of the road
      * @param length The length of a road in m
      *
      * @pre
-     *  REQUIRE(length > 0, "De lengte moet strikt groter zijn dan 0");
+     * REQUIRE(length > 0, "De lengte moet strikt groter zijn dan 0");
+     *
+     * @post
+     * ENSURE(getLength() == newLength, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
      */
-    void setLength(double length);
+    bool setLength(double length);
 
     /**
      *
@@ -91,7 +106,19 @@ public:
 
     Road *getIntersection() const;
 
-    void setIntersection(Road *intersection);
+    /**
+     * Change the intersection of the road
+     * @param intersection
+     *
+     * @pre
+     * REQUIRE(newIntersection->properlyInit(), "De intersectie moet deftig geinitialiseerd zijn");
+     *
+     * @post
+     * ENSURE(getIntersection() == newIntersection, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+     *
+     * @return true when all precoditions are satisfied
+     */
+    bool setIntersection(Road *intersection);
 
     /**
      * Check whether the road is properly initialised

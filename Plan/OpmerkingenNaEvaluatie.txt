@@ -5,9 +5,9 @@ DONE Filecompare
 
 DONE Get length -> car ipv vehicle
 
-TODO Const is allemaal met car!
+DONE Const is allemaal met car!
 
-TODO Cost::max_car_speed
+DONE Const::max_car_speed
 
 DONE (Road)Hoofdletters in functies!!! _ en hoofdletters gecombineerd!!!
 

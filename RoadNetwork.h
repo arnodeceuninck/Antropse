@@ -81,12 +81,18 @@ public:
     /**
      * Get a list of all roads on the RoadNetwork
      * @return A list containing all roads on the RoadNetwork
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
     const std::vector<Road *> &getRoads() const;
 
     /**
      * Get a list of all cars on the RoadNetwork
      * @return A vector containing all registered cars, inside and outside the network, active or inactive
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
     const std::vector<Vehicle *> &getCars() const;
 
@@ -171,50 +177,24 @@ public:
 
     /**
      * Check whether all cars and roads in the network are properly initialised
-     * @return
+     * @return true when everything properly initialised
      */
-    bool properlyInitialized();
+    bool properlyInitialized() const;
 
     int nrOfRoads();
 
-    // TODO: delete the functions below this: can be done using findRoad() and addBusStop() from road;
-//    /**
-//     * Add a bus stop to the road network
-//     *
-//     * @param roadName The road you want to add a bus stop to
-//     * @param position The position on the road to add the bus stop
-//     * @return true when succesfully added, false when there was an error adding the stop
-//     */
-//    bool addBusStop(std::string roadName, int position);
-//
-//    /**
-//     * Add a zone to the roadnetork
-//     *
-//     * @param roadName The name of the road you want to add the road to
-//     * @param position The position on the road where the zone starts
-//     * @param speedLimit The speed limit in the zone
-//     * @return true when succesfully added, false when there was an error adding the zone
-//     */
-//    bool addZone(std::string roadName, double position, int speedLimit);
-//
-//    /**
-//     * Add a traffic light to the road network
-//     *
-//     * @param roadName The road you want to add the light to
-//     * @param position The position on the road to add the light
-//     * @return true when succesfully added, false when there was an error adding the stop
-//     */
-//    bool addTrafficLight(std::string roadName, int position);
-
+    /**
+     * Get the iterations of the roadnetwork
+     * @return number of iterations of the roadnetwork
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
+     */
+    int getIteration() const;
 
 
 private:
     int iteration;
-public:
-    int getIteration() const;
-
-private:
-
     std::vector<Road*> roads; /**< A vector containing all roads in the network */
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
