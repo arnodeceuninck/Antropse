@@ -110,9 +110,9 @@ TEST_F(NetworkImporterTests, SomeoneFloating){
     importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
     outputFile.close();
 
-    EXPECT_EQ(Success, importResult);
+    EXPECT_EQ(PartialImport, importResult);
 
-    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_EQ(0, roadNetwork->nrOfCars()); // Floating point speed -> not importing
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
@@ -120,14 +120,8 @@ TEST_F(NetworkImporterTests, SomeoneFloating){
     EXPECT_EQ(30, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
-    testVehicle = roadNetwork->getCars()[0];
-    EXPECT_EQ("AUTO", testVehicle->getType());
-    EXPECT_EQ("651BUF", testVehicle->getLicensePlate());
-    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
-    EXPECT_EQ(20, testVehicle->getCurrentPosition());
-    EXPECT_EQ(0.4, testVehicle->getCurrentSpeed());
-
-    EXPECT_TRUE(fileIsEmpty(ofname));
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 
     delete roadNetwork;
 }

@@ -15,6 +15,7 @@
 #include <sys/stat.h>
 #include <cstdio>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -86,4 +87,8 @@ string toString(int x) {
     string str( buf );
     delete[] buf;
     return str;
+}
+
+bool checkInt(const std::string nr) {
+    return atoi(nr.c_str()) == atof(nr.c_str());
 }
