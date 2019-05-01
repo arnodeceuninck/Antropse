@@ -60,6 +60,7 @@ namespace CONST{
     // Other specifications
     const double MIN_FOLLOWING_DISTANCE = 2;
     const double BUS_STOP_WAITING_TIME = 10;
+    const double SECONDS_PER_ITERATION = 1;
 
 }
 #endif //ANTROPSE_CONSTVARIABLES_H

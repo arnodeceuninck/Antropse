@@ -1,23 +1,27 @@
 <ROOT>
     <BAAN>
-        <naam>Middelheimlaan</naam>
-        <snelheidslimiet>50</snelheidslimiet>
-        <lengte>1000</lengte>
+        <naam>E19</naam>
+        <snelheidslimiet>100</snelheidslimiet>
+        <lengte>2000</lengte>
+        <verbinding>E313</verbinding>
     </BAAN>
-    <VERKEERSTEKEN>
-        <type>BUSHALTE</type>
-        <baan>Middelheimlaan</baan>
-        <positie>250</positie>
-    </VERKEERSTEKEN>
-    <VERKEERSTEKEN>
-        <type>ZONE</type>
-        <baan>Middelheimlaan</baan>
-        <positie>500</positie>
-        <snelheidslimiet>30</snelheidslimiet>
-    </VERKEERSTEKEN>
-    <VERKEERSTEKEN>
-        <type>BUSHALTE</type>
-        <baan>Middelheimlaan</baan>
-        <positie>750</positie>
-    </VERKEERSTEKEN>
+    <BAAN>
+        <naam>E313</naam>
+        <snelheidslimiet>120</snelheidslimiet>
+        <lengte>5000</lengte>
+    </BAAN>
+    <VOERTUIG>
+        <type>AUTO</type>
+        <nummerplaat>1THK180</nummerplaat>
+        <baan>E19</baan>
+        <positie>0</positie>
+        <snelheid>0</snelheid>
+    </VOERTUIG>
+    <VOERTUIG>
+        <type>AUTO</type>
+        <nummerplaat>651BUF</nummerplaat>
+        <baan>E19</baan>
+        <positie>20</positie>
+        <snelheid>0</snelheid>
+    </VOERTUIG>
 </ROOT>

@@ -173,7 +173,7 @@ public:
      */
     bool isEmpty();
 
-    void moveAllCars(int time);
+    void moveAllCars();
 
     /**
      * Check whether all cars and roads in the network are properly initialised

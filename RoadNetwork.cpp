@@ -103,7 +103,7 @@ int RoadNetwork::nrOfCars() {
 void RoadNetwork::automaticSimulation() {
     REQUIRE(check(), "Roadnetwork not valid");
     while(nrOfCars() > 0){
-        moveAllCars(1);
+        moveAllCars();
     }
 
     ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
@@ -136,6 +136,7 @@ bool RoadNetwork::checkIfCarsOnExistingRoad() {
 }
 
 bool RoadNetwork::checkPositionCars() {
+    REQUIRE(properlyInitialized(), "Must be properly initialized");
     for(std::vector<Vehicle*>::iterator car = cars.begin(); car != cars.end(); car++) {
         if((*car)->getCurrentPosition() > (*car)->getCurrentRoad()->getLength()){
             return false;
@@ -215,13 +216,13 @@ bool RoadNetwork::isEmpty() {
     return cars.empty();
 }
 
-void RoadNetwork::moveAllCars(int time) {
+void RoadNetwork::moveAllCars() {
     iteration++;
     int n = nrOfCars(); // Value to check wether a car has been removed
 //    generateOutputFile("simulation.txt");
     for (int i = 0; i < nrOfCars(); ++i) {
 
-        cars[i]->move(1, this);
+        cars[i]->move(this);
 
         // Enkel mogelijk indien de wagen verwijjderd is uit het netwerk
         if(n != nrOfCars()){
