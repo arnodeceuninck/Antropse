@@ -12,7 +12,7 @@
 #include "Truck.h"
 
 SuccessEnum
-NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &errStream, RoadNetwork &roadNetwork) {
+NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork) {
 
         // TODO: opsplitsen in functies
         // TODO: Alle setters een bool-functie maken, en als deze dus false returnt een partialImport doen en de
@@ -82,14 +82,15 @@ NetworkImporter::importRoadNetwork(const std::string& filename, std::ostream &er
         }
 
     // TODO: fix dat de verkeerssituatie altijd consistent is
-    if(!roadNetwork.check()){
+    if(!roadNetwork->check()){
         errStream <<  "Inconsistente verkeerssituatie" << std::endl;
         return ImportFailed;
     }
     return endResult;
 }
 
-void NetworkImporter::readRoad(TiXmlElement* current_node, RoadNetwork& roadNetwork, SuccessEnum& endResult, std::ostream& errStream) {
+void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
+                               std::ostream &errStream) {
     Road *road = new Road(); // Deze regel is nodig omdat je anders een uninitialized compiling error krijgt
 
     // Get the specifications from the specification tags in the xml file
@@ -107,11 +108,11 @@ void NetworkImporter::readRoad(TiXmlElement* current_node, RoadNetwork& roadNetw
                 errStream << "Ongeldige informatie" << std::endl;
                 continue;
             }
-            if (roadNetwork.retrieveRoad(el) == NULL) {
+            if (roadNetwork->retrieveRoad(el) == NULL) {
                 road = new Road;
                 road->setName(el);
             } else {
-                road = roadNetwork.retrieveRoad(el);
+                road = roadNetwork->retrieveRoad(el);
             }
         } else if (elemName == "snelheidslimiet") {
             int value = atoi(el.c_str());
@@ -164,12 +165,12 @@ void NetworkImporter::readRoad(TiXmlElement* current_node, RoadNetwork& roadNetw
 
     }
 
-    roadNetwork.addRoad(road);
+    roadNetwork->addRoad(road);
 
 }
 
-void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork &roadNetwork, SuccessEnum &endResult,
-                                  std::ostream &errStream, Vehicle* car) {
+void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
+                                  std::ostream &errStream, Vehicle *car) {
     for (TiXmlElement *elem = current_node->FirstChildElement();
          elem != NULL; elem = elem->NextSiblingElement()) {
 
@@ -179,7 +180,7 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork &roadN
         if (elemName == "nummerplaat") {
             car->setLicensePlate(el);
         } else if (elemName == "baan") {
-            Road *road = roadNetwork.findRoad(el);
+            Road *road = roadNetwork->findRoad(el);
             if(road == NULL){
                 endResult = PartialImport;
                 errStream << "De baan waarop de auto zou moeten rijden bestaat niet" << std::endl;
@@ -234,11 +235,11 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork &roadN
         errStream << "De positie van de auto is groter dan de lengte van de baan" << std::endl;
     }
 
-    roadNetwork.addCar(car);
+    roadNetwork->addCar(car);
 
 }
 
-void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork &roadNetwork, SuccessEnum &endResult,
+void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
                                    std::ostream &errStream) {
     std::string signType = current_node->FirstChild()->FirstChild()->ToText()->Value();
 
@@ -255,7 +256,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork &road
         std::string roadName = roadNode->ToText()->Value();
         double position = std::strtod(positionNode->ToText()->Value(), NULL);
 
-        Road* road = roadNetwork.findRoad(roadName);
+        Road* road = roadNetwork->findRoad(roadName);
         if(road == NULL){
             endResult = PartialImport;
             errStream << "Geen weg gevonden met naam " << roadName << std::endl;
@@ -281,7 +282,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork &road
         double position = std::strtod(positionNode->ToText()->Value(), NULL);
         double speedLimit = std::strtod(speedLimitNode->ToText()->Value(), NULL);
 
-        Road* road = roadNetwork.findRoad(roadName);
+        Road* road = roadNetwork->findRoad(roadName);
         if(road == NULL){
             endResult = PartialImport;
             errStream << "Geen weg gevonden met naam " << roadName << std::endl;
@@ -305,7 +306,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork &road
         std::string roadName = roadNode->ToText()->Value();
         double position = std::strtod(positionNode->ToText()->Value(), NULL);
 
-        Road* road = roadNetwork.findRoad(roadName);
+        Road* road = roadNetwork->findRoad(roadName);
         if(road == NULL){
             endResult = PartialImport;
             errStream << "Geen weg gevonden met naam " << roadName << std::endl;

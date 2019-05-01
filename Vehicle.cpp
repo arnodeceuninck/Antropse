@@ -67,7 +67,7 @@ bool Vehicle::setCurrentPosition(int newCurrentPosition) {
     }
     REQUIRE(newCurrentPosition >= 0, "De positie moet positief zijn");
     if(currentRoad != NULL) {
-        if(newCurrentPosition <= currentRoad->getLength()){
+        if(!(newCurrentPosition <= currentRoad->getLength())){
             return false;
         }
         REQUIRE(newCurrentPosition <= currentRoad->getLength(), "De positie ligt buiten de huidige weg");

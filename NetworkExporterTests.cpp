@@ -134,7 +134,7 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
     EXPECT_TRUE(exporter.documentStarted());
 
     while(!roadNetwork.isEmpty()){
-        roadNetwork.moveAllCars(1);
+        roadNetwork.moveAllCars();
         exporter.exportOn(std::cout, roadNetwork);
     }
 

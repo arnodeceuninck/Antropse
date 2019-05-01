@@ -18,11 +18,14 @@ enum SuccessEnum {ImportFailed, ImportAborted, PartialImport, Success};
 
 class NetworkImporter {
 private:
-    static void readRoad(TiXmlElement* current_node, RoadNetwork& roadNetwork, SuccessEnum& endResult, std::ostream& errStream);
-    static void readVehicle(TiXmlElement* current_node, RoadNetwork& roadNetwork, SuccessEnum& endResult, std::ostream& errStream, Vehicle* car);
-    static void readRoadSign(TiXmlElement* current_node, RoadNetwork& roadNetwork, SuccessEnum& endResult, std::ostream& errStream);
+    static void readRoad(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
+                         std::ostream &errStream);
+    static void readVehicle(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
+                            std::ostream &errStream, Vehicle *car);
+    static void readRoadSign(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
+                             std::ostream &errStream);
 public:
-    static SuccessEnum importRoadNetwork(const std::string& filename, std::ostream& errStream, RoadNetwork& roadNetwork);
+    static SuccessEnum importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork);
 };
 
 
