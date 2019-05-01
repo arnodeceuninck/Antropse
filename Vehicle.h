@@ -149,15 +149,15 @@ public:
      * @param roadNetwork The network containing the traffic situation.
      *
      * @pre The systems contains a scheme of the virtual traffic situation. There is a vehicle on a road.
-     *  REQUIRE(roadNetwork->check_position_cars(), "position");
-     *  REQUIRE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
-     *  REQUIRE(time >= 0, "Tijd moet positief zijn");
-     *  REQUIRE(roadNetwork->findCar(license_plate) != NULL, "De wagen moet in het netwerk zitten");
+     * REQUIRE(roadNetwork->check_position_cars(), "position");
+     * REQUIRE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
+     * REQUIRE(time >= 0, "Tijd moet positief zijn");
+     * REQUIRE(roadNetwork->findCar(license_plate) != NULL, "De wagen moet in het netwerk zitten");
      *
      * @post The vehicle has a new position.
-     *  ENSURE(roadNetwork->check_position_cars(), "position");
-     *  ENSURE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
-     *  // Space between cars is not guaranteed, because all cars have to be moved for this.
+     * ENSURE(roadNetwork->check_position_cars(), "position");
+     * ENSURE(roadNetwork->check_if_cars_on_existing_road(), "exist on road");
+     * // Space between cars is not guaranteed, because all cars have to be moved for this.
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */

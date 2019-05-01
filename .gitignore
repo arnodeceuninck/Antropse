@@ -3,7 +3,7 @@ cmake-build-debug
 .idea
 
 # Doxygen generated files
-html
+#html
 latex
 xml
 

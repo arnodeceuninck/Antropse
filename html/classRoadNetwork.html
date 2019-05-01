@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RoadNetwork class | Antropse Antwerp
+Road
+Project
+Software
+Engineering</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+doxygen.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Antropse <span class="m-thin">Antwerp
+Road
+Project
+Software
+Engineering</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          RoadNetwork <span class="m-thin">class</span>
+          <div class="m-dox-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="RoadNetwork_8h.html">&lt;RoadNetwork.h&gt;</a></div>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>A class used to keep track of all roads and cars in a city</p><p>A <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a> consists of some roads and some cars. All roads are accessible and so are all cars, regardless of their activity. Once a car has left a road network, it wil stay in the list of cars.</p>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-dox">
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a0efbbba637d81e3dee3c40e582254878" class="m-dox">addRoad</a>(</span><span class="m-dox-wrap"><a href="classRoad.html" class="m-dox">Road</a>* road) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a2b18c833474139cdb876cb75beb57234" class="m-dox">addCar</a>(</span><span class="m-dox-wrap"><a href="classVehicle.html" class="m-dox">Vehicle</a>* car) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ae3b421c7cff2fdcfc70ba782e84cf582" class="m-dox">findRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad) -&gt; <a href="classRoad.html" class="m-dox">Road</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ab15fc1b4536564a8067ac802e595cedb" class="m-dox">getRoads</a>(</span><span class="m-dox-wrap">) const -&gt; const std::vector&lt;<a href="classRoad.html" class="m-dox">Road</a>*&gt;&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a23abe035b7d62a8186ae9a363b89c680" class="m-dox">getCars</a>(</span><span class="m-dox-wrap">) const -&gt; const std::vector&lt;<a href="classVehicle.html" class="m-dox">Vehicle</a>*&gt;&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a41a2215597560b8c4860cde78a3ea6fa" class="m-dox">retrieveRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad) -&gt; <a href="classRoad.html" class="m-dox">Road</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#abdb153baba4339224e586507be864fcf" class="m-dox">findCar</a>(</span><span class="m-dox-wrap">std::string license_plate) const -&gt; <a href="classVehicle.html" class="m-dox">Vehicle</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ae3d9813b0d9548e0968eb0545414411b" class="m-dox">nrOfCars</a>(</span><span class="m-dox-wrap">) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a4a0df8c0ce2472013530c2ba69bfd4f6" class="m-dox">findPreviouscar</a>(</span><span class="m-dox-wrap">const <a href="classVehicle.html" class="m-dox">Vehicle</a>* car) const -&gt; <a href="classVehicle.html" class="m-dox">Vehicle</a>*</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">void <a href="#ab313a2fd7a6f353e71afdae13f6e5f44" class="m-dox">automaticSimulation</a>(</span><span class="m-dox-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#adf01ebf4a9ce4f25f0f4187dc7f807ef" class="m-dox">carOnExistingRoad</a>(</span><span class="m-dox-wrap"><a href="classVehicle.html" class="m-dox">Vehicle</a>* car) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a35defa99d771502946a23be63919ced6" class="m-dox">check</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ac62915ba980879bde17af34504c0b296" class="m-dox">checkIfCarsOnExistingRoad</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#af6de4386307fced30d56fc4540602d6c" class="m-dox">checkPositionCars</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ab0a0faeccffcfa8aa70280bfaaa7a203" class="m-dox">checkSpaceBetweenCars</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a63510fec6d14f9c6db229a7a7d491cbe" class="m-dox">checkIntersections</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">void <a href="#ac7b9660bb300935b8a24d1c79bdf3bf3" class="m-dox">removeVehicle</a>(</span><span class="m-dox-wrap">std::string licensePlate)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a1b3745e05e57a5ec37c8594f4a4fc3d9" class="m-dox">isEmpty</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">void <a href="#a8dcba75a59c0ca61bbd04d66d36a4825" class="m-dox">moveAllCars</a>(</span><span class="m-dox-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized</a>(</span><span class="m-dox-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ad990c7018c78696dff88dd24ff60828c" class="m-dox">nrOfRoads</a>(</span><span class="m-dox-wrap">) -&gt; int</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a3eb7324944334ffd81f69a96b1196cab" class="m-dox">getIteration</a>(</span><span class="m-dox-wrap">) const -&gt; int</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-dox-details" id="a0efbbba637d81e3dee3c40e582254878"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a0efbbba637d81e3dee3c40e582254878" class="m-dox-self">addRoad</a>(</span><span class="m-dox-wrap"><a href="classRoad.html" class="m-dox">Road</a>* road)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">road</td>
+                  <td>The road you want to add</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true when successfully added, false when the prerequisites weren&#x27;t met</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Add a new road to the network</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(road != NULL, &quot;De weg moet bestaan&quot;); REQUIRE(findRoad(road-&gt;getName()) == NULL, &quot;De weg mag nog niet in het netwerk zitten&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(findRoad(road-&gt;getName()) == road, &quot;De weg moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a2b18c833474139cdb876cb75beb57234"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a2b18c833474139cdb876cb75beb57234" class="m-dox-self">addCar</a>(</span><span class="m-dox-wrap"><a href="classVehicle.html" class="m-dox">Vehicle</a>* car)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when successfully added, false when the prerequisites weren&#x27;t met</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Add a new car to the network</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(car != NULL, &quot;De auto moet bestaan&quot;); REQUIRE(findCar(car-&gt;getLicense_plate()) == NULL, &quot;De auto mag nog niet in het netwerk zitten&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(findCar(car-&gt;getLicense_plate()) == car, &quot;De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ae3b421c7cff2fdcfc70ba782e84cf582"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="classRoad.html" class="m-dox">Road</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ae3b421c7cff2fdcfc70ba782e84cf582" class="m-dox-self">findRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">nameRoad</td>
+                  <td>A string containing the unique name of the road</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>A pointer to the road with nameRoad as name</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Find a specific road in the <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The road must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ab15fc1b4536564a8067ac802e595cedb"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">const std::vector&lt;<a href="classRoad.html" class="m-dox">Road</a>*&gt;&amp; RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ab15fc1b4536564a8067ac802e595cedb" class="m-dox-self">getRoads</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>A list containing all roads on the <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a></td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get a list of all roads on the <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;Het netwerk moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a23abe035b7d62a8186ae9a363b89c680"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">const std::vector&lt;<a href="classVehicle.html" class="m-dox">Vehicle</a>*&gt;&amp; RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a23abe035b7d62a8186ae9a363b89c680" class="m-dox-self">getCars</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>A vector containing all registered cars, inside and outside the network, active or inactive</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get a list of all cars on the <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;Het netwerk moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a41a2215597560b8c4860cde78a3ea6fa"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="classRoad.html" class="m-dox">Road</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a41a2215597560b8c4860cde78a3ea6fa" class="m-dox-self">retrieveRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">nameRoad</td>
+                  <td>The name of the road you&#x27;re about to check</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>NULL if there&#x27;s no road with this name as an intersection of another road</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>check if the road already exists as an intersection of another road</p>
+          </div></section>
+          <section class="m-dox-details" id="abdb153baba4339224e586507be864fcf"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="classVehicle.html" class="m-dox">Vehicle</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#abdb153baba4339224e586507be864fcf" class="m-dox-self">findCar</a>(</span><span class="m-dox-wrap">std::string license_plate) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>NULL when the car isn&#x27;t in the network</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Check whether a car with the specified license plate is in the roadnetwork</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The roadnetwork must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ae3d9813b0d9548e0968eb0545414411b"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">int RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ae3d9813b0d9548e0968eb0545414411b" class="m-dox-self">nrOfCars</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>The number of cars currently positioned on one of the streets of the roadnetwork</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get the number of cars</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The roadnetwork must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a4a0df8c0ce2472013530c2ba69bfd4f6"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="classVehicle.html" class="m-dox">Vehicle</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a4a0df8c0ce2472013530c2ba69bfd4f6" class="m-dox-self">findPreviouscar</a>(</span><span class="m-dox-wrap">const <a href="classVehicle.html" class="m-dox">Vehicle</a>* car) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">car</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>NULL if there is no car in front, else a pointer to this car</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Find the car in front of another car on the same road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(car != NULL, &quot;De wagen moet bestaan&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ab313a2fd7a6f353e71afdae13f6e5f44"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ab313a2fd7a6f353e71afdae13f6e5f44" class="m-dox-self">automaticSimulation</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>Automatische simulatie van het netwerk die door blijft gaan tot er geen wagens meer in het netwerk zitten.</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;Roadnetwork not valid&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classRoadNetwork.html#ae3d9813b0d9548e0968eb0545414411b" class="m-dox">nrOfCars()</a> == 0, &quot;alle auto&#x27;s zijn buiten hun wegen gereden, er zijn geen auto&#x27;s meer in het netwerk&quot;); ENSURE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;Valid roadnnetwork&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="adf01ebf4a9ce4f25f0f4187dc7f807ef"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#adf01ebf4a9ce4f25f0f4187dc7f807ef" class="m-dox-self">carOnExistingRoad</a>(</span><span class="m-dox-wrap"><a href="classVehicle.html" class="m-dox">Vehicle</a>* car)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">car</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>Check to know if a car is on a road that exists in the network</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(car != NULL, &quot;De auto moet bestaan&quot;); REQUIRE(findCar(car-&gt;getLicense_plate()) != NULL, &quot;De auto moet in het netwerk zitten&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a35defa99d771502946a23be63919ced6"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a35defa99d771502946a23be63919ced6" class="m-dox-self">check</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when the roadnetwork is valid</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>All checks for a valid roadnetwork</p>
+          </div></section>
+          <section class="m-dox-details" id="ac62915ba980879bde17af34504c0b296"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ac62915ba980879bde17af34504c0b296" class="m-dox-self">checkIfCarsOnExistingRoad</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>check whether all cars on the roadnetwork are on an existing road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="af6de4386307fced30d56fc4540602d6c"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#af6de4386307fced30d56fc4540602d6c" class="m-dox-self">checkPositionCars</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>check whether all car positions are inside the borders of the roads they&#x27;re driving on</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ab0a0faeccffcfa8aa70280bfaaa7a203"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ab0a0faeccffcfa8aa70280bfaaa7a203" class="m-dox-self">checkSpaceBetweenCars</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>Check whether there is enough space between cars</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a63510fec6d14f9c6db229a7a7d491cbe"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a63510fec6d14f9c6db229a7a7d491cbe" class="m-dox-self">checkIntersections</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>Check whether all intersections exist</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="ac7b9660bb300935b8a24d1c79bdf3bf3"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ac7b9660bb300935b8a24d1c79bdf3bf3" class="m-dox-self">removeVehicle</a>(</span><span class="m-dox-wrap">std::string licensePlate)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">licensePlate</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+<p>Deletes a vehicle from the roadnetwork</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(findCar(license_plate) != NULL, &quot;De auto moet in het netwerk zitten&quot;); REQUIRE(cars.size() &gt; 0, &quot;De lijst met auto&#x27;s mag niet leeg zijn&quot;); unsigned int cars_size = cars.size();</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(findCar(license_plate) == NULL, &quot;De auto zit niet meer in het netwerk&quot;); ENSURE(cars_size-1 == cars.size(), &quot;Er is een element verwijderd uit de lijst&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a1b3745e05e57a5ec37c8594f4a4fc3d9"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a1b3745e05e57a5ec37c8594f4a4fc3d9" class="m-dox-self">isEmpty</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when there are still cars left in the roadnetwork</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Checks whether there are still cars driving on the roadNetwork</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a8dcba75a59c0ca61bbd04d66d36a4825"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a8dcba75a59c0ca61bbd04d66d36a4825" class="m-dox-self">moveAllCars</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+<p>Move all cars on the road one time unit and increase the current iteration</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;); REQUIRE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;The roadnetwork must be valid);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>Ensure(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;The roadnetwork must still be valid&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="aa9862784d60727304c75f4476c26a232"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aa9862784d60727304c75f4476c26a232" class="m-dox-self">properlyInitialized</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when everything properly initialised</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Check whether all cars and roads in the network are properly initialised</p>
+          </div></section>
+          <section class="m-dox-details" id="ad990c7018c78696dff88dd24ff60828c"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">int RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ad990c7018c78696dff88dd24ff60828c" class="m-dox-self">nrOfRoads</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>The number of roads in the roadnetwork</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get the number of roads</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The roadnetwork must be properly initialized&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a3eb7324944334ffd81f69a96b1196cab"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">int RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a3eb7324944334ffd81f69a96b1196cab" class="m-dox-self">getIteration</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>number of iterations of the roadnetwork</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Get the iterations of the roadnetwork</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;Het netwerk moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-dox-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-dox-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-dox-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search.js"></script>
+<script src="searchdata.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Antropse Antwerp
+Road
+Project
+Software
+Engineering. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
