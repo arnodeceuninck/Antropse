@@ -82,11 +82,10 @@ NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &er
 
         }
 
-    // TODO: fix dat de verkeerssituatie altijd consistent is
-//    if(!roadNetwork->check()){
-//        errStream <<  "Inconsistente verkeerssituatie" << std::endl;
-//        return ImportFailed;
-//    }
+    if(!roadNetwork->check()){
+        errStream <<  "Something unknown went wrong :-(" << std::endl;
+        return ImportFailed;
+    }
     return endResult;
 }
 
@@ -179,7 +178,11 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
     }
 
     // TODO: check of alle waarden ingesteld zijn
-    roadNetwork->addRoad(road);
+    if(!roadNetwork->addRoad(road)){
+        endResult = PartialImport;
+        errStream << "Ongeldige informatie" << std::endl;
+        return;
+    }
 
 }
 
@@ -258,7 +261,11 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadN
     }
 
     // TODO: check of alle waarden ingegeven zijn
-    roadNetwork->addCar(car);
+    if(!roadNetwork->addCar(car)){
+        endResult = PartialImport;
+        errStream << "Ongeldige informatie" << std::endl;
+        return;
+    }
 
 }
 
@@ -358,7 +365,11 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             return;
         }
 
-        road->addTrafficLight(position); // TODO: check int or double position
+        if(!road->addTrafficLight(position)){
+            endResult = PartialImport;
+            errStream << "Ongeldige informatie" << std::endl;
+            return;
+        } // TODO: check int or double position
     }
 
 }

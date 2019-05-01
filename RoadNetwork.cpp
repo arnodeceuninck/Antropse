@@ -34,7 +34,13 @@ bool RoadNetwork::addCar(Vehicle *car) {
 
     cars.push_back(car);
 
+    if(!checkSpaceBetweenCars()){
+        cars.pop_back();
+        return false;
+    }
+
     ENSURE(findCar(car->getLicensePlate()) == car, "De auto moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
+    ENSURE(check(), "Het netwerk moet nog werken achteraf");
     return true;
 }
 
@@ -152,12 +158,12 @@ bool RoadNetwork::checkSpaceBetweenCars() {
 //        }
 //    }
     if(cars.size() == 0){ return true; }
-    for(unsigned int i = 0; i < cars.size()-1; i++) {
+    for(unsigned int i = 0; i < cars.size(); i++) {
         Vehicle* previouscar = findPreviouscar(cars[i]);
         if(previouscar != NULL &&
                 previouscar->getCurrentPosition() - previouscar->getLength() - cars[i]->getCurrentPosition() < CONST::MIN_FOLLOWING_DISTANCE){
-            std::cout << previouscar->getLicensePlate() << " " << previouscar->getCurrentPosition() << " " << cars[i]->getLicensePlate() << " " << cars[i]->getCurrentPosition() << std::endl;
-            std::cout << previouscar->getCurrentPosition() - previouscar->getLength() - cars[i]->getCurrentPosition() << std::endl;
+//            std::cout << previouscar->getLicensePlate() << " " << previouscar->getCurrentPosition() << " " << cars[i]->getLicensePlate() << " " << cars[i]->getCurrentPosition() << std::endl;
+//            std::cout << previouscar->getCurrentPosition() - previouscar->getLength() - cars[i]->getCurrentPosition() << std::endl;
             return false;
         }
     }
