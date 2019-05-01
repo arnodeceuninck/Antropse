@@ -4,37 +4,37 @@
 
 #include <string>
 #include <ostream>
-#include "RoadNetworkExporter.h"
+#include "NetworkExporter.h"
 #include "DesignByContract.h"
 #include "Road.h"
 #include "Vehicle.h"
 #include "AntropseUtils.h"
 
-RoadNetworkExporter::RoadNetworkExporter() {
+NetworkExporter::NetworkExporter() {
     _initCheck = this;
     _documentStarted = false;
     ENSURE(properlyInitialized(),
            "constructor must end in properlyInitialized state");
 }
 
-bool RoadNetworkExporter::properlyInitialized() {
+bool NetworkExporter::properlyInitialized() {
     return _initCheck == this;
 }
 
-bool RoadNetworkExporter::documentStarted() {
+bool NetworkExporter::documentStarted() {
     return _documentStarted;
 }
 
-void RoadNetworkExporter::documentStart(std::ostream &onStream) {
+void NetworkExporter::documentStart(std::ostream &onStream) {
     _documentStarted = true;
 }
 
-void RoadNetworkExporter::documentEnd(std::ostream &onStream) {
+void NetworkExporter::documentEnd(std::ostream &onStream) {
     _documentStarted = false;
 }
 
-void RoadNetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
-    REQUIRE(this->properlyInitialized(), "RoadNetworkExporter wasn't initialized when calling exportOn.");
+void NetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
+    REQUIRE(this->properlyInitialized(), "NetworkExporter wasn't initialized when calling exportOn.");
     REQUIRE(game.properlyInitialized(), "RoadNetwork wasn't initialized when calling exportOn");
     REQUIRE(this->documentStarted(), "RoadNetwork Exporter wasn't in documentStarted when calling exportOn.");
 
@@ -58,19 +58,19 @@ void RoadNetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
     this->sectionEnd(onStream);
 }
 
-void RoadNetworkExporter::sectionStart(std::ostream &onStream, const std::string sectionTitle) {
+void NetworkExporter::sectionStart(std::ostream &onStream, const std::string sectionTitle) {
     onStream << sectionTitle << std::endl << std::endl;
 }
 
-void RoadNetworkExporter::roadNetworkStart(std::ostream &onStream) {
+void NetworkExporter::roadNetworkStart(std::ostream &onStream) {
 
 }
 
-void RoadNetworkExporter::roadsStart(std::ostream &onStream) {
+void NetworkExporter::roadsStart(std::ostream &onStream) {
 
 }
 
-void RoadNetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
+void NetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
 
     std::string listItem = "\t-> ";
 
@@ -83,15 +83,15 @@ void RoadNetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
 
 }
 
-void RoadNetworkExporter::roadsEnd(std::ostream &onStream) {
+void NetworkExporter::roadsEnd(std::ostream &onStream) {
 //    onStream << std::endl;
 }
 
-void RoadNetworkExporter::vehiclesStart(std::ostream &onStream) {
+void NetworkExporter::vehiclesStart(std::ostream &onStream) {
 
 }
 
-void RoadNetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehicle) {
+void NetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehicle) {
 
     std::string listItem = "\t-> ";
 
@@ -105,14 +105,14 @@ void RoadNetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehi
 
 }
 
-void RoadNetworkExporter::vehiclesEnd(std::ostream &onStream) {
+void NetworkExporter::vehiclesEnd(std::ostream &onStream) {
 //    onStream << std::endl;
 }
 
-void RoadNetworkExporter::sectionEnd(std::ostream &onStream) {
+void NetworkExporter::sectionEnd(std::ostream &onStream) {
 
 }
 
-void RoadNetworkExporter::roadNetworkEnd(std::ostream &onStream) {
+void NetworkExporter::roadNetworkEnd(std::ostream &onStream) {
     onStream << "-----------------------------------------------------------" << std::endl;
 }

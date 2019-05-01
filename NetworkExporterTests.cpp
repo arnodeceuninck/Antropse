@@ -19,7 +19,7 @@
 #include "NetworkImporter.h"
 #include "AntropseUtils.h"
 #include "Car.h"
-#include "RoadNetworkExporter.h"
+#include "NetworkExporter.h"
 
 class NetworkExporterTests: public ::testing::Test {
 protected:
@@ -30,7 +30,6 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        roadNetwork = RoadNetwork();
         importResult = SuccessEnum();
     }
 
@@ -42,7 +41,7 @@ protected:
 
     // Declares the variables your tests want to use.
     SuccessEnum importResult;
-    RoadNetwork roadNetwork;
+    RoadNetwork* roadNetwork;
     Vehicle* testVehicle;
     Road* testRoad;
 };
@@ -117,25 +116,25 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
     std::string testName = "OutputGoingForward";
 
     // Setting up roadnetwork for tests
-    roadNetwork = RoadNetwork();
+    roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
     testVehicle = new Car("ANT-432", testRoad, 20, 0);
-    roadNetwork.addRoad(testRoad);
-    roadNetwork.addCar(testVehicle);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
 
     // Exporter code
     std::ofstream output;
     std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
     output.open(ifname.c_str());
 
-    RoadNetworkExporter exporter;
+    NetworkExporter exporter;
     EXPECT_TRUE(exporter.properlyInitialized());
     exporter.documentStart(std::cout);
     EXPECT_TRUE(exporter.documentStarted());
 
-    while(!roadNetwork.isEmpty()){
-        roadNetwork.moveAllCars();
-        exporter.exportOn(std::cout, roadNetwork);
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        exporter.exportOn(output, *roadNetwork);
     }
 
     exporter.documentEnd(std::cout);
@@ -143,6 +142,8 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
 
     std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
     EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
 }
 
 //int main(int argc, char **argv) {

@@ -6,17 +6,17 @@
 // Created by arno on 4/13/19.
 //
 
-#ifndef ANTROPSE_ROADNETWORKEXPORTER_H
-#define ANTROPSE_ROADNETWORKEXPORTER_H
+#ifndef ANTROPSE_NETWORKEXPORTER_H
+#define ANTROPSE_NETWORKEXPORTER_H
 
 
 #include <iosfwd>
 #include "RoadNetwork.h"
 
-class RoadNetworkExporter {
+class NetworkExporter {
 public:
 
-    RoadNetworkExporter();
+    NetworkExporter();
 
     bool properlyInitialized();
     bool documentStarted();
@@ -40,9 +40,9 @@ protected:
     virtual void roadNetworkEnd(std::ostream& onStream);
 
 private:
-    RoadNetworkExporter * _initCheck; //!use pointer to myself to verify whether I am properly initialized
+    NetworkExporter * _initCheck; //!use pointer to myself to verify whether I am properly initialized
     bool _documentStarted;
 };
 
 
-#endif //ANTROPSE_ROADNETWORKEXPORTER_H
+#endif //ANTROPSE_NETWORKEXPORTER_H

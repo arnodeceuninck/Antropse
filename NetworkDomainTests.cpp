@@ -29,7 +29,6 @@ protected:
     // should define it if you need to initialize the variables.
     // Otherwise, this can be skipped.
     virtual void SetUp() {
-        roadNetwork = RoadNetwork();
         importResult = SuccessEnum();
     }
 
@@ -41,7 +40,7 @@ protected:
 
     // Declares the variables your tests want to use.
     SuccessEnum importResult;
-    RoadNetwork roadNetwork;
+    RoadNetwork* roadNetwork;
     Vehicle* testVehicle;
     Road* testRoad;
 };
@@ -49,25 +48,27 @@ protected:
 TEST_F(NetworkDomainTests, GoingForward) {
 
     // Setting up roadnetwork for tests
-    roadNetwork = RoadNetwork();
+    roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
     testVehicle = new Car("ANT-432", testRoad, 20, 0);
-    roadNetwork.addRoad(testRoad);
-    roadNetwork.addCar(testVehicle);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
 
     // The actual tests
-    EXPECT_EQ(testRoad, roadNetwork.findRoad("A12"));
-    EXPECT_TRUE(NULL == roadNetwork.retrieveRoad("A12"));
-    EXPECT_EQ(testVehicle, roadNetwork.findCar("ANT-432"));
-    EXPECT_EQ(1, roadNetwork.nrOfCars());
-    EXPECT_TRUE(NULL == roadNetwork.findPreviouscar(testVehicle));
-    EXPECT_TRUE(roadNetwork.check());
-    EXPECT_FALSE(roadNetwork.isEmpty());
-    EXPECT_TRUE(roadNetwork.properlyInitialized()); // TODO: why is this test failing?!
-    EXPECT_EQ(1, roadNetwork.nrOfRoads());
+    EXPECT_EQ(testRoad, roadNetwork->findRoad("A12"));
+    EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("A12"));
+    EXPECT_EQ(testVehicle, roadNetwork->findCar("ANT-432"));
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(NULL == roadNetwork->findPreviouscar(testVehicle));
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized()); // TODO: why is this test failing?!
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     // Hierbijj zou het niet mogen crashen
-    roadNetwork.automaticSimulation();
+    roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
 }
 
 //int main(int argc, char **argv) {

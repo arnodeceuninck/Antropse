@@ -12,7 +12,7 @@
 #include "Car.h"
 #include "Road.h"
 #include "RoadNetwork.h"
-#include "RoadNetworkExporter.h"
+#include "NetworkExporter.h"
 #include "NetworkImporter.h"
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     std::cout << "Hello, World! :)" << std::endl;
 
     RoadNetwork roadNetwork;
-    RoadNetworkExporter exporter;
+    NetworkExporter exporter;
 
     NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
 

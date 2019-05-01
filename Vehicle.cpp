@@ -62,32 +62,31 @@ bool Vehicle::setCurrentRoad(Road *newCurrentRoad) {
 }
 
 bool Vehicle::setCurrentPosition(int newCurrentPosition) {
-    if(!(newCurrentPosition >= 0)){
+    if(!(newCurrentPosition >= 0 and
+        ((currentRoad != NULL and newCurrentPosition <= currentRoad->getLength()) or
+          currentRoad == NULL))){
         return false;
     }
     REQUIRE(newCurrentPosition >= 0, "De positie moet positief zijn");
-    if(currentRoad != NULL) {
-        if(!(newCurrentPosition <= currentRoad->getLength())){
-            return false;
-        }
-        REQUIRE(newCurrentPosition <= currentRoad->getLength(), "De positie ligt buiten de huidige weg");
-    }
+    REQUIRE((currentRoad != NULL and newCurrentPosition <= currentRoad->getLength()) or
+            currentRoad == NULL, "De positie valt buiten de weg");
+
     Vehicle::currentPosition = newCurrentPosition;
     ENSURE(getCurrentPosition() == newCurrentPosition, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
 }
 
 bool Vehicle::setCurrentSpeed(double newCurrentSpeed) {
-    if(!(newCurrentSpeed <= CONST::MAX_CAR_SPEED)){
+
+    if(!(newCurrentSpeed <= getMaxSpeed() and
+       ((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+         currentRoad == NULL))){
         return false;
     }
-    REQUIRE(newCurrentSpeed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
-    if(currentRoad != NULL) {
-        if(newCurrentSpeed <= currentRoad->getSpeedLimit()){
-            return false;
-        }
-        REQUIRE(newCurrentSpeed <= currentRoad->getSpeedLimit(), "Te snel rijden is verboden");
-    }
+    REQUIRE(newCurrentSpeed <= getMaxSpeed(), "Maximumsnelheid voor wagen overschreven");
+    REQUIRE((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+             currentRoad == NULL, "Te snel rijden is verboden");
+
     Vehicle::currentSpeed = newCurrentSpeed;
     ENSURE(getCurrentSpeed() == currentSpeed, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
