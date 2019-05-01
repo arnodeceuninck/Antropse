@@ -253,6 +253,94 @@ TEST_F(NetworkImporterTests, ByeByeFile){
 
     delete roadNetwork;
 }
+
+TEST_F(NetworkImporterTests, BusyDay) {
+
+    std::string nameTest = "BusyDay";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+//    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_TRUE(fileIsEmpty(ofname));
+
+    EXPECT_EQ(Success, importResult);
+
+    EXPECT_EQ(7, roadNetwork->nrOfCars());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    testRoad = roadNetwork->findRoad("E19");
+    EXPECT_EQ(30, testRoad->getSpeedLimit());
+    EXPECT_EQ(1000, testRoad->getLength());
+    EXPECT_TRUE(NULL == testRoad->getIntersection());
+
+    testVehicle = roadNetwork->getCars()[0];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("1THK180", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(0, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[1];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF1", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(20, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[2];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF2", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(40, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[3];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF3", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(60, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[4];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF4", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(80, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[5];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF5", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(100, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    testVehicle = roadNetwork->getCars()[6];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("651BUF6", testVehicle->getLicensePlate());
+    EXPECT_EQ("E19", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(120, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0, testVehicle->getCurrentSpeed());
+
+    EXPECT_TRUE(fileIsEmpty(ofname));
+
+    delete roadNetwork;
+}
+
+// TODO: tests for invalid xml formats
+//  string instead of an int,
+//  no closing tags,
+//  ...
+
 //
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);

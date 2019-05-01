@@ -62,11 +62,228 @@ TEST_F(NetworkDomainTests, GoingForward) {
     EXPECT_TRUE(NULL == roadNetwork->findPreviouscar(testVehicle));
     EXPECT_TRUE(roadNetwork->check());
     EXPECT_FALSE(roadNetwork->isEmpty());
-    EXPECT_TRUE(roadNetwork->properlyInitialized()); // TODO: why is this test failing?!
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     // Hierbijj zou het niet mogen crashen
     roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, BusyDay){
+
+    std::string nameTest = "BusyDay";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(7, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+// TODO: fix this failing test
+TEST_F(NetworkDomainTests, DrivingClose){
+
+    // So baby pull me closer, in the backseat of your rover
+
+    std::string nameTest = "DrivingClose";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(7, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+//        EXPECT_TRUE(roadNetwork->check()); // TODO: uncomment (prevent test spam while not working)
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, FollowTheLeader){
+
+    // Follow the leader, leader, leader follow the leader
+
+    std::string nameTest = "FollowTheLeader";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(2, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, GoingFastForward){
+
+    std::string nameTest = "GoingFastForward";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, NeedForSpeed){
+
+    // It's been a long day, without you my friend
+
+    // 2 auto's, 2 afzonderlijke wegen, 1 race, 2 winnaars
+
+    std::string nameTest = "NeedForSpeed";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(2, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(2, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, SlowDown){
+
+    // Despacito, quiero desnudarte a besos despacito
+
+    // Een weg waarop je heel snel mag rijden gevolgd door een weg waarop je gaat moeten vertragen
+
+    std::string nameTest = "SlowDown";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(2, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, SmallStreets){
+
+    // Een hoop kleine, opeenvolgende straatjes
+
+    std::string nameTest = "SmallStreets";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(5, roadNetwork->nrOfRoads());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
 
     delete roadNetwork;
 }

@@ -1,0 +1,26 @@
+<ROOT>
+    <BAAN>
+        <naam>E19</naam>
+        <snelheidslimiet>200</snelheidslimiet>
+        <lengte>30000</lengte>
+    </BAAN>
+    <BAAN>
+        <naam>E20</naam>
+        <snelheidslimiet>200</snelheidslimiet>
+        <lengte>30000</lengte>
+    </BAAN>
+    <VOERTUIG>
+        <type>AUTO</type>
+        <nummerplaat>651BUF</nummerplaat>
+        <baan>E19</baan>
+        <positie>20</positie>
+        <snelheid>150</snelheid>
+    </VOERTUIG>
+    <VOERTUIG>
+        <type>AUTO</type>
+        <nummerplaat>651BUG</nummerplaat>
+        <baan>E20</baan>
+        <positie>20</positie>
+        <snelheid>150</snelheid>
+    </VOERTUIG>
+</ROOT>

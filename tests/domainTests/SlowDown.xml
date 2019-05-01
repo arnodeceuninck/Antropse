@@ -2,14 +2,13 @@
     <BAAN>
         <naam>E11</naam>
         <snelheidslimiet>120</snelheidslimiet>
-        <lengte>50</lengte>
-        <verbinding>E313</verbinding>
+        <lengte>500</lengte>
+        <verbinding>E19</verbinding>
     </BAAN>
     <BAAN>
         <naam>E19</naam>
         <snelheidslimiet>10</snelheidslimiet>
-        <lengte>20</lengte>
-        <verbinding>E313</verbinding>
+        <lengte>500</lengte>
     </BAAN>
     <VOERTUIG>
         <type>AUTO</type>
