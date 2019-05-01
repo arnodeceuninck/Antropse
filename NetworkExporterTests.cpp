@@ -20,6 +20,9 @@
 #include "AntropseUtils.h"
 #include "Car.h"
 #include "NetworkExporter.h"
+#include "Bus.h"
+#include "MotorBike.h"
+#include "Truck.h"
 
 class NetworkExporterTests: public ::testing::Test {
 protected:
@@ -136,6 +139,164 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
         roadNetwork->moveAllCars();
         exporter.exportOn(output, *roadNetwork);
     }
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, EmptyRoadNetwork){
+
+    std::string testName = "EmptyRoadNetwork";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    NetworkExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, FloatingPoints){
+
+    std::string testName = "FloatingPoints";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Car("ANT-432", testRoad, 19.5, 0.3);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    NetworkExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, BusjeKomtZo){
+
+    std::string testName = "BusjeKomtZo";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Bus("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    NetworkExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, MotorBike){
+
+    // Bicycle, Bicyle, I want to ride my bicycle, I want to ride my bike
+
+    std::string testName = "MotorBike";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new MotorBike("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    NetworkExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, Truck){
+
+    std::string testName = "Truck";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Truck("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    NetworkExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
 
     exporter.documentEnd(std::cout);
     EXPECT_FALSE(exporter.documentStarted());

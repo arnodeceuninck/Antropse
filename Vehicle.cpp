@@ -15,10 +15,13 @@
 #include "RoadNetwork.h"
 #include "DesignByContract.h"
 
-Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed)
+Vehicle::Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed)
         : licensePlate(license_plate), currentRoad(current_road),
           currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0)
-                               { _initCheck = this; }
+                               {
+                                   _initCheck = this;
+                                   ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
+                               }
 
 
 const std::string &Vehicle::getLicensePlate() const {
@@ -31,7 +34,7 @@ Road *Vehicle::getCurrentRoad() const {
     return currentRoad;
 }
 
-int Vehicle::getCurrentPosition() const {
+double Vehicle::getCurrentPosition() const {
     REQUIRE(properlyInitialized(), "Het voertuig moet deftig geinitialiseerd zijn");
     return currentPosition;
 }
@@ -108,6 +111,7 @@ Vehicle::Vehicle(): licensePlate(""), currentRoad(NULL),
                                  currentPosition(0), currentSpeed(0),
                                  currentSpeedup(0) {
     _initCheck = this;
+    ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
 
 bool Vehicle::move(RoadNetwork *roadNetwork) {

@@ -340,6 +340,8 @@ TEST_F(NetworkImporterTests, BusyDay) {
 //  string instead of an int,
 //  no closing tags,
 //  ...
+// TODO: different vehicle types
+// TODO: roadsigns
 
 //
 //int main(int argc, char **argv) {

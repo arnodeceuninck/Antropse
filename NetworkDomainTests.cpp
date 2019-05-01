@@ -49,7 +49,7 @@ TEST_F(NetworkDomainTests, GoingForward) {
 
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
-    testRoad = new Road("A12", 120, 5000, NULL);
+    testRoad = new Road("A12", 120, 5000, NULL); // Daar onder in die mielies bij die A12
     testVehicle = new Car("ANT-432", testRoad, 20, 0);
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
@@ -287,6 +287,47 @@ TEST_F(NetworkDomainTests, SmallStreets){
 
     delete roadNetwork;
 }
+
+TEST_F(NetworkDomainTests, FloatingPoints) {
+
+    // I believe I can fly
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Car("ANT-432", testRoad, 20.5, 0.5);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    EXPECT_EQ(20.5, testVehicle->getCurrentPosition());
+
+    // The actual tests
+    EXPECT_EQ(testRoad, roadNetwork->findRoad("A12"));
+    EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("A12"));
+    EXPECT_EQ(testVehicle, roadNetwork->findCar("ANT-432"));
+    EXPECT_EQ(1, roadNetwork->nrOfCars());
+    EXPECT_TRUE(NULL == roadNetwork->findPreviouscar(testVehicle));
+    EXPECT_TRUE(roadNetwork->check());
+    EXPECT_FALSE(roadNetwork->isEmpty());
+    EXPECT_TRUE(roadNetwork->properlyInitialized());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    testVehicle = roadNetwork->findCar("ANT-432");
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    EXPECT_EQ("ANT-432", testVehicle->getLicensePlate());
+    EXPECT_EQ("A12", testVehicle->getCurrentRoad()->getName());
+    EXPECT_EQ(20.5, testVehicle->getCurrentPosition());
+    EXPECT_EQ(0.5, testVehicle->getCurrentSpeed());
+
+    // Hierbijj zou het niet mogen crashen
+    roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
+}
+
+// TODO: tests for different types of vehicles
+//  bus test
+// TODO: tests for road signe
 
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);

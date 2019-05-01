@@ -30,13 +30,20 @@ public:
      * @param current_position The current distance from the starting point of the road in m.
      * @param current_speed The speed by which the vehicle is driving on the road in km / h.
      * @param length The length of the vehicle in m.
+     *
+     * @pre
+     * All REQUIRES from setLicensePlate, setCurrentRoad, setCurrentPosition and setCurrentSpeed apply (except properlyInit)
+     *
+     * @post
+     * ENSURE(properlyInitialized(), "The vehicle has been properly initialized")
+     * All ENSURES from setLicensePlate, setCurrentRoad, setCurrentPosition and setCurrentSpeed apply
      */
-    Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed);
+    Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed);
 
     /**
      * Empty constructor for a Vehicle.
      *
-     * @param length The length of the vehicle in m.
+     *.ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
      */
     Vehicle();
 
@@ -159,9 +166,10 @@ public:
     /**
      * Get the type of the Vehicle as a string.
      *
-     * A Car is the only type supported (other types are still W.I.P.
-     *
      * @return The type of the vehicle as string
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The vehicle must be properly initialized");
      */
     virtual std::string getType() const=0;
 
@@ -191,7 +199,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    int getCurrentPosition() const;
+    double getCurrentPosition() const;
 
     /**
      * Get the speed at which the car is driving
@@ -214,6 +222,7 @@ public:
 
     /**
      * Check whether a vehicle is properly initialised
+     *
      * @return true when everything properly initialised
      */
     bool properlyInitialized() const;
@@ -228,25 +237,41 @@ public:
 
     /**
      * Get the minimum speed of the vehicle in m/s
+     *
      * @return a double containing the minimum speed of the vehicle
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     virtual double getMinSpeed() const=0;
 
     /**
      * Get the maximum speed of the vehicle in m/s
+     *
      * @return a double containing the maximum speed of the vehicle
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     virtual double getMaxSpeed() const=0;
 
     /**
      * Get the minimum speedup of the vehicle in m/s^2
+     *
      * @return a double containing the minimum speedup of the vehicle
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     virtual double getMaxSpeedup() const=0;
 
     /**
      * Get the maximum speedup of the vehicle in m/s^2
+     *
      * @return a double containing the maximum speedup of the vehicle
+     *
+     * @pre
+     * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
     virtual double getMinSpeedup() const=0;
 

@@ -19,17 +19,17 @@ int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
-    RoadNetwork roadNetwork;
+    RoadNetwork* roadNetwork = new RoadNetwork();
     NetworkExporter exporter;
 
     NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
 
     exporter.documentStart(std::cout);
 
-    while(!roadNetwork.isEmpty()){
-        roadNetwork.moveAllCars();
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
         std::cout << std::endl << std::endl;
-        exporter.exportOn(std::cout, roadNetwork);
+        exporter.exportOn(std::cout, *roadNetwork);
     }
 
     exporter.documentEnd(std::cout);

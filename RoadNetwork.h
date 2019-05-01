@@ -59,27 +59,19 @@ public:
 
     /**
      * Find a specific road in the RoadNetwork
+     *
      * @param nameRoad A string containing the unique name of the road
+     *
      * @return A pointer to the road with nameRoad as name
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The road must be properly initialized");
      */
     Road* findRoad(std::string nameRoad);
 
-//    /**
-//     * A constructor making a RoadNetwork from an xml file
-//     * @pre
-//     *  REQUIRE(fileExists(filename)
-//     * @param filename The path of the file containing the xml description of the road network
-//     */
-//    void importNetwork(std::string filename);
-//
-//    /**
-//     * Generate a simple output to a file containing an overview of the roads and vehicles on the road
-//     * @param filename The path to the file where you'd like to write the output to.
-//     */
-//    void generateOutputFile(const std::string& filename);
-
     /**
      * Get a list of all roads on the RoadNetwork
+     *
      * @return A list containing all roads on the RoadNetwork
      *
      * @pre
@@ -89,6 +81,7 @@ public:
 
     /**
      * Get a list of all cars on the RoadNetwork
+     *
      * @return A vector containing all registered cars, inside and outside the network, active or inactive
      *
      * @pre
@@ -98,29 +91,53 @@ public:
 
     /**
      * check if the road already exists as an intersection of another road
+     *
      * @param nameRoad The name of the road you're about to check
+     *
      * @return NULL if there's no road with this name as an intersection of another road
      * @return Road* if there's a road with this name as an intersection of another road
      */
     Road* retrieveRoad(std::string nameRoad);
 
+    /**
+     * Check whether a car with the specified license plate is in the roadnetwork
+     *
+     * @return NULL when the car isn't in the network
+     * @return A pointer to the car when he is in the roadNetwork
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The roadnetwork must be properly initialized");
+     */
     Vehicle* findCar(std::string license_plate) const;
 
+    /**
+     * Get the number of cars
+     *
+     * @return The number of cars currently positioned on one of the streets of the roadnetwork
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The roadnetwork must be properly initialized");
+     */
     int nrOfCars();
 
     /**
      * Find the car in front of another car on the same road
+     *
      * @param car
+     *
      * @pre
-     *  REQUIRE(car != NULL, "De wagen moet bestaan");
-     * @return
+     * REQUIRE(car != NULL, "De wagen moet bestaan");
+     *
+     * @return NULL if there is no car in front, else a pointer to this car
      */
     Vehicle* findPreviouscar(const Vehicle* car) const;
 
     /**
      * Automatische simulatie van het netwerk die door blijft gaan tot er geen wagens meer in het netwerk zitten.
+     *
      * @pre
      *  REQUIRE(check(), "Roadnetwork not valid");
+     *
      * @post
      *  ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
      *  ENSURE(check(), "Valid roadnnetwork");
@@ -129,26 +146,54 @@ public:
 
     /**
      * Check to know if a car is on a road that exists in the network
+     *
      * @param car
+     *
      * @pre
      *  REQUIRE(car != NULL, "De auto moet bestaan");
      *  REQUIRE(findCar(car->getLicense_plate()) != NULL, "De auto moet in het netwerk zitten");
+     *
      * @return
      */
     bool carOnExistingRoad(Vehicle *car);
 
     /**
      * All checks for a valid roadnetwork
-     * @return
+     *
+     * @return true when the roadnetwork is valid
      */
     bool check();
 
+    /**
+     *  check whether all cars on the roadnetwork are on an existing road
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
+     */
     bool checkIfCarsOnExistingRoad();
 
+    /**
+     * check whether all car positions are inside the borders of the roads they're driving on
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
+     */
     bool checkPositionCars();
 
+    /**
+     * Check whether there is enough space between cars
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
+     */
     bool checkSpaceBetweenCars();
 
+    /**
+     * Check whether all intersections exist
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
+     */
     bool checkIntersections();
 
 
@@ -170,17 +215,39 @@ public:
      * Checks whether there are still cars driving on the roadNetwork
      *
      * @return true when there are still cars left in the roadnetwork
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
      */
     bool isEmpty();
 
+    /**
+     * Move all cars on the road one time unit and increase the current iteration
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The network must be properly initialized");
+     * REQUIRE(check(), "The roadnetwork must be valid);
+     *
+     * @post
+     * Ensure(check(), "The roadnetwork must still be valid");
+     */
     void moveAllCars();
 
     /**
      * Check whether all cars and roads in the network are properly initialised
+     *
      * @return true when everything properly initialised
      */
     bool properlyInitialized() const;
 
+    /**
+    * Get the number of roads
+    *
+    * @return The number of roads in the roadnetwork
+    *
+    * @pre
+    * REQUIRE(properlyInitialized(), "The roadnetwork must be properly initialized");
+    */
     int nrOfRoads();
 
     /**

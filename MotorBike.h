@@ -34,7 +34,7 @@ public:
      *  REQUIRE(currentSpeed < currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
      *  REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
      */
-    MotorBike(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed);
+    MotorBike(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed);
 
     /**
      * An empty constructor for a car

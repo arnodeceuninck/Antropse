@@ -55,6 +55,7 @@ const std::vector<Vehicle *> &RoadNetwork::getCars() const {
 }
 
 Road *RoadNetwork::findRoad(std::string nameRoad) {
+    REQUIRE(properlyInitialized(), "The road must be properly initialized");
     for(std::vector<Road*>::iterator r = roads.begin(); r != roads.end(); r++){
         if((*r)->getName() == nameRoad){
             return *r;
@@ -189,6 +190,7 @@ bool RoadNetwork::check() {
 }
 
 Vehicle *RoadNetwork::findCar(std::string license_plate) const {
+    REQUIRE(properlyInitialized(), "The roadnetwork must be properly initialized");
     for(std::vector<Vehicle*>::const_iterator car = cars.begin(); car != cars.end(); car++){
         if((*car)->getLicensePlate() == license_plate){
             return (*car);

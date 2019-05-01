@@ -11,13 +11,14 @@
 #include "Bus.h"
 #include "Truck.h"
 #include "AntropseUtils.h"
+#include "DesignByContract.h"
 
 SuccessEnum
 NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork) {
 
-        // TODO: opsplitsen in functies
-        // TODO: Alle setters een bool-functie maken, en als deze dus false returnt een partialImport doen en de
-        //  wagen/weg niet toevoegen
+        REQUIRE(roadNetwork->properlyInitialized(), "Roadnetwork moet juist geinitialiseerd zijn");
+        REQUIRE(roadNetwork->check(), "The roadnetwork must be valid");
+        REQUIRE(fileExists(filename), "Het bestand dat je wil inlezen moet bestaan");
 
         SuccessEnum  endResult = Success;
 
@@ -86,6 +87,8 @@ NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &er
         errStream <<  "Something unknown went wrong :-(" << std::endl;
         return ImportFailed;
     }
+
+    ENSURE(roadNetwork->check(), "The roadnetwork is still valid");
     return endResult;
 }
 

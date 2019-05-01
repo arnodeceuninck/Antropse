@@ -60,7 +60,8 @@ Road::Road() : name(), speedLimit(), length(), intersection(){
     _initCheck = this;
     length = std::numeric_limits<double>::infinity();
     speedLimit = std::numeric_limits<int>::max();
-    intersection = NULL; }
+    intersection = NULL;
+    ENSURE(properlyInit(), "The road is properly initialized");}
 
 Road *Road::getIntersection() const {
     return intersection;
@@ -88,6 +89,7 @@ Road::Road(const std::string &name, int speedLimit, double length, Road *interse
 }
 
 bool Road::addBusStop(int position) {
+    REQUIRE(properlyInit(), "The road must be correctly initialized");
     if(position > 0 &&
         position < getLength() &&
         "Er is nog geen bushalte op de postie"){// TODO check for bus stop at position

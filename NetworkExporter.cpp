@@ -26,11 +26,15 @@ bool NetworkExporter::documentStarted() {
 }
 
 void NetworkExporter::documentStart(std::ostream &onStream) {
+    REQUIRE(properlyInitialized(), "The exporter must be properly initialized");
     _documentStarted = true;
+    ENSURE(documentStarted(), "The document is started");
 }
 
 void NetworkExporter::documentEnd(std::ostream &onStream) {
+    REQUIRE(documentStarted(), "The document must be started");
     _documentStarted = false;
+    ENSURE(!documentStarted(), "The document is closed");
 }
 
 void NetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {

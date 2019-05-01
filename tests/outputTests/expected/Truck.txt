@@ -1,0 +1,12 @@
+Roadnetwork 0
+
+Baan: A12
+	-> snelheidslimiet: 120
+	-> lengte: 5000
+
+Voertuig: VRACHTWAGEN (ANT-432)
+	-> baan: A12
+	-> positie: 20
+	-> snelheid: 0
+
+-----------------------------------------------------------
