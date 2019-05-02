@@ -12,29 +12,27 @@
 #include "Car.h"
 #include "Road.h"
 #include "RoadNetwork.h"
-#include "RoadNetworkExporter.h"
+#include "NetworkExporter.h"
 #include "NetworkImporter.h"
 
 int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
-    RoadNetwork roadNetwork;
-    RoadNetworkExporter exporter;
+    RoadNetwork* roadNetwork = new RoadNetwork();
+    NetworkExporter exporter;
 
     NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
 
     exporter.documentStart(std::cout);
-//    roadNetwork.importNetwork("tests/DefaultReadFile.xml");
 
-    while(!roadNetwork.isEmpty()){
-        roadNetwork.moveAllCars(1);
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
         std::cout << std::endl << std::endl;
-        exporter.exportOn(std::cout, roadNetwork);
+        exporter.exportOn(std::cout, *roadNetwork);
     }
 
     exporter.documentEnd(std::cout);
-//    roadNetwork.generateOutputFile("output.txt");
 
     return 0;
 

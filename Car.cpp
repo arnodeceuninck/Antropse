@@ -12,7 +12,7 @@
 #include "DesignByContract.h"
 #include "Road.h"
 
-Car::Car(const std::string &licensePlate, Road *currentRoad, int currentPosition, double currentSpeed) :
+Car::Car(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed) :
 
         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed) {
 

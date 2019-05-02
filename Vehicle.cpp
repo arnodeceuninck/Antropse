@@ -15,10 +15,13 @@
 #include "RoadNetwork.h"
 #include "DesignByContract.h"
 
-Vehicle::Vehicle(const std::string &license_plate, Road *current_road, int current_position, double current_speed)
+Vehicle::Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed)
         : licensePlate(license_plate), currentRoad(current_road),
           currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0)
-                               { _initCheck = this; }
+                               {
+                                   _initCheck = this;
+                                   ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
+                               }
 
 
 const std::string &Vehicle::getLicensePlate() const {
@@ -31,7 +34,7 @@ Road *Vehicle::getCurrentRoad() const {
     return currentRoad;
 }
 
-int Vehicle::getCurrentPosition() const {
+double Vehicle::getCurrentPosition() const {
     REQUIRE(properlyInitialized(), "Het voertuig moet deftig geinitialiseerd zijn");
     return currentPosition;
 }
@@ -62,32 +65,31 @@ bool Vehicle::setCurrentRoad(Road *newCurrentRoad) {
 }
 
 bool Vehicle::setCurrentPosition(int newCurrentPosition) {
-    if(!(newCurrentPosition >= 0)){
+    if(!(newCurrentPosition >= 0 and
+        ((currentRoad != NULL and newCurrentPosition <= currentRoad->getLength()) or
+          currentRoad == NULL))){
         return false;
     }
     REQUIRE(newCurrentPosition >= 0, "De positie moet positief zijn");
-    if(currentRoad != NULL) {
-        if(newCurrentPosition <= currentRoad->getLength()){
-            return false;
-        }
-        REQUIRE(newCurrentPosition <= currentRoad->getLength(), "De positie ligt buiten de huidige weg");
-    }
+    REQUIRE((currentRoad != NULL and newCurrentPosition <= currentRoad->getLength()) or
+            currentRoad == NULL, "De positie valt buiten de weg");
+
     Vehicle::currentPosition = newCurrentPosition;
     ENSURE(getCurrentPosition() == newCurrentPosition, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
 }
 
 bool Vehicle::setCurrentSpeed(double newCurrentSpeed) {
-    if(!(newCurrentSpeed <= CONST::MAX_CAR_SPEED)){
+
+    if(!(newCurrentSpeed <= getMaxSpeed() and
+       ((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+         currentRoad == NULL))){
         return false;
     }
-    REQUIRE(newCurrentSpeed <= CONST::MAX_CAR_SPEED, "Maximumsnelheid voor wagen overschreven");
-    if(currentRoad != NULL) {
-        if(newCurrentSpeed <= currentRoad->getSpeedLimit()){
-            return false;
-        }
-        REQUIRE(newCurrentSpeed <= currentRoad->getSpeedLimit(), "Te snel rijden is verboden");
-    }
+    REQUIRE(newCurrentSpeed <= getMaxSpeed(), "Maximumsnelheid voor wagen overschreven");
+    REQUIRE((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+             currentRoad == NULL, "Te snel rijden is verboden");
+
     Vehicle::currentSpeed = newCurrentSpeed;
     ENSURE(getCurrentSpeed() == currentSpeed, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
@@ -109,13 +111,15 @@ Vehicle::Vehicle(): licensePlate(""), currentRoad(NULL),
                                  currentPosition(0), currentSpeed(0),
                                  currentSpeedup(0) {
     _initCheck = this;
+    ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
 
-bool Vehicle::move(const double &time, RoadNetwork *roadNetwork) {
+bool Vehicle::move(RoadNetwork *roadNetwork) {
     REQUIRE(roadNetwork->checkPositionCars(), "position");
     REQUIRE(roadNetwork->checkIfCarsOnExistingRoad(), "exist on road");
-    REQUIRE(time >= 0, "Tijd moet positief zijn");
     REQUIRE(roadNetwork->findCar(licensePlate) != NULL, "De wagen moet in het netwerk zitten");
+
+    double time = CONST::SECONDS_PER_ITERATION;
 
     updateCurrentPosition(time);
     updateCurrentSpeed(time);
@@ -140,7 +144,7 @@ Vehicle::Vehicle(const Vehicle* vehicle) : licensePlate(vehicle->getLicensePlate
 
 
 double Vehicle::getCurrentSpeedup() const {
-    REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
+    REQUIRE(properlyInitialized(), "Het voertuig moet deftig geinitialiseerd zijn");
     return currentSpeedup;
 }
 
@@ -148,15 +152,7 @@ Vehicle::~Vehicle() {
 
 }
 
-bool Vehicle::ProperlyInit() const{
-//    return (licensePlate.size() > 0 &&
-//            currentRoad != NULL &&
-//            currentSpeed > CONST::MIN_CAR_SPEED &&
-//            currentSpeed < currentRoad->getSpeedLimit() &&
-//            currentSpeed < CONST::MAX_CAR_SPEED &&
-//            currentSpeedup < CONST::MAX_CAR_SPEEDUP &&
-//            currentSpeedup > CONST::MIN_CAR_SPEEDUP);
-
+bool Vehicle::properlyInitialized() const{
     return Vehicle::_initCheck == this;
 }
 
@@ -227,32 +223,4 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
     if(currentSpeedup * time + Convert::kmhToMs(currentSpeed) > Convert::kmhToMs(currentRoad->getSpeedLimit())){
         currentSpeedup = (Convert::kmhToMs(currentRoad->getSpeedLimit())- Convert::kmhToMs(currentSpeed))/time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
     }
-}
-
-Vehicle::Vehicle(const Vehicle* vehicle) : licensePlate(vehicle->getLicensePlate()),
-                                                                       currentRoad(vehicle->getCurrentRoad()),
-                                                                       currentPosition(vehicle->getCurrentPosition()),
-                                                                       currentSpeed(vehicle->getCurrentSpeed()),
-                                                                       currentSpeedup(vehicle->getCurrentSpeedup()) {}
-
-
-double Vehicle::getCurrentSpeedup() const {
-    REQUIRE(properlyInitialized(), "Het voertuig moet deftig geinitialiseerd zijn");
-    return currentSpeedup;
-}
-
-Vehicle::~Vehicle() {
-
-}
-
-bool Vehicle::properlyInitialized() const{
-//    return (licensePlate.size() > 0 &&
-//            currentRoad != NULL &&
-//            currentSpeed > CONST::MIN_CAR_SPEED &&
-//            currentSpeed < currentRoad->getSpeedLimit() &&
-//            currentSpeed < CONST::MAX_CAR_SPEED &&
-//            currentSpeedup < CONST::MAX_CAR_SPEEDUP &&
-//            currentSpeedup > CONST::MIN_CAR_SPEEDUP);
-
-    return Vehicle::_initCheck == this;
 }

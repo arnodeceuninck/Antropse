@@ -25,6 +25,7 @@ public:
 
     /**
      * Get the name of a road
+     *
      * @return The unique identification name of this road
      *
      * @pre
@@ -34,6 +35,7 @@ public:
 
     /**
      * Get the speed limit of a road
+     *
      * @return The maximum legal speed to drive on this road in km/h
      *
      * @pre
@@ -43,6 +45,7 @@ public:
 
     /**
      * Get the length of the road
+     *
      * @return A double containing the length of the road in m
      *
      * @pre
@@ -52,6 +55,9 @@ public:
 
     /**
      * empty constructor of road
+     *
+     * @post
+     * ENSURE(properlyInit(), "The road is properly initialized");
      */
     Road();
 
@@ -59,6 +65,7 @@ public:
 
     /**
      * Change the name of a road
+     *
      * @param name The unique name for identifying the road
      *
      * @pre
@@ -73,6 +80,7 @@ public:
 
     /**
      * Change the speed limit of a road
+     *
      * @param newSpeedLimit The maximum allowed speed to drive on the road in km/h
      *
      * @pre
@@ -81,7 +89,7 @@ public:
      * @post
      * ENSURE(getSpeedLimit() == newSpeedLimit, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
      *
-     * @return true when all precoditions are satisfied
+     * @return true when all preconditions are satisfied
      */
     bool setSpeedLimit(int newSpeedLimit);
 
@@ -100,6 +108,7 @@ public:
     bool setLength(double length);
 
     /**
+     * Get the road which follows on this road
      *
      * @return the intersection of the road
      */
@@ -122,6 +131,7 @@ public:
 
     /**
      * Check whether the road is properly initialised
+     *
      * @return true when properly initialised
      */
     bool properlyInit() const;
@@ -130,7 +140,16 @@ public:
      * Add a bus stop to the road
      *
      * @param position The position on the road to add the bus stop
+     *
      * @return true when succesfully added, false when there was an error adding the stop
+     *
+     * @pre
+     * REQUIRE(properlyInit(), "The road must be correctly initialized");
+     * REQUIRE(validPositionOnRoad(position), "The position must be on the road");
+     * REQUIRE(numberInSet(position, busStops), "There cant be another bus stop at the same postition")
+     *
+     * @post
+     * ENSURE(numberInSet(position, busStops), "The bus stop has been placed at the specified position")
      */
     bool addBusStop(int position);
 
@@ -139,7 +158,17 @@ public:
      *
      * @param position The position on the road where the zone starts
      * @param speedLimit The speed limit in the zone
+     *
      * @return true when succesfully added, false when there was an error adding the zone
+     *
+     * @pre
+     * REQUIRE(properlyInit(), "The road must be correctly initialized");
+     * REQUIRE(validPositionOnRoad(position), "The position must be on the road");
+     * REQUIRE(zoneSpeedLimit > 0, "The position must be strict positive");
+     * REQUIRE(numberInSet(position, trafficLights), "There cant be another zone start at the same postition");
+     *
+     * @post
+     * ENSURE(for(i=0;i<nextZone()): getSpeedLimit(i)==zoneSpeedLimit, "The bus stop has been placed at the specified position")
      */
     bool addZone(double position, int zoneSpeedLimit);
 
@@ -147,13 +176,26 @@ public:
      * Add a traffic light to the road
      *
      * @param position The position on the road to add the light
+     *
      * @return true when succesfully added, false when there was an error adding the stop
+     *
+     * @pre
+     * REQUIRE(properlyInit(), "The road must be correctly initialized");
+     * REQUIRE(validPositionOnRoad(position), "The position must be on the road");
+     * REQUIRE(numberInSet(position, trafficLights), "There cant be another traffic light at the same postition")
+     *
+     * @post
+     * ENSURE(numberInSet(position, trafficLights), "The traffic light stop has been placed at the specified position")
      */
     bool addTrafficLight(int position);
 
     /**
-     * Returns the position of the next bus stop on the road or -1 when the last bus stop on the on the road has been passed
-     * @return
+     * Find the next busStop
+     *
+     * @return the position of the next bus stop on the road or -1 when the last bus stop on the on the road has been passed;
+     *
+     * @pre
+     * REQUIRE(properlyInit(), "The road must be correctly initialized")
      */
     double getNextBusStop(double busPosition);
 

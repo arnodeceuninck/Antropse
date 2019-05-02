@@ -22,6 +22,8 @@ bool fileIsEmpty(const std::string fileName);
 
 bool fileCompare(const std::string leftFileName, const std::string rightFileName);
 
+bool checkInt(const std::string nr);
+
 std::string toString(int i);
 
 // Closing of the ``header guard''.
