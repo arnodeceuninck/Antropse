@@ -57,6 +57,12 @@ namespace CONST{
     const double TRUCK_LENGTH = 15;
 
 
+    // TRAFFICLIGHTS
+    double GREEN_DURATION = 30;
+    double ORANGE_DURATION = 5;
+    double RED_DURATION = 30;
+
+
     // Other specifications
     const double MIN_FOLLOWING_DISTANCE = 2;
     const double BUS_STOP_WAITING_TIME = 10;

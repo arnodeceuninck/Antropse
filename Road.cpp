@@ -111,11 +111,11 @@ bool Road::addZone(double position, int zoneSpeedLimit) {
     return false;
 }
 
-bool Road::addTrafficLight(int position) {
+bool Road::addTrafficLight(double position) {
     if(position > 0 &&
        position < getLength() &&
        "Er is nog geen verkeerslicht op de postie"){// TODO check for bus stop at position
-        trafficLights.insert(position);
+        trafficLights[position] = new TrafficLight(position, random());
         // TODO: ensure
         return true;
     }
@@ -131,6 +131,16 @@ double Road::getNextBusStop(double busPosition) {
         }
     }
     return position;
+}
+
+double Road::getNextTrafficLight(double position) {
+    double nextLight = -1;
+    for (std::map<double, TrafficLight*>::iterator light = trafficLights.begin(); light != trafficLights.end(); ++light){
+        if((*light).first > position and (nextLight == -1 or nextLight > (*light).first)){
+            nextLight = (*light).first;
+        }
+    }
+    return nextLight;
 }
 
 

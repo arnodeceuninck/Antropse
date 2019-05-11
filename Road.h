@@ -14,6 +14,7 @@
 //#include <vector>
 #include <map>
 #include <set>
+#include "TrafficLight.h"
 
 
 /**
@@ -187,8 +188,9 @@ public:
      * @post
      * ENSURE(numberInSet(position, trafficLights), "The traffic light stop has been placed at the specified position")
      */
-    bool addTrafficLight(int position);
+    bool addTrafficLight(double position);
 
+    double getNextTrafficLight(double position);
     /**
      * Find the next busStop
      *
@@ -209,7 +211,7 @@ private:
     Road* intersection; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
     std::set<double> busStops; // I'm using a set instead of a vector to keep it all sorted
-    std::set<double> trafficLights;
+    std::map<double, TrafficLight*> trafficLights;
     std::map<double, int> zones; // first number is the position, second number the speed_limit
 };
 
