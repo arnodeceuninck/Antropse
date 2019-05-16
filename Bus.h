@@ -54,6 +54,16 @@ public:
     virtual double getMaxSpeedup() const;
     virtual double getMinSpeedup() const;
 
+
+    double getWaitingTime() const;
+
+    void setWaitingTime(double waitingTime);
+
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
+
+private:
+    int waitingTime;
+
 };
 
 

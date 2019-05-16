@@ -16,9 +16,18 @@ const std::string &Road::getName() const {
     return name;
 }
 
-int Road::getSpeedLimit() const {
+int Road::getSpeedLimit(double position) const {
     REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
-    return speedLimit;
+    int speed = speedLimit;
+    for(std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone){
+        //TODO: controleer of we de doubles op volgorde overlopen
+        if((*zone).first > position){
+            return speed;
+        }
+        speed = (*zone).second;
+    }
+    std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
+    return 0;
 }
 
 double Road::getLength() const {
@@ -42,7 +51,7 @@ bool Road::setSpeedLimit(int newSpeedLimit) {
     }
     REQUIRE(newSpeedLimit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
     Road::speedLimit = newSpeedLimit;
-    ENSURE(getSpeedLimit() == newSpeedLimit, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+    ENSURE(getSpeedLimit(0) == newSpeedLimit, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
 }
 
@@ -122,7 +131,6 @@ bool Road::addTrafficLight(double position) {
     return false;
 }
 
-// TODO: continue
 double Road::getNextBusStop(double busPosition) {
     double position = -1;
     for (std::set<double>::iterator stop = busStops.begin(); stop != busStops.end(); ++stop){
@@ -141,6 +149,10 @@ double Road::getNextTrafficLight(double position) {
         }
     }
     return nextLight;
+}
+
+TrafficLight *Road::getTrafficLight(double position) {
+    return trafficLights[position];
 }
 
 

@@ -70,12 +70,12 @@ TEST_F(NetworkImporterTests, DefaultReadFile) {
     EXPECT_EQ(2, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E313");
-    EXPECT_EQ(120, testRoad->getSpeedLimit());
+    EXPECT_EQ(120, testRoad->getSpeedLimit(0));
     EXPECT_EQ(5000, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(100, testRoad->getSpeedLimit());
+    EXPECT_EQ(100, testRoad->getSpeedLimit(0));
     EXPECT_EQ(2000, testRoad->getLength());
     EXPECT_EQ("E313", testRoad->getIntersection()->getName());
 
@@ -117,7 +117,7 @@ TEST_F(NetworkImporterTests, SomeoneFloating){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(90, testRoad->getSpeedLimit());
+    EXPECT_EQ(90, testRoad->getSpeedLimit(0));
     EXPECT_EQ(30, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
@@ -149,7 +149,7 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(100, testRoad->getSpeedLimit());
+    EXPECT_EQ(100, testRoad->getSpeedLimit(0));
     EXPECT_EQ(1000, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
@@ -188,7 +188,7 @@ TEST_F(NetworkImporterTests, RocketHigh){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(90, testRoad->getSpeedLimit());
+    EXPECT_EQ(90, testRoad->getSpeedLimit(0));
     EXPECT_EQ(30, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
@@ -219,7 +219,7 @@ TEST_F(NetworkImporterTests, WayTooLow){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(90, testRoad->getSpeedLimit());
+    EXPECT_EQ(90, testRoad->getSpeedLimit(0));
     EXPECT_EQ(30, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 
@@ -278,7 +278,7 @@ TEST_F(NetworkImporterTests, BusyDay) {
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     testRoad = roadNetwork->findRoad("E19");
-    EXPECT_EQ(30, testRoad->getSpeedLimit());
+    EXPECT_EQ(30, testRoad->getSpeedLimit(0));
     EXPECT_EQ(1000, testRoad->getLength());
     EXPECT_TRUE(NULL == testRoad->getIntersection());
 

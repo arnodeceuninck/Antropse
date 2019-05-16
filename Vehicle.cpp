@@ -55,10 +55,10 @@ bool Vehicle::setLicensePlate(const std::string &newLicensePlate) {
 }
 
 bool Vehicle::setCurrentRoad(Road *newCurrentRoad) {
-    if(!(currentSpeed <= newCurrentRoad->getSpeedLimit())){
+    if(!(currentSpeed <= newCurrentRoad->getSpeedLimit(currentPosition))){
         return false;
     }
-    REQUIRE(currentSpeed <= newCurrentRoad->getSpeedLimit(), "De huidige nelheid van je voertuig moet kleiner zijn dan de max toegelaten snelheid op de weg");
+    REQUIRE(currentSpeed <= newCurrentRoad->getSpeedLimit(currentPosition), "De huidige nelheid van je voertuig moet kleiner zijn dan de max toegelaten snelheid op de weg");
     Vehicle::currentRoad = newCurrentRoad;
     ENSURE(getCurrentRoad() == newCurrentRoad, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
     return true;
@@ -82,12 +82,12 @@ bool Vehicle::setCurrentPosition(int newCurrentPosition) {
 bool Vehicle::setCurrentSpeed(double newCurrentSpeed) {
 
     if(!(newCurrentSpeed <= getMaxSpeed() and
-       ((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+       ((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit(currentPosition)) or
          currentRoad == NULL))){
         return false;
     }
     REQUIRE(newCurrentSpeed <= getMaxSpeed(), "Maximumsnelheid voor wagen overschreven");
-    REQUIRE((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit()) or
+    REQUIRE((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit(currentPosition)) or
              currentRoad == NULL, "Te snel rijden is verboden");
 
     Vehicle::currentSpeed = newCurrentSpeed;
@@ -129,7 +129,9 @@ bool Vehicle::move(RoadNetwork *roadNetwork) {
         setCurrentPositionOnNewRoad(roadNetwork);
     }
 
-    checkForTrafficLight();
+    checkForTrafficLight(roadNetwork);
+    checkVehicleSpecificMove(NULL);
+
 
 //    std::cout << "Car " << licensePlate << " " << currentPosition << std::endl;
     ENSURE(roadNetwork->checkPositionCars(), "position");
@@ -169,8 +171,8 @@ void Vehicle::updateCurrentSpeed(double time) {
     if(currentSpeed > getMaxSpeed()){
         currentSpeed = getMaxSpeed();
     }
-    if(currentSpeed > currentRoad->getSpeedLimit()){
-        currentSpeed = currentRoad->getSpeedLimit();
+    if(currentSpeed > currentRoad->getSpeedLimit(currentPosition)){
+        currentSpeed = currentRoad->getSpeedLimit(currentPosition);
     }
 
 }
@@ -200,7 +202,7 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
 
     if (previousCar != NULL) {
 
-        double idealFollowingDistance = getIdealDistance(NULL);
+        double idealFollowingDistance = getIdealDistance(roadNetwork);
         double actualFollowingDistance =
                 previousCar->getCurrentPosition() - previousCar->getLength() - currentPosition;
 
@@ -213,7 +215,7 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
         }
 
     } else {
-        if(currentSpeed < currentRoad->getSpeedLimit()){
+        if(currentSpeed < currentRoad->getSpeedLimit(currentPosition)){
             currentSpeedup = getMaxSpeedup();
         } else {
             currentSpeedup = 0;
@@ -221,8 +223,8 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
     }
 
     // Controle of je aan deze snelheid niet over de max snelheid gaat
-    if(currentSpeedup * time + Convert::kmhToMs(currentSpeed) > Convert::kmhToMs(currentRoad->getSpeedLimit())){
-        currentSpeedup = (Convert::kmhToMs(currentRoad->getSpeedLimit())- Convert::kmhToMs(currentSpeed))/time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
+    if(currentSpeedup * time + Convert::kmhToMs(currentSpeed) > Convert::kmhToMs(currentRoad->getSpeedLimit(currentPosition))){
+        currentSpeedup = (Convert::kmhToMs(currentRoad->getSpeedLimit(currentPosition)) - Convert::kmhToMs(currentSpeed)) / time; // Bereken de versnelling die nodig is om net de maximaal toegelaten snelheid te bereiken
     }
 }
 
@@ -232,5 +234,26 @@ double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
 }
 
 void Vehicle::checkForTrafficLight(RoadNetwork* roadNetwork) {
-    if(currentRoad->getNextTrafficLight(currentPosition) < 2*)
+
+    double positionNextTrafficLight = currentRoad->getNextTrafficLight(currentPosition);
+
+    if(positionNextTrafficLight-currentPosition < 2* getIdealDistance(roadNetwork)){
+        TrafficLightColor trafficLightColor = currentRoad->getTrafficLight(positionNextTrafficLight)->getColor(roadNetwork->getIteration());
+
+        if(trafficLightColor == red or trafficLightColor == orange){
+
+            if(currentPosition == positionNextTrafficLight and currentSpeed > 0 and trafficLightColor == red){
+                std::cerr << "woopsiepoopsie door rood licht gereden, let's pretend I didn't see that ;)" << std::endl;
+                move(roadNetwork);
+            }
+            currentSpeedup = calculateSlowDownForPosition(positionNextTrafficLight);
+        }
+    }
 }
+
+double Vehicle::calculateSlowDownForPosition(double stopPosition) {
+    double deltaP = stopPosition-currentPosition;
+    return -(currentSpeed*currentSpeed)/deltaP;
+}
+
+void Vehicle::checkVehicleSpecificMove(Road *currentRoad) {}

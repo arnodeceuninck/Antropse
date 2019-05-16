@@ -274,8 +274,10 @@ public:
      */
     virtual double getMinSpeedup() const=0;
 
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
 
-private:
+
+protected:
     std::string licensePlate; /**< A unique ID for each vehicle */
     Road* currentRoad; /**< The road on which the vehicle is currently positioned */
     double currentPosition; /**< The position on the current road. This is the distance from the start of this road in m.
@@ -299,6 +301,8 @@ private:
     void checkForTrafficLight(RoadNetwork* roadNetwork);
 
     double getIdealDistance(RoadNetwork *roadNetwork) const;
+
+    double calculateSlowDownForPosition(double stopPosition);
 };
 
 

@@ -42,7 +42,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "De weg moet deftig geinitialiseerd zijn");
      */
-    int getSpeedLimit() const;
+    int getSpeedLimit(double position) const;
 
     /**
      * Get the length of the road
@@ -191,6 +191,13 @@ public:
     bool addTrafficLight(double position);
 
     double getNextTrafficLight(double position);
+    /**
+     *
+     * @param position = the exact position of the trafficlight
+     * @return
+     */
+    TrafficLight* getTrafficLight(double position);
+
     /**
      * Find the next busStop
      *

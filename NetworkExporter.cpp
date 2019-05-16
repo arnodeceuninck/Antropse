@@ -80,7 +80,8 @@ void NetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
 
     onStream << "Baan: " << road->getName() << std::endl;
 
-    onStream << listItem << "snelheidslimiet: " << road->getSpeedLimit() << std::endl;
+    onStream << listItem << "snelheidslimiet op positie 0: " << road->getSpeedLimit(0) << std::endl;
+    //TODO: zones
     onStream << listItem << "lengte: " << road->getLength() << std::endl;
 
     onStream << std::endl;

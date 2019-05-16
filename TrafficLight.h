@@ -22,15 +22,12 @@ public:
 
     TrafficLightColor getColor(double time);
 
-
-private:
-    double position;
-public:
     double getPosition() const;
 
 private:
     /**< The position on the road of where the trafficLight is */
     double startOffset;
+    double position;
 
 };
 
