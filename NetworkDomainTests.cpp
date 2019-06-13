@@ -286,7 +286,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
 
     while(!roadNetwork->isEmpty()){
         roadNetwork->moveAllCars();
-        std::cout << "Moved" << std::endl;
+//        std::cout << "Moved" << std::endl;
         EXPECT_TRUE(roadNetwork->checkSpaceBetweenCars());
 //        EXPECT_TRUE(roadNetwork->check()); // TODO: uncomment (prevent test spam while not working)
     }
@@ -485,6 +485,34 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
     roadNetwork->automaticSimulation();
 
     delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, FastZoneTest){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("R10", 50, 5000, NULL);
+    testRoad->addZone(50, 100);
+    testRoad->addZone(100, 150);
+    testRoad->addZone(200, 90);
+    testRoad->addZone(150, 70);
+
+    EXPECT_EQ(50, testRoad->getSpeedLimit(10));
+    EXPECT_EQ(100, testRoad->getSpeedLimit(50));
+    EXPECT_EQ(100, testRoad->getSpeedLimit(52));
+    EXPECT_EQ(150, testRoad->getSpeedLimit(100));
+    EXPECT_EQ(150, testRoad->getSpeedLimit(101));
+    EXPECT_EQ(150, testRoad->getSpeedLimit(149));
+    EXPECT_EQ(70, testRoad->getSpeedLimit(150));
+    EXPECT_EQ(70, testRoad->getSpeedLimit(175));
+    EXPECT_EQ(90, testRoad->getSpeedLimit(2663));
+}
+
+TEST_F(NetworkDomainTests, SlowZoneTest){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("R10", 120, 5000, NULL);
+    testRoad->addZone(50, 30);
+
+    EXPECT_EQ(120, testRoad->getSpeedLimit(0));
+    EXPECT_EQ(30, testRoad->getSpeedLimit(55));
 }
 
 // TODO: tests for different types of vehicles
