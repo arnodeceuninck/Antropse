@@ -58,9 +58,9 @@ namespace CONST{
 
 
     // TRAFFICLIGHTS
-    double GREEN_DURATION = 30;
-    double ORANGE_DURATION = 5;
-    double RED_DURATION = 30;
+    const double GREEN_DURATION = 30;
+    const double ORANGE_DURATION = 5;
+    const double RED_DURATION = 30;
 
 
     // Other specifications

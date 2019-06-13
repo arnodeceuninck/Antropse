@@ -8,6 +8,7 @@
  */
 
 #include <limits>
+#include <stdlib.h>
 #include "Road.h"
 #include "DesignByContract.h"
 
@@ -22,12 +23,14 @@ int Road::getSpeedLimit(double position) const {
     for(std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone){
         //TODO: controleer of we de doubles op volgorde overlopen
         if((*zone).first > position){
-            return speed;
+            break;
+//            return speed;
         }
         speed = (*zone).second;
     }
-    std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
-    return 0;
+    return speed;
+//    std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
+//    return 0;
 }
 
 double Road::getLength() const {
@@ -142,6 +145,7 @@ double Road::getNextBusStop(double busPosition) {
 }
 
 double Road::getNextTrafficLight(double position) {
+    REQUIRE(properlyInit(), "De weg moet deftig geinitialliseerd zijn");
     double nextLight = -1;
     for (std::map<double, TrafficLight*>::iterator light = trafficLights.begin(); light != trafficLights.end(); ++light){
         if((*light).first > position and (nextLight == -1 or nextLight > (*light).first)){

@@ -24,11 +24,12 @@ public:
 
     double getPosition() const;
 
+    bool properlyInit();
 private:
     /**< The position on the road of where the trafficLight is */
     double startOffset;
     double position;
-
+    TrafficLight* _initCheck;
 };
 
 

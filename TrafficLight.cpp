@@ -4,10 +4,12 @@
 
 #include <cmath>
 #include "TrafficLight.h"
+#include "DesignByContract.h"
 
-TrafficLight::TrafficLight(double position, double startOffset) : position(position), startOffset(startOffset) {}
+TrafficLight::TrafficLight(double position, double startOffset) : startOffset(startOffset), position(position), _initCheck(this) {}
 
 TrafficLightColor TrafficLight::getColor(double time) {
+    REQUIRE(properlyInit(), "Verkeerslicht moet geinitialiseerd zijn");
     double cycletime = std::fmod((time + startOffset),(CONST::GREEN_DURATION + CONST::ORANGE_DURATION + CONST::RED_DURATION));
     if(cycletime < CONST::GREEN_DURATION){
         return green;
@@ -24,4 +26,8 @@ double TrafficLight::getPosition() const {
 
 bool nextTrafficLight(const TrafficLight* t1, const TrafficLight* t2) {
     return t1->getPosition() < t2->getPosition();
+}
+
+bool TrafficLight::properlyInit(){
+    return _initCheck == this;
 }

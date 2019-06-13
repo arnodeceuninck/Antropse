@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <limits>
 #include "Vehicle.h"
 #include "Convert.h"
 #include "CONST.h"
@@ -129,8 +130,10 @@ bool Vehicle::move(RoadNetwork *roadNetwork) {
         setCurrentPositionOnNewRoad(roadNetwork);
     }
 
-    checkForTrafficLight(roadNetwork);
-    checkVehicleSpecificMove(NULL);
+    if(currentRoad != NULL) {
+        checkForTrafficLight(roadNetwork);
+        checkVehicleSpecificMove(NULL);
+    }
 
 
 //    std::cout << "Car " << licensePlate << " " << currentPosition << std::endl;
@@ -230,12 +233,20 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
 
 double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
     Vehicle* previousCar = roadNetwork->findPreviouscar(this);
+    if(previousCar == NULL){
+        // TODO: controleren wat te returnen als er geen vorig voertuig is
+        return std::numeric_limits<double >::max();
+    }
     return (3 * currentSpeed) / 4 + previousCar->getLength() + CONST::MIN_FOLLOWING_DISTANCE;
 }
 
 void Vehicle::checkForTrafficLight(RoadNetwork* roadNetwork) {
 
     double positionNextTrafficLight = currentRoad->getNextTrafficLight(currentPosition);
+
+    if(positionNextTrafficLight == -1){
+        return;
+    }
 
     if(positionNextTrafficLight-currentPosition < 2* getIdealDistance(roadNetwork)){
         TrafficLightColor trafficLightColor = currentRoad->getTrafficLight(positionNextTrafficLight)->getColor(roadNetwork->getIteration());
@@ -256,4 +267,4 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     return -(currentSpeed*currentSpeed)/deltaP;
 }
 
-void Vehicle::checkVehicleSpecificMove(Road *currentRoad) {}
+void Vehicle::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {}
