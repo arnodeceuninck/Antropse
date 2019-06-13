@@ -49,14 +49,49 @@ bool RoadNetwork::addRoad(Road *road) {
 
 bool RoadNetwork::addCar(Vehicle *car) {
     REQUIRE(car != NULL, "De auto moet bestaan");
+    REQUIRE(car->properlyInitialized(), "De wagen moet correct geinitialiseerd zijn.");
     REQUIRE(findCar(car->getLicensePlate()) == NULL, "De auto mag nog niet in het netwerk zitten");
 
     // All cars must be sorted, starting with the first car, going to the last.
+//    std::cout << car->getLicensePlate() << std::endl;
+    int roadAddedCar = findRoadIndex(car->getCurrentRoad()->getName());
+//    std::cout << "Car on road " << roadAddedCar << " at position " << car->getCurrentPosition() << std::endl;
 
-    cars.push_back(car);
+    int insertPosition = 0;
+    for(unsigned int i = 0; i < cars.size(); ++i){
+        int roadCurrentCar = findRoadIndex(cars[i]->getCurrentRoad()->getName());
+        if(roadCurrentCar > roadAddedCar){
+            insertPosition = i-1;
+            break;
+        } else if (roadCurrentCar == roadAddedCar){
+            if(cars[i]->getCurrentPosition() > car->getCurrentPosition()){
+                insertPosition = i-1;
+                break;
+            } else if(cars[i] ->getCurrentPosition() == car->getCurrentPosition()){
+                return false; // 2 auto's kunnen niet op dezelfde plaats staan
+            }
+        }
+        insertPosition++;
+    }
+
+    if(insertPosition == -1){
+        insertPosition = 0;
+    }
+
+//    if(insertPosition == -1) {
+//        cars.push_back(car);
+//        insertPosition = cars.size()-1;
+//    } else {
+//        cars.insert(cars.begin() + insertPosition, car);
+//    }
+
+    cars.insert(cars.begin() + insertPosition, car);
+
+    std::cout << "Inserted at position " << insertPosition << std::endl; // TODO: remove output
 
     if (!checkSpaceBetweenCars()) {
-        cars.pop_back();
+//        cars.pop_back();
+        cars.erase(cars.begin() + insertPosition);
         return false;
     }
 
@@ -273,6 +308,15 @@ int RoadNetwork::nrOfRoads() {
 int RoadNetwork::getIteration() const {
     REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     return iteration;
+}
+
+int RoadNetwork::findRoadIndex(std::string roadName) {
+    for (unsigned int i = 0; i < roads.size(); ++i) {
+        if(roads[i]->getName() == roadName){
+            return i;
+        }
+    }
+    return -1;
 }
 
 // TODO: Delete the lines below this

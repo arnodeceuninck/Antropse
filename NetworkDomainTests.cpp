@@ -111,6 +111,126 @@ TEST_F(NetworkDomainTests, SortedRoads) {
     delete roadNetwork;
 }
 
+TEST_F(NetworkDomainTests, SortedCars) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    testRoad = new Road("A12", 120, 5000, NULL);
+    roadNetwork->addRoad(testRoad);
+
+    testVehicle = new Car("ANT-432", testRoad, 20, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-433", testRoad, 40, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-434", testRoad, 60, 0);
+    roadNetwork->addCar(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(roadNetwork->getCars()[0]->getLicensePlate(), "ANT-432");
+    EXPECT_EQ(roadNetwork->getCars()[1]->getLicensePlate(), "ANT-433");
+    EXPECT_EQ(roadNetwork->getCars()[2]->getLicensePlate(), "ANT-434");
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, UnsortedCars) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    testRoad = new Road("A12", 120, 5000, NULL);
+    roadNetwork->addRoad(testRoad);
+
+    testVehicle = new Car("ANT-432", testRoad, 60, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-433", testRoad, 40, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-434", testRoad, 20, 0);
+    roadNetwork->addCar(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(roadNetwork->getCars()[2]->getLicensePlate(), "ANT-432");
+    EXPECT_EQ(roadNetwork->getCars()[1]->getLicensePlate(), "ANT-433");
+    EXPECT_EQ(roadNetwork->getCars()[0]->getLicensePlate(), "ANT-434");
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, SortedCarsOnDifferentRoads) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    testRoad = new Road("A12", 120, 5000, NULL);
+    Road* tempRoad2 = testRoad;
+    roadNetwork->addRoad(testRoad);
+
+    testRoad = new Road("A11", 120, 5000, tempRoad2);
+    roadNetwork->addRoad(testRoad);
+    Road* tempRoad1 = testRoad;
+
+    testRoad = new Road("A10", 120, 5000, tempRoad1);
+    roadNetwork->addRoad(testRoad);
+
+    // Eerst komt testRoad, gevolgd door tempRoad1, gevolgd door tempRoad2
+
+    testVehicle = new Car("ANT-432", testRoad, 20, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-433", tempRoad1, 40, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-434", tempRoad2, 60, 0);
+    roadNetwork->addCar(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(roadNetwork->getCars()[0]->getLicensePlate(), "ANT-432");
+    EXPECT_EQ(roadNetwork->getCars()[1]->getLicensePlate(), "ANT-433");
+    EXPECT_EQ(roadNetwork->getCars()[2]->getLicensePlate(), "ANT-434");
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, UnsortedCarsOnDifferentRoads) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    testRoad = new Road("A12", 120, 5000, NULL);
+    Road* tempRoad2 = testRoad;
+    roadNetwork->addRoad(testRoad);
+
+    testRoad = new Road("A11", 120, 5000, tempRoad2);
+    roadNetwork->addRoad(testRoad);
+    Road* tempRoad1 = testRoad;
+
+    testRoad = new Road("A10", 120, 5000, tempRoad1);
+    roadNetwork->addRoad(testRoad);
+
+    // Eerst komt testRoad, gevolgd door tempRoad1, gevolgd door tempRoad2
+
+    testVehicle = new Car("ANT-432", tempRoad2, 20, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-433", tempRoad1, 40, 0);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("ANT-434", testRoad, 60, 0);
+    roadNetwork->addCar(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(roadNetwork->getCars()[2]->getLicensePlate(), "ANT-432");
+    EXPECT_EQ(roadNetwork->getCars()[1]->getLicensePlate(), "ANT-433");
+    EXPECT_EQ(roadNetwork->getCars()[0]->getLicensePlate(), "ANT-434");
+
+    delete roadNetwork;
+}
+
 TEST_F(NetworkDomainTests, BusyDay){
 
     std::string nameTest = "BusyDay";
