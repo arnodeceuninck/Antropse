@@ -178,6 +178,10 @@ void Vehicle::updateCurrentSpeed(double time) {
         currentSpeed = currentRoad->getSpeedLimit(currentPosition);
     }
 
+    // Auto's kunnen niet achteruit rijden in de simulatie
+    if(currentSpeed < 0){
+        currentSpeed = 0;
+    }
 }
 
 bool Vehicle::checkCurrentPositionOnRoad() {

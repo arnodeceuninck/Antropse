@@ -33,7 +33,7 @@ bool RoadNetwork::addRoad(Road *road) {
         // Controleer of deze weg roadname als intersection heeft
         if (roads[i]->getIntersection() != NULL and
             roads[i]->getIntersection()->getName() == roadname) {
-            insertPosition = i+1;
+            insertPosition = i + 1;
             break;
         }
     }
@@ -58,23 +58,23 @@ bool RoadNetwork::addCar(Vehicle *car) {
 //    std::cout << "Car on road " << roadAddedCar << " at position " << car->getCurrentPosition() << std::endl;
 
     int insertPosition = 0;
-    for(unsigned int i = 0; i < cars.size(); ++i){
+    for (unsigned int i = 0; i < cars.size(); ++i) {
         int roadCurrentCar = findRoadIndex(cars[i]->getCurrentRoad()->getName());
-        if(roadCurrentCar > roadAddedCar){
-            insertPosition = i-1;
+        if (roadCurrentCar > roadAddedCar) {
+            insertPosition = i - 1;
             break;
-        } else if (roadCurrentCar == roadAddedCar){
-            if(cars[i]->getCurrentPosition() > car->getCurrentPosition()){
-                insertPosition = i-1;
+        } else if (roadCurrentCar == roadAddedCar) {
+            if (cars[i]->getCurrentPosition() > car->getCurrentPosition()) {
+                insertPosition = i - 1;
                 break;
-            } else if(cars[i] ->getCurrentPosition() == car->getCurrentPosition()){
+            } else if (cars[i]->getCurrentPosition() == car->getCurrentPosition()) {
                 return false; // 2 auto's kunnen niet op dezelfde plaats staan
             }
         }
         insertPosition++;
     }
 
-    if(insertPosition == -1){
+    if (insertPosition == -1) {
         insertPosition = 0;
     }
 
@@ -87,7 +87,7 @@ bool RoadNetwork::addCar(Vehicle *car) {
 
     cars.insert(cars.begin() + insertPosition, car);
 
-    std::cout << "Inserted at position " << insertPosition << std::endl; // TODO: remove output
+//    std::cout << "Inserted at position " << insertPosition << std::endl; // TODO: remove output
 
     if (!checkSpaceBetweenCars()) {
 //        cars.pop_back();
@@ -287,17 +287,17 @@ bool RoadNetwork::isEmpty() {
 
 void RoadNetwork::moveAllCars() {
     iteration++;
-    int n = nrOfCars(); // Value to check wether a car has been removed
+//    int n = nrOfCars(); // Value to check wether a car has been removed
 //    generateOutputFile("simulation.txt");
-    for (int i = 0; i < nrOfCars(); ++i) {
+    for (int i = nrOfCars()-1; i >= 0; --i) {
 
         cars[i]->move(this);
 
         // Enkel mogelijk indien de wagen verwijjderd is uit het netwerk
-        if (n != nrOfCars()) {
-            i--;
-            n = nrOfCars();
-        }
+//        if (n != nrOfCars()) {
+//            i++;
+//            n = nrOfCars();
+//        }
     }
 }
 
@@ -312,7 +312,7 @@ int RoadNetwork::getIteration() const {
 
 int RoadNetwork::findRoadIndex(std::string roadName) {
     for (unsigned int i = 0; i < roads.size(); ++i) {
-        if(roads[i]->getName() == roadName){
+        if (roads[i]->getName() == roadName) {
             return i;
         }
     }
