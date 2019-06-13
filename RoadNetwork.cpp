@@ -25,21 +25,23 @@ bool RoadNetwork::addRoad(Road *road) {
 
     // All roads must be sorted. The road on the first index is a road without any connections to.
 
-//    std::string roadname = road->getName();
-//
-//    // Start by finding the index where to add the road
-//    int insertPosition;
-//    for (insertPosition = 0; insertPosition < roads.size(); ++insertPosition) {
-//        // Controleer of deze weg roadname als intersection heeft
-//        if (roads[insertPosition]->getIntersection() != NULL and
-//            roads[insertPosition]->getIntersection()->getName() == roadname) {
-//            insertPosition += 1;
-//            break;
-//        }
-//    }
-//
-//    roads.insert(roads.begin() + insertPosition, road);
-    roads.push_back(road);
+    std::string roadname = road->getName();
+
+    // Start by finding the index where to add the road
+    unsigned int insertPosition = 0;
+    for (unsigned int i = 0; i < roads.size(); ++i) {
+        // Controleer of deze weg roadname als intersection heeft
+        if (roads[i]->getIntersection() != NULL and
+            roads[i]->getIntersection()->getName() == roadname) {
+            insertPosition = i+1;
+            break;
+        }
+    }
+
+//    std::cout << "Inserting at positon " << insertPosition << std::endl;
+
+    roads.insert(roads.begin() + insertPosition, road);
+//    roads.push_back(road);
 
     ENSURE(findRoad(road->getName()) == road, "De weg moet nu wel in het netwerk zitten, omdat hij nu is toegevoegd");
     return true;

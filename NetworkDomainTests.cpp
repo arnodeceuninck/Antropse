@@ -65,6 +65,46 @@ TEST_F(NetworkDomainTests, GoingForward) {
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, UnsortedRoads) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+
+    Road* tempRoad = testRoad;
+    roadNetwork->addRoad(testRoad);
+
+    testRoad = new Road("A13", 120, 5000, tempRoad);
+    roadNetwork->addRoad(testRoad);
+
+    // The actual tests
+    EXPECT_EQ("A13", roadNetwork->getRoads()[0]->getName());
+    EXPECT_EQ("A12", roadNetwork->getRoads()[1]->getName());
+
+    // Hierbijj zou het niet mogen crashen
+    roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, SortedRoads) {
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    testRoad = new Road("A12", 120, 5000, NULL);
+    Road* tempRoad = new Road("A11", 120, 5000, testRoad);
+
+    roadNetwork->addRoad(tempRoad);
+    roadNetwork->addRoad(testRoad);
+
+    // The actual tests
+    EXPECT_EQ("A11", roadNetwork->getRoads()[0]->getName());
+    EXPECT_EQ("A12", roadNetwork->getRoads()[1]->getName());
+
     // Hierbijj zou het niet mogen crashen
     roadNetwork->automaticSimulation();
 
