@@ -301,7 +301,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
         std::string positionStr = positionNode->ToText()->Value();
         if(!checkInt(positionStr)){
             endResult = PartialImport;
-            std::cout << "De snelheid is geen integer" << std::endl;
+            std::cout << "De positie is geen integer" << std::endl;
             return;
         }
         int position = std::strtod(positionStr.c_str(), NULL);
@@ -349,7 +349,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
 
         if(!road->addZone(position, speedLimit)){
             endResult = PartialImport;
-            errStream << "Ongeldige gegevens bij busstop" << std::endl;
+            errStream << "Ongeldige gegevens bij zone" << std::endl;
             return;
         } // TODO: check int or double position
     } else if(signType == "VERKEERSLICHT"){
