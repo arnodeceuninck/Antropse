@@ -11,4 +11,5 @@
  * -# Google (2019). Googletest - Google Testing and Mocking Framework. Visited on March 9, 2019 via https://github.com/google/googletest.
  * -# Demeyer, S. (2011). Project Software Engineering (1e Bac). Visited on March 9, 2019 via http://ansymore.uantwerpen.be/courses/SE1BAC.
  * -# Lee (s.d.). tinyxml. Visited on March 0, 2019 via http://www.grinninglizard.com/tinyxml/.
+ * -# https://stackoverflow.com/questions/30345686/c-using-gcov-lcov-in-a-cmake-project
  */
