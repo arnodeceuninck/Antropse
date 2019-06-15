@@ -522,6 +522,24 @@ TEST_F(NetworkDomainTests, SlowZoneTest){
     delete testRoad;
 }
 
+TEST_F(NetworkDomainTests, EasyBusStop){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 18, 7, NULL);
+
+    testRoad->addBusStop(6);
+    testVehicle = new Bus("DL4884", testRoad, 0, 10.8);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
 TEST_F(NetworkDomainTests, BusStop){
 
     roadNetwork = new RoadNetwork();

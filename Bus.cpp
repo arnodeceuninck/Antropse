@@ -63,7 +63,8 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
     if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
         if(speedupUpdateEnabled() and waitingTime < 30) {
             double newSpeedUp = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
-//            std::cout << "BEREKENDE VERSNELLING: " << newSpeedUp << std::endl;
+//            std::cout << "BEREKENDE VERSNELLING: " << newSpeedUp << std::endl; // TODO: verwijder
+//            std::cout << "Huidige snelheid: " << currentSpeed << std::endl;
             setCurrentSpeedup(newSpeedUp);
             if (currentSpeedup < getMinSpeedup()){
                 std::cerr << "Impossible to slow down before the bus stop" << std::endl;
@@ -72,9 +73,9 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
 //            disableSpeedupUpdates();
         }
 //        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
-        if(getCurrentPosition() + 1 > currentRoad ->getNextBusStop(getCurrentPosition())){
+        if(getCurrentPosition() + 0.001 > currentRoad ->getNextBusStop(getCurrentPosition())){
             waitingTime++;
-            if(getCurrentSpeed() > 0){
+            if(getCurrentSpeed() > 0.001){
                 if(waitingTime > 30){
                     // De bushalte wordt verlaten, normaal dus dat je sneller rijdt
                     waitingTime = 0;
@@ -86,7 +87,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
             if(waitingTime > 30){
 //                waitingTime = 0;
                 enableSpeedupUpdates();
-                updateCurrentSpeedup(1, roadNetwork); // TODO: check of het problemen geeft dat we nog stilstaan bij de bushalte
+                updateCurrentSpeedup(1, roadNetwork);
             }
         }
     }

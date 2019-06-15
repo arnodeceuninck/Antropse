@@ -290,7 +290,7 @@ void Vehicle::checkForTrafficLight(RoadNetwork* roadNetwork) {
 }
 
 double Vehicle::calculateSlowDownForPosition(double stopPosition) {
-    double deltaP = stopPosition-currentPosition + Convert::kmhToMs(currentSpeed);
+    double deltaP = stopPosition-currentPosition; // - Convert::kmhToMs(currentSpeed);
     if(deltaP == 0){
         return 0;
     }
