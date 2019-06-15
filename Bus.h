@@ -63,7 +63,6 @@ public:
 
 private:
     int waitingTime;
-
 };
 
 

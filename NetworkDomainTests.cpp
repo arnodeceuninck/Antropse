@@ -19,6 +19,7 @@
 #include "NetworkImporter.h"
 #include "AntropseUtils.h"
 #include "Car.h"
+#include "Bus.h"
 
 class NetworkDomainTests: public ::testing::Test {
 protected:
@@ -481,7 +482,7 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
     EXPECT_EQ(20.5, testVehicle->getCurrentPosition());
     EXPECT_EQ(0.5, testVehicle->getCurrentSpeed());
 
-    // Hierbijj zou het niet mogen crashen
+    // Hierbij zou het niet mogen crashen
     roadNetwork->automaticSimulation();
 
     delete roadNetwork;
@@ -504,6 +505,9 @@ TEST_F(NetworkDomainTests, FastZoneTest){
     EXPECT_EQ(70, testRoad->getSpeedLimit(150));
     EXPECT_EQ(70, testRoad->getSpeedLimit(175));
     EXPECT_EQ(90, testRoad->getSpeedLimit(2663));
+
+    delete roadNetwork;
+    delete testRoad;
 }
 
 TEST_F(NetworkDomainTests, SlowZoneTest){
@@ -513,6 +517,25 @@ TEST_F(NetworkDomainTests, SlowZoneTest){
 
     EXPECT_EQ(120, testRoad->getSpeedLimit(0));
     EXPECT_EQ(30, testRoad->getSpeedLimit(55));
+
+    delete roadNetwork;
+    delete testRoad;
+}
+
+TEST_F(NetworkDomainTests, BusStop){
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 500, NULL);
+
+    testRoad->addBusStop(250);
+    testVehicle = new Bus("DL4884", testRoad, 0, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
 }
 
 // TODO: tests for different types of vehicles

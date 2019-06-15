@@ -276,6 +276,8 @@ public:
 
     virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
 
+    bool speedupUpdateEnabled() const;
+
 
 protected:
     std::string licensePlate; /**< A unique ID for each vehicle */
@@ -303,6 +305,14 @@ protected:
     double getIdealDistance(RoadNetwork *roadNetwork) const;
 
     double calculateSlowDownForPosition(double stopPosition);
+
+    void removeCurrentRoad();
+
+    void setSpeedupBetweenAllowedRange(double speedup);
+
+    bool speedupUpdates;
+    void disableSpeedupUpdates();
+    void enableSpeedupUpdates();
 };
 
 

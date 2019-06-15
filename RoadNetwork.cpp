@@ -51,6 +51,7 @@ bool RoadNetwork::addCar(Vehicle *car) {
     REQUIRE(car != NULL, "De auto moet bestaan");
     REQUIRE(car->properlyInitialized(), "De wagen moet correct geinitialiseerd zijn.");
     REQUIRE(findCar(car->getLicensePlate()) == NULL, "De auto mag nog niet in het netwerk zitten");
+    REQUIRE(findRoad(car->getCurrentRoad()->getName()) != NULL, "De weg moet al in het netwerk gestoken zijn");
 
     // All cars must be sorted, starting with the first car, going to the last.
 //    std::cout << car->getLicensePlate() << std::endl;

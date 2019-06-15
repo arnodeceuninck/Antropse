@@ -16,10 +16,10 @@ Bus::Bus(const std::string &licensePlate, Road *currentRoad, double currentPosit
 
         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed), waitingTime(0) {
 
-    REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
+    REQUIRE(currentPosition >= 0, "Huidige positie moet op de weg liggen");
     REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
     REQUIRE(currentPosition <= currentRoad->getLength(), "Huidige positie moet op de weg liggen");
-    REQUIRE(currentSpeed < currentRoad->getSpeedLimit(currentPosition), "De auto mag niet te snel rijden");
+    REQUIRE(currentSpeed <= currentRoad->getSpeedLimit(currentPosition), "De auto mag niet te snel rijden");
     REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
 }
 
@@ -53,22 +53,39 @@ double Bus::getWaitingTime() const {
     return waitingTime;
 }
 
-void Bus::setWaitingTime(double waitingTime) {
-    Bus::waitingTime = waitingTime;
+void Bus::setWaitingTime(double newWaitingTime) {
+    Bus::waitingTime = newWaitingTime;
 }
 
 void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
-    if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100){
-        double newSpeedUp = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
-        setCurrentSpeedup(newSpeedUp);
-        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
+//    std::cout << "Waiting time: " << waitingTime << std::endl;
+
+    if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
+        if(speedupUpdateEnabled() and waitingTime < 30) {
+            double newSpeedUp = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
+//            std::cout << "BEREKENDE VERSNELLING: " << newSpeedUp << std::endl;
+            setCurrentSpeedup(newSpeedUp);
+            if (currentSpeedup < getMinSpeedup()){
+                std::cerr << "Impossible to slow down before the bus stop" << std::endl;
+                updateCurrentSpeedup(1, roadNetwork);
+            }
+//            disableSpeedupUpdates();
+        }
+//        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
+        if(getCurrentPosition() + 1 > currentRoad ->getNextBusStop(getCurrentPosition())){
             waitingTime++;
             if(getCurrentSpeed() > 0){
+                if(waitingTime > 30){
+                    // De bushalte wordt verlaten, normaal dus dat je sneller rijdt
+                    waitingTime = 0;
+                    return;
+                }
                 std::cerr << "1 2 3 4 HUP NAAR ACHTER HUP NAAR VOOR, 1 2 3 4 DE BUSHALTE WE RIJDEN ERDOOR" << std::endl;
-                move(roadNetwork);
+//                move(roadNetwork);
             }
             if(waitingTime > 30){
-                waitingTime = 0;
+//                waitingTime = 0;
+                enableSpeedupUpdates();
                 updateCurrentSpeedup(1, roadNetwork); // TODO: check of het problemen geeft dat we nog stilstaan bij de bushalte
             }
         }

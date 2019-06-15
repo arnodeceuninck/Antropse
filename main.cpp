@@ -9,11 +9,13 @@
 
 #include <iostream>
 #include <fstream>
-#include "Car.h"
+//#include "Car.h"
 #include "Road.h"
-#include "RoadNetwork.h"
+//#include "RoadNetwork.h"
 #include "NetworkExporter.h"
 #include "NetworkImporter.h"
+#include "Bus.h"
+#include "Convert.h"
 
 int main() {
 
@@ -22,7 +24,23 @@ int main() {
     RoadNetwork* roadNetwork = new RoadNetwork();
     NetworkExporter exporter;
 
-    NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
+//    NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
+    Road* testRoad;
+    Vehicle* testVehicle;
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 200, 100, NULL);
+
+    testRoad->addBusStop(50);
+    testVehicle = new Bus("DL4884", testRoad, 50, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    exporter.documentStart(std::cout);
+//
+//    roadNetwork->automaticSimulation();
+//
+//    delete roadNetwork;
 
     exporter.documentStart(std::cout);
 

@@ -7,3 +7,7 @@
 double Convert::kmhToMs(double kmh) {
     return kmh/3.6;
 }
+
+double Convert::msToKmh(double mps) {
+    return mps*3.6;
+}
