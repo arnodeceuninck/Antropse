@@ -102,10 +102,19 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
          elem != NULL; elem = elem->NextSiblingElement()) {
 
         std::string elemName = elem->Value();
+
+        TiXmlNode* text = elem->FirstChild();
+        if(text == NULL){
+            errStream << "De xml node mag niet leeg zijn" << std::endl;
+            endResult = PartialImport;
+            return;
+        }
+
         std::string el = elem->FirstChild()->ToText()->Value();
 
         if (elemName == "naam") {
             delete road;
+            // TODO: Is de if hieronder nog mogelijk? (sinds de check xml node mag niet leeg zijn)
             if(el == ""){
 //                            throw "De naam van de baan is gelijk zijn aan een lege string";
                 endResult = PartialImport;
@@ -130,7 +139,7 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
             if(!checkInt(el)){
 //                            throw "De snelheidslimiet is geen integer";
                 endResult = PartialImport;
-                std::cout << "De snelheid is geen integer" << std::endl;
+                errStream << "De snelheid is geen integer" << std::endl;
                 return;
             }
 
@@ -209,6 +218,7 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadN
             if(road == NULL){
                 endResult = PartialImport;
                 errStream << "De baan waarop de auto zou moeten rijden bestaat niet" << std::endl;
+                return;
             }
             if(!car->setCurrentRoad(road)){
                 endResult = PartialImport;
@@ -374,6 +384,9 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             errStream << "Ongeldige informatie" << std::endl;
             return;
         } // TODO: check int or double position
+    } else {
+        endResult = PartialImport;
+        errStream << "Verkeersteken niet herkend, overslaan" << std::endl;
     }
 
 }

@@ -48,9 +48,16 @@ bool RoadNetwork::addRoad(Road *road) {
 }
 
 bool RoadNetwork::addCar(Vehicle *car) {
+
+    if (car == NULL or !car->properlyInitialized() or findCar(car->getLicensePlate()) != NULL or
+        car->getCurrentRoad() == NULL or findRoad(car->getCurrentRoad()->getName()) == NULL){
+        return false;
+    }
+
     REQUIRE(car != NULL, "De auto moet bestaan");
     REQUIRE(car->properlyInitialized(), "De wagen moet correct geinitialiseerd zijn.");
     REQUIRE(findCar(car->getLicensePlate()) == NULL, "De auto mag nog niet in het netwerk zitten");
+    REQUIRE(car->getCurrentRoad() != NULL, "De auto moet al op een weg geplaatst zijn");
     REQUIRE(findRoad(car->getCurrentRoad()->getName()) != NULL, "De weg moet al in het netwerk gestoken zijn");
 
     // All cars must be sorted, starting with the first car, going to the last.
@@ -290,7 +297,7 @@ void RoadNetwork::moveAllCars() {
     iteration++;
 //    int n = nrOfCars(); // Value to check wether a car has been removed
 //    generateOutputFile("simulation.txt");
-    for (int i = nrOfCars()-1; i >= 0; --i) {
+    for (int i = nrOfCars() - 1; i >= 0; --i) {
 
         cars[i]->move(this);
 
