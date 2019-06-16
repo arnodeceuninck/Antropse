@@ -58,6 +58,7 @@ TEST_F(NetworkDomainTests, GoingForward) {
     roadNetwork->addCar(testVehicle);
 
     // The actual tests
+    EXPECT_TRUE(testRoad->properlyInit());
     EXPECT_EQ(testRoad, roadNetwork->findRoad("A12"));
     EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("A12"));
     EXPECT_EQ(testVehicle, roadNetwork->findCar("ANT-432"));
@@ -617,9 +618,81 @@ TEST_F(NetworkDomainTests, CopyingVehicle) {
     delete testVehicle;
 }
 
-// TODO: tests for different types of vehicles
-//  bus test
-// TODO: tests for road signe
+TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 18, 7, NULL);
+
+    testRoad->addBusStop(6);
+    testVehicle = new Bus("DL4884", testRoad, 0, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 500, NULL);
+
+    testRoad->addBusStop(250);
+    testVehicle = new Bus("DL4884", testRoad, 151, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation();
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, WaitingOnTheBus){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 60, 500, NULL);
+
+    testRoad->addBusStop(250);
+    testVehicle = new Bus("DL4884", testRoad, 40, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Car("AAAVALETESTUDIA", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 60, 500, NULL);
+
+    testRoad->addBusStop(250);
+    testVehicle = new Bus("DL4884", testRoad, 40, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    testVehicle = new Bus("AAAVALETESTUDIA", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
 
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);

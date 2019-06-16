@@ -18,7 +18,8 @@
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed)
         : licensePlate(license_plate), currentRoad(current_road),
-          currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0) {
+          currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0),
+          slowingDownForPreviousCar(false), slowingDownForTrafficLight(false), slowingDownForVehicleSpecific(false) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
@@ -110,7 +111,8 @@ bool Vehicle::setCurrentSpeedup(double newCurrentSpeedup) {
 
 Vehicle::Vehicle() : licensePlate(""), currentRoad(NULL),
                      currentPosition(0), currentSpeed(0),
-                     currentSpeedup(0) {
+                     currentSpeedup(0), slowingDownForPreviousCar(false), slowingDownForTrafficLight(false),
+                     slowingDownForVehicleSpecific(false) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
@@ -139,6 +141,10 @@ bool Vehicle::move(RoadNetwork *roadNetwork) {
         checkVehicleSpecificMove(roadNetwork);
     }
 
+
+    slowingDownForPreviousCar = false;
+    slowingDownForTrafficLight = false;
+    slowingDownForVehicleSpecific = false;
 
 //    std::cout << "Car " << licensePlate << " " << currentPosition << std::endl;
     ENSURE(roadNetwork->checkPositionCars(), "position");
@@ -236,11 +242,22 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
                 previousCar->getCurrentPosition() - previousCar->getLength() - currentPosition;
 
 
-        currentSpeedup = (actualFollowingDistance - idealFollowingDistance) / 2;
+        double newSpeedup = (actualFollowingDistance - idealFollowingDistance) / 2;
+
+        if (slowingDownForTrafficLight or slowingDownForVehicleSpecific) {
+            currentSpeedup = currentSpeedup < newSpeedup ? currentSpeedup : newSpeedup;
+        } else {
+            currentSpeedup = newSpeedup;
+            slowingDownForPreviousCar = true;
+        }
+
 
 //        std::cout << "Following " << idealFollowingDistance << " " << actualFollowingDistance << currentSpeedup << std::endl;
 
     } else {
+
+        slowingDownForPreviousCar = false;
+
         currentSpeedup = -(Convert::kmhToMs(currentSpeed) -
                            Convert::kmhToMs(currentRoad->getSpeedLimit(currentPosition)));
 //        if(currentSpeed < currentRoad->getSpeedLimit(currentPosition)){
@@ -264,6 +281,7 @@ double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
     return (3 * currentSpeed) / 4 + previousCar->getLength() + CONST::MIN_FOLLOWING_DISTANCE;
 }
 
+// TODO: slowing down for traffic light
 void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork) {
 
     double positionNextTrafficLight = currentRoad->getNextTrafficLight(currentPosition);
@@ -298,6 +316,12 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     if (deltaP == 0) {
         return 0;
     }
+
+    // TODO: check of deze random gekozen waarden goed zijn
+    if (currentSpeed == 0 or (deltaP > -(getMinSpeedup()*2) and currentSpeed < -(getMinSpeedup()))) {
+        return deltaP / 4; // Een beetje versnellen
+    }
+
 //    std::cout << "Huidige snelheid (m/s): " << Convert::kmhToMs(currentSpeed) << std::endl;
 //    std::cout << "Positie van stilstand: " << stopPosition << std::endl;
 //    std::cout << "Huidige positie: " << currentPosition << std::endl;

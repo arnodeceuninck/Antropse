@@ -28,19 +28,16 @@ int main() {
     Road* testRoad;
     Vehicle* testVehicle;
     roadNetwork = new RoadNetwork();
-    testRoad = new Road("N173", 18, 7, NULL);
+    testRoad = new Road("N173", 70, 70, NULL);
 
-    testRoad->addBusStop(6);
-    testVehicle = new Bus("DL4884", testRoad, 0, 10.8);
+    testRoad->addBusStop(50);
+    testVehicle = new Bus("DL4884", testRoad, 20, 0);
 
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
 
-    exporter.documentStart(std::cout);
-//
-//    roadNetwork->automaticSimulation();
-//
-//    delete roadNetwork;
+    testVehicle = new Bus("AAAVALETESTUDIA", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
 
     exporter.documentStart(std::cout);
 

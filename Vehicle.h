@@ -308,6 +308,10 @@ protected:
 
     void removeCurrentRoad();
 
+    bool slowingDownForPreviousCar;
+    bool slowingDownForTrafficLight;
+    bool slowingDownForVehicleSpecific;
+
 //    void setSpeedupBetweenAllowedRange(double speedup);
 //
 //    bool speedupUpdates;

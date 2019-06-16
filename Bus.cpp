@@ -58,19 +58,26 @@ double Bus::getMinSpeedup() const {
 //}
 
 void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
-//    std::cout << "Waiting time: " << waitingTime << std::endl;
+//    std::cout << "Waiting time (" << licensePlate << ") : " << waitingTime << std::endl;
 
     if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
         if(waitingTime < 30) {
-            double newSpeedUp = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
-//            std::cout << "BEREKENDE VERSNELLING: " << newSpeedUp << std::endl; // TODO: verwijder
-//            std::cout << "Huidige snelheid: " << currentSpeed << std::endl;
-            setCurrentSpeedup(newSpeedUp);
+            double newSpeedup = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
+//            std::cout << "Berekende versnelling: " << newSpeedup << std::endl;
+
+            if (slowingDownForTrafficLight or slowingDownForPreviousCar) {
+                currentSpeedup = currentSpeedup < newSpeedup ? currentSpeedup : newSpeedup;
+            } else {
+                currentSpeedup = newSpeedup;
+                slowingDownForVehicleSpecific = true;
+            }
+
             if (currentSpeedup < getMinSpeedup()){
                 std::cerr << "Impossible to slow down before the bus stop" << std::endl;
                 updateCurrentSpeedup(1, roadNetwork);
+            } else if (currentSpeedup > getMaxSpeedup()){
+                currentSpeedup = getMaxSpeedup();
             }
-//            disableSpeedupUpdates();
         }
 //        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
         if(getCurrentPosition() + 0.001 > currentRoad ->getNextBusStop(getCurrentPosition())){
