@@ -57,7 +57,7 @@ double Bus::getMinSpeedup() const {
 //    Bus::waitingTime = newWaitingTime;
 //}
 
-void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
+void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream) {
 //    std::cout << "Waiting time (" << licensePlate << ") : " << waitingTime << std::endl;
 
     if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
@@ -73,7 +73,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
             }
 
             if (currentSpeedup < getMinSpeedup()){
-                std::cerr << "Impossible to slow down before the bus stop" << std::endl;
+                errStream << "Impossible to slow down before the bus stop" << std::endl;
                 updateCurrentSpeedup(1, roadNetwork);
             } else if (currentSpeedup > getMaxSpeedup()){
                 currentSpeedup = getMaxSpeedup();
@@ -88,7 +88,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
                     waitingTime = 0;
                     return;
                 }
-                std::cerr << "1 2 3 4 HUP NAAR ACHTER HUP NAAR VOOR, 1 2 3 4 DE BUSHALTE WE RIJDEN ERDOOR" << std::endl;
+                errStream << "1 2 3 4 HUP NAAR ACHTER HUP NAAR VOOR, 1 2 3 4 DE BUSHALTE WE RIJDEN ERDOOR" << std::endl;
 //                move(roadNetwork);
             }
             if(waitingTime > 30){
@@ -98,6 +98,5 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
             }
         }
     }
-    Vehicle::checkVehicleSpecificMove(NULL);
 }
 

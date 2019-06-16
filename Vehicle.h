@@ -160,7 +160,7 @@ public:
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool move(RoadNetwork *roadNetwork);
+    bool move(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     /**
      * Get the type of the Vehicle as a string.
@@ -274,7 +274,7 @@ public:
      */
     virtual double getMinSpeedup() const=0;
 
-    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     bool speedupUpdateEnabled() const;
 
@@ -300,7 +300,7 @@ protected:
 
     void updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork);
 
-    void checkForTrafficLight(RoadNetwork* roadNetwork);
+    void checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     double getIdealDistance(RoadNetwork *roadNetwork) const;
 

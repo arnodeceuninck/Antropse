@@ -59,7 +59,7 @@ public:
 //
 //    void setWaitingTime(double waitingTime);
 
-    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
 
 private:
     int waitingTime;

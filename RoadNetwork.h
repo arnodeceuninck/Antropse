@@ -142,7 +142,7 @@ public:
      *  ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
      *  ENSURE(check(), "Valid roadnnetwork");
      */
-    void automaticSimulation();
+    void automaticSimulation(std::ofstream &errStream);
 
     /**
      * Check to know if a car is on a road that exists in the network
@@ -231,7 +231,7 @@ public:
      * @post
      * Ensure(check(), "The roadnetwork must still be valid");
      */
-    void moveAllCars();
+    void moveAllCars(std::ostream &errStream);
 
     /**
      * Check whether all cars and roads in the network are properly initialised

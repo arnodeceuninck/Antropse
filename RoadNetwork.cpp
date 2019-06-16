@@ -176,10 +176,10 @@ int RoadNetwork::nrOfCars() {
 }
 
 
-void RoadNetwork::automaticSimulation() {
+void RoadNetwork::automaticSimulation(std::ofstream &errStream) {
     REQUIRE(check(), "Roadnetwork not valid");
     while (nrOfCars() > 0) {
-        moveAllCars();
+        moveAllCars(errStream);
     }
 
     ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
@@ -296,13 +296,13 @@ bool RoadNetwork::isEmpty() {
     return cars.empty();
 }
 
-void RoadNetwork::moveAllCars() {
+void RoadNetwork::moveAllCars(std::ostream &errStream) {
     iteration++;
 //    int n = nrOfCars(); // Value to check wether a car has been removed
 //    generateOutputFile("simulation.txt");
     for (int i = nrOfCars() - 1; i >= 0; --i) {
 
-        cars[i]->move(this);
+        cars[i]->move(this, errStream);
 
         // Enkel mogelijk indien de wagen verwijjderd is uit het netwerk
 //        if (n != nrOfCars()) {

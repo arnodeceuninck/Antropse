@@ -42,7 +42,7 @@ int main() {
     exporter.documentStart(std::cout);
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(<#initializer#>);
         std::cout << std::endl << std::endl;
         exporter.exportOn(std::cout, *roadNetwork);
     }

@@ -74,6 +74,12 @@ TEST_F(NetworkDomainTests, GoingForward) {
 
 TEST_F(NetworkDomainTests, UnsortedRoads) {
 
+    std::string testName = "UnsortedRoads";
+
+    std::ofstream errStream;
+    std::string ofname = "tests/outputTests/generated/errorLog" + testName + ".txt";
+    errStream.open(ofname.c_str());
+
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
@@ -89,12 +95,20 @@ TEST_F(NetworkDomainTests, UnsortedRoads) {
     EXPECT_EQ("A12", roadNetwork->getRoads()[1]->getName());
 
     // Hierbijj zou het niet mogen crashen
-    roadNetwork->automaticSimulation();
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(ofname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, SortedRoads) {
+
+    std::string testName = "SortedRoads";
+
+    std::ofstream errStream;
+    std::string ofname = "tests/outputTests/generated/errorLog" + testName + ".txt";
+    errStream.open(ofname.c_str());
 
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
@@ -110,7 +124,9 @@ TEST_F(NetworkDomainTests, SortedRoads) {
     EXPECT_EQ("A12", roadNetwork->getRoads()[1]->getName());
 
     // Hierbijj zou het niet mogen crashen
-    roadNetwork->automaticSimulation();
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(ofname));
 
     delete roadNetwork;
 }
@@ -243,6 +259,10 @@ TEST_F(NetworkDomainTests, BusyDay){
     std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/inputTests/" + nameTest + ".xml";
 
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
@@ -257,9 +277,11 @@ TEST_F(NetworkDomainTests, BusyDay){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -275,6 +297,10 @@ TEST_F(NetworkDomainTests, DrivingClose){
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
@@ -289,11 +315,13 @@ TEST_F(NetworkDomainTests, DrivingClose){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
 //        std::cout << "Moved" << std::endl;
         EXPECT_TRUE(roadNetwork->checkSpaceBetweenCars());
 //        EXPECT_TRUE(roadNetwork->check()); // TODO: uncomment (prevent test spam while not working)
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -307,6 +335,10 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     std::ofstream outputFile;
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
 
@@ -322,9 +354,11 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -336,6 +370,10 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     std::ofstream outputFile;
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
+
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
 
@@ -351,9 +389,11 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -370,6 +410,10 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
@@ -384,9 +428,11 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     EXPECT_EQ(2, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -403,6 +449,10 @@ TEST_F(NetworkDomainTests, SlowDown){
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
@@ -417,9 +467,11 @@ TEST_F(NetworkDomainTests, SlowDown){
     EXPECT_EQ(2, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -434,6 +486,10 @@ TEST_F(NetworkDomainTests, SmallStreets){
     std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
@@ -447,9 +503,11 @@ TEST_F(NetworkDomainTests, SmallStreets){
     EXPECT_EQ(5, roadNetwork->nrOfRoads());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -457,6 +515,12 @@ TEST_F(NetworkDomainTests, SmallStreets){
 TEST_F(NetworkDomainTests, FloatingPoints) {
 
     // I believe I can fly
+
+    std::string nameTest = "FloatingPoints";
+
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
 
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
@@ -486,7 +550,9 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
     EXPECT_EQ(0.5, testVehicle->getCurrentSpeed());
 
     // Hierbij zou het niet mogen crashen
-    roadNetwork->automaticSimulation();
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -526,6 +592,12 @@ TEST_F(NetworkDomainTests, SlowZoneTest){
 }
 
 TEST_F(NetworkDomainTests, EasyBusStop){
+
+    std::string nameTest = "EasyBusStop";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 18, 7, NULL);
 
@@ -536,14 +608,21 @@ TEST_F(NetworkDomainTests, EasyBusStop){
     roadNetwork->addCar(testVehicle);
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, BusStop){
+
+    std::string nameTest = "BusStop";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 120, 500, NULL);
@@ -554,12 +633,20 @@ TEST_F(NetworkDomainTests, BusStop){
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
 
-    roadNetwork->automaticSimulation();
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, AllVehicles){
+
+    std::string nameTest = "AllVehicles";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 120, 500, NULL);
     roadNetwork->addRoad(testRoad);
@@ -586,9 +673,11 @@ TEST_F(NetworkDomainTests, AllVehicles){
     EXPECT_EQ("MOTORFIETS", testVehicle->getType());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
@@ -619,6 +708,12 @@ TEST_F(NetworkDomainTests, CopyingVehicle) {
 }
 
 TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
+
+    std::string nameTest = "StoppedShortBeforeBusStop";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 18, 7, NULL);
 
@@ -629,14 +724,21 @@ TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
     roadNetwork->addCar(testVehicle);
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
+
+    std::string nameTest = "StoppedLongBeforeBusStop";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 120, 500, NULL);
@@ -647,12 +749,20 @@ TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
 
-    roadNetwork->automaticSimulation();
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, WaitingOnTheBus){
+
+    std::string nameTest = "WaitingOnTheBus";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 60, 500, NULL);
 
@@ -666,14 +776,22 @@ TEST_F(NetworkDomainTests, WaitingOnTheBus){
     roadNetwork->addCar(testVehicle);
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }
 
 TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
+
+    std::string nameTest = "TwoBusesCloseToEachOther";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 60, 500, NULL);
 
@@ -687,9 +805,11 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
     roadNetwork->addCar(testVehicle);
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
+
+    EXPECT_TRUE(fileIsEmpty(efname));
 
     delete roadNetwork;
 }

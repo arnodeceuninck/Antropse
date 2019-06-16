@@ -117,7 +117,7 @@ Vehicle::Vehicle() : licensePlate(""), currentRoad(NULL),
     ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
 
-bool Vehicle::move(RoadNetwork *roadNetwork) {
+bool Vehicle::move(RoadNetwork *roadNetwork, std::ostream &errStream) {
     REQUIRE(roadNetwork->checkPositionCars(), "position");
     REQUIRE(roadNetwork->checkIfCarsOnExistingRoad(), "exist on road");
     REQUIRE(roadNetwork->findCar(licensePlate) != NULL, "De wagen moet in het netwerk zitten");
@@ -137,8 +137,8 @@ bool Vehicle::move(RoadNetwork *roadNetwork) {
     }
 
     if (currentRoad != NULL) {
-        checkForTrafficLight(roadNetwork);
-        checkVehicleSpecificMove(roadNetwork);
+        checkForTrafficLight(roadNetwork, errStream);
+        checkVehicleSpecificMove(roadNetwork, errStream);
     }
 
 
@@ -282,7 +282,7 @@ double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
 }
 
 // TODO: slowing down for traffic light
-void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork) {
+void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errStream) {
 
     double positionNextTrafficLight = currentRoad->getNextTrafficLight(currentPosition);
 
@@ -297,13 +297,13 @@ void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork) {
         if (trafficLightColor == red or trafficLightColor == orange) {
 
             if (currentPosition == positionNextTrafficLight and currentSpeed > 0 and trafficLightColor == red) {
-                std::cerr << "woopsiepoopsie door rood licht gereden, let's pretend I didn't see that ;)" << std::endl;
+                errStream << "woopsiepoopsie door rood licht gereden, let's pretend I didn't see that ;)" << std::endl;
 //                move(roadNetwork);
             }
             currentSpeedup = calculateSlowDownForPosition(positionNextTrafficLight);
 
             if (currentSpeedup < getMinSpeedup()) {
-                std::cerr << "Impossible to stop before the traffic light" << std::endl;
+                errStream << "Impossible to stop before the traffic light" << std::endl;
                 updateCurrentSpeedup(1, roadNetwork);
             }
 
@@ -330,7 +330,7 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     return -(speedMS * speedMS) / deltaP;
 }
 
-void Vehicle::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {}
+void Vehicle::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream) {}
 
 //void Vehicle::disableSpeedupUpdates() {
 //    speedupUpdates = false;
