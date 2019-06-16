@@ -49,19 +49,19 @@ double Bus::getMinSpeedup() const {
     return CONST::MIN_BUS_SPEEDUP;
 }
 
-double Bus::getWaitingTime() const {
-    return waitingTime;
-}
-
-void Bus::setWaitingTime(double newWaitingTime) {
-    Bus::waitingTime = newWaitingTime;
-}
+//double Bus::getWaitingTime() const {
+//    return waitingTime;
+//}
+//
+//void Bus::setWaitingTime(double newWaitingTime) {
+//    Bus::waitingTime = newWaitingTime;
+//}
 
 void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
 //    std::cout << "Waiting time: " << waitingTime << std::endl;
 
     if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
-        if(speedupUpdateEnabled() and waitingTime < 30) {
+        if(waitingTime < 30) {
             double newSpeedUp = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
 //            std::cout << "BEREKENDE VERSNELLING: " << newSpeedUp << std::endl; // TODO: verwijder
 //            std::cout << "Huidige snelheid: " << currentSpeed << std::endl;
@@ -86,7 +86,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
             }
             if(waitingTime > 30){
 //                waitingTime = 0;
-                enableSpeedupUpdates();
+//                enableSpeedupUpdates();
                 updateCurrentSpeedup(1, roadNetwork);
             }
         }

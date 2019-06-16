@@ -20,6 +20,8 @@
 #include "AntropseUtils.h"
 #include "Car.h"
 #include "Bus.h"
+#include "Truck.h"
+#include "MotorBike.h"
 
 class NetworkDomainTests: public ::testing::Test {
 protected:
@@ -554,6 +556,65 @@ TEST_F(NetworkDomainTests, BusStop){
     roadNetwork->automaticSimulation();
 
     delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, AllVehicles){
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 500, NULL);
+    roadNetwork->addRoad(testRoad);
+
+    testVehicle = new Car("ABC123", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Bus("DL4884", testRoad, 20, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Truck("YEEETT", testRoad, 40, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new MotorBike("LAMBDACALCULUS", testRoad, 60, 0);
+    roadNetwork->addCar(testVehicle);
+
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+    EXPECT_EQ(4, roadNetwork->nrOfCars());
+
+    testVehicle = roadNetwork->getCars()[0];
+    EXPECT_EQ("AUTO", testVehicle->getType());
+    testVehicle = roadNetwork->getCars()[1];
+    EXPECT_EQ("BUS", testVehicle->getType());
+    testVehicle = roadNetwork->getCars()[2];
+    EXPECT_EQ("VRACHTWAGEN", testVehicle->getType());
+    testVehicle = roadNetwork->getCars()[3];
+    EXPECT_EQ("MOTORFIETS", testVehicle->getType());
+
+    while(!roadNetwork->isEmpty()){
+        roadNetwork->moveAllCars();
+        EXPECT_TRUE(roadNetwork->check());
+    }
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, CopyingVehicle) {
+
+    // Setting up roadnetwork for tests
+//    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Car("ANT-432", testRoad, 20, 0);
+    Car* copiedVehicle = dynamic_cast<Car*>(testVehicle);
+
+    // The actual tests
+    EXPECT_EQ(copiedVehicle->getMinSpeed(), testVehicle->getMinSpeed());
+    EXPECT_EQ(copiedVehicle->getMaxSpeedup(), testVehicle->getMaxSpeedup());
+    EXPECT_EQ(copiedVehicle->getType(), testVehicle->getType());
+    EXPECT_EQ(copiedVehicle->getLicensePlate(), testVehicle->getLicensePlate());
+    EXPECT_EQ(copiedVehicle->properlyInitialized(), testVehicle->properlyInitialized());
+    EXPECT_EQ(copiedVehicle->getCurrentRoad(), testVehicle->getCurrentRoad());
+    EXPECT_EQ(copiedVehicle->getCurrentSpeedup(), testVehicle->getCurrentSpeedup());
+    EXPECT_EQ(copiedVehicle->getCurrentSpeed(), testVehicle->getCurrentSpeed());
+    EXPECT_EQ(copiedVehicle->getCurrentPosition(), testVehicle->getCurrentPosition());
+    EXPECT_EQ(copiedVehicle->getMaxSpeed(), testVehicle->getMaxSpeed());
+    EXPECT_EQ(copiedVehicle->getMinSpeedup(), testVehicle->getMinSpeedup());
+
+    delete testRoad;
+    delete testVehicle;
 }
 
 // TODO: tests for different types of vehicles

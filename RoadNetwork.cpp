@@ -20,6 +20,9 @@
 #include "CONST.h"
 
 bool RoadNetwork::addRoad(Road *road) {
+    if(road == NULL or findRoad(road->getName()) != NULL){
+        return false;
+    }
     REQUIRE(road != NULL, "De weg moet bestaan");
     REQUIRE(findRoad(road->getName()) == NULL, "De weg mag nog niet in het netwerk zitten");
 

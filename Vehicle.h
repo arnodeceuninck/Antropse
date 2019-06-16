@@ -308,11 +308,11 @@ protected:
 
     void removeCurrentRoad();
 
-    void setSpeedupBetweenAllowedRange(double speedup);
-
-    bool speedupUpdates;
-    void disableSpeedupUpdates();
-    void enableSpeedupUpdates();
+//    void setSpeedupBetweenAllowedRange(double speedup);
+//
+//    bool speedupUpdates;
+//    void disableSpeedupUpdates();
+//    void enableSpeedupUpdates();
 };
 
 
