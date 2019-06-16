@@ -274,9 +274,18 @@ public:
      */
     virtual double getMinSpeedup() const=0;
 
+    /**
+     * Check for vehicle specific moves, like bus stops, ... and update the acceleration depending on this
+     * @param roadNetwork The roadnetwork the vehicle is driving on
+     * @param errStream The stream to which the errors should be outputed
+     *
+     * @pre
+     * REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized")
+     * REQUIRE(properlyInitizlized(), "The vehicle should be properly initialized")
+     */
     virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
 
-    bool speedupUpdateEnabled() const;
+//    bool speedupUpdateEnabled() const;
 
 
 protected:

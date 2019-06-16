@@ -96,6 +96,9 @@ public:
      *
      * @return NULL if there's no road with this name as an intersection of another road
      * @return Road* if there's a road with this name as an intersection of another road
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
     Road* retrieveRoad(std::string nameRoad);
 

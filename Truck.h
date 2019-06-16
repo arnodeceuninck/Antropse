@@ -28,10 +28,10 @@ public:
      * @param currentSpeed The speed by which the truck is driving on the current_road
      *
      * @pre
-     *  REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
+     *  REQUIRE(currentPosition >= 0, "Huidige positie moet op de zeg liggen");
      *  REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
      *  REQUIRE(currentPosition <= currentRoad->getLength(), "Huidige positie moet op de weg liggen");
-     *  REQUIRE(currentSpeed < currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
+     *  REQUIRE(currentSpeed <= currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
      *  REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
      */
     Truck(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed);

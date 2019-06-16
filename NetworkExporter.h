@@ -30,6 +30,7 @@ public:
      * @return True when correctly initialized with NetworkExporter()
      */
     bool properlyInitialized();
+
     /**
      * Check whether the exporter has been prepared for writing
      *

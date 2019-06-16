@@ -136,6 +136,7 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
 
 // TODO: Kan deze functie aub van naam veranderen
 Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
+    REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     for (std::vector<Road *>::iterator road = roads.begin(); road != roads.end(); road++) {
         if ((*road)->getIntersection() != NULL) {
             if ((*road)->getIntersection()->getName() == nameRoad) {

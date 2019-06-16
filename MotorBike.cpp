@@ -16,10 +16,10 @@ MotorBike::MotorBike(const std::string &licensePlate, Road *currentRoad, double 
 
         Vehicle(licensePlate, currentRoad, currentPosition, currentSpeed) {
 
-    REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
+    REQUIRE(currentPosition >= 0, "Huidige positie moet op de zeg liggen");
     REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
     REQUIRE(currentPosition <= currentRoad->getLength(), "Huidige positie moet op de weg liggen");
-    REQUIRE(currentSpeed < currentRoad->getSpeedLimit(currentPosition), "De auto mag niet te snel rijden");
+    REQUIRE(currentSpeed <= currentRoad->getSpeedLimit(currentPosition), "De auto mag niet te snel rijden");
     REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
 }
 

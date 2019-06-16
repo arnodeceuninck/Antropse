@@ -11,6 +11,7 @@
 #include "CONST.h"
 #include "DesignByContract.h"
 #include "Road.h"
+#include "RoadNetwork.h"
 
 Bus::Bus(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed) :
 
@@ -59,6 +60,9 @@ double Bus::getMinSpeedup() const {
 
 void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream) {
 //    std::cout << "Waiting time (" << licensePlate << ") : " << waitingTime << std::endl;
+    REQUIRE(properlyInitialized(), "The vehicle must be properly initialized");
+    REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized");
+    REQUIRE(roadNetwork->check(), "The roadnetwork must be in a valid state");
 
     if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
         if(waitingTime < 30) {
@@ -98,5 +102,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
             }
         }
     }
+
+    ENSURE(roadNetwork->check(), "The roadnetwork stays correct");
 }
 
