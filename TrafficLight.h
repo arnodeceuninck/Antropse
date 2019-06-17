@@ -14,13 +14,16 @@ enum TrafficLightColor{green, orange, red};
 
 class TrafficLight {
 public:
-    TrafficLight(double startOffset, double position);
+    TrafficLight(double position, double startOffset);
 
     TrafficLightColor getColor(double time);
 
     double getPosition() const;
 
     bool properlyInit();
+
+    char getColorChar(double time);
+
 private:
     /**< The position on the road of where the trafficLight is */
     double startOffset;

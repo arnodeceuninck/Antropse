@@ -127,7 +127,7 @@ bool Road::addTrafficLight(double position) {
     if(position > 0 &&
        position < getLength() &&
        "Er is nog geen verkeerslicht op de postie"){// TODO check for bus stop at position
-        trafficLights[position] = new TrafficLight(position, random());
+        trafficLights[position] = new TrafficLight(position, rand());
         // TODO: ensure
         return true;
     }
@@ -157,6 +157,18 @@ double Road::getNextTrafficLight(double position) {
 
 TrafficLight *Road::getTrafficLight(double position) {
     return trafficLights[position];
+}
+
+const std::set<double> &Road::getBusStops() const {
+    return busStops;
+}
+
+const std::map<double, TrafficLight *> &Road::getTrafficLights() const {
+    return trafficLights;
+}
+
+const std::map<double, int> &Road::getZones() const {
+    return zones;
 }
 
 

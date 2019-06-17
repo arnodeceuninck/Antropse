@@ -814,6 +814,31 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
     delete roadNetwork;
 }
 
+TEST_F(NetworkDomainTests, GreenTrafficLight){
+
+    std::string nameTest = "GreenTrafficLight";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 50, 500, NULL);
+
+    testRoad->addTrafficLight(250);
+    testVehicle = new Car("AL4764", testRoad, 0, 0);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(efname));
+
+    delete roadNetwork;
+}
+
+
+
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);
 //    return RUN_ALL_TESTS();

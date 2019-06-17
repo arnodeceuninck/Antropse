@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.12)
-project(Antropse)
-
-set(CMAKE_CXX_STANDARD 98)
-
-add_executable(Antropse main.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h Intersection.cpp Intersection.h RoadNetwork.add_executable(Antropse main.cpp Vehicle.cpp Vehicle.h Car.cpp Car.h Road.cpp Road.h Intersection.cpp Intersection.h RoadNetwork.cpp RoadNetwork.h CONST.h tinystr.cpp tinystr.h tinyxml.cpp tinyxml.h tinyxmlerror.cpp tinyxmlparser.cpp)
->>>>>>> 76761746db2884241180641a5d02e340cc3c6a77

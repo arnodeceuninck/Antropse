@@ -7,7 +7,9 @@
 #include "CONST.h"
 #include "DesignByContract.h"
 
-TrafficLight::TrafficLight(double position, double startOffset) : startOffset(startOffset), position(position), _initCheck(this) {}
+TrafficLight::TrafficLight(double position, double startOffset) : startOffset(startOffset), position(position), _initCheck(this) {
+    std::cout << startOffset << std::endl;
+}
 
 TrafficLightColor TrafficLight::getColor(double time) {
     REQUIRE(properlyInit(), "Verkeerslicht moet geinitialiseerd zijn");
@@ -31,4 +33,16 @@ bool nextTrafficLight(const TrafficLight* t1, const TrafficLight* t2) {
 
 bool TrafficLight::properlyInit(){
     return _initCheck == this;
+}
+
+char TrafficLight::getColorChar(double time) {
+    TrafficLightColor trafficLightColor = getColor(time);
+    if(trafficLightColor == red){
+        return '|';
+    }else if(trafficLightColor == orange){
+        return 'o';
+    }else{
+        return '-';
+    }
+    return 0;
 }

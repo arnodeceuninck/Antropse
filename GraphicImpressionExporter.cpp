@@ -37,7 +37,8 @@ void GraphicImpressionExporter::roadAdd(std::ostream &onStream, const Road *road
     const std::map<double, TrafficLight*> trafficLights = road->getTrafficLights();
     for(std::map<double, TrafficLight*>::const_iterator trafficLight = trafficLights.begin(); trafficLight != trafficLights.end(); ++trafficLight){
         int trafficLightPosition = (*trafficLight).first/100;
-        roadString[trafficLightPosition] = '8';
+        char colorTL = (*trafficLight).second->getColorChar(roadNetwork.getIteration());
+        roadString[trafficLightPosition] = colorTL;
     }
 
     for(std::vector<Vehicle*>::const_iterator vehicle = roadNetwork.getCars().begin();
