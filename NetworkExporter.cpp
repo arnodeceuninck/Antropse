@@ -105,6 +105,7 @@ void NetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehicle)
     onStream << listItem << "baan: " << vehicle->getCurrentRoad()->getName() << std::endl;
     onStream << listItem << "positie: " << vehicle->getCurrentPosition() << std::endl;
     onStream << listItem << "snelheid: " << vehicle->getCurrentSpeed() << std::endl;
+//    onStream << listItem << "versnelling: " << vehicle->getCurrentSpeedup() << std::endl;
 
     onStream << std::endl;
 

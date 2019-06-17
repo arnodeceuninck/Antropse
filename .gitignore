@@ -45,3 +45,22 @@ gtest
 
 
 .DS_Store
+*.gcno
+7/*
+*.html
+
+amber\.png
+
+emerald\.png
+
+gcov\.css
+
+glass\.png
+
+name\.info
+
+ruby\.png
+
+snow\.png
+
+updown\.png

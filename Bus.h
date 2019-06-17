@@ -28,10 +28,10 @@ public:
      * @param currentSpeed The speed by which the bus is driving on the current_road
      *
      * @pre
-     *  REQUIRE(currentPosition > 0, "Huidige positie moet op de zeg liggen");
+     *  REQUIRE(currentPosition >= 0, "Huidige positie moet op de zeg liggen");
      *  REQUIRE(currentRoad != NULL, "De weg moet bestaan en volledig geinitialisseerd zijn");
      *  REQUIRE(currentPosition <= currentRoad->getLength(), "Huidige positie moet op de weg liggen");
-     *  REQUIRE(currentSpeed < currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
+     *  REQUIRE(currentSpeed <= currentRoad->getSpeed_limit(), "De auto mag niet te snel rijden");
      *  REQUIRE(currentSpeed >= 0, "De auto moet een positieve snelheid hebben");
      */
     Bus(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed);
@@ -55,17 +55,29 @@ public:
     virtual double getMinSpeedup() const;
 
 
-    double getWaitingTime() const;
+//    double getWaitingTime() const;
+//
+//    void setWaitingTime(double waitingTime);
 
-    void setWaitingTime(double waitingTime);
-
-    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
+    /**
+     * Checks whether there is a bus stop nearby and slows down when required
+     * @param roadNetwork The roadnetwork on which the bus is driving
+     * @param errStream The output stream to which errors should be sent
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "The vehicle must be properly initialized");
+     * REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized");
+     * REQUIRE(roadNetwork->check(), "The roadnetwork must be in a valid state");
+     *
+     * @post
+     * ENSURE(roadNetwork->check(), "The roadnetwork stays correct");
+     */
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     virtual char getShortName();
 
 private:
     int waitingTime;
-
 };
 
 

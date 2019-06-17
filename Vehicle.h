@@ -160,7 +160,7 @@ public:
      *
      * @return true when successfully added, false when the prerequisites weren't met
      */
-    bool move(RoadNetwork *roadNetwork);
+    bool move(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     /**
      * Get the type of the Vehicle as a string.
@@ -274,7 +274,18 @@ public:
      */
     virtual double getMinSpeedup() const=0;
 
-    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
+    /**
+     * Check for vehicle specific moves, like bus stops, ... and update the acceleration depending on this
+     * @param roadNetwork The roadnetwork the vehicle is driving on
+     * @param errStream The stream to which the errors should be outputed
+     *
+     * @pre
+     * REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized")
+     * REQUIRE(properlyInitizlized(), "The vehicle should be properly initialized")
+     */
+    virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
+
+//    bool speedupUpdateEnabled() const;
 
     virtual char getShortName() = 0;
 
@@ -300,11 +311,23 @@ protected:
 
     void updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork);
 
-    void checkForTrafficLight(RoadNetwork* roadNetwork);
+    void checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errStream);
 
     double getIdealDistance(RoadNetwork *roadNetwork) const;
 
     double calculateSlowDownForPosition(double stopPosition);
+
+    void removeCurrentRoad();
+
+    bool slowingDownForPreviousCar;
+    bool slowingDownForTrafficLight;
+    bool slowingDownForVehicleSpecific;
+
+//    void setSpeedupBetweenAllowedRange(double speedup);
+//
+//    bool speedupUpdates;
+//    void disableSpeedupUpdates();
+//    void enableSpeedupUpdates();
 };
 
 

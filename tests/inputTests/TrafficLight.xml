@@ -1,0 +1,12 @@
+<ROOT>
+    <BAAN>
+        <naam>E19</naam>
+        <snelheidslimiet>100</snelheidslimiet>
+        <lengte>2000</lengte>
+    </BAAN>
+    <VERKEERSTEKEN>
+        <type>VERKEERSLICHT</type>
+        <baan>E19</baan>
+        <positie>40</positie>
+    </VERKEERSTEKEN>
+</ROOT>

@@ -1,0 +1,1 @@
+De xml node mag niet leeg zijn

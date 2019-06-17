@@ -8,6 +8,7 @@
  */
 
 #include <limits>
+#include <stdlib.h>
 #include "Road.h"
 #include "DesignByContract.h"
 
@@ -22,13 +23,14 @@ int Road::getSpeedLimit(double position) const {
     for(std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone){
         //TODO: controleer of we de doubles op volgorde overlopen
         if((*zone).first > position){
-            return speed;
+            break;
+//            return speed;
         }
         speed = (*zone).second;
     }
     return speed;
-    //std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
-    //return 0;
+//    std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
+//    return 0;
 }
 
 double Road::getLength() const {
@@ -135,7 +137,7 @@ bool Road::addTrafficLight(double position) {
 double Road::getNextBusStop(double busPosition) {
     double position = -1;
     for (std::set<double>::iterator stop = busStops.begin(); stop != busStops.end(); ++stop){
-        if(*stop > busPosition and (position == -1 or position > *stop)){
+        if(*stop >= busPosition and (position == -1 or position > *stop)){
             position = *stop;
         }
     }
@@ -143,6 +145,7 @@ double Road::getNextBusStop(double busPosition) {
 }
 
 double Road::getNextTrafficLight(double position) {
+    REQUIRE(properlyInit(), "De weg moet deftig geinitialliseerd zijn");
     double nextLight = -1;
     for (std::map<double, TrafficLight*>::iterator light = trafficLights.begin(); light != trafficLights.end(); ++light){
         if((*light).first > position and (nextLight == -1 or nextLight > (*light).first)){
@@ -154,18 +157,6 @@ double Road::getNextTrafficLight(double position) {
 
 TrafficLight *Road::getTrafficLight(double position) {
     return trafficLights[position];
-}
-
-const std::set<double> &Road::getBusStops() const {
-    return busStops;
-}
-
-const std::map<double, TrafficLight *> &Road::getTrafficLights() const {
-    return trafficLights;
-}
-
-const std::map<double, int> &Road::getZones() const {
-    return zones;
 }
 
 

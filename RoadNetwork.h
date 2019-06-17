@@ -96,6 +96,9 @@ public:
      *
      * @return NULL if there's no road with this name as an intersection of another road
      * @return Road* if there's a road with this name as an intersection of another road
+     *
+     * @pre
+     * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
     Road* retrieveRoad(std::string nameRoad);
 
@@ -142,7 +145,7 @@ public:
      *  ENSURE(nrOfCars() == 0, "alle auto's zijn buiten hun wegen gereden, er zijn geen auto's meer in het netwerk");
      *  ENSURE(check(), "Valid roadnnetwork");
      */
-    void automaticSimulation();
+    void automaticSimulation(std::ofstream &errStream);
 
     /**
      * Check to know if a car is on a road that exists in the network
@@ -231,7 +234,7 @@ public:
      * @post
      * Ensure(check(), "The roadnetwork must still be valid");
      */
-    void moveAllCars();
+    void moveAllCars(std::ostream &errStream);
 
     /**
      * Check whether all cars and roads in the network are properly initialised
@@ -266,6 +269,7 @@ private:
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
     RoadNetwork* _initCheck;
+    int findRoadIndex(std::string roadName);
 };
 
 

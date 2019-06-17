@@ -19,7 +19,7 @@ Baan: A12
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
 	-> positie: 20
-	-> snelheid: 2
+	-> snelheid: 7.2
 
 -----------------------------------------------------------
 Roadnetwork 3
@@ -30,8 +30,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 20.5556
-	-> snelheid: 4
+	-> positie: 22
+	-> snelheid: 14.4
 
 -----------------------------------------------------------
 Roadnetwork 4
@@ -42,8 +42,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 21.6667
-	-> snelheid: 6
+	-> positie: 26
+	-> snelheid: 21.6
 
 -----------------------------------------------------------
 Roadnetwork 5
@@ -54,8 +54,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 23.3333
-	-> snelheid: 8
+	-> positie: 32
+	-> snelheid: 28.8
 
 -----------------------------------------------------------
 Roadnetwork 6
@@ -66,8 +66,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 25.5556
-	-> snelheid: 10
+	-> positie: 40
+	-> snelheid: 36
 
 -----------------------------------------------------------
 Roadnetwork 7
@@ -78,8 +78,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 28.3333
-	-> snelheid: 12
+	-> positie: 50
+	-> snelheid: 43.2
 
 -----------------------------------------------------------
 Roadnetwork 8
@@ -90,8 +90,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 31.6667
-	-> snelheid: 14
+	-> positie: 62
+	-> snelheid: 50.4
 
 -----------------------------------------------------------
 Roadnetwork 9
@@ -102,8 +102,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 35.5556
-	-> snelheid: 16
+	-> positie: 76
+	-> snelheid: 57.6
 
 -----------------------------------------------------------
 Roadnetwork 10
@@ -114,8 +114,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 40
-	-> snelheid: 18
+	-> positie: 92
+	-> snelheid: 64.8
 
 -----------------------------------------------------------
 Roadnetwork 11
@@ -126,8 +126,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 45
-	-> snelheid: 20
+	-> positie: 110
+	-> snelheid: 72
 
 -----------------------------------------------------------
 Roadnetwork 12
@@ -138,8 +138,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 50.5556
-	-> snelheid: 22
+	-> positie: 130
+	-> snelheid: 79.2
 
 -----------------------------------------------------------
 Roadnetwork 13
@@ -150,8 +150,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 56.6667
-	-> snelheid: 24
+	-> positie: 152
+	-> snelheid: 86.4
 
 -----------------------------------------------------------
 Roadnetwork 14
@@ -162,8 +162,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 63.3333
-	-> snelheid: 26
+	-> positie: 176
+	-> snelheid: 93.6
 
 -----------------------------------------------------------
 Roadnetwork 15
@@ -174,8 +174,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 70.5556
-	-> snelheid: 28
+	-> positie: 202
+	-> snelheid: 100.8
 
 -----------------------------------------------------------
 Roadnetwork 16
@@ -186,8 +186,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 78.3333
-	-> snelheid: 30
+	-> positie: 230
+	-> snelheid: 108
 
 -----------------------------------------------------------
 Roadnetwork 17
@@ -198,8 +198,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 86.6667
-	-> snelheid: 32
+	-> positie: 260
+	-> snelheid: 115.2
 
 -----------------------------------------------------------
 Roadnetwork 18
@@ -210,8 +210,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 95.5556
-	-> snelheid: 34
+	-> positie: 292
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 19
@@ -222,8 +222,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 105
-	-> snelheid: 36
+	-> positie: 325.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 20
@@ -234,8 +234,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 115
-	-> snelheid: 38
+	-> positie: 358.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 21
@@ -246,8 +246,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 125.556
-	-> snelheid: 40
+	-> positie: 392
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 22
@@ -258,8 +258,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 136.667
-	-> snelheid: 42
+	-> positie: 425.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 23
@@ -270,8 +270,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 148.333
-	-> snelheid: 44
+	-> positie: 458.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 24
@@ -282,8 +282,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 160.556
-	-> snelheid: 46
+	-> positie: 492
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 25
@@ -294,8 +294,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 173.333
-	-> snelheid: 48
+	-> positie: 525.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 26
@@ -306,8 +306,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 186.667
-	-> snelheid: 50
+	-> positie: 558.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 27
@@ -318,8 +318,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 200.556
-	-> snelheid: 52
+	-> positie: 592
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 28
@@ -330,8 +330,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 215
-	-> snelheid: 54
+	-> positie: 625.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 29
@@ -342,8 +342,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 230
-	-> snelheid: 56
+	-> positie: 658.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 30
@@ -354,8 +354,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 245.556
-	-> snelheid: 58
+	-> positie: 692
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 31
@@ -366,8 +366,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 261.667
-	-> snelheid: 60
+	-> positie: 725.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 32
@@ -378,8 +378,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 278.333
-	-> snelheid: 62
+	-> positie: 758.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 33
@@ -390,8 +390,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 295.556
-	-> snelheid: 64
+	-> positie: 792
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 34
@@ -402,8 +402,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 313.333
-	-> snelheid: 66
+	-> positie: 825.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 35
@@ -414,8 +414,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 331.667
-	-> snelheid: 68
+	-> positie: 858.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 36
@@ -426,8 +426,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 350.556
-	-> snelheid: 70
+	-> positie: 892
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 37
@@ -438,8 +438,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 370
-	-> snelheid: 72
+	-> positie: 925.333
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 38
@@ -450,8 +450,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 390
-	-> snelheid: 74
+	-> positie: 958.667
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 39
@@ -462,8 +462,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 410.556
-	-> snelheid: 76
+	-> positie: 992
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 40
@@ -474,8 +474,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 431.667
-	-> snelheid: 78
+	-> positie: 1025.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 41
@@ -486,8 +486,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 453.333
-	-> snelheid: 80
+	-> positie: 1058.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 42
@@ -498,8 +498,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 475.556
-	-> snelheid: 82
+	-> positie: 1092
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 43
@@ -510,8 +510,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 498.333
-	-> snelheid: 84
+	-> positie: 1125.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 44
@@ -522,8 +522,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 521.667
-	-> snelheid: 86
+	-> positie: 1158.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 45
@@ -534,8 +534,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 545.556
-	-> snelheid: 88
+	-> positie: 1192
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 46
@@ -546,8 +546,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 570
-	-> snelheid: 90
+	-> positie: 1225.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 47
@@ -558,8 +558,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 595
-	-> snelheid: 92
+	-> positie: 1258.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 48
@@ -570,8 +570,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 620.556
-	-> snelheid: 94
+	-> positie: 1292
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 49
@@ -582,8 +582,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 646.667
-	-> snelheid: 96
+	-> positie: 1325.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 50
@@ -594,8 +594,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 673.333
-	-> snelheid: 98
+	-> positie: 1358.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 51
@@ -606,8 +606,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 700.556
-	-> snelheid: 100
+	-> positie: 1392
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 52
@@ -618,8 +618,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 728.333
-	-> snelheid: 102
+	-> positie: 1425.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 53
@@ -630,8 +630,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 756.667
-	-> snelheid: 104
+	-> positie: 1458.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 54
@@ -642,8 +642,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 785.556
-	-> snelheid: 106
+	-> positie: 1492
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 55
@@ -654,8 +654,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 815
-	-> snelheid: 108
+	-> positie: 1525.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 56
@@ -666,8 +666,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 845
-	-> snelheid: 110
+	-> positie: 1558.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 57
@@ -678,8 +678,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 875.556
-	-> snelheid: 112
+	-> positie: 1592
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 58
@@ -690,8 +690,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 906.667
-	-> snelheid: 114
+	-> positie: 1625.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 59
@@ -702,8 +702,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 938.333
-	-> snelheid: 115.667
+	-> positie: 1658.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 60
@@ -714,8 +714,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 970.463
-	-> snelheid: 116.87
+	-> positie: 1692
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 61
@@ -726,8 +726,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1002.93
-	-> snelheid: 117.74
+	-> positie: 1725.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 62
@@ -738,8 +738,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1035.63
-	-> snelheid: 118.368
+	-> positie: 1758.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 63
@@ -750,8 +750,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1068.51
-	-> snelheid: 118.821
+	-> positie: 1792
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 64
@@ -762,8 +762,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1101.52
-	-> snelheid: 119.149
+	-> positie: 1825.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 65
@@ -774,8 +774,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1134.61
-	-> snelheid: 119.385
+	-> positie: 1858.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 66
@@ -786,8 +786,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1167.78
-	-> snelheid: 119.556
+	-> positie: 1892
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 67
@@ -798,8 +798,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1200.99
-	-> snelheid: 119.679
+	-> positie: 1925.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 68
@@ -810,8 +810,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1234.23
-	-> snelheid: 119.768
+	-> positie: 1958.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 69
@@ -822,8 +822,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1267.5
-	-> snelheid: 119.833
+	-> positie: 1992
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 70
@@ -834,8 +834,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1300.79
-	-> snelheid: 119.879
+	-> positie: 2025.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 71
@@ -846,8 +846,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1334.09
-	-> snelheid: 119.913
+	-> positie: 2058.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 72
@@ -858,8 +858,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1367.4
-	-> snelheid: 119.937
+	-> positie: 2092
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 73
@@ -870,8 +870,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1400.71
-	-> snelheid: 119.954
+	-> positie: 2125.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 74
@@ -882,8 +882,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1434.03
-	-> snelheid: 119.967
+	-> positie: 2158.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 75
@@ -894,8 +894,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1467.36
-	-> snelheid: 119.976
+	-> positie: 2192
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 76
@@ -906,8 +906,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1500.68
-	-> snelheid: 119.983
+	-> positie: 2225.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 77
@@ -918,8 +918,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1534.01
-	-> snelheid: 119.988
+	-> positie: 2258.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 78
@@ -930,8 +930,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1567.34
-	-> snelheid: 119.991
+	-> positie: 2292
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 79
@@ -942,8 +942,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1600.67
-	-> snelheid: 119.994
+	-> positie: 2325.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 80
@@ -954,8 +954,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1634
-	-> snelheid: 119.995
+	-> positie: 2358.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 81
@@ -966,8 +966,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1667.34
-	-> snelheid: 119.997
+	-> positie: 2392
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 82
@@ -978,8 +978,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1700.67
-	-> snelheid: 119.998
+	-> positie: 2425.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 83
@@ -990,8 +990,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1734
-	-> snelheid: 119.998
+	-> positie: 2458.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 84
@@ -1002,8 +1002,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1767.33
-	-> snelheid: 119.999
+	-> positie: 2492
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 85
@@ -1014,8 +1014,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1800.67
-	-> snelheid: 119.999
+	-> positie: 2525.33
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 86
@@ -1026,8 +1026,8 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1834
-	-> snelheid: 119.999
+	-> positie: 2558.67
+	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 87
@@ -1038,7 +1038,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1867.33
+	-> positie: 2592
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1050,7 +1050,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1900.67
+	-> positie: 2625.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1062,7 +1062,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1934
+	-> positie: 2658.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1074,7 +1074,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 1967.33
+	-> positie: 2692
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1086,7 +1086,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2000.67
+	-> positie: 2725.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1098,7 +1098,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2034
+	-> positie: 2758.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1110,7 +1110,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2067.33
+	-> positie: 2792
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1122,7 +1122,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2100.67
+	-> positie: 2825.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1134,7 +1134,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2134
+	-> positie: 2858.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1146,7 +1146,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2167.33
+	-> positie: 2892
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1158,7 +1158,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2200.67
+	-> positie: 2925.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1170,7 +1170,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2234
+	-> positie: 2958.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1182,7 +1182,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2267.33
+	-> positie: 2992
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1194,7 +1194,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2300.67
+	-> positie: 3025.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1206,7 +1206,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2334
+	-> positie: 3058.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1218,7 +1218,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2367.33
+	-> positie: 3092
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1230,7 +1230,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2400.67
+	-> positie: 3125.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1242,7 +1242,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2434
+	-> positie: 3158.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1254,7 +1254,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2467.33
+	-> positie: 3192
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1266,7 +1266,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2500.67
+	-> positie: 3225.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1278,7 +1278,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2534
+	-> positie: 3258.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1290,7 +1290,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2567.33
+	-> positie: 3292
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1302,7 +1302,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2600.67
+	-> positie: 3325.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1314,7 +1314,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2634
+	-> positie: 3358.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1326,7 +1326,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2667.33
+	-> positie: 3392
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1338,7 +1338,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2700.67
+	-> positie: 3425.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1350,7 +1350,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2734
+	-> positie: 3458.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1362,7 +1362,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2767.33
+	-> positie: 3492
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1374,7 +1374,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2800.67
+	-> positie: 3525.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1386,7 +1386,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2834
+	-> positie: 3558.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1398,7 +1398,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2867.33
+	-> positie: 3592
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1410,7 +1410,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2900.67
+	-> positie: 3625.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1422,7 +1422,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2934
+	-> positie: 3658.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1434,7 +1434,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 2967.33
+	-> positie: 3692
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1446,7 +1446,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3000.67
+	-> positie: 3725.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1458,7 +1458,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3034
+	-> positie: 3758.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1470,7 +1470,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3067.33
+	-> positie: 3792
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1482,7 +1482,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3100.67
+	-> positie: 3825.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1494,7 +1494,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3134
+	-> positie: 3858.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1506,7 +1506,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3167.33
+	-> positie: 3892
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1518,7 +1518,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3200.67
+	-> positie: 3925.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1530,7 +1530,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3234
+	-> positie: 3958.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1542,7 +1542,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3267.33
+	-> positie: 3992
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1554,7 +1554,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3300.67
+	-> positie: 4025.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1566,7 +1566,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3334
+	-> positie: 4058.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1578,7 +1578,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3367.33
+	-> positie: 4092
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1590,7 +1590,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3400.67
+	-> positie: 4125.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1602,7 +1602,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3434
+	-> positie: 4158.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1614,7 +1614,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3467.33
+	-> positie: 4192
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1626,7 +1626,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3500.67
+	-> positie: 4225.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1638,7 +1638,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3534
+	-> positie: 4258.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1650,7 +1650,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3567.33
+	-> positie: 4292
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1662,7 +1662,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3600.67
+	-> positie: 4325.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1674,7 +1674,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3634
+	-> positie: 4358.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1686,7 +1686,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3667.33
+	-> positie: 4392
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1698,7 +1698,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3700.67
+	-> positie: 4425.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1710,7 +1710,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3734
+	-> positie: 4458.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1722,7 +1722,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3767.33
+	-> positie: 4492
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1734,7 +1734,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3800.67
+	-> positie: 4525.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1746,7 +1746,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3834
+	-> positie: 4558.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1758,7 +1758,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3867.33
+	-> positie: 4592
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1770,7 +1770,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3900.67
+	-> positie: 4625.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1782,7 +1782,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3934
+	-> positie: 4658.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1794,7 +1794,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 3967.33
+	-> positie: 4692
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1806,7 +1806,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4000.67
+	-> positie: 4725.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1818,7 +1818,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4034
+	-> positie: 4758.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1830,7 +1830,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4067.33
+	-> positie: 4792
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1842,7 +1842,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4100.67
+	-> positie: 4825.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1854,7 +1854,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4134
+	-> positie: 4858.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1866,7 +1866,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4167.33
+	-> positie: 4892
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1878,7 +1878,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4200.67
+	-> positie: 4925.33
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1890,7 +1890,7 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4234
+	-> positie: 4958.67
 	-> snelheid: 120
 
 -----------------------------------------------------------
@@ -1902,263 +1902,11 @@ Baan: A12
 
 Voertuig: AUTO (ANT-432)
 	-> baan: A12
-	-> positie: 4267.33
+	-> positie: 4992
 	-> snelheid: 120
 
 -----------------------------------------------------------
 Roadnetwork 160
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4300.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 161
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4334
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 162
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4367.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 163
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4400.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 164
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4434
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 165
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4467.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 166
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4500.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 167
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4534
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 168
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4567.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 169
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4600.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 170
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4634
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 171
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4667.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 172
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4700.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 173
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4734
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 174
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4767.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 175
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4800.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 176
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4834
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 177
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4867.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 178
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4900.67
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 179
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4934
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 180
-
-Baan: A12
-	-> snelheidslimiet op positie 0: 120
-	-> lengte: 5000
-
-Voertuig: AUTO (ANT-432)
-	-> baan: A12
-	-> positie: 4967.33
-	-> snelheid: 120
-
------------------------------------------------------------
-Roadnetwork 181
 
 Baan: A12
 	-> snelheidslimiet op positie 0: 120

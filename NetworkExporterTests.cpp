@@ -130,13 +130,17 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
     std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
     output.open(ifname.c_str());
 
+    std::ofstream errStream;
+    std::string ofname = "tests/outputTests/generated/errorLog" + testName + ".txt";
+    errStream.open(ofname.c_str());
+
     NetworkExporter exporter;
     EXPECT_TRUE(exporter.properlyInitialized());
     exporter.documentStart(std::cout);
     EXPECT_TRUE(exporter.documentStarted());
 
     while(!roadNetwork->isEmpty()){
-        roadNetwork->moveAllCars();
+        roadNetwork->moveAllCars(errStream);
         exporter.exportOn(output, *roadNetwork);
     }
 
@@ -145,6 +149,8 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
 
     std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
     EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    EXPECT_TRUE(fileIsEmpty(ofname));
 
     delete roadNetwork;
 }
