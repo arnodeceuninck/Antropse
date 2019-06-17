@@ -119,25 +119,25 @@ public:
      */
     bool setCurrentSpeed(double current_speed);
 
-    /**
-     * Change the speedup of a Vehicle.
-     *
-     * This value will determine how fast the speed of the car is changing. A positive value means an increasing  speed,
-     * while a negative speedup makes the Vehicle go slower.
-     *
-     * @param current_speedup The speedup in m/s^2
-     *
-     * @pre
-     * REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
-     * REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
-     *
-     * @post
-     * ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
-     *
-     * @return true when all precoditions are satisfied
-     *
-     */
-    bool setCurrentSpeedup(double current_speedup);
+//    /**
+//     * Change the speedup of a Vehicle.
+//     *
+//     * This value will determine how fast the speed of the car is changing. A positive value means an increasing  speed,
+//     * while a negative speedup makes the Vehicle go slower.
+//     *
+//     * @param current_speedup The speedup in m/s^2
+//     *
+//     * @pre
+//     * REQUIRE(current_speedup >= CONST::MIN_CAR_SPEEDUP, "Versnelling te traag");
+//     * REQUIRE(current_speedup <= CONST::MAX_CAR_SPEEDUP, "Versnelling te hoog");
+//     *
+//     * @post
+//     * ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+//     *
+//     * @return true when all precoditions are satisfied
+//     *
+//     */
+//    bool setCurrentSpeedup(double current_speedup);
 
     /**
      * Move the vehicle

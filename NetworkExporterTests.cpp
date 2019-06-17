@@ -23,6 +23,7 @@
 #include "Bus.h"
 #include "MotorBike.h"
 #include "Truck.h"
+#include "GraphicImpressionExporter.h"
 
 class NetworkExporterTests: public ::testing::Test {
 protected:
@@ -312,6 +313,133 @@ TEST_F(NetworkExporterTests, Truck){
 
     delete roadNetwork;
 }
+
+TEST_F(NetworkExporterTests, EmptyRoadNetworkGIE){
+
+    std::string testName = "EmptyRoadNetworkGIE";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    GraphicImpressionExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, BusjeKomtZoGIE){
+
+    std::string testName = "BusjeKomtZoGIE";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Bus("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    GraphicImpressionExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, MotorBikeGIE){
+
+    // Bicycle, Bicyle, I want to ride my bicycle, I want to ride my bike
+
+    std::string testName = "MotorBikeGIE";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new MotorBike("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    GraphicImpressionExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkExporterTests, TruckGIE){
+
+    std::string testName = "TruckGIE";
+
+    // Setting up roadnetwork for tests
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("A12", 120, 5000, NULL);
+    testVehicle = new Truck("ANT-432", testRoad, 20, 0);
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    // Exporter code
+    std::ofstream output;
+    std::string ifname = "tests/outputTests/generated/" + testName + ".txt";
+    output.open(ifname.c_str());
+
+    GraphicImpressionExporter exporter;
+    EXPECT_TRUE(exporter.properlyInitialized());
+    exporter.documentStart(std::cout);
+    EXPECT_TRUE(exporter.documentStarted());
+
+    exporter.exportOn(output, *roadNetwork);
+
+    exporter.documentEnd(std::cout);
+    EXPECT_FALSE(exporter.documentStarted());
+
+    std::string expectedFileName = "tests/outputTests/expected/" + testName + ".txt";
+    EXPECT_TRUE(fileCompare(ifname, expectedFileName));
+
+    delete roadNetwork;
+}
+
 
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);

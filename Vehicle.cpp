@@ -97,16 +97,16 @@ bool Vehicle::setCurrentSpeed(double newCurrentSpeed) {
     return true;
 }
 
-bool Vehicle::setCurrentSpeedup(double newCurrentSpeedup) {
-    if (currentSpeedup < getMinSpeedup() or currentSpeedup > getMaxSpeedup()) {
-        return false;
-    }
-    REQUIRE(currentSpeedup >= getMinSpeedup(), "Versnelling te traag");
-    REQUIRE(currentSpeedup <= getMaxSpeedup(), "Versnelling te hoog");
-    Vehicle::currentSpeedup = newCurrentSpeedup;
-    ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
-    return true;
-}
+//bool Vehicle::setCurrentSpeedup(double newCurrentSpeedup) {
+//    if (currentSpeedup < getMinSpeedup() or currentSpeedup > getMaxSpeedup()) {
+//        return false;
+//    }
+//    REQUIRE(currentSpeedup >= getMinSpeedup(), "Versnelling te traag");
+//    REQUIRE(currentSpeedup <= getMaxSpeedup(), "Versnelling te hoog");
+//    Vehicle::currentSpeedup = newCurrentSpeedup;
+//    ENSURE(getCurrentSpeedup() == newCurrentSpeedup, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
+//    return true;
+//}
 
 
 Vehicle::Vehicle() : licensePlate(""), currentRoad(NULL),
