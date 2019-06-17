@@ -303,7 +303,7 @@ void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errSt
             }
             currentSpeedup = calculateSlowDownForPosition(positionNextTrafficLight);
 
-            if (currentSpeedup < getMinSpeedup()) {
+            if (currentSpeedup < getMinSpeedup() and trafficLightColor == red) {
                 errStream << "Impossible to stop before the traffic light" << std::endl;
                 updateCurrentSpeedup(1, roadNetwork);
             }
