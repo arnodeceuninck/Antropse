@@ -28,15 +28,7 @@ int main() {
     GraphicImpressionExporter exporter;
     //NetworkExporter exporter;
 
-    //NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
-
-    Road* testRoad;
-    Vehicle* testVehicle;
-
-
-
-
-    //qugogeqogiw
+    NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
 
     exporter.documentStart(std::cout);
 

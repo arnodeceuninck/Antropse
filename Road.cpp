@@ -148,6 +148,7 @@ double Road::getNextBusStop(double busPosition) {
     return position;
 }
 
+
 double Road::getNextTrafficLight(double position) {
     REQUIRE(properlyInit(), "De weg moet deftig geinitialliseerd zijn");
     double nextLight = -1;
@@ -158,6 +159,7 @@ double Road::getNextTrafficLight(double position) {
     }
     return nextLight;
 }
+
 
 TrafficLight *Road::getTrafficLight(double position) {
     return trafficLights[position];

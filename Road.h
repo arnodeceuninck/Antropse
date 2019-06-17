@@ -196,7 +196,7 @@ public:
     /**
      *
      * @param position = the exact position of the trafficlight
-     * @return
+     * @return a pointer of the Trafficlight on that position
      */
     TrafficLight* getTrafficLight(double position);
 
