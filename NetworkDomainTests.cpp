@@ -77,7 +77,7 @@ TEST_F(NetworkDomainTests, UnsortedRoads) {
     std::string testName = "UnsortedRoads";
 
     std::ofstream errStream;
-    std::string ofname = "tests/outputTests/generated/errorLog" + testName + ".txt";
+    std::string ofname = "tests/domainTests/output/generated/errorLog" + testName + ".txt";
     errStream.open(ofname.c_str());
 
     // Setting up roadnetwork for tests
@@ -107,7 +107,7 @@ TEST_F(NetworkDomainTests, SortedRoads) {
     std::string testName = "SortedRoads";
 
     std::ofstream errStream;
-    std::string ofname = "tests/outputTests/generated/errorLog" + testName + ".txt";
+    std::string ofname = "tests/domainTests/output/generated/errorLog" + testName + ".txt";
     errStream.open(ofname.c_str());
 
     // Setting up roadnetwork for tests
@@ -256,11 +256,11 @@ TEST_F(NetworkDomainTests, BusyDay){
     std::string nameTest = "BusyDay";
 
     std::ofstream outputFile;
-    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ofname = "tests/domainTests/output/generated/" + nameTest + ".txt";
     std::string ifname = "tests/inputTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -298,7 +298,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -335,7 +335,7 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -370,7 +370,7 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -409,7 +409,7 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -448,7 +448,7 @@ TEST_F(NetworkDomainTests, SlowDown){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -485,7 +485,7 @@ TEST_F(NetworkDomainTests, SmallStreets){
     std::string ifname = "tests/domainTests/" + nameTest + ".xml";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -517,7 +517,7 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
     std::string nameTest = "FloatingPoints";
 
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     // Setting up roadnetwork for tests
@@ -593,7 +593,7 @@ TEST_F(NetworkDomainTests, EasyBusStop){
 
     std::string nameTest = "EasyBusStop";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -619,7 +619,7 @@ TEST_F(NetworkDomainTests, BusStop){
 
     std::string nameTest = "BusStop";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -642,7 +642,7 @@ TEST_F(NetworkDomainTests, AllVehicles){
 
     std::string nameTest = "AllVehicles";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -709,7 +709,7 @@ TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
 
     std::string nameTest = "StoppedShortBeforeBusStop";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -735,7 +735,7 @@ TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
 
     std::string nameTest = "StoppedLongBeforeBusStop";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -758,7 +758,7 @@ TEST_F(NetworkDomainTests, WaitingOnTheBus){
 
     std::string nameTest = "WaitingOnTheBus";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -787,7 +787,7 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
 
     std::string nameTest = "TwoBusesCloseToEachOther";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -816,13 +816,13 @@ TEST_F(NetworkDomainTests, TrafficLight){
 
     std::string nameTest = "TrafficLight";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
     testRoad = new Road("N173", 50, 500, NULL);
 
-    testRoad->addTrafficLight(250);
+    testRoad->addTrafficLight(250, 0);
     testVehicle = new Car("AL4764", testRoad, 0, 0);
 
     roadNetwork->addRoad(testRoad);
@@ -839,7 +839,7 @@ TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars){
 
     std::string nameTest = "TrafficLightWithALotOfCars";
     std::ofstream errStream;
-    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
 
     roadNetwork = new RoadNetwork();
@@ -860,6 +860,76 @@ TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars){
 
     delete roadNetwork;
 }
+
+TEST_F(NetworkDomainTests, ImpossibleToStopTrafficLight){
+
+    std::string nameTest = "ImpossibleToStopTrafficLight";
+    std::ofstream errStream;
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 500, NULL);
+
+    testRoad->addTrafficLight(35, 35);
+    testVehicle = new Car("AA3264", testRoad, 0, 120);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation(errStream);
+
+    std::string expectedOfname = "tests/domainTests/output/expected/errorLog" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, efname));
+
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, ImpossibleToStopBusStop){
+
+    std::string nameTest = "ImpossibleToStopBusStop";
+    std::ofstream errStream;
+    std::string efname = "tests/domainTests/output/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 500, NULL);
+
+    testRoad->addBusStop(35);
+    testVehicle = new Bus("HENK", testRoad, 0, 120);
+
+    roadNetwork->addRoad(testRoad);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation(errStream);
+
+    std::string expectedOfname = "tests/domainTests/output/expected/errorLog" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, efname));
+
+
+    delete roadNetwork;
+}
+
+TEST_F(NetworkDomainTests, WhereIsTheTrafficLight){
+
+    TrafficLight trafficLight(0,0);
+    EXPECT_EQ(0, trafficLight.getPosition());
+
+    trafficLight = TrafficLight(35,0);
+    EXPECT_EQ(35, trafficLight.getPosition());
+
+    trafficLight= TrafficLight(200,0);
+    EXPECT_EQ(200, trafficLight.getPosition());
+
+    trafficLight = TrafficLight(490,0);
+    EXPECT_EQ(490, trafficLight.getPosition());
+
+    trafficLight = TrafficLight(500,0);
+    EXPECT_EQ(500, trafficLight.getPosition());
+
+}
+
 
 
 //int main(int argc, char **argv) {
