@@ -48,7 +48,7 @@ void NetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
 
     this->roadsStart(onStream);
     for (int road = 0; road < game.nrOfRoads(); ++road) {
-        this->roadAdd(onStream, game.getRoads()[road]);
+        this->roadAdd(onStream, game.getRoads()[road], game);
     }
     this->roadsEnd(onStream);
 
@@ -74,7 +74,7 @@ void NetworkExporter::roadsStart(std::ostream &onStream) {
 
 }
 
-void NetworkExporter::roadAdd(std::ostream &onStream, const Road* road) {
+void NetworkExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetwork &roadNetwork) {
 
     std::string listItem = "\t-> ";
 

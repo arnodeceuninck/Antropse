@@ -49,3 +49,7 @@ double MotorBike::getMinSpeedup() const {
     return CONST::MIN_MOTOR_SPEEDUP;
 }
 
+char MotorBike::getShortName() {
+    return 'M';
+}
+

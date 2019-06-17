@@ -11,7 +11,6 @@
 #define ANTROPSE_ROAD_H
 
 #include <string>
-//#include <vector>
 #include <map>
 #include <set>
 #include "TrafficLight.h"
@@ -208,6 +207,11 @@ public:
      */
     double getNextBusStop(double busPosition);
 
+    const std::set<double> &getBusStops() const;
+
+    const std::map<double, TrafficLight *> &getTrafficLights() const;
+
+    const std::map<double, int> &getZones() const;
 
 private:
 

@@ -4,16 +4,20 @@
 
 #include <cmath>
 #include "TrafficLight.h"
+#include "CONST.h"
 
-TrafficLight::TrafficLight(double position, double startOffset) : position(position), startOffset(startOffset) {}
+TrafficLight::TrafficLight(double startOffset, double position) : startOffset(startOffset), position(position) {}
 
 TrafficLightColor TrafficLight::getColor(double time) {
     double cycletime = std::fmod((time + startOffset),(CONST::GREEN_DURATION + CONST::ORANGE_DURATION + CONST::RED_DURATION));
     if(cycletime < CONST::GREEN_DURATION){
+        std::cout << "GREEN" << std::endl;
         return green;
     } else if(cycletime < CONST::ORANGE_DURATION + CONST::GREEN_DURATION){
+        std::cout << "ORANGE" << std::endl;
         return orange;
     } else{
+        std::cout << "RED" << std::endl;
         return red;
     }
 }

@@ -54,6 +54,8 @@ public:
     virtual double getMaxSpeedup() const;
     virtual double getMinSpeedup() const;
 
+    virtual char getShortName();
+
 };
 
 

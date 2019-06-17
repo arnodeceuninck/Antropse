@@ -10,10 +10,10 @@
 #include <iostream>
 #include "Vehicle.h"
 #include "Convert.h"
-#include "CONST.h"
 #include "Road.h"
 #include "RoadNetwork.h"
 #include "DesignByContract.h"
+#include "CONST.h"
 
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed)
         : licensePlate(license_plate), currentRoad(current_road),
@@ -230,12 +230,22 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
 
 double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
     Vehicle* previousCar = roadNetwork->findPreviouscar(this);
+    if(previousCar == NULL){
+        return (3 * currentSpeed) / 4 + CONST::MIN_FOLLOWING_DISTANCE;
+    }
     return (3 * currentSpeed) / 4 + previousCar->getLength() + CONST::MIN_FOLLOWING_DISTANCE;
 }
 
 void Vehicle::checkForTrafficLight(RoadNetwork* roadNetwork) {
 
+    if(currentRoad == NULL){
+        return;
+    }
+
     double positionNextTrafficLight = currentRoad->getNextTrafficLight(currentPosition);
+    if(positionNextTrafficLight == -1){
+        return;
+    }
 
     if(positionNextTrafficLight-currentPosition < 2* getIdealDistance(roadNetwork)){
         TrafficLightColor trafficLightColor = currentRoad->getTrafficLight(positionNextTrafficLight)->getColor(roadNetwork->getIteration());
@@ -246,7 +256,10 @@ void Vehicle::checkForTrafficLight(RoadNetwork* roadNetwork) {
                 std::cerr << "woopsiepoopsie door rood licht gereden, let's pretend I didn't see that ;)" << std::endl;
                 move(roadNetwork);
             }
-            currentSpeedup = calculateSlowDownForPosition(positionNextTrafficLight);
+            double slowDown = calculateSlowDownForPosition(positionNextTrafficLight);
+            if(slowDown < currentSpeedup){
+                currentSpeedup = slowDown;
+            }
         }
     }
 }
@@ -256,4 +269,4 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     return -(currentSpeed*currentSpeed)/deltaP;
 }
 
-void Vehicle::checkVehicleSpecificMove(Road *currentRoad) {}
+void Vehicle::checkVehicleSpecificMove(RoadNetwork *roadNetworkd) {}

@@ -26,8 +26,9 @@ int Road::getSpeedLimit(double position) const {
         }
         speed = (*zone).second;
     }
-    std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
-    return 0;
+    return speed;
+    //std::cerr << "Eine Seefahrt was yeeting speedlimit is 0" << std::endl;
+    //return 0;
 }
 
 double Road::getLength() const {
@@ -153,6 +154,18 @@ double Road::getNextTrafficLight(double position) {
 
 TrafficLight *Road::getTrafficLight(double position) {
     return trafficLights[position];
+}
+
+const std::set<double> &Road::getBusStops() const {
+    return busStops;
+}
+
+const std::map<double, TrafficLight *> &Road::getTrafficLights() const {
+    return trafficLights;
+}
+
+const std::map<double, int> &Road::getZones() const {
+    return zones;
 }
 
 

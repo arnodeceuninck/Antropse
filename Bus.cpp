@@ -76,3 +76,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork) {
     Vehicle::checkVehicleSpecificMove(NULL);
 }
 
+char Bus::getShortName() {
+    return 'B';
+}
+

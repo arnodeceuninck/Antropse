@@ -8,9 +8,9 @@
  */
 
 #include "Truck.h"
-#include "CONST.h"
 #include "DesignByContract.h"
 #include "Road.h"
+#include "CONST.h"
 
 Truck::Truck(const std::string &licensePlate, Road *currentRoad, double currentPosition, double currentSpeed) :
 
@@ -47,5 +47,9 @@ double Truck::getMaxSpeedup() const {
 
 double Truck::getMinSpeedup() const {
     return CONST::MIN_TRUCK_SPEEDUP;
+}
+
+char Truck::getShortName() {
+    return 'T';
 }
 

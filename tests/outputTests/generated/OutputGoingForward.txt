@@ -1,7 +1,7 @@
 Roadnetwork 1
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -13,7 +13,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 2
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -25,7 +25,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 3
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -37,7 +37,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 4
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -49,7 +49,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 5
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -61,7 +61,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 6
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -73,7 +73,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 7
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -85,7 +85,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 8
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -97,7 +97,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 9
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -109,7 +109,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 10
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -121,7 +121,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 11
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -133,7 +133,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 12
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -145,7 +145,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 13
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -157,7 +157,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 14
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -169,7 +169,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 15
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -181,7 +181,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 16
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -193,7 +193,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 17
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -205,7 +205,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 18
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -217,7 +217,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 19
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -229,7 +229,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 20
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -241,7 +241,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 21
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -253,7 +253,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 22
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -265,7 +265,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 23
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -277,7 +277,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 24
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -289,7 +289,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 25
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -301,7 +301,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 26
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -313,7 +313,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 27
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -325,7 +325,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 28
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -337,7 +337,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 29
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -349,7 +349,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 30
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -361,7 +361,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 31
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -373,7 +373,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 32
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -385,7 +385,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 33
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -397,7 +397,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 34
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -409,7 +409,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 35
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -421,7 +421,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 36
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -433,7 +433,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 37
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -445,7 +445,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 38
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -457,7 +457,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 39
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -469,7 +469,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 40
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -481,7 +481,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 41
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -493,7 +493,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 42
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -505,7 +505,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 43
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -517,7 +517,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 44
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -529,7 +529,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 45
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -541,7 +541,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 46
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -553,7 +553,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 47
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -565,7 +565,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 48
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -577,7 +577,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 49
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -589,7 +589,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 50
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -601,7 +601,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 51
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -613,7 +613,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 52
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -625,7 +625,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 53
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -637,7 +637,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 54
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -649,7 +649,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 55
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -661,7 +661,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 56
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -673,7 +673,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 57
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -685,7 +685,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 58
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -697,7 +697,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 59
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -709,7 +709,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 60
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -721,7 +721,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 61
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -733,7 +733,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 62
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -745,7 +745,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 63
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -757,7 +757,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 64
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -769,7 +769,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 65
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -781,7 +781,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 66
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -793,7 +793,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 67
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -805,7 +805,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 68
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -817,7 +817,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 69
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -829,7 +829,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 70
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -841,7 +841,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 71
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -853,7 +853,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 72
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -865,7 +865,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 73
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -877,7 +877,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 74
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -889,7 +889,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 75
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -901,7 +901,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 76
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -913,7 +913,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 77
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -925,7 +925,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 78
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -937,7 +937,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 79
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -949,7 +949,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 80
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -961,7 +961,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 81
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -973,7 +973,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 82
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -985,7 +985,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 83
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -997,7 +997,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 84
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1009,7 +1009,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 85
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1021,7 +1021,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 86
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1033,7 +1033,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 87
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1045,7 +1045,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 88
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1057,7 +1057,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 89
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1069,7 +1069,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 90
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1081,7 +1081,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 91
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1093,7 +1093,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 92
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1105,7 +1105,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 93
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1117,7 +1117,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 94
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1129,7 +1129,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 95
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1141,7 +1141,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 96
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1153,7 +1153,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 97
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1165,7 +1165,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 98
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1177,7 +1177,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 99
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1189,7 +1189,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 100
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1201,7 +1201,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 101
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1213,7 +1213,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 102
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1225,7 +1225,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 103
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1237,7 +1237,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 104
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1249,7 +1249,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 105
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1261,7 +1261,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 106
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1273,7 +1273,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 107
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1285,7 +1285,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 108
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1297,7 +1297,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 109
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1309,7 +1309,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 110
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1321,7 +1321,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 111
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1333,7 +1333,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 112
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1345,7 +1345,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 113
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1357,7 +1357,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 114
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1369,7 +1369,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 115
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1381,7 +1381,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 116
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1393,7 +1393,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 117
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1405,7 +1405,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 118
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1417,7 +1417,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 119
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1429,7 +1429,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 120
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1441,7 +1441,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 121
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1453,7 +1453,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 122
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1465,7 +1465,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 123
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1477,7 +1477,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 124
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1489,7 +1489,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 125
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1501,7 +1501,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 126
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1513,7 +1513,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 127
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1525,7 +1525,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 128
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1537,7 +1537,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 129
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1549,7 +1549,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 130
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1561,7 +1561,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 131
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1573,7 +1573,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 132
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1585,7 +1585,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 133
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1597,7 +1597,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 134
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1609,7 +1609,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 135
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1621,7 +1621,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 136
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1633,7 +1633,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 137
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1645,7 +1645,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 138
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1657,7 +1657,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 139
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1669,7 +1669,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 140
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1681,7 +1681,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 141
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1693,7 +1693,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 142
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1705,7 +1705,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 143
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1717,7 +1717,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 144
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1729,7 +1729,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 145
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1741,7 +1741,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 146
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1753,7 +1753,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 147
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1765,7 +1765,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 148
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1777,7 +1777,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 149
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1789,7 +1789,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 150
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1801,7 +1801,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 151
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1813,7 +1813,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 152
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1825,7 +1825,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 153
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1837,7 +1837,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 154
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1849,7 +1849,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 155
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1861,7 +1861,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 156
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1873,7 +1873,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 157
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1885,7 +1885,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 158
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1897,7 +1897,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 159
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1909,7 +1909,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 160
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1921,7 +1921,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 161
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1933,7 +1933,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 162
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1945,7 +1945,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 163
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1957,7 +1957,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 164
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1969,7 +1969,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 165
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1981,7 +1981,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 166
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -1993,7 +1993,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 167
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2005,7 +2005,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 168
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2017,7 +2017,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 169
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2029,7 +2029,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 170
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2041,7 +2041,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 171
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2053,7 +2053,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 172
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2065,7 +2065,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 173
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2077,7 +2077,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 174
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2089,7 +2089,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 175
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2101,7 +2101,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 176
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2113,7 +2113,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 177
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2125,7 +2125,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 178
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2137,7 +2137,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 179
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2149,7 +2149,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 180
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 Voertuig: AUTO (ANT-432)
@@ -2161,7 +2161,7 @@ Voertuig: AUTO (ANT-432)
 Roadnetwork 181
 
 Baan: A12
-	-> snelheidslimiet: 120
+	-> snelheidslimiet op positie 0: 120
 	-> lengte: 5000
 
 -----------------------------------------------------------

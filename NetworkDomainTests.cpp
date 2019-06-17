@@ -114,7 +114,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+        importResult = NetworkImporter::importRoadNetwork(ifname, "outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -126,9 +126,11 @@ TEST_F(NetworkDomainTests, DrivingClose){
 
     while(!roadNetwork->isEmpty()){
         roadNetwork->moveAllCars();
-//        EXPECT_TRUE(roadNetwork->check()); // TODO: uncomment (prevent test spam while not working)
+        EXPECT_TRUE(roadNetwork->checkPositionCars());// TODO: uncomment (prevent test spam while not working)
+        EXPECT_TRUE(roadNetwork->checkSpaceBetweenCars());
+        EXPECT_TRUE(roadNetwork->checkIfCarsOnExistingRoad());
+        EXPECT_TRUE(roadNetwork->checkIntersections());
     }
-
     delete roadNetwork;
 }
 

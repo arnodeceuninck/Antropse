@@ -24,4 +24,25 @@
         <positie>20</positie>
         <snelheid>0</snelheid>
     </VOERTUIG>
+    <VERKEERSTEKEN>
+        <type>BUSHALTE</type>
+        <baan>E313</baan>
+        <positie>250</positie>
+    </VERKEERSTEKEN>
+    <VERKEERSTEKEN>
+        <type>ZONE</type>
+        <baan>E313</baan>
+        <positie>1500</positie>
+        <snelheidslimiet>30</snelheidslimiet>
+    </VERKEERSTEKEN>
+    <VERKEERSTEKEN>
+        <type>BUSHALTE</type>
+        <baan>E19</baan>
+        <positie>750</positie>
+    </VERKEERSTEKEN>
+    <VERKEERSTEKEN>
+        <type>VERKEERSLICHT</type>
+        <baan>E19</baan>
+        <positie>1000</positie>
+    </VERKEERSTEKEN>
 </ROOT>

@@ -61,6 +61,8 @@ public:
 
     virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
 
+    virtual char getShortName();
+
 private:
     int waitingTime;
 

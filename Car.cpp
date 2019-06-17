@@ -49,3 +49,7 @@ double Car::getMinSpeedup() const {
     return CONST::MIN_CAR_SPEEDUP;
 }
 
+char Car::getShortName() {
+    return 'C';
+}
+

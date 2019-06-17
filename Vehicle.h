@@ -276,6 +276,8 @@ public:
 
     virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork);
 
+    virtual char getShortName() = 0;
+
 
 protected:
     std::string licensePlate; /**< A unique ID for each vehicle */

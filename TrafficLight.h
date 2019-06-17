@@ -7,18 +7,14 @@
 
 #include <iostream>
 #include <set>
-#include "CONST.h"
+
 
 
 enum TrafficLightColor{green, orange, red};
 
-class TrafficLight;
-
-bool nextTrafficLight(const TrafficLight* t1, const TrafficLight* t2);
-
 class TrafficLight {
 public:
-    TrafficLight(double position, double startOffset);
+    TrafficLight(double startOffset, double position);
 
     TrafficLightColor getColor(double time);
 

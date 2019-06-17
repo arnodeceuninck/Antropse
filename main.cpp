@@ -14,13 +14,15 @@
 #include "RoadNetwork.h"
 #include "NetworkExporter.h"
 #include "NetworkImporter.h"
+#include "GraphicImpressionExporter.h"
 
 int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
     RoadNetwork* roadNetwork = new RoadNetwork();
-    NetworkExporter exporter;
+    GraphicImpressionExporter exporter;
+    //NetworkExporter exporter;
 
     NetworkImporter::importRoadNetwork("test.xml", std::cerr, roadNetwork);
 

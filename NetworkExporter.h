@@ -10,7 +10,7 @@
 #define ANTROPSE_NETWORKEXPORTER_H
 
 
-#include <iosfwd>
+#include <ostream>
 #include "RoadNetwork.h"
 
 class NetworkExporter {
@@ -80,7 +80,7 @@ protected:
     virtual void sectionStart(std::ostream& onStream, const std::string sectionTitle);
     virtual void roadNetworkStart(std::ostream& onStream);
     virtual void roadsStart(std::ostream& onStream);
-    virtual void roadAdd(std::ostream& onStream, const Road* road);
+    virtual void roadAdd(std::ostream &onStream, const Road *road, RoadNetwork &roadNetwork);
     virtual void roadsEnd(std::ostream& onStream);
     virtual void vehiclesStart(std::ostream& onStream);
     virtual void vehicleAdd(std::ostream& onStream, const Vehicle* vehicle);
