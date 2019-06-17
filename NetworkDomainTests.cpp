@@ -316,9 +316,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
 
     while(!roadNetwork->isEmpty()){
         roadNetwork->moveAllCars(errStream);
-//        std::cout << "Moved" << std::endl;
-        EXPECT_TRUE(roadNetwork->checkSpaceBetweenCars());
-//        EXPECT_TRUE(roadNetwork->check()); // TODO: uncomment (prevent test spam while not working)
+        EXPECT_TRUE(roadNetwork->check());
     }
 
     EXPECT_TRUE(fileIsEmpty(efname));
