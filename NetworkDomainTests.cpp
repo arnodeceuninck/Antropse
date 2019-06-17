@@ -812,9 +812,9 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, GreenTrafficLight){
+TEST_F(NetworkDomainTests, TrafficLight){
 
-    std::string nameTest = "GreenTrafficLight";
+    std::string nameTest = "TrafficLight";
     std::ofstream errStream;
     std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
     errStream.open(efname.c_str());
@@ -835,6 +835,31 @@ TEST_F(NetworkDomainTests, GreenTrafficLight){
     delete roadNetwork;
 }
 
+TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars){
+
+    std::string nameTest = "TrafficLightWithALotOfCars";
+    std::ofstream errStream;
+    std::string efname = "tests/outputTests/generated/errorLog" + nameTest + ".txt";
+    errStream.open(efname.c_str());
+
+    roadNetwork = new RoadNetwork();
+    testRoad = new Road("N173", 120, 5000, NULL);
+    roadNetwork->addRoad(testRoad);
+
+    testRoad->addTrafficLight(2500, 0);
+    testVehicle = new Car("IIIIIEP", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Car("TOETTOET", testRoad, 50, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Car("VROEMVROEM", testRoad, 100, 0);
+    roadNetwork->addCar(testVehicle);
+
+    roadNetwork->automaticSimulation(errStream);
+
+    EXPECT_TRUE(fileIsEmpty(efname));
+
+    delete roadNetwork;
+}
 
 
 //int main(int argc, char **argv) {

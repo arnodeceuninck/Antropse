@@ -124,10 +124,14 @@ bool Road::addZone(double position, int zoneSpeedLimit) {
 }
 
 bool Road::addTrafficLight(double position) {
+    return addTrafficLight(position, rand());
+}
+
+bool Road::addTrafficLight(double position, int time) {
     if(position > 0 &&
        position < getLength() &&
        "Er is nog geen verkeerslicht op de postie"){// TODO check for bus stop at position
-        trafficLights[position] = new TrafficLight(position, rand());
+        trafficLights[position] = new TrafficLight(position, time);
         // TODO: ensure
         return true;
     }

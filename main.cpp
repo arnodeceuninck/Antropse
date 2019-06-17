@@ -32,18 +32,20 @@ int main() {
     Road* testRoad;
     Vehicle* testVehicle;
 
-
     roadNetwork = new RoadNetwork();
-    testRoad = new Road("N173", 50, 500, NULL);
-
-    testRoad->addTrafficLight(250);
-    testVehicle = new Car("AL4764", testRoad, 0, 0);
-
+    testRoad = new Road("N173", 120, 5000, NULL);
     roadNetwork->addRoad(testRoad);
+
+    testRoad->addTrafficLight(2500, 0);
+    testVehicle = new Car("IIIIIEP", testRoad, 0, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Car("TOETTOET", testRoad, 50, 0);
+    roadNetwork->addCar(testVehicle);
+    testVehicle = new Car("VROEMVROEM", testRoad, 100, 0);
     roadNetwork->addCar(testVehicle);
 
 
-
+    //qugogeqogiw
 
     exporter.documentStart(std::cout);
 

@@ -189,6 +189,9 @@ public:
      */
     bool addTrafficLight(double position);
 
+    bool addTrafficLight(double position, int time);
+
+
     double getNextTrafficLight(double position);
     /**
      *
