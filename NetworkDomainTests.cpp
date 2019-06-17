@@ -930,6 +930,17 @@ TEST_F(NetworkDomainTests, WhereIsTheTrafficLight){
 
 }
 
+TEST_F(NetworkDomainTests, WhatIsTheColorOfTheTrafficLight){
+
+    TrafficLight* trafficLight = new TrafficLight(0,0);
+
+    EXPECT_EQ('|', trafficLight->getColorChar(37));
+
+    EXPECT_EQ('-', trafficLight->getColorChar(0));
+
+    EXPECT_EQ('o', trafficLight->getColorChar(31));
+
+}
 
 
 //int main(int argc, char **argv) {
