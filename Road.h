@@ -173,7 +173,7 @@ public:
     bool addZone(double position, int zoneSpeedLimit);
 
     /**
-     * Add a traffic light to the road
+     * Add a traffic light to the road with a random startOffset
      *
      * @param position The position on the road to add the light
      *
@@ -189,6 +189,21 @@ public:
      */
     bool addTrafficLight(double position);
 
+    /**
+      * Add a traffic light to the road with a chosen startOffset
+      *
+      * @param position The position on the road to add the light
+      *
+      * @return true when succesfully added, false when there was an error adding the stop
+      *
+      * @pre
+      * REQUIRE(properlyInit(), "The road must be correctly initialized");
+      * REQUIRE(validPositionOnRoad(position), "The position must be on the road");
+      * REQUIRE(numberInSet(position, trafficLights), "There cant be another traffic light at the same postition")
+      *
+      * @post
+      * ENSURE(numberInSet(position, trafficLights), "The traffic light stop has been placed at the specified position")
+      */
     bool addTrafficLight(double position, int time);
 
 

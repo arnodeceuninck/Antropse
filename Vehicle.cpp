@@ -188,18 +188,10 @@ void Vehicle::updateCurrentSpeed(double time) {
     double currentSpeedMS = currentSpeedup * time + Convert::kmhToMs(currentSpeed);
     double newCurrentSpeed = Convert::msToKmh(currentSpeedMS);
 
-    // TODO: Hiermee rekening houden bij het berekenen van de versnelling:
-    //       Ofwel gaan versnellen naar de max road speed
-    //       Ofwel naar de max vehicle speed
-    //       Ofwel naar de plaats om te stoppen
+
     if (newCurrentSpeed > getMaxSpeed()) {
         newCurrentSpeed = getMaxSpeed();
     }
-
-    // TODO: Check of je dit mag laten vallen; normaal gezien moet update speedup zorgen voor een vertraging als je erover zit
-//    if(currentSpeed > currentRoad->getSpeedLimit(currentPosition)){
-//        currentSpeed = currentRoad->getSpeedLimit(currentPosition);
-//    }
 
     // Auto's kunnen niet achteruit rijden in de simulatie
     if (newCurrentSpeed < getMinSpeed()) {
@@ -274,13 +266,11 @@ void Vehicle::updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork)
 double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
     Vehicle *previousCar = roadNetwork->findPreviouscar(this);
     if (previousCar == NULL) {
-        // TODO: controleren wat te returnen als er geen vorig voertuig is
         return std::numeric_limits<double>::max();
     }
     return (3 * currentSpeed) / 4 + previousCar->getLength() + CONST::MIN_FOLLOWING_DISTANCE;
 }
 
-// TODO: slowing down for traffic light
 void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errStream) {
 
     if(currentRoad == NULL){
@@ -323,8 +313,7 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     if (deltaP == 0) {
         return 0;
     }
-
-    // TODO: check of deze random gekozen waarden goed zijn
+    
     if (currentSpeed == 0 or (deltaP > -(getMinSpeedup()*2) and currentSpeed < -(getMinSpeedup()))) {
         return deltaP / RELATIVE_SLOW_DOWN; // Een beetje versnellen
     }

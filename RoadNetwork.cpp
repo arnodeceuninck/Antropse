@@ -90,16 +90,7 @@ bool RoadNetwork::addCar(Vehicle *car) {
         insertPosition = 0;
     }
 
-//    if(insertPosition == -1) {
-//        cars.push_back(car);
-//        insertPosition = cars.size()-1;
-//    } else {
-//        cars.insert(cars.begin() + insertPosition, car);
-//    }
-
     cars.insert(cars.begin() + insertPosition, car);
-
-//    std::cout << "Inserted at position " << insertPosition << std::endl; // TODO: remove output
 
     if (!checkSpaceBetweenCars()) {
 //        cars.pop_back();
@@ -135,8 +126,7 @@ Road *RoadNetwork::findRoad(std::string nameRoad) {
     return NULL;
 }
 
-// TODO: Kan deze functie aub van naam veranderen
-Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
+Road *RoadNetwork::retrieveIntersectionRoad(std::string nameRoad) {
     REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
     for (std::vector<Road *>::iterator road = roads.begin(); road != roads.end(); road++) {
         if ((*road)->getIntersection() != NULL) {
@@ -248,7 +238,8 @@ bool RoadNetwork::checkSpaceBetweenCars() {
 
 bool RoadNetwork::checkIntersections() {
     for (std::vector<Road *>::iterator road = roads.begin(); road != roads.end(); road++) {
-        if ((*road)->getIntersection() != NULL && retrieveRoad((*road)->getIntersection()->getName()) == NULL) {
+        if ((*road)->getIntersection() != NULL &&
+                retrieveIntersectionRoad((*road)->getIntersection()->getName()) == NULL) {
             return false;
         }
 
@@ -332,19 +323,3 @@ int RoadNetwork::findRoadIndex(std::string roadName) const {
     }
     return -1;
 }
-
-
-// TODO: Delete the lines below this
-//bool RoadNetwork::addBusStop(std::string roadName, int position) {
-//    Road* road = findRoad(roadName);
-//    return false;
-//}
-//
-//bool RoadNetwork::addZone(std::string roadName, double position, int speedLimit) {
-//    return false;
-//}
-//
-//bool RoadNetwork::addTrafficLight(std::string roadName, int position) {
-//    return false;
-//}
-//

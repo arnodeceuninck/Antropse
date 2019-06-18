@@ -100,7 +100,7 @@ public:
      * @pre
      * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
-    Road* retrieveRoad(std::string nameRoad);
+    Road* retrieveIntersectionRoad(std::string nameRoad);
 
     /**
      * Check whether a car with the specified license plate is in the roadnetwork

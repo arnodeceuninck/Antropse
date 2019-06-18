@@ -118,7 +118,7 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
 
         if (elemName == "naam") {
             delete road;
-            if (roadNetwork->retrieveRoad(el) == NULL) {
+            if (roadNetwork->retrieveIntersectionRoad(el) == NULL) {
                 road = new Road;
                 if (!road->setName(el)) {
                     endResult = PartialImport;
@@ -126,7 +126,7 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
                     return;
                 }
             } else {
-                road = roadNetwork->retrieveRoad(el);
+                road = roadNetwork->retrieveIntersectionRoad(el);
             }
         } else if (elemName == "snelheidslimiet") {
             if (!road->setSpeedLimit(atoi(el.c_str()))) {
@@ -156,7 +156,6 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
 
     }
 
-    // TODO: check of alle waarden ingesteld zijn
     if (!roadNetwork->addRoad(road)) {
         endResult = PartialImport;
         errStream << "Partial Import: Ongeldige informatie bij de weg toevoegen aan het netwerk" << std::endl;
@@ -208,7 +207,6 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadN
 //        errStream << "De positie van de auto is groter dan de lengte van de baan" << std::endl;
 //    }
 
-    // TODO: check of alle waarden ingegeven zijn
     if (!roadNetwork->addCar(car)) {
         endResult = PartialImport;
         errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de wagen aan het netwerk" << std::endl;
@@ -290,7 +288,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             endResult = PartialImport;
             errStream << "Partial Import: Ongeldige gegevens bij zone" << std::endl;
             return;
-        } // TODO: check int or double position
+        }
     } else if (signType == "VERKEERSLICHT") {
 
         if (current_node->FirstChildElement("positie") == NULL or current_node->FirstChildElement("baan") == NULL) {
@@ -323,7 +321,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             endResult = PartialImport;
             errStream << "Partial Import: Ongeldige informatie bij het toevoegen van het verkeerslicht aan de weg" << std::endl;
             return;
-        } // TODO: check int or double position
+        }
     } else {
         endResult = PartialImport;
         errStream << "Partial Import: Verkeersteken niet herkend, overslaan" << std::endl;

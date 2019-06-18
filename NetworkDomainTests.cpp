@@ -60,7 +60,7 @@ TEST_F(NetworkDomainTests, GoingForward) {
     // The actual tests
     EXPECT_TRUE(testRoad->properlyInit());
     EXPECT_EQ(testRoad, roadNetwork->findRoad("A12"));
-    EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("A12"));
+    EXPECT_TRUE(NULL == roadNetwork->retrieveIntersectionRoad("A12"));
     EXPECT_EQ(testVehicle, roadNetwork->findCar("ANT-432"));
     EXPECT_EQ(1, roadNetwork->nrOfCars());
     EXPECT_TRUE(NULL == roadNetwork->findPreviouscar(testVehicle));
@@ -530,7 +530,7 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
 
     // The actual tests
     EXPECT_EQ(testRoad, roadNetwork->findRoad("A12"));
-    EXPECT_TRUE(NULL == roadNetwork->retrieveRoad("A12"));
+    EXPECT_TRUE(NULL == roadNetwork->retrieveIntersectionRoad("A12"));
     EXPECT_EQ(testVehicle, roadNetwork->findCar("ANT-432"));
     EXPECT_EQ(1, roadNetwork->nrOfCars());
     EXPECT_TRUE(NULL == roadNetwork->findPreviouscar(testVehicle));

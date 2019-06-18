@@ -21,7 +21,6 @@ int Road::getSpeedLimit(double position) const {
     REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
     int speed = speedLimit;
     for (std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone) {
-        //TODO: controleer of we de doubles op volgorde overlopen
         if ((*zone).first > position) {
             break;
 //            return speed;
@@ -105,9 +104,9 @@ bool Road::addBusStop(int position) {
     REQUIRE(properlyInit(), "The road must be correctly initialized");
     if (position > 0 &&
         position < getLength() &&
-        "Er is nog geen bushalte op de postie") {// TODO check for bus stop at position
+        busStops.find(position) == busStops.end()) {
         busStops.insert(position);
-        // TODO: ensure
+        ENSURE(busStops.find(position) != busStops.end(), "De positie is toegevoegd aan de lijst met busstops");
         return true;
     }
     return false;
@@ -116,9 +115,8 @@ bool Road::addBusStop(int position) {
 bool Road::addZone(double position, int zoneSpeedLimit) {
     if (position > 0 &&
         position < getLength() &&
-        "Er is nog geen zonebord op de postie") {// TODO check for bus stop at position
+        zones.find(position) == zones.end()) {
         zones[position] = zoneSpeedLimit;
-        // TODO: ensure
         return true;
     }
     return false;
@@ -131,9 +129,8 @@ bool Road::addTrafficLight(double position) {
 bool Road::addTrafficLight(double position, int time) {
     if (position > 0 &&
         position < getLength() &&
-        "Er is nog geen verkeerslicht op de postie") {// TODO check for bus stop at position
+        zones.find(position) == zones.end()) {
         trafficLights[position] = new TrafficLight(position, time);
-        // TODO: ensure
         return true;
     }
     return false;

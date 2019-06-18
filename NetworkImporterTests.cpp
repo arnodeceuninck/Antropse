@@ -19,7 +19,7 @@
 #include "NetworkImporter.h"
 #include "AntropseUtils.h"
 
-class NetworkImporterTests: public ::testing::Test {
+class NetworkImporterTests : public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from sub-classes.
@@ -40,9 +40,9 @@ protected:
 
     // Declares the variables your tests want to use.
     SuccessEnum importResult;
-    RoadNetwork* roadNetwork;
-    Vehicle* testVehicle;
-    Road* testRoad;
+    RoadNetwork *roadNetwork;
+    Vehicle *testVehicle;
+    Road *testRoad;
 };
 
 // Tests the default constructor.
@@ -96,7 +96,7 @@ TEST_F(NetworkImporterTests, DefaultReadFile) {
     EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
-TEST_F(NetworkImporterTests, SomeoneFloating){
+TEST_F(NetworkImporterTests, SomeoneFloating) {
 
     std::string nameTest = "SomeoneFloating";
 
@@ -127,9 +127,7 @@ TEST_F(NetworkImporterTests, SomeoneFloating){
     delete roadNetwork;
 }
 
-
-// TODO: Failing test - Check the space between the other cars when adding
-TEST_F(NetworkImporterTests, NoPersonalSpace){
+TEST_F(NetworkImporterTests, NoPersonalSpace) {
     std::string nameTest = "NoPersonalSpace";
 
     std::ofstream outputFile;
@@ -142,7 +140,8 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
     importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
     outputFile.close();
 
-    EXPECT_EQ(PartialImport, importResult); // De auto die te dicht bij een bestaande wagen geplaatst wordt, mag niet geplaatst worden
+    EXPECT_EQ(PartialImport,
+              importResult); // De auto die te dicht bij een bestaande wagen geplaatst wordt, mag niet geplaatst worden
 
     // De tweede auto zou niet op het netwerk geplaatst mogen worden omdat deze de verkeerssituatie inconsistent maakt
     EXPECT_EQ(1, roadNetwork->nrOfCars());
@@ -166,9 +165,7 @@ TEST_F(NetworkImporterTests, NoPersonalSpace){
     delete roadNetwork;
 }
 
-// TODO: uncomment these (crashing) tests + new/delete roadnetwork
-
-TEST_F(NetworkImporterTests, RocketHigh){
+TEST_F(NetworkImporterTests, RocketHigh) {
     std::string nameTest = "RocketHigh";
 
     std::ofstream outputFile;
@@ -198,8 +195,7 @@ TEST_F(NetworkImporterTests, RocketHigh){
     delete roadNetwork;
 }
 
-
-TEST_F(NetworkImporterTests, WayTooLow){
+TEST_F(NetworkImporterTests, WayTooLow) {
     std::string nameTest = "WayTooLow";
 
     std::ofstream outputFile;
@@ -229,7 +225,7 @@ TEST_F(NetworkImporterTests, WayTooLow){
     delete roadNetwork;
 }
 
-TEST_F(NetworkImporterTests, ByeByeFile){
+TEST_F(NetworkImporterTests, ByeByeFile) {
     std::string nameTest = "ByeByeFile";
 
     std::ofstream outputFile;
@@ -434,7 +430,6 @@ TEST_F(NetworkImporterTests, MotorBike) {
 
     EXPECT_TRUE(fileIsEmpty(ofname));
 }
-
 
 TEST_F(NetworkImporterTests, Bus) {
 
@@ -865,7 +860,6 @@ TEST_F(NetworkImporterTests, TrafficLight) {
     EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
-// Tests the default constructor.
 TEST_F(NetworkImporterTests, NoRoadSpecified) {
 
     std::string nameTest = "NoRoadSpecified";
@@ -1131,7 +1125,6 @@ TEST_F(NetworkImporterTests, TrafficLightWithoutPosition) {
     std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
     EXPECT_TRUE(fileCompare(expectedOfname, ofname));
 }
-
 
 TEST_F(NetworkImporterTests, TrafficLightOffRoad) {
 
