@@ -286,7 +286,6 @@ TEST_F(NetworkDomainTests, BusyDay){
     delete roadNetwork;
 }
 
-// TODO: fix this failing test
 TEST_F(NetworkDomainTests, DrivingClose){
 
     // So baby pull me closer, in the backseat of your rover
@@ -935,11 +934,66 @@ TEST_F(NetworkDomainTests, WhatIsTheColorOfTheTrafficLight){
     TrafficLight* trafficLight = new TrafficLight(0,0);
 
     EXPECT_EQ('|', trafficLight->getColorChar(37));
+    EXPECT_EQ(red, trafficLight->getColor(37));
 
     EXPECT_EQ('-', trafficLight->getColorChar(0));
+    EXPECT_EQ(green, trafficLight->getColor(0));
 
     EXPECT_EQ('o', trafficLight->getColorChar(31));
+    EXPECT_EQ(orange, trafficLight->getColor(31));
 
+}
+
+TEST_F(NetworkDomainTests, Bus){
+    testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
+    testVehicle = new Bus("ABC123", testRoad, 0, 0);
+
+    EXPECT_EQ(-7, testVehicle->getMinSpeedup());
+    EXPECT_EQ(1, testVehicle->getMaxSpeedup());
+
+    EXPECT_EQ(0, testVehicle->getMinSpeed());
+    EXPECT_EQ(70, testVehicle->getMaxSpeed());
+
+    EXPECT_EQ(10, testVehicle->getLength());
+}
+
+TEST_F(NetworkDomainTests, Truck){
+    testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
+    testVehicle = new Truck("ABC123", testRoad, 0, 0);
+
+    EXPECT_EQ(-6, testVehicle->getMinSpeedup());
+    EXPECT_EQ(1, testVehicle->getMaxSpeedup());
+
+    EXPECT_EQ(0, testVehicle->getMinSpeed());
+    EXPECT_EQ(90, testVehicle->getMaxSpeed());
+
+    EXPECT_EQ(15, testVehicle->getLength());
+}
+
+TEST_F(NetworkDomainTests, Car){
+    testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
+    testVehicle = new Car("ABC123", testRoad, 0, 0);
+
+    EXPECT_EQ(-8, testVehicle->getMinSpeedup());
+    EXPECT_EQ(2, testVehicle->getMaxSpeedup());
+
+    EXPECT_EQ(0, testVehicle->getMinSpeed());
+    EXPECT_EQ(150, testVehicle->getMaxSpeed());
+
+    EXPECT_EQ(3, testVehicle->getLength());
+}
+
+TEST_F(NetworkDomainTests, MotorBike){
+    testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
+    testVehicle = new MotorBike("ABC123", testRoad, 0, 0);
+
+    EXPECT_EQ(-10, testVehicle->getMinSpeedup());
+    EXPECT_EQ(4, testVehicle->getMaxSpeedup());
+
+    EXPECT_EQ(0, testVehicle->getMinSpeed());
+    EXPECT_EQ(180, testVehicle->getMaxSpeed());
+
+    EXPECT_EQ(1, testVehicle->getLength());
 }
 
 

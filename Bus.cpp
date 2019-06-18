@@ -64,8 +64,8 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
     REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized");
     REQUIRE(roadNetwork->check(), "The roadnetwork must be in a valid state");
 
-    if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < 100 and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
-        if(waitingTime < 30) {
+    if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < CONST::METERS_BEFORE_SLOWING_DOWN and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
+        if(waitingTime < CONST::BUS_STOP_WAITING_TIME) {
             double newSpeedup = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
 //            std::cout << "Berekende versnelling: " << newSpeedup << std::endl;
 
@@ -84,10 +84,10 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
             }
         }
 //        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
-        if(getCurrentPosition() + 0.001 > currentRoad ->getNextBusStop(getCurrentPosition())){
+        if(getCurrentPosition() + CONST::ALMOST_ZERO > currentRoad ->getNextBusStop(getCurrentPosition())){
             waitingTime++;
-            if(getCurrentSpeed() > 0.001){
-                if(waitingTime > 30){
+            if(getCurrentSpeed() > CONST::ALMOST_ZERO){
+                if(waitingTime > CONST::BUS_STOP_WAITING_TIME){
                     // De bushalte wordt verlaten, normaal dus dat je sneller rijdt
                     waitingTime = 0;
                     return;
@@ -95,7 +95,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
                 errStream << "1 2 3 4 HUP NAAR ACHTER HUP NAAR VOOR, 1 2 3 4 DE BUSHALTE WE RIJDEN ERDOOR" << std::endl;
 //                move(roadNetwork);
             }
-            if(waitingTime > 30){
+            if(waitingTime > CONST::BUS_STOP_WAITING_TIME){
 //                waitingTime = 0;
 //                enableSpeedupUpdates();
                 updateCurrentSpeedup(1, roadNetwork);

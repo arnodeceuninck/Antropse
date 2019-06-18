@@ -45,7 +45,7 @@ namespace CONST{
     const double MAX_BUS_SPEEDUP = 1;
     const double MIN_BUS_SPEEDUP = -7;
 
-    const double BUS_LENGTH = 15;
+    const double BUS_LENGTH = 10;
 
     // VRACHTWAGEN
     const double MAX_TRUCK_SPEED = 90;
@@ -65,8 +65,11 @@ namespace CONST{
 
     // Other specifications
     const double MIN_FOLLOWING_DISTANCE = 2;
-    const double BUS_STOP_WAITING_TIME = 10;
+    const double BUS_STOP_WAITING_TIME = 30;
     const double SECONDS_PER_ITERATION = 1;
+    const double ALMOST_ZERO = 0.001;
+    const double METERS_BEFORE_SLOWING_DOWN = 100;
+    const double MS_KMH_RATIO = 3.6;
 
 }
 #endif //ANTROPSE_CONSTVARIABLES_H

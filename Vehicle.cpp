@@ -16,6 +16,8 @@
 #include "RoadNetwork.h"
 #include "DesignByContract.h"
 
+#define RELATIVE_SLOW_DOWN 4
+
 Vehicle::Vehicle(const std::string &license_plate, Road *current_road, double current_position, double current_speed)
         : licensePlate(license_plate), currentRoad(current_road),
           currentPosition(current_position), currentSpeed(current_speed), currentSpeedup(0),
@@ -320,7 +322,7 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
 
     // TODO: check of deze random gekozen waarden goed zijn
     if (currentSpeed == 0 or (deltaP > -(getMinSpeedup()*2) and currentSpeed < -(getMinSpeedup()))) {
-        return deltaP / 4; // Een beetje versnellen
+        return deltaP / RELATIVE_SLOW_DOWN; // Een beetje versnellen
     }
 
 //    std::cout << "Huidige snelheid (m/s): " << Convert::kmhToMs(currentSpeed) << std::endl;

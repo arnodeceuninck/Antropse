@@ -7,6 +7,8 @@
 #include "Vehicle.h"
 #include "GraphicImpressionExporter.h"
 
+#define SCALE_LENGTH 100
+
 void GraphicImpressionExporter::sectionStart(std::ostream &onStream, const std::string sectionTitle) {
     NetworkExporter::sectionStart(onStream, sectionTitle);
 }
@@ -22,33 +24,34 @@ void GraphicImpressionExporter::roadsStart(std::ostream &onStream) {
 void GraphicImpressionExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetwork &roadNetwork) {
     onStream << road->getName() << " \t | \t";
 
-    int roadLenght = road->getLength()/100;
+    int roadLenght = road->getLength() / SCALE_LENGTH;
     std::string roadString;
     for (int i = 0; i < roadLenght; ++i) {
         roadString += "=";
     }
 
     const std::set<double> busStops = road->getBusStops();
-    for(std::set<double>::const_iterator busStop = busStops.begin(); busStop != busStops.end(); ++busStop){
-        int busStopPosition = (*busStop)/100;
+    for (std::set<double>::const_iterator busStop = busStops.begin(); busStop != busStops.end(); ++busStop) {
+        int busStopPosition = (*busStop) / SCALE_LENGTH;
         roadString[busStopPosition] = 'P';
     }
 
-    const std::map<double, TrafficLight*> trafficLights = road->getTrafficLights();
-    for(std::map<double, TrafficLight*>::const_iterator trafficLight = trafficLights.begin(); trafficLight != trafficLights.end(); ++trafficLight){
-        int trafficLightPosition = (*trafficLight).first/100;
+    const std::map<double, TrafficLight *> trafficLights = road->getTrafficLights();
+    for (std::map<double, TrafficLight *>::const_iterator trafficLight = trafficLights.begin();
+         trafficLight != trafficLights.end(); ++trafficLight) {
+        int trafficLightPosition = (*trafficLight).first / SCALE_LENGTH;
         char colorTL = (*trafficLight).second->getColorChar(roadNetwork.getIteration());
         roadString[trafficLightPosition] = colorTL;
     }
 
-    for(std::vector<Vehicle*>::const_iterator vehicle = roadNetwork.getCars().begin();
-        vehicle != roadNetwork.getCars().end();
-        ++vehicle){
+    for (std::vector<Vehicle *>::const_iterator vehicle = roadNetwork.getCars().begin();
+         vehicle != roadNetwork.getCars().end();
+         ++vehicle) {
 
-        if((*vehicle)->getCurrentRoad() != road){
+        if ((*vehicle)->getCurrentRoad() != road) {
             continue;
         }
-        int vehiclePosition = (*vehicle)->getCurrentPosition()/100;
+        int vehiclePosition = (*vehicle)->getCurrentPosition() / SCALE_LENGTH;
         roadString[vehiclePosition] = (*vehicle)->getShortName();
     }
 

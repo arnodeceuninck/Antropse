@@ -3,11 +3,12 @@
 //
 
 #include "Convert.h"
+#include "CONST.h"
 
 double Convert::kmhToMs(double kmh) {
-    return kmh/3.6;
+    return kmh/CONST::MS_KMH_RATIO;
 }
 
 double Convert::msToKmh(double mps) {
-    return mps*3.6;
+    return mps*CONST::MS_KMH_RATIO;
 }
