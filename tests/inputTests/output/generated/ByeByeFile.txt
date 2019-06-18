@@ -1,1 +1,1 @@
-Import aborted: Failed to open file
+Import aborted: Not all preconditions met

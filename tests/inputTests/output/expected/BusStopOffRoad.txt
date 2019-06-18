@@ -1,1 +1,1 @@
-Ongeldige gegevens bij busstop
+Partial Import: Ongeldige gegevens bij de positie van de busstop

@@ -1,1 +1,1 @@
-Type not recognized, ignoring
+Partial Import: Type not recognized, ignoring

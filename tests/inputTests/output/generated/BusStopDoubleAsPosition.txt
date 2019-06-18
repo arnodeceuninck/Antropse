@@ -1,1 +1,1 @@
-De positie is geen integer
+Partial Import: De positie van de bushalte is geen integer
