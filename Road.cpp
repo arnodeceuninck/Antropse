@@ -68,9 +68,9 @@ bool Road::setLength(double newLength) {
     return true;
 }
 
-Road::Road() : name(""), speedLimit(), length(), intersection() {
+Road::Road() : name(""), speedLimit(), length(0), intersection() {
     _initCheck = this;
-    length = std::numeric_limits<double>::infinity();
+//    length = std::numeric_limits<double>::infinity();
     speedLimit = std::numeric_limits<int>::max();
     intersection = NULL;
     ENSURE(properlyInit(), "The road is properly initialized");
@@ -184,7 +184,7 @@ const std::map<double, int> &Road::getZones() const {
 }
 
 bool Road::emptyConstructorParametersUpdated() {
-    return (!name.empty() and length != std::numeric_limits<double>::infinity() and
+    return (!name.empty() and length != 0 and
             speedLimit != std::numeric_limits<int>::max());
 }
 

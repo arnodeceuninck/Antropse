@@ -1286,6 +1286,32 @@ TEST_F(NetworkImporterTests, IncompleteCarInformation) {
     //EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
+TEST_F(NetworkImporterTests, UnknownConnection) {
+
+    std::string nameTest = "UnknownConnection";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    outputFile.close();
+
+
+    EXPECT_EQ(Success, importResult);
+
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+//    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
+    EXPECT_TRUE(fileIsEmpty(ofname));
+}
+
 //
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);
