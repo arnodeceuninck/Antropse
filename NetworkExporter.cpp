@@ -87,7 +87,6 @@ void NetworkExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetw
         onStream << listItem << "snelheidslimiet vanaf positie " << (*zone).first << ": " << (*zone).second << std::endl;
     }
 
-    //TODO: zones
     onStream << listItem << "lengte: " << road->getLength() << std::endl;
     const std::set<double> busStops = road->getBusStops();
     for (std::set<double>::const_iterator busStop = busStops.begin(); busStop != busStops.end(); ++busStop) {

@@ -281,13 +281,25 @@ public:
      *
      * @pre
      * REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized")
-     * REQUIRE(properlyInitizlized(), "The vehicle should be properly initialized")
+     * REQUIRE(properlyInitialized(), "The vehicle should be properly initialized")
      */
     virtual void checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errStream);
 
 //    bool speedupUpdateEnabled() const;
 
+    /**
+     * @return a letter representing the vehicle type
+     * @pre
+     * REQUIRE(properlyInitizlized(), "The vehicle should be properly initialized")
+     */
     virtual char getShortName() = 0;
+
+    /**
+     * @return true when the invalid data of the empty constructor is updated
+     * @pre
+     * REQUIRE(properlyInitialized(), "The vehicle should be properly initialized")
+     */
+    bool emptyConstructorParametersUpdated();
 
 
 protected:
@@ -328,6 +340,8 @@ protected:
 //    bool speedupUpdates;
 //    void disableSpeedupUpdates();
 //    void enableSpeedupUpdates();
+
+
 };
 
 

@@ -210,11 +210,33 @@ public:
      */
     double getNextBusStop(double busPosition);
 
+    /**
+     * @return a set containing the positions of all busstops on the road
+     * @pre
+     * REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)
+     */
     const std::set<double> &getBusStops() const;
 
+    /**
+    * @return a map containing all TrafficLights on the road
+    * @pre
+    * REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)
+    */
     const std::map<double, TrafficLight *> &getTrafficLights() const;
 
+    /**
+    * @return a map containing the positions and speed limits of all zones on the road
+    * @pre
+    * REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)
+    */
     const std::map<double, int> &getZones() const;
+
+    /**
+     * @return true when the invalid data of the empty constructor is updated
+     * @pre
+     * REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)
+     */
+    bool emptyConstructorParametersUpdated();
 
 private:
 

@@ -20,9 +20,9 @@ const std::string &Road::getName() const {
 int Road::getSpeedLimit(double position) const {
     REQUIRE(properlyInit(), "De weg moet deftig geinitialiseerd zijn");
     int speed = speedLimit;
-    for(std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone){
+    for (std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone) {
         //TODO: controleer of we de doubles op volgorde overlopen
-        if((*zone).first > position){
+        if ((*zone).first > position) {
             break;
 //            return speed;
         }
@@ -39,7 +39,7 @@ double Road::getLength() const {
 }
 
 bool Road::setName(const std::string &newName) {
-    if(!(newName.size() > 0)){
+    if (!(newName.size() > 0)) {
         return false;
     }
     REQUIRE(newName.size() > 0, "De naam mag niet leeg zijn");
@@ -49,7 +49,7 @@ bool Road::setName(const std::string &newName) {
 }
 
 bool Road::setSpeedLimit(int newSpeedLimit) {
-    if(!(newSpeedLimit > 0)){
+    if (!(newSpeedLimit > 0)) {
         return false;
     }
     REQUIRE(newSpeedLimit > 0, "De speedlimit moet strikt groter zijn dan 0"); // Strikt groter
@@ -59,7 +59,7 @@ bool Road::setSpeedLimit(int newSpeedLimit) {
 }
 
 bool Road::setLength(double newLength) {
-    if(!(newLength > 0)){
+    if (!(newLength > 0)) {
         return false;
     }
     REQUIRE(newLength > 0, "De lengte moet strikt groter zijn dan 0");
@@ -68,19 +68,20 @@ bool Road::setLength(double newLength) {
     return true;
 }
 
-Road::Road() : name(), speedLimit(), length(), intersection(){
+Road::Road() : name(""), speedLimit(), length(), intersection() {
     _initCheck = this;
     length = std::numeric_limits<double>::infinity();
     speedLimit = std::numeric_limits<int>::max();
     intersection = NULL;
-    ENSURE(properlyInit(), "The road is properly initialized");}
+    ENSURE(properlyInit(), "The road is properly initialized");
+}
 
 Road *Road::getIntersection() const {
     return intersection;
 }
 
 bool Road::setIntersection(Road *newIntersection) {
-    if(!(newIntersection->properlyInit())){
+    if (!(newIntersection->properlyInit())) {
         return false;
     }
     REQUIRE(newIntersection->properlyInit(), "De intersectie moet deftig geinitialiseerd zijn");
@@ -102,9 +103,9 @@ Road::Road(const std::string &name, int speedLimit, double length, Road *interse
 
 bool Road::addBusStop(int position) {
     REQUIRE(properlyInit(), "The road must be correctly initialized");
-    if(position > 0 &&
+    if (position > 0 &&
         position < getLength() &&
-        "Er is nog geen bushalte op de postie"){// TODO check for bus stop at position
+        "Er is nog geen bushalte op de postie") {// TODO check for bus stop at position
         busStops.insert(position);
         // TODO: ensure
         return true;
@@ -113,9 +114,9 @@ bool Road::addBusStop(int position) {
 }
 
 bool Road::addZone(double position, int zoneSpeedLimit) {
-    if(position > 0 &&
-       position < getLength() &&
-       "Er is nog geen zonebord op de postie"){// TODO check for bus stop at position
+    if (position > 0 &&
+        position < getLength() &&
+        "Er is nog geen zonebord op de postie") {// TODO check for bus stop at position
         zones[position] = zoneSpeedLimit;
         // TODO: ensure
         return true;
@@ -128,9 +129,9 @@ bool Road::addTrafficLight(double position) {
 }
 
 bool Road::addTrafficLight(double position, int time) {
-    if(position > 0 &&
-       position < getLength() &&
-       "Er is nog geen verkeerslicht op de postie"){// TODO check for bus stop at position
+    if (position > 0 &&
+        position < getLength() &&
+        "Er is nog geen verkeerslicht op de postie") {// TODO check for bus stop at position
         trafficLights[position] = new TrafficLight(position, time);
         // TODO: ensure
         return true;
@@ -140,8 +141,8 @@ bool Road::addTrafficLight(double position, int time) {
 
 double Road::getNextBusStop(double busPosition) {
     double position = -1;
-    for (std::set<double>::iterator stop = busStops.begin(); stop != busStops.end(); ++stop){
-        if(*stop >= busPosition and (position == -1 or position > *stop)){
+    for (std::set<double>::iterator stop = busStops.begin(); stop != busStops.end(); ++stop) {
+        if (*stop >= busPosition and (position == -1 or position > *stop)) {
             position = *stop;
         }
     }
@@ -152,8 +153,9 @@ double Road::getNextBusStop(double busPosition) {
 double Road::getNextTrafficLight(double position) {
     REQUIRE(properlyInit(), "De weg moet deftig geinitialliseerd zijn");
     double nextLight = -1;
-    for (std::map<double, TrafficLight*>::iterator light = trafficLights.begin(); light != trafficLights.end(); ++light){
-        if((*light).first > position and (nextLight == -1 or nextLight > (*light).first)){
+    for (std::map<double, TrafficLight *>::iterator light = trafficLights.begin();
+         light != trafficLights.end(); ++light) {
+        if ((*light).first > position and (nextLight == -1 or nextLight > (*light).first)) {
             nextLight = (*light).first;
         }
     }
@@ -162,19 +164,28 @@ double Road::getNextTrafficLight(double position) {
 
 
 TrafficLight *Road::getTrafficLight(double position) {
+    REQUIRE(properlyInit(), "de weg moet deftig geinitialiseerd zijn");
     return trafficLights[position];
 }
 
 const std::set<double> &Road::getBusStops() const {
+    REQUIRE(properlyInit(), "de weg moet deftig geinitialiseerd zijn");
     return busStops;
 }
 
 const std::map<double, TrafficLight *> &Road::getTrafficLights() const {
+    REQUIRE(properlyInit(), "de weg moet deftig geinitialiseerd zijn");
     return trafficLights;
 }
 
 const std::map<double, int> &Road::getZones() const {
+    REQUIRE(properlyInit(), "de weg moet deftig geinitialiseerd zijn");
     return zones;
+}
+
+bool Road::emptyConstructorParametersUpdated() {
+    return (!name.empty() and length != std::numeric_limits<double>::infinity() and
+            speedLimit != std::numeric_limits<int>::max());
 }
 
 

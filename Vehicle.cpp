@@ -119,6 +119,10 @@ Vehicle::Vehicle() : licensePlate(""), currentRoad(NULL),
     ENSURE(properlyInitialized(), "The vehicle has been properly initialized");
 }
 
+bool Vehicle::emptyConstructorParametersUpdated() {
+    return (!licensePlate.empty() and currentRoad != NULL and currentRoad->getSpeedLimit(currentPosition) >= currentSpeed);
+}
+
 bool Vehicle::move(RoadNetwork *roadNetwork, std::ostream &errStream) {
     REQUIRE(roadNetwork->checkPositionCars(), "position");
     REQUIRE(roadNetwork->checkIfCarsOnExistingRoad(), "exist on road");
