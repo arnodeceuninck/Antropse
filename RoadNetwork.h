@@ -269,7 +269,7 @@ private:
     std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
     RoadNetwork* _initCheck;
-    int findRoadIndex(std::string roadName);
+    int findRoadIndex(std::string roadName) const;
 };
 
 

@@ -42,7 +42,7 @@ void NetworkExporter::exportOn(std::ostream &onStream, RoadNetwork &game) {
     REQUIRE(game.properlyInitialized(), "RoadNetwork wasn't initialized when calling exportOn");
     REQUIRE(this->documentStarted(), "RoadNetwork Exporter wasn't in documentStarted when calling exportOn.");
 
-    this->sectionStart(onStream, "Roadnetwork " + toString(game.getIteration())); // TODO: fix alternative for str
+    this->sectionStart(onStream, "Roadnetwork " + toString(game.getIteration()));
 
     this->roadNetworkStart(onStream);
 

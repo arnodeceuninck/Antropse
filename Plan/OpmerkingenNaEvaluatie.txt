@@ -11,9 +11,10 @@ DONE Const::max_car_speed
 
 DONE (Road)Hoofdletters in functies!!! _ en hoofdletters gecombineerd!!!
 
-TODO findPreviousCar->inefficient: mss alle wagens sorteren op positie fzo
+FAILED: Om de een of andere reden willen niet alle auto's toegevoegd worden als ik dit probeer :
+        findPreviousCar->inefficient: mss alle wagens sorteren op positie fzo
 
-TODO move-> opsplitsen in functies
+DONE move-> opsplitsen in functies
 
 DONE ? Same as "Aparte input en output testen"? classes voor testen -> meer structuur
 

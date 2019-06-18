@@ -9,9 +9,6 @@ Antropse - Antwerp Road Project Software Engineering
 	- Automatische simulatie: per iteratie while loop tijd met een eenheid laten stijgen
 - Rekening houden met volgafstand (afhankelijk van de snelheid) !Lengte voertuig nodig: auto = 3m!
 
-\todo: minstens 1 test per normaal "scenario" schrijven 
-\todo: bekijk tictactoe alle versies en basseer documentatie/tests ook hierop 
-
 \note: alle variable names in engels
 \note: ieder hardcoded getal dat niet 0 of 1 is MOET in CONST staan 
 \note: Alle bronnen, hoe klein ook, moeten vermeld worden in References.txt

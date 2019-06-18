@@ -20,7 +20,7 @@
 #include "CONST.h"
 
 bool RoadNetwork::addRoad(Road *road) {
-    if(road == NULL or findRoad(road->getName()) != NULL){
+    if (road == NULL or findRoad(road->getName()) != NULL) {
         return false;
     }
     REQUIRE(road != NULL, "De weg moet bestaan");
@@ -53,7 +53,8 @@ bool RoadNetwork::addRoad(Road *road) {
 bool RoadNetwork::addCar(Vehicle *car) {
 
     if (car == NULL or !car->properlyInitialized() or findCar(car->getLicensePlate()) != NULL or
-        car->getCurrentRoad() == NULL or findRoad(car->getCurrentRoad()->getName()) == NULL){
+        car->getCurrentRoad() == NULL or car->getCurrentRoad() == NULL or
+        findRoad(car->getCurrentRoad()->getName()) == NULL) {
         return false;
     }
 
@@ -146,6 +147,7 @@ Road *RoadNetwork::retrieveRoad(std::string nameRoad) {
     }
     return NULL;
 }
+
 
 Vehicle *RoadNetwork::findPreviouscar(const Vehicle *car) const {
     REQUIRE(car != NULL, "De wagen moet bestaan");
@@ -322,7 +324,7 @@ int RoadNetwork::getIteration() const {
     return iteration;
 }
 
-int RoadNetwork::findRoadIndex(std::string roadName) {
+int RoadNetwork::findRoadIndex(std::string roadName) const {
     for (unsigned int i = 0; i < roads.size(); ++i) {
         if (roads[i]->getName() == roadName) {
             return i;
@@ -330,6 +332,7 @@ int RoadNetwork::findRoadIndex(std::string roadName) {
     }
     return -1;
 }
+
 
 // TODO: Delete the lines below this
 //bool RoadNetwork::addBusStop(std::string roadName, int position) {
