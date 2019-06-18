@@ -1,15 +1,15 @@
 Roadnetwork 0
 
 Baan: A14
-	-> snelheidslimiet op positie 0: 120
+	-> snelheidslimiet vanaf positie 0: 120
 	-> lengte: 5000
 
 Baan: A13
-	-> snelheidslimiet op positie 0: 120
+	-> snelheidslimiet vanaf positie 0: 120
 	-> lengte: 5000
 
 Baan: A12
-	-> snelheidslimiet op positie 0: 120
+	-> snelheidslimiet vanaf positie 0: 120
 	-> lengte: 5000
 
 Voertuig: BUS (ANT-432)

@@ -3,8 +3,9 @@ Roadnetwork 0
 Baan: A12
 	-> snelheidslimiet vanaf positie 0: 120
 	-> lengte: 5000
+	-> bushalte op positie 500
 
-Voertuig: VRACHTWAGEN (ANT-432)
+Voertuig: BUS (ANT-432)
 	-> baan: A12
 	-> positie: 20
 	-> snelheid: 0

@@ -1,7 +1,7 @@
 Roadnetwork 0
 
 Baan: A12
-	-> snelheidslimiet op positie 0: 120
+	-> snelheidslimiet vanaf positie 0: 120
 	-> lengte: 5000
 
 Voertuig: MOTORFIETS (ANT-432)

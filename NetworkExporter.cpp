@@ -80,9 +80,34 @@ void NetworkExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetw
 
     onStream << "Baan: " << road->getName() << std::endl;
 
-    onStream << listItem << "snelheidslimiet op positie 0: " << road->getSpeedLimit(0) << std::endl;
+    onStream << listItem << "snelheidslimiet vanaf positie 0: " << road->getSpeedLimit(0) << std::endl;
+
+    const std::map<double, int> zones = road->getZones();
+    for (std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone) {
+        onStream << listItem << "snelheidslimiet vanaf positie " << (*zone).first << ": " << (*zone).second << std::endl;
+    }
+
     //TODO: zones
     onStream << listItem << "lengte: " << road->getLength() << std::endl;
+    const std::set<double> busStops = road->getBusStops();
+    for (std::set<double>::const_iterator busStop = busStops.begin(); busStop != busStops.end(); ++busStop) {
+        onStream << listItem << "bushalte op positie " << *busStop << std::endl;
+    }
+
+    const std::map<double, TrafficLight *> trafficLights = road->getTrafficLights();
+    for (std::map<double, TrafficLight *>::const_iterator trafficLight = trafficLights.begin();
+         trafficLight != trafficLights.end(); ++trafficLight) {
+        onStream << listItem << "Verkeerslicht op positie " << (*trafficLight).first << ": ";
+        TrafficLightColor color = (*trafficLight).second->getColor(roadNetwork.getIteration());
+        if(color == green){
+            onStream << "Groen";
+        } else if (color == orange){
+            onStream << "Oranje";
+        } else if (color == red){
+            onStream << "Rood";
+        }
+        onStream << std::endl;
+    }
 
     onStream << std::endl;
 

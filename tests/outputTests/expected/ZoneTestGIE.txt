@@ -1,0 +1,11 @@
+Roadnetwork 0
+
+Baan: R10
+	-> snelheidslimiet vanaf positie 0: 50
+	-> snelheidslimiet vanaf positie 50: 100
+	-> snelheidslimiet vanaf positie 100: 150
+	-> snelheidslimiet vanaf positie 150: 70
+	-> snelheidslimiet vanaf positie 200: 90
+	-> lengte: 5000
+
+-----------------------------------------------------------

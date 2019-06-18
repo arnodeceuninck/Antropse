@@ -1,0 +1,11 @@
+Roadnetwork 0
+
+Baan: R10
+	-> snelheidslimiet vanaf positie 0: 50
+	-> bushalte op positie 50: 100
+	-> bushalte op positie 100: 150
+	-> bushalte op positie 150: 70
+	-> bushalte op positie 200: 90
+	-> lengte: 5000
+
+-----------------------------------------------------------
