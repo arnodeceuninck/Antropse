@@ -1,5 +1,5 @@
 <map id="NetworkImporterTests" name="NetworkImporterTests">
-<area shape="rect" id="node3" href="$classVehicle.html" title="Vehicle" alt="" coords="124,5,189,32"/>
-<area shape="rect" id="node4" href="$classRoad.html" title="Road" alt="" coords="230,5,283,32"/>
-<area shape="rect" id="node5" href="$classRoadNetwork.html" title="RoadNetwork" alt="" coords="308,5,411,32"/>
+<area shape="rect" id="node3" href="$classVehicle.html" title="Vehicle" alt="" coords="231,95,296,121"/>
+<area shape="rect" id="node4" href="$classRoad.html" title="Road" alt="" coords="143,5,197,32"/>
+<area shape="rect" id="node5" href="$classRoadNetwork.html" title="RoadNetwork" alt="" coords="411,95,513,121"/>
 </map>

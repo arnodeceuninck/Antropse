@@ -1,7 +1,8 @@
 <map id="MotorBike.cpp" name="MotorBike.cpp">
 <area shape="rect" id="node2" href="$MotorBike_8h.html" title="This header file will contain the MotorBike class. " alt="" coords="5,80,97,107"/>
 <area shape="rect" id="node5" href="$CONST_8h.html" title="This header file will contain all const variables. " alt="" coords="122,80,202,107"/>
-<area shape="rect" id="node6" href="$DesignByContract_8h_source.html" title="DesignByContract.h" alt="" coords="227,80,367,107"/>
+<area shape="rect" id="node6" href="$DesignByContract_8h.html" title="DesignByContract.h" alt="" coords="227,80,367,107"/>
 <area shape="rect" id="node8" href="$Road_8h.html" title="This header file will contain the Road class. " alt="" coords="391,80,455,107"/>
 <area shape="rect" id="node3" href="$Vehicle_8h.html" title="This header file will contain the Vehicle class. " alt="" coords="84,155,160,181"/>
+<area shape="rect" id="node11" href="$TrafficLight_8h.html" title="TrafficLight.h" alt="" coords="491,155,590,181"/>
 </map>

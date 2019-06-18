@@ -13,6 +13,9 @@
 #include <ostream>
 #include "RoadNetwork.h"
 
+/**
+ * A class for writing a representation of the roadnetwork to an ostream
+ */
 class NetworkExporter {
 public:
 

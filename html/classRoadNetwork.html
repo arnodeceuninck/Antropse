@@ -91,7 +91,7 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a41a2215597560b8c4860cde78a3ea6fa" class="m-dox">retrieveRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad) -&gt; <a href="classRoad.html" class="m-dox">Road</a>*</span>
+              <span class="m-dox-wrap-bumper">auto <a href="#a39847197a3b2adad3d7651af98541be3" class="m-dox">retrieveIntersectionRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad) -&gt; <a href="classRoad.html" class="m-dox">Road</a>*</span>
             </dt>
             <dd></dd>
             <dt>
@@ -107,7 +107,7 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">void <a href="#ab313a2fd7a6f353e71afdae13f6e5f44" class="m-dox">automaticSimulation</a>(</span><span class="m-dox-wrap">)</span>
+              <span class="m-dox-wrap-bumper">void <a href="#acde204634ee887cb91fc52b3d42903b8" class="m-dox">automaticSimulation</a>(</span><span class="m-dox-wrap">std::ofstream&amp; errStream)</span>
             </dt>
             <dd></dd>
             <dt>
@@ -143,7 +143,7 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">void <a href="#a8dcba75a59c0ca61bbd04d66d36a4825" class="m-dox">moveAllCars</a>(</span><span class="m-dox-wrap">)</span>
+              <span class="m-dox-wrap-bumper">void <a href="#a51c248542e5739d21ae9fb5a765aebe3" class="m-dox">moveAllCars</a>(</span><span class="m-dox-wrap">std::ostream&amp; errStream)</span>
             </dt>
             <dd></dd>
             <dt>
@@ -250,9 +250,9 @@ Engineering</span></a>
             </table>
 <p>Get a list of all cars on the <a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;Het netwerk moet deftig geinitialiseerd zijn&quot;);</p></aside>
           </div></section>
-          <section class="m-dox-details" id="a41a2215597560b8c4860cde78a3ea6fa"><div>
+          <section class="m-dox-details" id="a39847197a3b2adad3d7651af98541be3"><div>
             <h3>
-              <span class="m-dox-wrap-bumper"><a href="classRoad.html" class="m-dox">Road</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a41a2215597560b8c4860cde78a3ea6fa" class="m-dox-self">retrieveRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad)</span></span>
+              <span class="m-dox-wrap-bumper"><a href="classRoad.html" class="m-dox">Road</a>* RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a39847197a3b2adad3d7651af98541be3" class="m-dox-self">retrieveIntersectionRoad</a>(</span><span class="m-dox-wrap">std::string nameRoad)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -271,7 +271,7 @@ Engineering</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>check if the road already exists as an intersection of another road</p>
+<p>check if the road already exists as an intersection of another road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;Het netwerk moet deftig geinitialiseerd zijn&quot;);</p></aside>
           </div></section>
           <section class="m-dox-details" id="abdb153baba4339224e586507be864fcf"><div>
             <h3>
@@ -324,9 +324,9 @@ Engineering</span></a>
             </table>
 <p>Find the car in front of another car on the same road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(car != NULL, &quot;De wagen moet bestaan&quot;);</p></aside>
           </div></section>
-          <section class="m-dox-details" id="ab313a2fd7a6f353e71afdae13f6e5f44"><div>
+          <section class="m-dox-details" id="acde204634ee887cb91fc52b3d42903b8"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ab313a2fd7a6f353e71afdae13f6e5f44" class="m-dox-self">automaticSimulation</a>(</span><span class="m-dox-wrap">)</span></span>
+              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#acde204634ee887cb91fc52b3d42903b8" class="m-dox-self">automaticSimulation</a>(</span><span class="m-dox-wrap">std::ofstream&amp; errStream)</span></span>
             </h3>
 <p>Automatische simulatie van het netwerk die door blijft gaan tot er geen wagens meer in het netwerk zitten.</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;Roadnetwork not valid&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classRoadNetwork.html#ae3d9813b0d9548e0968eb0545414411b" class="m-dox">nrOfCars()</a> == 0, &quot;alle auto&#x27;s zijn buiten hun wegen gereden, er zijn geen auto&#x27;s meer in het netwerk&quot;); ENSURE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;Valid roadnnetwork&quot;);</p></aside>
           </div></section>
@@ -416,9 +416,9 @@ Engineering</span></a>
             </table>
 <p>Checks whether there are still cars driving on the roadNetwork</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;);</p></aside>
           </div></section>
-          <section class="m-dox-details" id="a8dcba75a59c0ca61bbd04d66d36a4825"><div>
+          <section class="m-dox-details" id="a51c248542e5739d21ae9fb5a765aebe3"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a8dcba75a59c0ca61bbd04d66d36a4825" class="m-dox-self">moveAllCars</a>(</span><span class="m-dox-wrap">)</span></span>
+              <span class="m-dox-wrap-bumper">void RoadNetwork::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a51c248542e5739d21ae9fb5a765aebe3" class="m-dox-self">moveAllCars</a>(</span><span class="m-dox-wrap">std::ostream&amp; errStream)</span></span>
             </h3>
 <p>Move all cars on the road one time unit and increase the current iteration</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoadNetwork.html#aa9862784d60727304c75f4476c26a232" class="m-dox">properlyInitialized()</a>, &quot;The network must be properly initialized&quot;); REQUIRE(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;The roadnetwork must be valid);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>Ensure(<a href="classRoadNetwork.html#a35defa99d771502946a23be63919ced6" class="m-dox">check()</a>, &quot;The roadnetwork must still be valid&quot;);</p></aside>
           </div></section>

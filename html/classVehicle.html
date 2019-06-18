@@ -64,6 +64,7 @@ Engineering</span></a>
                 <li><a href="#derived-classes">Derived classes</a></li>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pro-attribs">Protected variables</a></li>
               </ul>
             </li>
           </ul>
@@ -126,11 +127,8 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#ab23c4893acea628342edda20271acc64" class="m-dox">setCurrentSpeedup</a>(</span><span class="m-dox-wrap">double current_speedup) -&gt; bool</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a31d3350fb6033b9de2a57c1732f19eed" class="m-dox">move</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork) -&gt; bool</span>
+              <span class="m-dox-wrap-bumper">auto <a href="#a5f5afc031f62e7ba4f7c132268cf726c" class="m-dox">move</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream) -&gt; bool</span>
             </dt>
             <dd></dd>
             <dt>
@@ -179,6 +177,44 @@ Engineering</span></a>
             <dd></dd>
             <dt>
               <span class="m-dox-wrap-bumper">auto <a href="#a5c3d493b84fc6d263985f0e78eec4743" class="m-dox">getMinSpeedup</a>(</span><span class="m-dox-wrap">) const -&gt; double <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">void <a href="#a304512ef133649c558517664ce91aa07" class="m-dox">checkVehicleSpecificMove</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a200e655aff23052e3e6ce38949dfa4c0" class="m-dox">getShortName</a>(</span><span class="m-dox-wrap">) -&gt; char <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a2876e8722343b4a14008b9ccba997905" class="m-dox">emptyConstructorParametersUpdated</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pro-attribs">
+          <h2><a href="#pro-attribs">Protected variables</a></h2>
+          <dl class="m-dox">
+            <dt>
+              std::string <a href="#ae63262bc9327c5013337fa0c93cb1691" class="m-dox">licensePlate</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="classRoad.html" class="m-dox">Road</a>* <a href="#a7eeb1e188e489a6108ff8f7a90f85714" class="m-dox">currentRoad</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              double <a href="#ab9873c7006cf2fb9b5df2eb767abe0e0" class="m-dox">currentPosition</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              double <a href="#a077acf331be88164e9eb816a3ad19459" class="m-dox">currentSpeed</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              double <a href="#a9e7be8c846051ab7591ab424710138f5" class="m-dox">currentSpeedup</a>
             </dt>
             <dd></dd>
           </dl>
@@ -313,34 +349,12 @@ Engineering</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>Change the speed of a <a href="classVehicle.html" class="m-dox">Vehicle</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(current_speed &lt;= CONST::MAX_CAR_SPEED, &quot;Maximumsnelheid voor wagen overschreven&quot;); if(current_road != NULL) { REQUIRE(current_speed &lt;= current_road-&gt;getSpeed_limit(), &quot;Te snel rijden is verboden&quot;); }</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classVehicle.html#aa99ce074793cd430a259a0d08cb8810f" class="m-dox">getCurrentSpeed()</a> == currentSpeed, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside>
+<p>Change the speed of a <a href="classVehicle.html" class="m-dox">Vehicle</a></p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(current_speed &lt;= <a href="namespaceCONST.html#abee82a1ccdb5773846039a27b0d1b49a" class="m-dox">CONST::<wbr />MAX_CAR_SPEED</a>, &quot;Maximumsnelheid voor wagen overschreven&quot;); if(current_road != NULL) { REQUIRE(current_speed &lt;= current_road-&gt;getSpeed_limit(), &quot;Te snel rijden is verboden&quot;); }</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classVehicle.html#aa99ce074793cd430a259a0d08cb8810f" class="m-dox">getCurrentSpeed()</a> == currentSpeed, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside>
           </div></section>
-          <section class="m-dox-details" id="ab23c4893acea628342edda20271acc64"><div>
+          <section class="m-dox-details" id="a5f5afc031f62e7ba4f7c132268cf726c"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">bool Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ab23c4893acea628342edda20271acc64" class="m-dox-self">setCurrentSpeedup</a>(</span><span class="m-dox-wrap">double current_speedup)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">current_speedup</td>
-                  <td>The speedup in m/s^2</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Returns</th>
-                  <td>true when all precoditions are satisfied</td>
-                </tr>
-              </tfoot>
-            </table>
-<p>Change the speedup of a <a href="classVehicle.html" class="m-dox">Vehicle</a>.</p><p>This value will determine how fast the speed of the car is changing. A positive value means an increasing speed, while a negative speedup makes the <a href="classVehicle.html" class="m-dox">Vehicle</a> go slower.</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(current_speedup &gt;= CONST::MIN_CAR_SPEEDUP, &quot;Versnelling te traag&quot;); REQUIRE(current_speedup &lt;= CONST::MAX_CAR_SPEEDUP, &quot;Versnelling te hoog&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classVehicle.html#ac738949dcbd8019128315c6c805a9ddb" class="m-dox">getCurrentSpeedup()</a> == newCurrentSpeedup, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside>
-          </div></section>
-          <section class="m-dox-details" id="a31d3350fb6033b9de2a57c1732f19eed"><div>
-            <h3>
-              <span class="m-dox-wrap-bumper">bool Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a31d3350fb6033b9de2a57c1732f19eed" class="m-dox-self">move</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork)</span></span>
+              <span class="m-dox-wrap-bumper">bool Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a5f5afc031f62e7ba4f7c132268cf726c" class="m-dox-self">move</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -351,15 +365,19 @@ Engineering</span></a>
                   <td style="width: 1%">roadNetwork</td>
                   <td>The network containing the traffic situation.</td>
                 </tr>
+                <tr>
+                  <td>errStream</td>
+                  <td></td>
+                </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <th>Returns</th>
-                  <td>true when successfully added, false when the prerequisites weren&#x27;t met</td>
+                  <td>true when all precoditions are satisfied Move the vehicle</td>
                 </tr>
               </tfoot>
             </table>
-<p>Move the vehicle</p><p>The vehicle position will be updated to his position after a specific time. When the vehicle reaches the end of the road, he will automatically take the next road.</p><aside class="m-note m-success"><h4>Precondition</h4><p>The systems contains a scheme of the virtual traffic situation. There is a vehicle on a road. REQUIRE(roadNetwork-&gt;check_position_cars(), &quot;position&quot;); REQUIRE(roadNetwork-&gt;check_if_cars_on_existing_road(), &quot;exist on road&quot;); REQUIRE(time &gt;= 0, &quot;Tijd moet positief zijn&quot;); REQUIRE(roadNetwork-&gt;findCar(license_plate) != NULL, &quot;De wagen moet in het netwerk zitten&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>The vehicle has a new position. ENSURE(roadNetwork-&gt;check_position_cars(), &quot;position&quot;); ENSURE(roadNetwork-&gt;check_if_cars_on_existing_road(), &quot;exist on road&quot;); // Space between cars is not guaranteed, because all cars have to be moved for this.</p></aside>
+<p>Change the speedup of a <a href="classVehicle.html" class="m-dox">Vehicle</a>.</p><p>This value will determine how fast the speed of the car is changing. A positive value means an increasing speed, while a negative speedup makes the <a href="classVehicle.html" class="m-dox">Vehicle</a> go slower.</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(current_speedup &gt;= <a href="namespaceCONST.html#af0ce36732c65d65668c48607ca820988" class="m-dox">CONST::<wbr />MIN_CAR_SPEEDUP</a>, &quot;Versnelling te traag&quot;); REQUIRE(current_speedup &lt;= <a href="namespaceCONST.html#a409850287a5709499abba05915f85961" class="m-dox">CONST::<wbr />MAX_CAR_SPEEDUP</a>, &quot;Versnelling te hoog&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classVehicle.html#ac738949dcbd8019128315c6c805a9ddb" class="m-dox">getCurrentSpeedup()</a> == newCurrentSpeedup, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside><p>The vehicle position will be updated to his position after a specific time. When the vehicle reaches the end of the road, he will automatically take the next road.</p><aside class="m-note m-success"><h4>Precondition</h4><p>The systems contains a scheme of the virtual traffic situation. There is a vehicle on a road. REQUIRE(roadNetwork-&gt;check_position_cars(), &quot;position&quot;); REQUIRE(roadNetwork-&gt;check_if_cars_on_existing_road(), &quot;exist on road&quot;); REQUIRE(time &gt;= 0, &quot;Tijd moet positief zijn&quot;); REQUIRE(roadNetwork-&gt;findCar(license_plate) != NULL, &quot;De wagen moet in het netwerk zitten&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>The vehicle has a new position. ENSURE(roadNetwork-&gt;check_position_cars(), &quot;position&quot;); ENSURE(roadNetwork-&gt;check_if_cars_on_existing_road(), &quot;exist on road&quot;);</p></aside>
           </div></section>
           <section class="m-dox-details" id="ac234eb93b605417509df3312e5f2523c"><div>
             <h3>
@@ -512,6 +530,89 @@ Engineering</span></a>
               </tfoot>
             </table>
 <p>Get the maximum speedup of the vehicle in m/s^2</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(ProperlyInit(), &quot;Het voertuig moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a304512ef133649c558517664ce91aa07"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">void Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a304512ef133649c558517664ce91aa07" class="m-dox-self">checkVehicleSpecificMove</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream) <span class="m-label m-warning">virtual</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">roadNetwork</td>
+                  <td>The roadnetwork the vehicle is driving on</td>
+                </tr>
+                <tr>
+                  <td>errStream</td>
+                  <td>The stream to which the errors should be outputed</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Check for vehicle specific moves, like bus stops, ... and update the acceleration depending on this</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(roadNetwork-&gt;<a href="classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7" class="m-dox">properlyInitialized()</a>, &quot;The roadnetwork must be properly initialized&quot;) REQUIRE(<a href="classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7" class="m-dox">properlyInitialized()</a>, &quot;The vehicle should be properly initialized&quot;)</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a200e655aff23052e3e6ce38949dfa4c0"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">char Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a200e655aff23052e3e6ce38949dfa4c0" class="m-dox-self">getShortName</a>(</span><span class="m-dox-wrap">) <span class="m-label m-warning">pure virtual</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a letter representing the vehicle type</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(properlyInitizlized(), &quot;The vehicle should be properly initialized&quot;)</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a2876e8722343b4a14008b9ccba997905"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool Vehicle::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a2876e8722343b4a14008b9ccba997905" class="m-dox-self">emptyConstructorParametersUpdated</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when the invalid data of the empty constructor is updated</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7" class="m-dox">properlyInitialized()</a>, &quot;The vehicle should be properly initialized&quot;)</p></aside>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-dox-details" id="ae63262bc9327c5013337fa0c93cb1691"><div>
+            <h3>
+              std::string Vehicle::<wbr /><a href="#ae63262bc9327c5013337fa0c93cb1691" class="m-dox-self">licensePlate</a> <span class="m-label m-warning">protected</span>
+            </h3>
+<p>A unique ID for each vehicle</p>
+          </div></section>
+          <section class="m-dox-details" id="a7eeb1e188e489a6108ff8f7a90f85714"><div>
+            <h3>
+              <a href="classRoad.html" class="m-dox">Road</a>* Vehicle::<wbr /><a href="#a7eeb1e188e489a6108ff8f7a90f85714" class="m-dox-self">currentRoad</a> <span class="m-label m-warning">protected</span>
+            </h3>
+<p>The road on which the vehicle is currently positioned</p>
+          </div></section>
+          <section class="m-dox-details" id="ab9873c7006cf2fb9b5df2eb767abe0e0"><div>
+            <h3>
+              double Vehicle::<wbr /><a href="#ab9873c7006cf2fb9b5df2eb767abe0e0" class="m-dox-self">currentPosition</a> <span class="m-label m-warning">protected</span>
+            </h3>
+<p>The position on the current road. This is the distance from the start of this road in m.</p>
+          </div></section>
+          <section class="m-dox-details" id="a077acf331be88164e9eb816a3ad19459"><div>
+            <h3>
+              double Vehicle::<wbr /><a href="#a077acf331be88164e9eb816a3ad19459" class="m-dox-self">currentSpeed</a> <span class="m-label m-warning">protected</span>
+            </h3>
+<p>The current driving speed in km / h. A vehicle can&#x27;t drive backwards in our system, so this number must be greater than or equal to 0.</p>
+          </div></section>
+          <section class="m-dox-details" id="a9e7be8c846051ab7591ab424710138f5"><div>
+            <h3>
+              double Vehicle::<wbr /><a href="#a9e7be8c846051ab7591ab424710138f5" class="m-dox-self">currentSpeedup</a> <span class="m-label m-warning">protected</span>
+            </h3>
+<p>The speed by which the vehicle is accelerated in m / s^2.</p>
           </div></section>
         </section>
       </div>

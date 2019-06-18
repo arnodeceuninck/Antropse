@@ -121,6 +121,15 @@ Engineering</span></a>
               <span class="m-dox-wrap-bumper">auto <a href="#a570734e040be05c48be304ac263925f9" class="m-dox">getMinSpeedup</a>(</span><span class="m-dox-wrap">) const -&gt; double <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">void <a href="#a513aa0d07e2234b0b002de12b4c78ea4" class="m-dox">checkVehicleSpecificMove</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a5d1b9785240dc5b00a3a0af5eab4ceb3" class="m-dox">getShortName</a>(</span><span class="m-dox-wrap">) -&gt; char <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section>
@@ -155,7 +164,7 @@ Engineering</span></a>
                 </tr>
               </tbody>
             </table>
-<p>Constructor for a bus</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(currentPosition &gt; 0, &quot;Huidige positie moet op de zeg liggen&quot;); REQUIRE(currentRoad != NULL, &quot;De weg moet bestaan en volledig geinitialisseerd zijn&quot;); REQUIRE(currentPosition &lt;= currentRoad-&gt;<a href="classBus.html#aa9d181b81f805d0ffef40d0eb064cdf9" class="m-dox">getLength()</a>, &quot;Huidige positie moet op de weg liggen&quot;); REQUIRE(currentSpeed &lt; currentRoad-&gt;getSpeed_limit(), &quot;De auto mag niet te snel rijden&quot;); REQUIRE(currentSpeed &gt;= 0, &quot;De auto moet een positieve snelheid hebben&quot;);</p></aside>
+<p>Constructor for a bus</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(currentPosition &gt;= 0, &quot;Huidige positie moet op de zeg liggen&quot;); REQUIRE(currentRoad != NULL, &quot;De weg moet bestaan en volledig geinitialisseerd zijn&quot;); REQUIRE(currentPosition &lt;= currentRoad-&gt;<a href="classBus.html#aa9d181b81f805d0ffef40d0eb064cdf9" class="m-dox">getLength()</a>, &quot;Huidige positie moet op de weg liggen&quot;); REQUIRE(currentSpeed &lt;= currentRoad-&gt;getSpeed_limit(), &quot;De auto mag niet te snel rijden&quot;); REQUIRE(currentSpeed &gt;= 0, &quot;De auto moet een positieve snelheid hebben&quot;);</p></aside>
           </div></section>
           <section class="m-dox-details" id="aacf35e62456128245a02db34334f9a3d"><div>
             <h3>
@@ -238,6 +247,42 @@ Engineering</span></a>
               </tfoot>
             </table>
 <p>Get the maximum speedup of the vehicle in m/s^2</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(ProperlyInit(), &quot;Het voertuig moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a513aa0d07e2234b0b002de12b4c78ea4"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">void Bus::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a513aa0d07e2234b0b002de12b4c78ea4" class="m-dox-self">checkVehicleSpecificMove</a>(</span><span class="m-dox-wrap"><a href="classRoadNetwork.html" class="m-dox">RoadNetwork</a>* roadNetwork,
+              std::ostream&amp; errStream) <span class="m-label m-warning">virtual</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">roadNetwork</td>
+                  <td>The roadnetwork on which the bus is driving</td>
+                </tr>
+                <tr>
+                  <td>errStream</td>
+                  <td>The output stream to which errors should be sent</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Checks whether there is a bus stop nearby and slows down when required</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7" class="m-dox">properlyInitialized()</a>, &quot;The vehicle must be properly initialized&quot;); REQUIRE(roadNetwork-&gt;<a href="classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7" class="m-dox">properlyInitialized()</a>, &quot;The roadnetwork must be properly initialized&quot;); REQUIRE(roadNetwork-&gt;check(), &quot;The roadnetwork must be in a valid state&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(roadNetwork-&gt;check(), &quot;The roadnetwork stays correct&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a5d1b9785240dc5b00a3a0af5eab4ceb3"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">char Bus::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a5d1b9785240dc5b00a3a0af5eab4ceb3" class="m-dox-self">getShortName</a>(</span><span class="m-dox-wrap">) <span class="m-label m-warning">virtual</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a letter representing the vehicle type</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(properlyInitizlized(), &quot;The vehicle should be properly initialized&quot;)</p></aside>
           </div></section>
         </section>
       </div>

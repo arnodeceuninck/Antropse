@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['truck',['Truck',['../classTruck.html',1,'Truck'],['../classTruck.html#a4e947f9543298a1c593a14de273a47a7',1,'Truck::Truck(const std::string &amp;licensePlate, Road *currentRoad, double currentPosition, double currentSpeed)'],['../classTruck.html#a87e358bca8fe34e6299c6ff233afb08b',1,'Truck::Truck()']]],
-  ['truck_2ecpp',['Truck.cpp',['../Truck_8cpp.html',1,'']]],
-  ['truck_2eh',['Truck.h',['../Truck_8h.html',1,'']]]
+  ['partialimport',['PartialImport',['../NetworkImporter_8h.html#ae69e1bf070c1c339170236b3fef70a4da21205c22fde3e4f49e0e131a4377491a',1,'NetworkImporter.h']]],
+  ['properlyinit',['properlyInit',['../classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2',1,'Road::properlyInit()'],['../classTrafficLight.html#ae88e808b953e144b45dc5ccb698e0e0d',1,'TrafficLight::properlyInit()']]],
+  ['properlyinitialized',['properlyInitialized',['../classNetworkExporter.html#a577b76cd022be6d4d56a44463c0414e2',1,'NetworkExporter::properlyInitialized()'],['../classRoadNetwork.html#aa9862784d60727304c75f4476c26a232',1,'RoadNetwork::properlyInitialized()'],['../classVehicle.html#a0a40d3b71dee5f2915e8a72f588a3bc7',1,'Vehicle::properlyInitialized()']]]
 ];

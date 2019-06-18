@@ -14,10 +14,19 @@
 #include "RoadNetwork.h"
 #include "TinyXML/tinyxml.h"
 
+/**
+ * ImportFailed: Something went wrong and we're not sure what has been changed to roadNetwork (This is an error)
+ * ImportAborted: Nothing has been changed to your roadNetwork
+ * PartialImport: There were a few errors in the xml file, so we had to leave some elements out to maintain a valid road situation
+ * Succes: Everything from the file has been read and is added to the roadnetwork
+ */
 enum SuccessEnum {
     ImportFailed, ImportAborted, PartialImport, Success
 };
 
+/**
+ * A class for reading a xml-file into a roadnetwork
+ */
 class NetworkImporter {
 private:
     static void readRoad(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,

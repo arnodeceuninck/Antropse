@@ -1,7 +1,0 @@
-<map id="Intersection.h" name="Intersection.h">
-<area shape="rect" id="node2" href="$Intersection_8cpp.html" title="This file will contain the definitions of the functions in Intersection. " alt="" coords="5,80,120,107"/>
-<area shape="rect" id="node3" href="$Road_8h.html" title="This header file will contain the Road class. " alt="" coords="144,80,208,107"/>
-<area shape="rect" id="node4" href="$Road_8cpp.html" title="This file will contain the definitions of the functions in Road. " alt="" coords="10,155,89,181"/>
-<area shape="rect" id="node5" href="$RoadNetwork_8cpp.html" title="This file will contain the definitions of the functions in RoadNetwork. " alt="" coords="113,155,239,181"/>
-<area shape="rect" id="node6" href="$Vehicle_8cpp.html" title="This file wll contains the initial setup of the system. " alt="" coords="264,155,355,181"/>
-</map>

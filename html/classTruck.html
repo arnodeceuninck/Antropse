@@ -121,6 +121,10 @@ Engineering</span></a>
               <span class="m-dox-wrap-bumper">auto <a href="#ab2d69263c50ae53d6f77dd11ae13a6bc" class="m-dox">getMinSpeedup</a>(</span><span class="m-dox-wrap">) const -&gt; double <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a1515b028f8242e9c5ba9c27b855454bb" class="m-dox">getShortName</a>(</span><span class="m-dox-wrap">) -&gt; char <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section>
@@ -155,7 +159,7 @@ Engineering</span></a>
                 </tr>
               </tbody>
             </table>
-<p>Constructor for a truck</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(currentPosition &gt; 0, &quot;Huidige positie moet op de zeg liggen&quot;); REQUIRE(currentRoad != NULL, &quot;De weg moet bestaan en volledig geinitialisseerd zijn&quot;); REQUIRE(currentPosition &lt;= currentRoad-&gt;<a href="classTruck.html#a9a6f496a1e1fe2b4c380dc3f2a620b5c" class="m-dox">getLength()</a>, &quot;Huidige positie moet op de weg liggen&quot;); REQUIRE(currentSpeed &lt; currentRoad-&gt;getSpeed_limit(), &quot;De auto mag niet te snel rijden&quot;); REQUIRE(currentSpeed &gt;= 0, &quot;De auto moet een positieve snelheid hebben&quot;);</p></aside>
+<p>Constructor for a truck</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(currentPosition &gt;= 0, &quot;Huidige positie moet op de zeg liggen&quot;); REQUIRE(currentRoad != NULL, &quot;De weg moet bestaan en volledig geinitialisseerd zijn&quot;); REQUIRE(currentPosition &lt;= currentRoad-&gt;<a href="classTruck.html#a9a6f496a1e1fe2b4c380dc3f2a620b5c" class="m-dox">getLength()</a>, &quot;Huidige positie moet op de weg liggen&quot;); REQUIRE(currentSpeed &lt;= currentRoad-&gt;getSpeed_limit(), &quot;De auto mag niet te snel rijden&quot;); REQUIRE(currentSpeed &gt;= 0, &quot;De auto moet een positieve snelheid hebben&quot;);</p></aside>
           </div></section>
           <section class="m-dox-details" id="a87e358bca8fe34e6299c6ff233afb08b"><div>
             <h3>
@@ -238,6 +242,20 @@ Engineering</span></a>
               </tfoot>
             </table>
 <p>Get the maximum speedup of the vehicle in m/s^2</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(ProperlyInit(), &quot;Het voertuig moet deftig geinitialiseerd zijn&quot;);</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a1515b028f8242e9c5ba9c27b855454bb"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">char Truck::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a1515b028f8242e9c5ba9c27b855454bb" class="m-dox-self">getShortName</a>(</span><span class="m-dox-wrap">) <span class="m-label m-warning">virtual</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a letter representing the vehicle type</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(properlyInitizlized(), &quot;The vehicle should be properly initialized&quot;)</p></aside>
           </div></section>
         </section>
       </div>

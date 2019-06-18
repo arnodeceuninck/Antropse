@@ -1,4 +1,5 @@
 <map id="Road.cpp" name="Road.cpp">
-<area shape="rect" id="node3" href="$Road_8h.html" title="This header file will contain the Road class. " alt="" coords="83,80,147,107"/>
-<area shape="rect" id="node7" href="$DesignByContract_8h_source.html" title="DesignByContract.h" alt="" coords="181,80,321,107"/>
+<area shape="rect" id="node4" href="$Road_8h.html" title="This header file will contain the Road class. " alt="" coords="171,80,235,107"/>
+<area shape="rect" id="node10" href="$DesignByContract_8h.html" title="DesignByContract.h" alt="" coords="294,80,434,107"/>
+<area shape="rect" id="node8" href="$TrafficLight_8h.html" title="TrafficLight.h" alt="" coords="240,155,339,181"/>
 </map>

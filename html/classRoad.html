@@ -85,7 +85,7 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a7f164cbdac34071ed03574aafd7f4d26" class="m-dox">getSpeedLimit</a>(</span><span class="m-dox-wrap">) const -&gt; int</span>
+              <span class="m-dox-wrap-bumper">auto <a href="#a0c47393268f95190dfec0688f084950b" class="m-dox">getSpeedLimit</a>(</span><span class="m-dox-wrap">double position) const -&gt; int</span>
             </dt>
             <dd></dd>
             <dt>
@@ -126,11 +126,36 @@ Engineering</span></a>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#ad3d7c39b5acf1c56bb209ec87fa0e2e0" class="m-dox">addTrafficLight</a>(</span><span class="m-dox-wrap">int position) -&gt; bool</span>
+              <span class="m-dox-wrap-bumper">auto <a href="#afda083a5c976ccba500610208d8b6835" class="m-dox">addTrafficLight</a>(</span><span class="m-dox-wrap">double position) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#af6906bad33a64ccbbc9c753d63ac6cbc" class="m-dox">addTrafficLight</a>(</span><span class="m-dox-wrap">double position,
+              int time) -&gt; bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a148993d2f611d314ace6bc260c8b2b60" class="m-dox">getTrafficLight</a>(</span><span class="m-dox-wrap">double position) -&gt; <a href="classTrafficLight.html" class="m-dox">TrafficLight</a>*</span>
             </dt>
             <dd></dd>
             <dt>
               <span class="m-dox-wrap-bumper">auto <a href="#aeb62d819db7c0db2c6c6bef52a734856" class="m-dox">getNextBusStop</a>(</span><span class="m-dox-wrap">double busPosition) -&gt; double</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a0994dfacd1355f09c5b6805cdab6f463" class="m-dox">getBusStops</a>(</span><span class="m-dox-wrap">) const -&gt; const std::set&lt;double&gt;&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#acd1c13680fa09827fb0dff1d6f702fe9" class="m-dox">getTrafficLights</a>(</span><span class="m-dox-wrap">) const -&gt; const std::map&lt;double, <a href="classTrafficLight.html" class="m-dox">TrafficLight</a>*&gt;&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a70cb7d3507fec4eb62b9bf169b467351" class="m-dox">getZones</a>(</span><span class="m-dox-wrap">) const -&gt; const std::map&lt;double, int&gt;&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#af5b575f047f22c48a5ac21765639f1f4" class="m-dox">emptyConstructorParametersUpdated</a>(</span><span class="m-dox-wrap">) -&gt; bool</span>
             </dt>
             <dd></dd>
           </dl>
@@ -157,9 +182,9 @@ Engineering</span></a>
             </table>
 <p>Get the name of a road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(ProperlyInit(), &quot;De weg moet deftig geinitialiseerd zijn&quot;);</p></aside>
           </div></section>
-          <section class="m-dox-details" id="a7f164cbdac34071ed03574aafd7f4d26"><div>
+          <section class="m-dox-details" id="a0c47393268f95190dfec0688f084950b"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">int Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a7f164cbdac34071ed03574aafd7f4d26" class="m-dox-self">getSpeedLimit</a>(</span><span class="m-dox-wrap">) const</span></span>
+              <span class="m-dox-wrap-bumper">int Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a0c47393268f95190dfec0688f084950b" class="m-dox-self">getSpeedLimit</a>(</span><span class="m-dox-wrap">double position) const</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
@@ -229,7 +254,7 @@ Engineering</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>Change the speed limit of a road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(speed_limit &gt; 0, &quot;De speedlimit moet strikt groter zijn dan 0&quot;); // Strikt groter</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classRoad.html#a7f164cbdac34071ed03574aafd7f4d26" class="m-dox">getSpeedLimit()</a> == newSpeedLimit, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside>
+<p>Change the speed limit of a road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(speed_limit &gt; 0, &quot;De speedlimit moet strikt groter zijn dan 0&quot;); // Strikt groter</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(<a href="classRoad.html#a0c47393268f95190dfec0688f084950b" class="m-dox">getSpeedLimit()</a> == newSpeedLimit, &quot;Als je de waarde opvraagt, krijg je de nieuwe waarde&quot;);</p></aside>
           </div></section>
           <section class="m-dox-details" id="a5e2c7721787d5cfa5900bfa66a38a4fc"><div>
             <h3>
@@ -356,9 +381,9 @@ Engineering</span></a>
             </table>
 <p>Add a zone to the road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2" class="m-dox">properlyInit()</a>, &quot;The road must be correctly initialized&quot;); REQUIRE(validPositionOnRoad(position), &quot;The position must be on the road&quot;); REQUIRE(zoneSpeedLimit &gt; 0, &quot;The position must be strict positive&quot;); REQUIRE(numberInSet(position, trafficLights), &quot;There cant be another zone start at the same postition&quot;);</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(for(i=0;i&lt;nextZone()): getSpeedLimit(i)==zoneSpeedLimit, &quot;The bus stop has been placed at the specified position&quot;)</p></aside>
           </div></section>
-          <section class="m-dox-details" id="ad3d7c39b5acf1c56bb209ec87fa0e2e0"><div>
+          <section class="m-dox-details" id="afda083a5c976ccba500610208d8b6835"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">bool Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ad3d7c39b5acf1c56bb209ec87fa0e2e0" class="m-dox-self">addTrafficLight</a>(</span><span class="m-dox-wrap">int position)</span></span>
+              <span class="m-dox-wrap-bumper">bool Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#afda083a5c976ccba500610208d8b6835" class="m-dox-self">addTrafficLight</a>(</span><span class="m-dox-wrap">double position)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -377,7 +402,57 @@ Engineering</span></a>
                 </tr>
               </tfoot>
             </table>
-<p>Add a traffic light to the road</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2" class="m-dox">properlyInit()</a>, &quot;The road must be correctly initialized&quot;); REQUIRE(validPositionOnRoad(position), &quot;The position must be on the road&quot;); REQUIRE(numberInSet(position, trafficLights), &quot;There cant be another traffic light at the same postition&quot;)</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(numberInSet(position, trafficLights), &quot;The traffic light stop has been placed at the specified position&quot;)</p></aside>
+<p>Add a traffic light to the road with a random startOffset</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2" class="m-dox">properlyInit()</a>, &quot;The road must be correctly initialized&quot;); REQUIRE(validPositionOnRoad(position), &quot;The position must be on the road&quot;); REQUIRE(numberInSet(position, trafficLights), &quot;There cant be another traffic light at the same postition&quot;)</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(numberInSet(position, trafficLights), &quot;The traffic light stop has been placed at the specified position&quot;)</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="af6906bad33a64ccbbc9c753d63ac6cbc"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#af6906bad33a64ccbbc9c753d63ac6cbc" class="m-dox-self">addTrafficLight</a>(</span><span class="m-dox-wrap">double position,
+              int time)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">position</td>
+                  <td>The position on the road to add the light</td>
+                </tr>
+                <tr>
+                  <td>time</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>true when succesfully added, false when there was an error adding the stop</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Add a traffic light to the road with a chosen startOffset</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2" class="m-dox">properlyInit()</a>, &quot;The road must be correctly initialized&quot;); REQUIRE(validPositionOnRoad(position), &quot;The position must be on the road&quot;); REQUIRE(numberInSet(position, trafficLights), &quot;There cant be another traffic light at the same postition&quot;)</p></aside><aside class="m-note m-success"><h4>Postcondition</h4><p>ENSURE(numberInSet(position, trafficLights), &quot;The traffic light stop has been placed at the specified position&quot;)</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a148993d2f611d314ace6bc260c8b2b60"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="classTrafficLight.html" class="m-dox">TrafficLight</a>* Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a148993d2f611d314ace6bc260c8b2b60" class="m-dox-self">getTrafficLight</a>(</span><span class="m-dox-wrap">double position)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">position</td>
+                  <td>= the exact position of the trafficlight</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>a pointer of the Trafficlight on that position</td>
+                </tr>
+              </tfoot>
+            </table>
           </div></section>
           <section class="m-dox-details" id="aeb62d819db7c0db2c6c6bef52a734856"><div>
             <h3>
@@ -392,6 +467,62 @@ Engineering</span></a>
               </tfoot>
             </table>
 <p>Find the next busStop</p><aside class="m-note m-success"><h4>Precondition</h4><p>REQUIRE(<a href="classRoad.html#a9cd1b67d63de1b10e9841920f78fb8d2" class="m-dox">properlyInit()</a>, &quot;The road must be correctly initialized&quot;)</p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a0994dfacd1355f09c5b6805cdab6f463"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">const std::set&lt;double&gt;&amp; Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a0994dfacd1355f09c5b6805cdab6f463" class="m-dox-self">getBusStops</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a set containing the positions of all busstops on the road</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p><a href="DesignByContract_8h.html#aeb774672b46dbe80afc14e0d1970f017" class="m-dox">REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)</a></p></aside>
+          </div></section>
+          <section class="m-dox-details" id="acd1c13680fa09827fb0dff1d6f702fe9"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">const std::map&lt;double, <a href="classTrafficLight.html" class="m-dox">TrafficLight</a>*&gt;&amp; Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#acd1c13680fa09827fb0dff1d6f702fe9" class="m-dox-self">getTrafficLights</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a map containing all TrafficLights on the road</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p><a href="DesignByContract_8h.html#aeb774672b46dbe80afc14e0d1970f017" class="m-dox">REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)</a></p></aside>
+          </div></section>
+          <section class="m-dox-details" id="a70cb7d3507fec4eb62b9bf169b467351"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">const std::map&lt;double, int&gt;&amp; Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a70cb7d3507fec4eb62b9bf169b467351" class="m-dox-self">getZones</a>(</span><span class="m-dox-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>a map containing the positions and speed limits of all zones on the road</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p><a href="DesignByContract_8h.html#aeb774672b46dbe80afc14e0d1970f017" class="m-dox">REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)</a></p></aside>
+          </div></section>
+          <section class="m-dox-details" id="af5b575f047f22c48a5ac21765639f1f4"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">bool Road::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#af5b575f047f22c48a5ac21765639f1f4" class="m-dox-self">emptyConstructorParametersUpdated</a>(</span><span class="m-dox-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>true when the invalid data of the empty constructor is updated</td>
+                </tr>
+              </tfoot>
+            </table>
+<aside class="m-note m-success"><h4>Precondition</h4><p><a href="DesignByContract_8h.html#aeb774672b46dbe80afc14e0d1970f017" class="m-dox">REQUIRE(properlyInit(), de weg moet deftig geinitialiseerd zijn)</a></p></aside>
           </div></section>
         </section>
       </div>

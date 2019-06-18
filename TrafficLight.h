@@ -13,6 +13,9 @@ enum TrafficLightColor {
     green, orange, red
 };
 
+/**
+ * A class representing a traffic light
+ */
 class TrafficLight {
 public:
     /**

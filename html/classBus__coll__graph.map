@@ -1,3 +1,4 @@
 <map id="Bus" name="Bus">
-<area shape="rect" id="node2" href="$classVehicle.html" title="Vehicle" alt="" coords="5,5,71,32"/>
+<area shape="rect" id="node2" href="$classVehicle.html" title="Vehicle" alt="" coords="5,95,71,121"/>
+<area shape="rect" id="node3" href="$classRoad.html" title="Road" alt="" coords="11,5,65,32"/>
 </map>

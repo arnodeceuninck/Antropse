@@ -1,21 +1,9 @@
 var searchData=
 [
-  ['getcars',['getCars',['../classRoadNetwork.html#a23abe035b7d62a8186ae9a363b89c680',1,'RoadNetwork']]],
-  ['getcurrentposition',['getCurrentPosition',['../classVehicle.html#a52f5a271b68e1fb14e5a74ee58a12887',1,'Vehicle']]],
-  ['getcurrentroad',['getCurrentRoad',['../classVehicle.html#ad91286aabe2196f9d73d35f66c8a0eef',1,'Vehicle']]],
-  ['getcurrentspeed',['getCurrentSpeed',['../classVehicle.html#aa99ce074793cd430a259a0d08cb8810f',1,'Vehicle']]],
-  ['getcurrentspeedup',['getCurrentSpeedup',['../classVehicle.html#ac738949dcbd8019128315c6c805a9ddb',1,'Vehicle']]],
-  ['getintersection',['getIntersection',['../classRoad.html#a37dd819ad9f8efba433aab87835eb5ff',1,'Road']]],
-  ['getiteration',['getIteration',['../classRoadNetwork.html#a3eb7324944334ffd81f69a96b1196cab',1,'RoadNetwork']]],
-  ['getlength',['getLength',['../classBus.html#aa9d181b81f805d0ffef40d0eb064cdf9',1,'Bus::getLength()'],['../classCar.html#a32a49b6883059f824c6d94af313b7d97',1,'Car::getLength()'],['../classMotorBike.html#ad30e6c82ca45ac2902282f542a7311d9',1,'MotorBike::getLength()'],['../classRoad.html#af09249f48e29b8daae4e86b33c032a9d',1,'Road::getLength()'],['../classTruck.html#a9a6f496a1e1fe2b4c380dc3f2a620b5c',1,'Truck::getLength()'],['../classVehicle.html#ad93a9a3bb5e003ebe464e203f8d1afae',1,'Vehicle::getLength()']]],
-  ['getlicenseplate',['getLicensePlate',['../classVehicle.html#acaca1d49077ac22745b7a1a70386389d',1,'Vehicle']]],
-  ['getmaxspeed',['getMaxSpeed',['../classBus.html#a9fffb2be748d04a0ee80fa80e1b01ddc',1,'Bus::getMaxSpeed()'],['../classCar.html#a1126149489160974dbba1780c27052d5',1,'Car::getMaxSpeed()'],['../classMotorBike.html#ada59719560baf29d508911088b80874f',1,'MotorBike::getMaxSpeed()'],['../classTruck.html#aa4df87b87da70ca0c15fcb2aabb5d6f2',1,'Truck::getMaxSpeed()'],['../classVehicle.html#a66d037ec755ab00fe34a24891198f54a',1,'Vehicle::getMaxSpeed()']]],
-  ['getmaxspeedup',['getMaxSpeedup',['../classBus.html#a560d61d2e253c2dd6bd71cbfb5735519',1,'Bus::getMaxSpeedup()'],['../classCar.html#ae04b86e5ec253977049a2c09b0838ebe',1,'Car::getMaxSpeedup()'],['../classMotorBike.html#ab2096f89cc2058e4aae7f89ed821c872',1,'MotorBike::getMaxSpeedup()'],['../classTruck.html#afaaa1a2c3dd16e2440e0ede0c3420e2a',1,'Truck::getMaxSpeedup()'],['../classVehicle.html#aa2f69b9c52ce52f657876dda39004aba',1,'Vehicle::getMaxSpeedup()']]],
-  ['getminspeed',['getMinSpeed',['../classBus.html#a62154a7670ef5893f7582d4afc62c3c3',1,'Bus::getMinSpeed()'],['../classCar.html#a7f6fa74c8152a9f40de01f03e1e36bb9',1,'Car::getMinSpeed()'],['../classMotorBike.html#a789207a76cc50eda3e6316b9a46432c0',1,'MotorBike::getMinSpeed()'],['../classTruck.html#a6d030152d1f840020470cffc9cbe723e',1,'Truck::getMinSpeed()'],['../classVehicle.html#a05ee61912c1bf64ca55c633d29c05507',1,'Vehicle::getMinSpeed()']]],
-  ['getminspeedup',['getMinSpeedup',['../classBus.html#a570734e040be05c48be304ac263925f9',1,'Bus::getMinSpeedup()'],['../classCar.html#a43d1b38367ab7b5039778f88a3024718',1,'Car::getMinSpeedup()'],['../classMotorBike.html#a1b9a6e5edbe4101583795b2be51be7b9',1,'MotorBike::getMinSpeedup()'],['../classTruck.html#ab2d69263c50ae53d6f77dd11ae13a6bc',1,'Truck::getMinSpeedup()'],['../classVehicle.html#a5c3d493b84fc6d263985f0e78eec4743',1,'Vehicle::getMinSpeedup()']]],
-  ['getname',['getName',['../classRoad.html#ab49dc263c4e146180439f373781c676d',1,'Road']]],
-  ['getnextbusstop',['getNextBusStop',['../classRoad.html#aeb62d819db7c0db2c6c6bef52a734856',1,'Road']]],
-  ['getroads',['getRoads',['../classRoadNetwork.html#ab15fc1b4536564a8067ac802e595cedb',1,'RoadNetwork']]],
-  ['getspeedlimit',['getSpeedLimit',['../classRoad.html#a7f164cbdac34071ed03574aafd7f4d26',1,'Road']]],
-  ['gettype',['getType',['../classBus.html#a822c143a4f79697baafddb54b4ae65b4',1,'Bus::getType()'],['../classCar.html#ad90d2986516d3b84e09684eb708e47a4',1,'Car::getType()'],['../classMotorBike.html#a05fec8a093f6c723042bca7de3832551',1,'MotorBike::getType()'],['../classTruck.html#ac11a68bf6cca80d1edb4ad3188e73848',1,'Truck::getType()'],['../classVehicle.html#ac234eb93b605417509df3312e5f2523c',1,'Vehicle::getType()']]]
+  ['filecompare',['fileCompare',['../AntropseUtils_8cpp.html#ac68411d73e9aade2bda7fc71d796d1d8',1,'fileCompare(const std::string leftFileName, const std::string rightFileName):&#160;AntropseUtils.cpp'],['../AntropseUtils_8h.html#ac68411d73e9aade2bda7fc71d796d1d8',1,'fileCompare(const std::string leftFileName, const std::string rightFileName):&#160;AntropseUtils.cpp']]],
+  ['fileexists',['fileExists',['../AntropseUtils_8cpp.html#a975c54e524aa99c7ac60e8a9c47547d3',1,'fileExists(const std::string fileName):&#160;AntropseUtils.cpp'],['../AntropseUtils_8h.html#a975c54e524aa99c7ac60e8a9c47547d3',1,'fileExists(const std::string fileName):&#160;AntropseUtils.cpp']]],
+  ['fileisempty',['fileIsEmpty',['../AntropseUtils_8cpp.html#a584fa141215f06e7af94fa1b6bc5f094',1,'fileIsEmpty(const std::string fileName):&#160;AntropseUtils.cpp'],['../AntropseUtils_8h.html#a584fa141215f06e7af94fa1b6bc5f094',1,'fileIsEmpty(const std::string fileName):&#160;AntropseUtils.cpp']]],
+  ['findcar',['findCar',['../classRoadNetwork.html#abdb153baba4339224e586507be864fcf',1,'RoadNetwork']]],
+  ['findpreviouscar',['findPreviouscar',['../classRoadNetwork.html#a4a0df8c0ce2472013530c2ba69bfd4f6',1,'RoadNetwork']]],
+  ['findroad',['findRoad',['../classRoadNetwork.html#ae3b421c7cff2fdcfc70ba782e84cf582',1,'RoadNetwork']]]
 ];
