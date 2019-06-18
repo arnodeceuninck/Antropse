@@ -24,7 +24,7 @@ int main() {
 
     std::cout << "Hello, World! :)" << std::endl;
 
-    RoadNetwork* roadNetwork = new RoadNetwork();
+    RoadNetwork *roadNetwork = new RoadNetwork();
     GraphicImpressionExporter exporter;
     //NetworkExporter exporter;
 
@@ -32,7 +32,7 @@ int main() {
 
     exporter.documentStart(std::cout);
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(std::cerr);
         std::cout << std::endl << std::endl;
         exporter.exportOn(std::cout, *roadNetwork);

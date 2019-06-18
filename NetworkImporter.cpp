@@ -16,7 +16,7 @@
 SuccessEnum
 NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork) {
 
-    if(!(roadNetwork->properlyInitialized() and roadNetwork->check() and fileExists(filename))){
+    if (!(roadNetwork->properlyInitialized() and roadNetwork->check() and fileExists(filename))) {
         errStream << "Import aborted: Not all preconditions met" << std::endl;
         return ImportAborted;
     }
@@ -175,27 +175,31 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadN
         if (elemName == "nummerplaat") {
             if (!car->setLicensePlate(el)) {
                 endResult = PartialImport;
-                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de nummerplaat aan de wagen" << std::endl;
+                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de nummerplaat aan de wagen"
+                          << std::endl;
                 return;
             }
         } else if (elemName == "baan") {
             Road *road = roadNetwork->findRoad(el);
             if (!car->setCurrentRoad(road)) {
                 endResult = PartialImport;
-                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de weg aan de auto" << std::endl;
+                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de weg aan de auto"
+                          << std::endl;
                 return;
             }
         } else if (elemName == "positie") {
 
             if (!car->setCurrentPosition(atoi(el.c_str()))) {
                 endResult = PartialImport;
-                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de positie aan auto" << std::endl;
+                errStream << "Partial Import: Ongeldige informatie bij het toevoegen van de positie aan auto"
+                          << std::endl;
                 return;
             }
         } else if (elemName == "snelheid") {
             if (!car->setCurrentSpeed(strtod(el.c_str(), NULL))) {
                 endResult = PartialImport;
-                errStream << "Partial Import: Ongeldige informatie bij het instellen van de snelheid van de auto" << std::endl;
+                errStream << "Partial Import: Ongeldige informatie bij het instellen van de snelheid van de auto"
+                          << std::endl;
                 return;
             }
         }
@@ -313,13 +317,15 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
         Road *road = roadNetwork->findRoad(roadName);
         if (road == NULL) {
             endResult = PartialImport;
-            errStream << "Partial Import: Geen weg gevonden met naam " << roadName << " voor verkeerslicht" << std::endl;
+            errStream << "Partial Import: Geen weg gevonden met naam " << roadName << " voor verkeerslicht"
+                      << std::endl;
             return;
         }
 
         if (!road->addTrafficLight(position)) {
             endResult = PartialImport;
-            errStream << "Partial Import: Ongeldige informatie bij het toevoegen van het verkeerslicht aan de weg" << std::endl;
+            errStream << "Partial Import: Ongeldige informatie bij het toevoegen van het verkeerslicht aan de weg"
+                      << std::endl;
             return;
         }
     } else {

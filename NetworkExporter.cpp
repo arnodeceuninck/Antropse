@@ -84,7 +84,8 @@ void NetworkExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetw
 
     const std::map<double, int> zones = road->getZones();
     for (std::map<double, int>::const_iterator zone = zones.begin(); zone != zones.end(); ++zone) {
-        onStream << listItem << "snelheidslimiet vanaf positie " << (*zone).first << ": " << (*zone).second << std::endl;
+        onStream << listItem << "snelheidslimiet vanaf positie " << (*zone).first << ": " << (*zone).second
+                 << std::endl;
     }
 
     onStream << listItem << "lengte: " << road->getLength() << std::endl;
@@ -98,11 +99,11 @@ void NetworkExporter::roadAdd(std::ostream &onStream, const Road *road, RoadNetw
          trafficLight != trafficLights.end(); ++trafficLight) {
         onStream << listItem << "Verkeerslicht op positie " << (*trafficLight).first << ": ";
         TrafficLightColor color = (*trafficLight).second->getColor(roadNetwork.getIteration());
-        if(color == green){
+        if (color == green) {
             onStream << "Groen";
-        } else if (color == orange){
+        } else if (color == orange) {
             onStream << "Oranje";
-        } else if (color == red){
+        } else if (color == red) {
             onStream << "Rood";
         }
         onStream << std::endl;
@@ -120,7 +121,7 @@ void NetworkExporter::vehiclesStart(std::ostream &onStream) {
 
 }
 
-void NetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle* vehicle) {
+void NetworkExporter::vehicleAdd(std::ostream &onStream, const Vehicle *vehicle) {
 
     std::string listItem = "\t-> ";
 

@@ -49,7 +49,7 @@ public:
      * @post
      * ENSURE(documentStarted(), "The document is started");
      */
-    virtual void  documentStart(std::ostream& onStream);
+    virtual void documentStart(std::ostream &onStream);
 
     /**
      * Close the exporter
@@ -62,7 +62,7 @@ public:
      * @post
      * ENSURE(!documentStarted(), "The document is closed");
      */
-    virtual void documentEnd(std::ostream& onStream);
+    virtual void documentEnd(std::ostream &onStream);
 
     /**
      * Export a roadnetwork
@@ -75,22 +75,31 @@ public:
      * REQUIRE(game.properlyInitialized(), "RoadNetwork wasn't initialized when calling exportOn");
      * REQUIRE(this->documentStarted(), "RoadNetwork Exporter wasn't in documentStarted when calling exportOn.");
      */
-    void exportOn(std::ostream& onStream, RoadNetwork& game);
+    void exportOn(std::ostream &onStream, RoadNetwork &game);
 
 protected:
-    virtual void sectionStart(std::ostream& onStream, const std::string sectionTitle);
-    virtual void roadNetworkStart(std::ostream& onStream);
-    virtual void roadsStart(std::ostream& onStream);
+    virtual void sectionStart(std::ostream &onStream, const std::string sectionTitle);
+
+    virtual void roadNetworkStart(std::ostream &onStream);
+
+    virtual void roadsStart(std::ostream &onStream);
+
     virtual void roadAdd(std::ostream &onStream, const Road *road, RoadNetwork &roadNetwork);
-    virtual void roadsEnd(std::ostream& onStream);
-    virtual void vehiclesStart(std::ostream& onStream);
-    virtual void vehicleAdd(std::ostream& onStream, const Vehicle* vehicle);
-    virtual void vehiclesEnd(std::ostream& onStream);
-    virtual void sectionEnd(std::ostream& onStream);
-    virtual void roadNetworkEnd(std::ostream& onStream);
+
+    virtual void roadsEnd(std::ostream &onStream);
+
+    virtual void vehiclesStart(std::ostream &onStream);
+
+    virtual void vehicleAdd(std::ostream &onStream, const Vehicle *vehicle);
+
+    virtual void vehiclesEnd(std::ostream &onStream);
+
+    virtual void sectionEnd(std::ostream &onStream);
+
+    virtual void roadNetworkEnd(std::ostream &onStream);
 
 private:
-    NetworkExporter * _initCheck; //!use pointer to myself to verify whether I am properly initialized
+    NetworkExporter *_initCheck; //!use pointer to myself to verify whether I am properly initialized
     bool _documentStarted;
 };
 

@@ -16,7 +16,7 @@
 /**
  * A class to describe a Bus on a RoadNetwork
  */
-class Bus : public Vehicle{
+class Bus : public Vehicle {
 
 public:
     /**
@@ -45,13 +45,16 @@ public:
      * Returns the type of this vehicle
      * @return A string representing the type of the vehicle, being a bus for this subclass
      */
-    virtual std::string getType() const ;
+    virtual std::string getType() const;
 
     virtual double getLength() const;
 
     virtual double getMinSpeed() const;
+
     virtual double getMaxSpeed() const;
+
     virtual double getMaxSpeedup() const;
+
     virtual double getMinSpeedup() const;
 
 

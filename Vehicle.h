@@ -14,6 +14,7 @@
 #include <string>
 
 class Road;
+
 class RoadNetwork;
 
 /**
@@ -21,7 +22,7 @@ class RoadNetwork;
  */
 class Vehicle {
 public:
-    
+
     /**
      * Constructor for a Vehicle.
      * 
@@ -47,7 +48,7 @@ public:
      */
     Vehicle();
 
-    Vehicle(const Vehicle* vehicle);
+    Vehicle(const Vehicle *vehicle);
 
     /**
      * Change/set the license plate for a Vehicle.
@@ -170,7 +171,7 @@ public:
      * @pre
      * REQUIRE(properlyInitialized(), "The vehicle must be properly initialized");
      */
-    virtual std::string getType() const=0;
+    virtual std::string getType() const = 0;
 
     /**
      * A function to get the unique identification string of a vehicle.
@@ -215,7 +216,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    virtual double getLength() const=0;
+    virtual double getLength() const = 0;
 
     virtual ~Vehicle();
 
@@ -242,7 +243,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    virtual double getMinSpeed() const=0;
+    virtual double getMinSpeed() const = 0;
 
     /**
      * Get the maximum speed of the vehicle in m/s
@@ -252,7 +253,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    virtual double getMaxSpeed() const=0;
+    virtual double getMaxSpeed() const = 0;
 
     /**
      * Get the minimum speedup of the vehicle in m/s^2
@@ -262,7 +263,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    virtual double getMaxSpeedup() const=0;
+    virtual double getMaxSpeedup() const = 0;
 
     /**
      * Get the maximum speedup of the vehicle in m/s^2
@@ -272,7 +273,7 @@ public:
      * @pre
      * REQUIRE(ProperlyInit(), "Het voertuig moet deftig geinitialiseerd zijn");
      */
-    virtual double getMinSpeedup() const=0;
+    virtual double getMinSpeedup() const = 0;
 
     /**
      * Check for vehicle specific moves, like bus stops, ... and update the acceleration depending on this
@@ -304,14 +305,14 @@ public:
 
 protected:
     std::string licensePlate; /**< A unique ID for each vehicle */
-    Road* currentRoad; /**< The road on which the vehicle is currently positioned */
+    Road *currentRoad; /**< The road on which the vehicle is currently positioned */
     double currentPosition; /**< The position on the current road. This is the distance from the start of this road in m.
                              */
     double currentSpeed; /**< The current driving speed in km / h. A vehicle can't drive backwards in our system, so this number must
                                 * be greater than or equal to 0.*/
     double currentSpeedup; /**< The speed by which the vehicle is accelerated in m / s^2. */
 
-    Vehicle* _initCheck;
+    Vehicle *_initCheck;
 
     void updateCurrentPosition(double time);
 
@@ -319,7 +320,7 @@ protected:
 
     bool checkCurrentPositionOnRoad();
 
-    void setCurrentPositionOnNewRoad(RoadNetwork* roadNetwork);
+    void setCurrentPositionOnNewRoad(RoadNetwork *roadNetwork);
 
     void updateCurrentSpeedup(const double &time, RoadNetwork *roadNetwork);
 

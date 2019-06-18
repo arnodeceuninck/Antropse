@@ -16,7 +16,7 @@
  * This namespace contains a collection of all constant variables in the system. The only exception are the numbers 0
  * and 1. Any other number is forbidden to be hardcoded, except in this file.
  */
-namespace CONST{
+namespace CONST {
 
     // VEHICLE SPECIFICATIONS
 

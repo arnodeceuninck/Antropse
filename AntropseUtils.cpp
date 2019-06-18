@@ -81,10 +81,10 @@ bool fileCompare(const std::string leftFileName, const std::string rightFileName
 }
 
 string toString(int x) {
-    int length = snprintf( NULL, 0, "%d", x );
-    char* buf = new char[length + 1];
-    snprintf( buf, length + 1, "%d", x );
-    string str( buf );
+    int length = snprintf(NULL, 0, "%d", x);
+    char *buf = new char[length + 1];
+    snprintf(buf, length + 1, "%d", x);
+    string str(buf);
     delete[] buf;
     return str;
 }

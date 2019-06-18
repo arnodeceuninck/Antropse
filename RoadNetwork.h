@@ -13,6 +13,7 @@
 #include "vector"
 
 class Road;
+
 class Vehicle;
 
 /**
@@ -67,7 +68,7 @@ public:
      * @pre
      * REQUIRE(properlyInitialized(), "The road must be properly initialized");
      */
-    Road* findRoad(std::string nameRoad);
+    Road *findRoad(std::string nameRoad);
 
     /**
      * Get a list of all roads on the RoadNetwork
@@ -100,7 +101,7 @@ public:
      * @pre
      * REQUIRE(properlyInitialized(), "Het netwerk moet deftig geinitialiseerd zijn");
      */
-    Road* retrieveIntersectionRoad(std::string nameRoad);
+    Road *retrieveIntersectionRoad(std::string nameRoad);
 
     /**
      * Check whether a car with the specified license plate is in the roadnetwork
@@ -111,7 +112,7 @@ public:
      * @pre
      * REQUIRE(properlyInitialized(), "The roadnetwork must be properly initialized");
      */
-    Vehicle* findCar(std::string license_plate) const;
+    Vehicle *findCar(std::string license_plate) const;
 
     /**
      * Get the number of cars
@@ -133,7 +134,7 @@ public:
      *
      * @return NULL if there is no car in front, else a pointer to this car
      */
-    Vehicle* findPreviouscar(const Vehicle* car) const;
+    Vehicle *findPreviouscar(const Vehicle *car) const;
 
     /**
      * Automatische simulatie van het netwerk die door blijft gaan tot er geen wagens meer in het netwerk zitten.
@@ -265,13 +266,13 @@ public:
 
 private:
     int iteration;
-    std::vector<Road*> roads; /**< A vector containing all roads in the network */
-    std::vector<Vehicle*> cars; /**< A vector containing all registered cars, inside and outside the network, active or
+    std::vector<Road *> roads; /**< A vector containing all roads in the network */
+    std::vector<Vehicle *> cars; /**< A vector containing all registered cars, inside and outside the network, active or
                                * inactive. */
-    RoadNetwork* _initCheck;
+    RoadNetwork *_initCheck;
+
     int findRoadIndex(std::string roadName) const;
 };
-
 
 
 #endif //ANTROPSE_ROADNETWORK_H

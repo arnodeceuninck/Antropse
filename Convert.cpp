@@ -6,9 +6,9 @@
 #include "CONST.h"
 
 double Convert::kmhToMs(double kmh) {
-    return kmh/CONST::MS_KMH_RATIO;
+    return kmh / CONST::MS_KMH_RATIO;
 }
 
 double Convert::msToKmh(double mps) {
-    return mps*CONST::MS_KMH_RATIO;
+    return mps * CONST::MS_KMH_RATIO;
 }

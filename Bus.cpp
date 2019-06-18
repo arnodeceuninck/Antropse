@@ -64,8 +64,10 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
     REQUIRE(roadNetwork->properlyInitialized(), "The roadnetwork must be properly initialized");
     REQUIRE(roadNetwork->check(), "The roadnetwork must be in a valid state");
 
-    if(getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) < CONST::METERS_BEFORE_SLOWING_DOWN and currentRoad->getNextBusStop(getCurrentPosition()) -getCurrentPosition() >= 0){
-        if(waitingTime < CONST::BUS_STOP_WAITING_TIME) {
+    if (getType() == "BUS" and (currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition()) <
+                               CONST::METERS_BEFORE_SLOWING_DOWN and
+        currentRoad->getNextBusStop(getCurrentPosition()) - getCurrentPosition() >= 0) {
+        if (waitingTime < CONST::BUS_STOP_WAITING_TIME) {
             double newSpeedup = calculateSlowDownForPosition(currentRoad->getNextBusStop(getCurrentPosition()));
 //            std::cout << "Berekende versnelling: " << newSpeedup << std::endl;
 
@@ -76,18 +78,18 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
                 slowingDownForVehicleSpecific = true;
             }
 
-            if (currentSpeedup < getMinSpeedup()){
+            if (currentSpeedup < getMinSpeedup()) {
                 errStream << "Impossible to slow down before the bus stop" << std::endl;
                 updateCurrentSpeedup(1, roadNetwork);
-            } else if (currentSpeedup > getMaxSpeedup()){
+            } else if (currentSpeedup > getMaxSpeedup()) {
                 currentSpeedup = getMaxSpeedup();
             }
         }
 //        if(getCurrentPosition() == currentRoad->getNextBusStop(getCurrentPosition())){
-        if(getCurrentPosition() + CONST::ALMOST_ZERO > currentRoad ->getNextBusStop(getCurrentPosition())){
+        if (getCurrentPosition() + CONST::ALMOST_ZERO > currentRoad->getNextBusStop(getCurrentPosition())) {
             waitingTime++;
-            if(getCurrentSpeed() > CONST::ALMOST_ZERO){
-                if(waitingTime > CONST::BUS_STOP_WAITING_TIME){
+            if (getCurrentSpeed() > CONST::ALMOST_ZERO) {
+                if (waitingTime > CONST::BUS_STOP_WAITING_TIME) {
                     // De bushalte wordt verlaten, normaal dus dat je sneller rijdt
                     waitingTime = 0;
                     return;
@@ -95,7 +97,7 @@ void Bus::checkVehicleSpecificMove(RoadNetwork *roadNetwork, std::ostream &errSt
                 errStream << "1 2 3 4 HUP NAAR ACHTER HUP NAAR VOOR, 1 2 3 4 DE BUSHALTE WE RIJDEN ERDOOR" << std::endl;
 //                move(roadNetwork);
             }
-            if(waitingTime > CONST::BUS_STOP_WAITING_TIME){
+            if (waitingTime > CONST::BUS_STOP_WAITING_TIME) {
 //                waitingTime = 0;
 //                enableSpeedupUpdates();
                 updateCurrentSpeedup(1, roadNetwork);

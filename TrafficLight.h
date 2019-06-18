@@ -9,8 +9,9 @@
 #include <set>
 
 
-
-enum TrafficLightColor{green, orange, red};
+enum TrafficLightColor {
+    green, orange, red
+};
 
 class TrafficLight {
 public:
@@ -47,6 +48,7 @@ public:
     double getPosition() const;
 
     bool properlyInit();
+
     /**
      * Get the char of the color of a trafficLight
      *
@@ -62,9 +64,8 @@ public:
 private:
     double startOffset;
     double position;     /**< The position on the road of where the trafficLight is */
-    TrafficLight* _initCheck;
+    TrafficLight *_initCheck;
 };
-
 
 
 #endif //ANTROPSE_TRAFFICLIGHT_H

@@ -23,7 +23,7 @@
 #include "Truck.h"
 #include "MotorBike.h"
 
-class NetworkDomainTests: public ::testing::Test {
+class NetworkDomainTests : public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from sub-classes.
@@ -43,9 +43,9 @@ protected:
 
     // Declares the variables your tests want to use.
     SuccessEnum importResult;
-    RoadNetwork* roadNetwork;
-    Vehicle* testVehicle;
-    Road* testRoad;
+    RoadNetwork *roadNetwork;
+    Vehicle *testVehicle;
+    Road *testRoad;
 };
 
 TEST_F(NetworkDomainTests, GoingForward) {
@@ -84,7 +84,7 @@ TEST_F(NetworkDomainTests, UnsortedRoads) {
     roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
 
-    Road* tempRoad = testRoad;
+    Road *tempRoad = testRoad;
     roadNetwork->addRoad(testRoad);
 
     testRoad = new Road("A13", 120, 5000, tempRoad);
@@ -114,7 +114,7 @@ TEST_F(NetworkDomainTests, SortedRoads) {
     roadNetwork = new RoadNetwork();
 
     testRoad = new Road("A12", 120, 5000, NULL);
-    Road* tempRoad = new Road("A11", 120, 5000, testRoad);
+    Road *tempRoad = new Road("A11", 120, 5000, testRoad);
 
     roadNetwork->addRoad(tempRoad);
     roadNetwork->addRoad(testRoad);
@@ -187,12 +187,12 @@ TEST_F(NetworkDomainTests, SortedCarsOnDifferentRoads) {
     roadNetwork = new RoadNetwork();
 
     testRoad = new Road("A12", 120, 5000, NULL);
-    Road* tempRoad2 = testRoad;
+    Road *tempRoad2 = testRoad;
     roadNetwork->addRoad(testRoad);
 
     testRoad = new Road("A11", 120, 5000, tempRoad2);
     roadNetwork->addRoad(testRoad);
-    Road* tempRoad1 = testRoad;
+    Road *tempRoad1 = testRoad;
 
     testRoad = new Road("A10", 120, 5000, tempRoad1);
     roadNetwork->addRoad(testRoad);
@@ -222,12 +222,12 @@ TEST_F(NetworkDomainTests, UnsortedCarsOnDifferentRoads) {
     roadNetwork = new RoadNetwork();
 
     testRoad = new Road("A12", 120, 5000, NULL);
-    Road* tempRoad2 = testRoad;
+    Road *tempRoad2 = testRoad;
     roadNetwork->addRoad(testRoad);
 
     testRoad = new Road("A11", 120, 5000, tempRoad2);
     roadNetwork->addRoad(testRoad);
-    Road* tempRoad1 = testRoad;
+    Road *tempRoad1 = testRoad;
 
     testRoad = new Road("A10", 120, 5000, tempRoad1);
     roadNetwork->addRoad(testRoad);
@@ -251,7 +251,7 @@ TEST_F(NetworkDomainTests, UnsortedCarsOnDifferentRoads) {
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, BusyDay){
+TEST_F(NetworkDomainTests, BusyDay) {
 
     std::string nameTest = "BusyDay";
 
@@ -266,7 +266,7 @@ TEST_F(NetworkDomainTests, BusyDay){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -276,7 +276,7 @@ TEST_F(NetworkDomainTests, BusyDay){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -286,7 +286,7 @@ TEST_F(NetworkDomainTests, BusyDay){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, DrivingClose){
+TEST_F(NetworkDomainTests, DrivingClose) {
 
     // So baby pull me closer, in the backseat of your rover
 
@@ -303,7 +303,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -313,7 +313,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -323,7 +323,7 @@ TEST_F(NetworkDomainTests, DrivingClose){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, FollowTheLeader){
+TEST_F(NetworkDomainTests, FollowTheLeader) {
 
     // Follow the leader, leader, leader follow the leader
 
@@ -340,7 +340,7 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -350,7 +350,7 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -360,7 +360,7 @@ TEST_F(NetworkDomainTests, FollowTheLeader){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, GoingFastForward){
+TEST_F(NetworkDomainTests, GoingFastForward) {
 
     std::string nameTest = "GoingFastForward";
 
@@ -375,7 +375,7 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -385,7 +385,7 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(1, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -395,7 +395,7 @@ TEST_F(NetworkDomainTests, GoingFastForward){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, NeedForSpeed){
+TEST_F(NetworkDomainTests, NeedForSpeed) {
 
     // It's been a long day, without you my friend
 
@@ -414,7 +414,7 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -424,7 +424,7 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(2, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -434,7 +434,7 @@ TEST_F(NetworkDomainTests, NeedForSpeed){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, SlowDown){
+TEST_F(NetworkDomainTests, SlowDown) {
 
     // Despacito, quiero desnudarte a besos despacito
 
@@ -453,7 +453,7 @@ TEST_F(NetworkDomainTests, SlowDown){
     roadNetwork = new RoadNetwork();
 
     outputFile.open(ofname.c_str());
-        importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
 //    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
     outputFile.close();
 
@@ -463,7 +463,7 @@ TEST_F(NetworkDomainTests, SlowDown){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(2, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -473,7 +473,7 @@ TEST_F(NetworkDomainTests, SlowDown){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, SmallStreets){
+TEST_F(NetworkDomainTests, SmallStreets) {
 
     // Een hoop kleine, opeenvolgende straatjes
 
@@ -499,7 +499,7 @@ TEST_F(NetworkDomainTests, SmallStreets){
     EXPECT_TRUE(roadNetwork->properlyInitialized());
     EXPECT_EQ(5, roadNetwork->nrOfRoads());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -554,7 +554,7 @@ TEST_F(NetworkDomainTests, FloatingPoints) {
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, FastZoneTest){
+TEST_F(NetworkDomainTests, FastZoneTest) {
     roadNetwork = new RoadNetwork();
     testRoad = new Road("R10", 50, 5000, NULL);
     testRoad->addZone(50, 100);
@@ -576,7 +576,7 @@ TEST_F(NetworkDomainTests, FastZoneTest){
     delete testRoad;
 }
 
-TEST_F(NetworkDomainTests, SlowZoneTest){
+TEST_F(NetworkDomainTests, SlowZoneTest) {
     roadNetwork = new RoadNetwork();
     testRoad = new Road("R10", 120, 5000, NULL);
     testRoad->addZone(50, 30);
@@ -588,7 +588,7 @@ TEST_F(NetworkDomainTests, SlowZoneTest){
     delete testRoad;
 }
 
-TEST_F(NetworkDomainTests, EasyBusStop){
+TEST_F(NetworkDomainTests, EasyBusStop) {
 
     std::string nameTest = "EasyBusStop";
     std::ofstream errStream;
@@ -604,7 +604,7 @@ TEST_F(NetworkDomainTests, EasyBusStop){
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -614,7 +614,7 @@ TEST_F(NetworkDomainTests, EasyBusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, BusStop){
+TEST_F(NetworkDomainTests, BusStop) {
 
     std::string nameTest = "BusStop";
     std::ofstream errStream;
@@ -637,7 +637,7 @@ TEST_F(NetworkDomainTests, BusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, AllVehicles){
+TEST_F(NetworkDomainTests, AllVehicles) {
 
     std::string nameTest = "AllVehicles";
     std::ofstream errStream;
@@ -669,7 +669,7 @@ TEST_F(NetworkDomainTests, AllVehicles){
     testVehicle = roadNetwork->getCars()[3];
     EXPECT_EQ("MOTORFIETS", testVehicle->getType());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -685,7 +685,7 @@ TEST_F(NetworkDomainTests, CopyingVehicle) {
 //    roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
     testVehicle = new Car("ANT-432", testRoad, 20, 0);
-    Car* copiedVehicle = dynamic_cast<Car*>(testVehicle);
+    Car *copiedVehicle = dynamic_cast<Car *>(testVehicle);
 
     // The actual tests
     EXPECT_EQ(copiedVehicle->getMinSpeed(), testVehicle->getMinSpeed());
@@ -704,7 +704,7 @@ TEST_F(NetworkDomainTests, CopyingVehicle) {
     delete testVehicle;
 }
 
-TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
+TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop) {
 
     std::string nameTest = "StoppedShortBeforeBusStop";
     std::ofstream errStream;
@@ -720,7 +720,7 @@ TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -730,7 +730,7 @@ TEST_F(NetworkDomainTests, StoppedShortBeforeBusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
+TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop) {
 
     std::string nameTest = "StoppedLongBeforeBusStop";
     std::ofstream errStream;
@@ -753,7 +753,7 @@ TEST_F(NetworkDomainTests, StoppedLongBeforeBusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, WaitingOnTheBus){
+TEST_F(NetworkDomainTests, WaitingOnTheBus) {
 
     std::string nameTest = "WaitingOnTheBus";
     std::ofstream errStream;
@@ -772,7 +772,7 @@ TEST_F(NetworkDomainTests, WaitingOnTheBus){
     testVehicle = new Car("AAAVALETESTUDIA", testRoad, 0, 0);
     roadNetwork->addCar(testVehicle);
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -782,7 +782,7 @@ TEST_F(NetworkDomainTests, WaitingOnTheBus){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
+TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther) {
 
     std::string nameTest = "TwoBusesCloseToEachOther";
     std::ofstream errStream;
@@ -801,7 +801,7 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
     testVehicle = new Bus("AAAVALETESTUDIA", testRoad, 0, 0);
     roadNetwork->addCar(testVehicle);
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         EXPECT_TRUE(roadNetwork->check());
     }
@@ -811,7 +811,7 @@ TEST_F(NetworkDomainTests, TwoBusesCloseToEachOther){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, TrafficLight){
+TEST_F(NetworkDomainTests, TrafficLight) {
 
     std::string nameTest = "TrafficLight";
     std::ofstream errStream;
@@ -834,7 +834,7 @@ TEST_F(NetworkDomainTests, TrafficLight){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars){
+TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars) {
 
     std::string nameTest = "TrafficLightWithALotOfCars";
     std::ofstream errStream;
@@ -860,7 +860,7 @@ TEST_F(NetworkDomainTests, TrafficLightWithALotOfCars){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, ImpossibleToStopTrafficLight){
+TEST_F(NetworkDomainTests, ImpossibleToStopTrafficLight) {
 
     std::string nameTest = "ImpossibleToStopTrafficLight";
     std::ofstream errStream;
@@ -885,7 +885,7 @@ TEST_F(NetworkDomainTests, ImpossibleToStopTrafficLight){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, ImpossibleToStopBusStop){
+TEST_F(NetworkDomainTests, ImpossibleToStopBusStop) {
 
     std::string nameTest = "ImpossibleToStopBusStop";
     std::ofstream errStream;
@@ -910,28 +910,28 @@ TEST_F(NetworkDomainTests, ImpossibleToStopBusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkDomainTests, WhereIsTheTrafficLight){
+TEST_F(NetworkDomainTests, WhereIsTheTrafficLight) {
 
-    TrafficLight trafficLight(0,0);
+    TrafficLight trafficLight(0, 0);
     EXPECT_EQ(0, trafficLight.getPosition());
 
-    trafficLight = TrafficLight(35,0);
+    trafficLight = TrafficLight(35, 0);
     EXPECT_EQ(35, trafficLight.getPosition());
 
-    trafficLight= TrafficLight(200,0);
+    trafficLight = TrafficLight(200, 0);
     EXPECT_EQ(200, trafficLight.getPosition());
 
-    trafficLight = TrafficLight(490,0);
+    trafficLight = TrafficLight(490, 0);
     EXPECT_EQ(490, trafficLight.getPosition());
 
-    trafficLight = TrafficLight(500,0);
+    trafficLight = TrafficLight(500, 0);
     EXPECT_EQ(500, trafficLight.getPosition());
 
 }
 
-TEST_F(NetworkDomainTests, WhatIsTheColorOfTheTrafficLight){
+TEST_F(NetworkDomainTests, WhatIsTheColorOfTheTrafficLight) {
 
-    TrafficLight* trafficLight = new TrafficLight(0,0);
+    TrafficLight *trafficLight = new TrafficLight(0, 0);
 
     EXPECT_EQ('|', trafficLight->getColorChar(37));
     EXPECT_EQ(red, trafficLight->getColor(37));
@@ -944,7 +944,7 @@ TEST_F(NetworkDomainTests, WhatIsTheColorOfTheTrafficLight){
 
 }
 
-TEST_F(NetworkDomainTests, Bus){
+TEST_F(NetworkDomainTests, Bus) {
     testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
     testVehicle = new Bus("ABC123", testRoad, 0, 0);
 
@@ -957,7 +957,7 @@ TEST_F(NetworkDomainTests, Bus){
     EXPECT_EQ(10, testVehicle->getLength());
 }
 
-TEST_F(NetworkDomainTests, Truck){
+TEST_F(NetworkDomainTests, Truck) {
     testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
     testVehicle = new Truck("ABC123", testRoad, 0, 0);
 
@@ -970,7 +970,7 @@ TEST_F(NetworkDomainTests, Truck){
     EXPECT_EQ(15, testVehicle->getLength());
 }
 
-TEST_F(NetworkDomainTests, Car){
+TEST_F(NetworkDomainTests, Car) {
     testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
     testVehicle = new Car("ABC123", testRoad, 0, 0);
 
@@ -983,7 +983,7 @@ TEST_F(NetworkDomainTests, Car){
     EXPECT_EQ(3, testVehicle->getLength());
 }
 
-TEST_F(NetworkDomainTests, MotorBike){
+TEST_F(NetworkDomainTests, MotorBike) {
     testRoad = new Road("Edegemsesteenweg", 100, 500, NULL);
     testVehicle = new MotorBike("ABC123", testRoad, 0, 0);
 

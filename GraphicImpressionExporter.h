@@ -8,7 +8,7 @@
 
 #include "NetworkExporter.h"
 
-class GraphicImpressionExporter: public NetworkExporter {
+class GraphicImpressionExporter : public NetworkExporter {
 protected:
     virtual void sectionStart(std::ostream &onStream, const std::string sectionTitle);
 

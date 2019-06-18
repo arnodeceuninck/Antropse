@@ -14,16 +14,21 @@
 #include "RoadNetwork.h"
 #include "TinyXML/tinyxml.h"
 
-enum SuccessEnum {ImportFailed, ImportAborted, PartialImport, Success};
+enum SuccessEnum {
+    ImportFailed, ImportAborted, PartialImport, Success
+};
 
 class NetworkImporter {
 private:
     static void readRoad(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
                          std::ostream &errStream);
+
     static void readVehicle(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
                             std::ostream &errStream, Vehicle *car);
+
     static void readRoadSign(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
                              std::ostream &errStream);
+
 public:
     /**
      * Import a roadnetwork from an xml file
@@ -47,7 +52,8 @@ public:
      * ENSURE(roadNetwork->check(), "The roadnetwork is still valid");
      *
      */
-    static SuccessEnum importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork);
+    static SuccessEnum
+    importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork);
 };
 
 

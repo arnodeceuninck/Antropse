@@ -208,12 +208,13 @@ public:
 
 
     double getNextTrafficLight(double position);
+
     /**
      *
      * @param position = the exact position of the trafficlight
      * @return a pointer of the Trafficlight on that position
      */
-    TrafficLight* getTrafficLight(double position);
+    TrafficLight *getTrafficLight(double position);
 
     /**
      * Find the next busStop
@@ -255,14 +256,14 @@ public:
 
 private:
 
-    Road* _initCheck;
+    Road *_initCheck;
     std::string name; /**< A unique name for identification of the road */
     int speedLimit; /**< The maximum legal speed to drive on a road in km / h */
     double length; /**< The length of a road in m */
-    Road* intersection; /**< Contains the connection: The connecting street is the intersection on position
+    Road *intersection; /**< Contains the connection: The connecting street is the intersection on position
                                    * Road.length */
     std::set<double> busStops; // I'm using a set instead of a vector to keep it all sorted
-    std::map<double, TrafficLight*> trafficLights;
+    std::map<double, TrafficLight *> trafficLights;
     std::map<double, int> zones; // first number is the position, second number the speed_limit
 };
 

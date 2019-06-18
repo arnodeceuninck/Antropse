@@ -17,34 +17,34 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 set(TINYXML_SOURCE_FILES TinyXML/tinystr.cpp TinyXML/tinystr.h
-                         TinyXML/tinyxml.cpp TinyXML/tinyxml.h
-                         TinyXML/tinyxmlerror.cpp
-                         TinyXML/tinyxmlparser.cpp )
+        TinyXML/tinyxml.cpp TinyXML/tinyxml.h
+        TinyXML/tinyxmlerror.cpp
+        TinyXML/tinyxmlparser.cpp)
 
 set(ANTROPSE_SOURCE_FILES Vehicle.cpp Vehicle.h
-                          Car.cpp Car.h
-                          Road.cpp Road.h
-                          RoadNetwork.cpp RoadNetwork.h
-                          CONST.h
-                          Convert.cpp Convert.h
-                          NetworkImporter.cpp NetworkImporter.h
-                          AntropseUtils.cpp AntropseUtils.h
-                          NetworkExporter.cpp NetworkExporter.h
-                          MotorBike.cpp MotorBike.h
-                          Bus.cpp Bus.h
-                          Truck.cpp Truck.h
-                          TrafficLight.cpp TrafficLight.h
-                          GraphicImpressionExporter.cpp GraphicImpressionExporter.h
-                          ${TINYXML_SOURCE_FILES})
+        Car.cpp Car.h
+        Road.cpp Road.h
+        RoadNetwork.cpp RoadNetwork.h
+        CONST.h
+        Convert.cpp Convert.h
+        NetworkImporter.cpp NetworkImporter.h
+        AntropseUtils.cpp AntropseUtils.h
+        NetworkExporter.cpp NetworkExporter.h
+        MotorBike.cpp MotorBike.h
+        Bus.cpp Bus.h
+        Truck.cpp Truck.h
+        TrafficLight.cpp TrafficLight.h
+        GraphicImpressionExporter.cpp GraphicImpressionExporter.h
+        ${TINYXML_SOURCE_FILES})
 
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES main.cpp)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES AntropseTests.cpp
-                       NetworkImporterTests.cpp
-                       NetworkDomainTests.cpp
-                       NetworkExporterTests.cpp)
+        NetworkImporterTests.cpp
+        NetworkDomainTests.cpp
+        NetworkExporterTests.cpp)
 
 # Create RELEASE target
 add_executable(Antropse ${RELEASE_SOURCE_FILES} ${ANTROPSE_SOURCE_FILES})

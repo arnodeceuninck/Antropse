@@ -92,7 +92,7 @@ bool Vehicle::setCurrentSpeed(double newCurrentSpeed) {
     }
     REQUIRE(newCurrentSpeed <= getMaxSpeed(), "Maximumsnelheid voor wagen overschreven");
     REQUIRE((currentRoad != NULL and newCurrentSpeed <= currentRoad->getSpeedLimit(currentPosition)) or
-             currentRoad == NULL, "Te snel rijden is verboden");
+            currentRoad == NULL, "Te snel rijden is verboden");
 
     Vehicle::currentSpeed = newCurrentSpeed;
     ENSURE(getCurrentSpeed() == currentSpeed, "Als je de waarde opvraagt, krijg je de nieuwe waarde");
@@ -120,7 +120,8 @@ Vehicle::Vehicle() : licensePlate(""), currentRoad(NULL),
 }
 
 bool Vehicle::emptyConstructorParametersUpdated() {
-    return (!licensePlate.empty() and currentRoad != NULL and currentRoad->getSpeedLimit(currentPosition) >= currentSpeed);
+    return (!licensePlate.empty() and currentRoad != NULL and
+            currentRoad->getSpeedLimit(currentPosition) >= currentSpeed);
 }
 
 bool Vehicle::move(RoadNetwork *roadNetwork, std::ostream &errStream) {
@@ -208,7 +209,7 @@ bool Vehicle::checkCurrentPositionOnRoad() {
 void Vehicle::setCurrentPositionOnNewRoad(RoadNetwork *roadNetwork) {
     REQUIRE(!checkCurrentPositionOnRoad(), "De wagen moet buiten de weg vallen");
     currentPosition = currentPosition - currentRoad->getLength();
-    if(currentRoad->getIntersection() != NULL) {
+    if (currentRoad->getIntersection() != NULL) {
         // IF huidige baan heeft verbinding
         // Zet voertuig op verbindingsbaan
         currentRoad = currentRoad->getIntersection();
@@ -273,7 +274,7 @@ double Vehicle::getIdealDistance(RoadNetwork *roadNetwork) const {
 
 void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errStream) {
 
-    if(currentRoad == NULL){
+    if (currentRoad == NULL) {
         return;
     }
 
@@ -294,7 +295,7 @@ void Vehicle::checkForTrafficLight(RoadNetwork *roadNetwork, std::ostream &errSt
 //                move(roadNetwork);
             }
             double slowDown = calculateSlowDownForPosition(positionNextTrafficLight);
-            if(slowDown < currentSpeedup){
+            if (slowDown < currentSpeedup) {
                 currentSpeedup = slowDown;
             }
             currentSpeedup = calculateSlowDownForPosition(positionNextTrafficLight);
@@ -313,8 +314,8 @@ double Vehicle::calculateSlowDownForPosition(double stopPosition) {
     if (deltaP == 0) {
         return 0;
     }
-    
-    if (currentSpeed == 0 or (deltaP > -(getMinSpeedup()*2) and currentSpeed < -(getMinSpeedup()))) {
+
+    if (currentSpeed == 0 or (deltaP > -(getMinSpeedup() * 2) and currentSpeed < -(getMinSpeedup()))) {
         return deltaP / RELATIVE_SLOW_DOWN; // Een beetje versnellen
     }
 

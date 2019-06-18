@@ -25,7 +25,7 @@
 #include "Truck.h"
 #include "GraphicImpressionExporter.h"
 
-class NetworkExporterTests: public ::testing::Test {
+class NetworkExporterTests : public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from sub-classes.
@@ -45,9 +45,9 @@ protected:
 
     // Declares the variables your tests want to use.
     SuccessEnum importResult;
-    RoadNetwork* roadNetwork;
-    Vehicle* testVehicle;
-    Road* testRoad;
+    RoadNetwork *roadNetwork;
+    Vehicle *testVehicle;
+    Road *testRoad;
 };
 
 // Tests the default constructor.
@@ -115,7 +115,7 @@ TEST_F(NetworkExporterTests, fileCompare) {
             fileCompare("tests/outputTests/nonexisting.txt", "tests/outputTests/file1.txt"));
 }
 
-TEST_F(NetworkExporterTests, OutputGoingForward){
+TEST_F(NetworkExporterTests, OutputGoingForward) {
 
     std::string testName = "OutputGoingForward";
 
@@ -140,7 +140,7 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
     exporter.documentStart(std::cout);
     EXPECT_TRUE(exporter.documentStarted());
 
-    while(!roadNetwork->isEmpty()){
+    while (!roadNetwork->isEmpty()) {
         roadNetwork->moveAllCars(errStream);
         exporter.exportOn(output, *roadNetwork);
     }
@@ -156,7 +156,7 @@ TEST_F(NetworkExporterTests, OutputGoingForward){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, EmptyRoadNetwork){
+TEST_F(NetworkExporterTests, EmptyRoadNetwork) {
 
     std::string testName = "EmptyRoadNetwork";
 
@@ -184,7 +184,7 @@ TEST_F(NetworkExporterTests, EmptyRoadNetwork){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, FloatingPoints){
+TEST_F(NetworkExporterTests, FloatingPoints) {
 
     std::string testName = "FloatingPoints";
 
@@ -216,7 +216,7 @@ TEST_F(NetworkExporterTests, FloatingPoints){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, BusjeKomtZo){
+TEST_F(NetworkExporterTests, BusjeKomtZo) {
 
     std::string testName = "BusjeKomtZo";
 
@@ -248,7 +248,7 @@ TEST_F(NetworkExporterTests, BusjeKomtZo){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, MotorBike){
+TEST_F(NetworkExporterTests, MotorBike) {
 
     // Bicycle, Bicyle, I want to ride my bicycle, I want to ride my bike
 
@@ -282,7 +282,7 @@ TEST_F(NetworkExporterTests, MotorBike){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, Truck){
+TEST_F(NetworkExporterTests, Truck) {
 
     std::string testName = "Truck";
 
@@ -314,7 +314,7 @@ TEST_F(NetworkExporterTests, Truck){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, EmptyRoadNetworkGIE){
+TEST_F(NetworkExporterTests, EmptyRoadNetworkGIE) {
 
     std::string testName = "EmptyRoadNetworkGIE";
 
@@ -342,7 +342,7 @@ TEST_F(NetworkExporterTests, EmptyRoadNetworkGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, BusjeKomtZoGIE){
+TEST_F(NetworkExporterTests, BusjeKomtZoGIE) {
 
     std::string testName = "BusjeKomtZoGIE";
 
@@ -374,7 +374,7 @@ TEST_F(NetworkExporterTests, BusjeKomtZoGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, MotorBikeGIE){
+TEST_F(NetworkExporterTests, MotorBikeGIE) {
 
     // Bicycle, Bicyle, I want to ride my bicycle, I want to ride my bike
 
@@ -408,7 +408,7 @@ TEST_F(NetworkExporterTests, MotorBikeGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, TruckGIE){
+TEST_F(NetworkExporterTests, TruckGIE) {
 
     std::string testName = "TruckGIE";
 
@@ -440,7 +440,7 @@ TEST_F(NetworkExporterTests, TruckGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, BusStopGIE){
+TEST_F(NetworkExporterTests, BusStopGIE) {
 
     std::string testName = "BusStopGIE";
 
@@ -473,7 +473,7 @@ TEST_F(NetworkExporterTests, BusStopGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, GreenTrafficLightGIE){
+TEST_F(NetworkExporterTests, GreenTrafficLightGIE) {
 
     std::string testName = "GreenTrafficLightGIE";
 
@@ -504,7 +504,7 @@ TEST_F(NetworkExporterTests, GreenTrafficLightGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, OrangeTrafficLightGIE){
+TEST_F(NetworkExporterTests, OrangeTrafficLightGIE) {
 
     std::string testName = "OrangeTrafficLightGIE";
 
@@ -535,7 +535,7 @@ TEST_F(NetworkExporterTests, OrangeTrafficLightGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, RedTrafficLightGIE){
+TEST_F(NetworkExporterTests, RedTrafficLightGIE) {
 
     std::string testName = "RedTrafficLightGIE";
 
@@ -566,14 +566,14 @@ TEST_F(NetworkExporterTests, RedTrafficLightGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, MultipleRoads){
+TEST_F(NetworkExporterTests, MultipleRoads) {
 
     std::string testName = "MultipleRoads";
 
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
-    Road* connection = testRoad;
+    Road *connection = testRoad;
     testVehicle = new Bus("ANT-432", testRoad, 20, 0);
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
@@ -610,14 +610,14 @@ TEST_F(NetworkExporterTests, MultipleRoads){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, MultipleRoadsGIE){
+TEST_F(NetworkExporterTests, MultipleRoadsGIE) {
 
     std::string testName = "MultipleRoadsGIE";
 
     // Setting up roadnetwork for tests
     roadNetwork = new RoadNetwork();
     testRoad = new Road("A12", 120, 5000, NULL);
-    Road* connection = testRoad;
+    Road *connection = testRoad;
     testVehicle = new Bus("ANT-432", testRoad, 20, 0);
     roadNetwork->addRoad(testRoad);
     roadNetwork->addCar(testVehicle);
@@ -654,7 +654,7 @@ TEST_F(NetworkExporterTests, MultipleRoadsGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, MultipleVehiclesGIE){
+TEST_F(NetworkExporterTests, MultipleVehiclesGIE) {
 
     std::string testName = "MultipleVehiclesGIE";
 
@@ -691,7 +691,7 @@ TEST_F(NetworkExporterTests, MultipleVehiclesGIE){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, BusStop){
+TEST_F(NetworkExporterTests, BusStop) {
 
     std::string testName = "BusStop";
 
@@ -724,7 +724,7 @@ TEST_F(NetworkExporterTests, BusStop){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, GreenTrafficLight){
+TEST_F(NetworkExporterTests, GreenTrafficLight) {
 
     std::string testName = "GreenTrafficLight";
 
@@ -755,7 +755,7 @@ TEST_F(NetworkExporterTests, GreenTrafficLight){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, OrangeTrafficLight){
+TEST_F(NetworkExporterTests, OrangeTrafficLight) {
 
     std::string testName = "OrangeTrafficLight";
 
@@ -786,7 +786,7 @@ TEST_F(NetworkExporterTests, OrangeTrafficLight){
     delete roadNetwork;
 }
 
-TEST_F(NetworkExporterTests, RedTrafficLight){
+TEST_F(NetworkExporterTests, RedTrafficLight) {
 
     std::string testName = "RedTrafficLight";
 

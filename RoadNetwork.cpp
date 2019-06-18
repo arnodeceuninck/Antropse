@@ -239,7 +239,7 @@ bool RoadNetwork::checkSpaceBetweenCars() {
 bool RoadNetwork::checkIntersections() {
     for (std::vector<Road *>::iterator road = roads.begin(); road != roads.end(); road++) {
         if ((*road)->getIntersection() != NULL &&
-                retrieveIntersectionRoad((*road)->getIntersection()->getName()) == NULL) {
+            retrieveIntersectionRoad((*road)->getIntersection()->getName()) == NULL) {
             return false;
         }
 
