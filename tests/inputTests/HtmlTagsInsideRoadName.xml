@@ -1,0 +1,10 @@
+<ROOT>
+    <BAAN>
+        <naam>
+            <yolo>Woops, I broke the system</yolo>
+        </naam>
+        <snelheidslimiet>100</snelheidslimiet>
+        <lengte>2000</lengte>
+        <verbinding>E313</verbinding>
+    </BAAN>
+</ROOT>

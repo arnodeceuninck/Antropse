@@ -16,85 +16,108 @@
 SuccessEnum
 NetworkImporter::importRoadNetwork(const std::string &filename, std::ostream &errStream, RoadNetwork *roadNetwork) {
 
-    if (!(roadNetwork->properlyInitialized() and roadNetwork->check() and fileExists(filename))) {
-        errStream << "Import aborted: Not all preconditions met" << std::endl;
-        return ImportAborted;
-    }
+    try {
 
-    REQUIRE(roadNetwork->properlyInitialized(), "Roadnetwork moet juist geinitialiseerd zijn");
-    REQUIRE(roadNetwork->check(), "The roadnetwork must be valid");
-    REQUIRE(fileExists(filename), "Het bestand dat je wil inlezen moet bestaan");
+        if (!(roadNetwork->properlyInitialized() and roadNetwork->check() and fileExists(filename))) {
+            errStream << "Import aborted: Not all preconditions met" << std::endl;
+            return ImportAborted;
+        }
 
-    SuccessEnum endResult = Success;
+        REQUIRE(roadNetwork->properlyInitialized(), "Roadnetwork moet juist geinitialiseerd zijn");
+        REQUIRE(roadNetwork->check(), "The roadnetwork must be valid");
+        REQUIRE(fileExists(filename), "Het bestand dat je wil inlezen moet bestaan");
 
-    // Open the document
-    TiXmlDocument docu;
-    if (!docu.LoadFile(filename.c_str())) {
-        // Stop the program when an error is raised during opening
-        errStream << "Import aborted: Error raised when opening the file" << docu.ErrorDesc() << std::endl;
-        return ImportAborted;
-    }
+        SuccessEnum endResult = Success;
+
+        // Open the document
+        TiXmlDocument docu;
+        if (!docu.LoadFile(filename.c_str())) {
+            // Stop the program when an error is raised during opening
+            errStream << "Import aborted: Error raised when opening the file" << docu.ErrorDesc() << std::endl;
+            return ImportAborted;
+        }
 
 
-    // Get into the root tag of the document
-    TiXmlElement *ROOT = docu.FirstChildElement();
-    std::string rootValue = ROOT->Value();
-    if (rootValue != "ROOT") {
-        errStream << "Import aborted: Expected <ROOT> --- </ROOT> " << std::endl;
-        return ImportAborted;
-    }
+        // Get into the root tag of the document
+        TiXmlElement *ROOT = docu.FirstChildElement();
+        std::string rootValue = ROOT->Value();
+        if (rootValue != "ROOT") {
+            errStream << "Import aborted: Expected <ROOT> --- </ROOT> " << std::endl;
+            return ImportAborted;
+        }
 
-    // Get the first Lane/Vehicle
-    TiXmlElement *current_node = ROOT->FirstChildElement();
+        // Get the first Lane/Vehicle
+        TiXmlElement *current_node = ROOT->FirstChildElement();
 
-    while (current_node != NULL) {
+        while (current_node != NULL) {
 
-        std::string type = current_node->Value();
+            std::string type = current_node->Value();
 
-        if (type == "BAAN") {
-            readRoad(current_node, roadNetwork, endResult, errStream);
-        } else if (type == "VOERTUIG") {
+            if (type == "BAAN") {
+                readRoad(current_node, roadNetwork, endResult, errStream);
+            } else if (type == "VOERTUIG") {
 
-            std::string vehicleType = current_node->FirstChild()->FirstChild()->ToText()->Value();
+                TiXmlNode *vehicleTypeNode = current_node->FirstChild()->FirstChild();
+                if (vehicleTypeNode == NULL) {
+                    endResult = PartialImport;
+                    errStream << "Partial Import: Vehicle type not specified, ignoring" << std::endl;
+                    current_node = current_node->NextSiblingElement();
+                    continue;
+                }
 
-            Vehicle *car;
+                if (vehicleTypeNode->FirstChild() != NULL) {
+                    errStream << "Partial Import: Ongeldige string in de node" << std::endl;
+                    endResult = PartialImport;
+                    continue;
+                }
 
-            if (vehicleType == "AUTO") {
-                car = new Car();
-            } else if (vehicleType == "MOTORFIETS") {
-                car = new MotorBike();
-            } else if (vehicleType == "BUS") {
-                car = new Bus();
-            } else if (vehicleType == "VRACHTWAGEN") {
-                car = new Truck();
+                std::string vehicleType = vehicleTypeNode->ToText()->Value();
+
+                Vehicle *car;
+
+                if (vehicleType == "AUTO") {
+                    car = new Car();
+                } else if (vehicleType == "MOTORFIETS") {
+                    car = new MotorBike();
+                } else if (vehicleType == "BUS") {
+                    car = new Bus();
+                } else if (vehicleType == "VRACHTWAGEN") {
+                    car = new Truck();
+                } else {
+                    endResult = PartialImport;
+                    errStream << "Partial Import: Vehicle type not recognized, ignoring" << std::endl;
+                    current_node = current_node->NextSiblingElement();
+                    continue;
+                }
+
+                readVehicle(current_node, roadNetwork, endResult, errStream, car);
+
+            } else if (type == "VERKEERSTEKEN") {
+                readRoadSign(current_node, roadNetwork, endResult, errStream);
             } else {
                 endResult = PartialImport;
-                errStream << "Partial Import: Vehicle type not recognized, ignoring" << std::endl;
-                current_node = current_node->NextSiblingElement();
-                continue;
+                errStream << "Partial Import: Type not recognized, ignoring" << std::endl;
+
             }
 
-            readVehicle(current_node, roadNetwork, endResult, errStream, car);
-
-        } else if (type == "VERKEERSTEKEN") {
-            readRoadSign(current_node, roadNetwork, endResult, errStream);
-        } else {
-            endResult = PartialImport;
-            errStream << "Partial Import: Type not recognized, ignoring" << std::endl;
+            current_node = current_node->NextSiblingElement();
 
         }
 
-        current_node = current_node->NextSiblingElement();
+        if (!roadNetwork->check()) {
+            errStream << "Import Failed: Something unknown went wrong :-(" << std::endl;
+            return ImportFailed;
+        }
 
-    }
-
-    if (!roadNetwork->check()) {
-        errStream << "Import Failed: Something unknown went wrong :-(" << std::endl;
+        ENSURE(roadNetwork->check(), "The roadnetwork is still valid");
+        return endResult;
+    } catch (...) {
+        errStream
+                << "Import Failed: Everything is on fire, there are zombies everywhere, this world is doomed. "
+                   "Nobody knows what happened. Never. Ever. Touch this project again."
+                << std::endl;
         return ImportFailed;
     }
-
-    ENSURE(roadNetwork->check(), "The roadnetwork is still valid");
-    return endResult;
 }
 
 void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetwork, SuccessEnum &endResult,
@@ -114,7 +137,13 @@ void NetworkImporter::readRoad(TiXmlElement *current_node, RoadNetwork *roadNetw
             return;
         }
 
-        std::string el = elem->FirstChild()->ToText()->Value();
+        if (text->FirstChild() != NULL) {
+            errStream << "Partial Import: Ongeldige string in de node" << std::endl;
+            endResult = PartialImport;
+            return;
+        }
+
+        std::string el = text->ToText()->Value();
 
         if (elemName == "naam") {
             delete road;
@@ -170,7 +199,21 @@ void NetworkImporter::readVehicle(TiXmlElement *current_node, RoadNetwork *roadN
          elem != NULL; elem = elem->NextSiblingElement()) {
 
         std::string elemName = elem->Value();
-        std::string el = elem->FirstChild()->ToText()->Value();
+        TiXmlNode *elNode = elem->FirstChild();
+        if (elNode == NULL) {
+            endResult = PartialImport;
+            errStream << "Partial Import: Lege nodes zijn niet toegestaan."
+                      << std::endl;
+            return;
+        }
+
+        if (elNode->FirstChild() != NULL) {
+            errStream << "Partial Import: Ongeldige string in de node" << std::endl;
+            endResult = PartialImport;
+            return;
+        }
+
+        std::string el = elNode->ToText()->Value();
 
         if (elemName == "nummerplaat") {
             if (!car->setLicensePlate(el)) {
@@ -231,8 +274,17 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             return;
         }
 
+        if (current_node->FirstChildElement("positie")->FirstChildElement() != NULL or
+            current_node->FirstChildElement("baan")->FirstChildElement() != NULL) {
+            endResult = PartialImport;
+            errStream << "Partial Import: Ongeldige string" << std::endl;
+            return;
+        }
+
+
         TiXmlNode *roadNode = current_node->FirstChildElement("baan")->FirstChild();
         TiXmlNode *positionNode = current_node->FirstChildElement("positie")->FirstChild();
+
 
         std::string roadName = roadNode->ToText()->Value();
         std::string positionStr = positionNode->ToText()->Value();
@@ -264,6 +316,14 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             return;
         }
 
+        if (current_node->FirstChildElement("positie")->FirstChildElement() != NULL or
+            current_node->FirstChildElement("baan")->FirstChildElement() != NULL or
+            current_node->FirstChildElement("snelheidslimiet")->FirstChildElement() != NULL) {
+            endResult = PartialImport;
+            errStream << "Partial Import: Ongeldige string" << std::endl;
+            return;
+        }
+
         TiXmlNode *roadNode = current_node->FirstChildElement("baan")->FirstChild();
         TiXmlNode *positionNode = current_node->FirstChildElement("positie")->FirstChild();
         std::string positionStr = positionNode->ToText()->Value();
@@ -288,6 +348,7 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
             return;
         }
 
+
         if (!road->addZone(position, speedLimit)) {
             endResult = PartialImport;
             errStream << "Partial Import: Ongeldige gegevens bij zone" << std::endl;
@@ -298,6 +359,13 @@ void NetworkImporter::readRoadSign(TiXmlElement *current_node, RoadNetwork *road
         if (current_node->FirstChildElement("positie") == NULL or current_node->FirstChildElement("baan") == NULL) {
             endResult = PartialImport;
             errStream << "Partial Import: Ontbrekend element bij verkeerslicht" << std::endl;
+            return;
+        }
+
+        if (current_node->FirstChildElement("positie")->FirstChildElement() != NULL or
+            current_node->FirstChildElement("baan")->FirstChildElement() != NULL) {
+            endResult = PartialImport;
+            errStream << "Partial Import: Ongeldige string" << std::endl;
             return;
         }
 

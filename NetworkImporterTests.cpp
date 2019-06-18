@@ -1305,6 +1305,116 @@ TEST_F(NetworkImporterTests, UnknownConnection) {
     EXPECT_TRUE(fileIsEmpty(ofname));
 }
 
+TEST_F(NetworkImporterTests, VehicleWithoutType) {
+
+    std::string nameTest = "VehicleWithoutType";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    outputFile.close();
+
+
+    EXPECT_EQ(PartialImport, importResult);
+
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
+//    EXPECT_TRUE(fileIsEmpty(ofname));
+}
+
+TEST_F(NetworkImporterTests, VehicleEmptyType) {
+
+    std::string nameTest = "VehicleEmptyType";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    outputFile.close();
+
+
+    EXPECT_EQ(PartialImport, importResult);
+
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
+//    EXPECT_TRUE(fileIsEmpty(ofname));
+}
+
+TEST_F(NetworkImporterTests, RoadSigns) {
+
+    std::string nameTest = "RoadSigns";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+    outputFile.close();
+
+    testRoad = roadNetwork->findRoad("Middelheimlaan");
+
+
+    EXPECT_EQ(Success, importResult);
+
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+    EXPECT_EQ(1, roadNetwork->nrOfRoads());
+
+    EXPECT_EQ(30, testRoad->getSpeedLimit(500));
+    EXPECT_EQ(250, testRoad->getNextBusStop(0));
+    EXPECT_EQ(750, testRoad->getNextBusStop(250.1));
+
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+//    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
+    EXPECT_TRUE(fileIsEmpty(ofname));
+}
+
+TEST_F(NetworkImporterTests, HtmlTagsInsideRoadName) {
+
+    std::string nameTest = "HtmlTagsInsideRoadName";
+
+    std::ofstream outputFile;
+    std::string ofname = "tests/inputTests/output/generated/" + nameTest + ".txt";
+    std::string ifname = "tests/inputTests/" + nameTest + ".xml";
+
+
+    roadNetwork = new RoadNetwork();
+
+    outputFile.open(ofname.c_str());
+    importResult = NetworkImporter::importRoadNetwork(ifname, outputFile, roadNetwork);
+//    importResult = NetworkImporter::importRoadNetwork(ifname, std::cout, roadNetwork);
+    outputFile.close();
+
+    EXPECT_EQ(PartialImport, importResult);
+
+    EXPECT_EQ(0, roadNetwork->nrOfCars());
+    EXPECT_EQ(0, roadNetwork->nrOfRoads());
+
+    std::string expectedOfname = "tests/inputTests/output/expected/" + nameTest + ".txt";
+    EXPECT_TRUE(fileCompare(expectedOfname, ofname));
+//    EXPECT_TRUE(fileIsEmpty(ofname));
+}
+
 //
 //int main(int argc, char **argv) {
 //    ::testing::InitGoogleTest(&argc, argv);

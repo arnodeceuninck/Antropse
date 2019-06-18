@@ -1,0 +1,1 @@
+Partial Import: Vehicle type not recognized, ignoring
